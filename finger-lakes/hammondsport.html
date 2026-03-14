@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hammondsport, NY — Finger Lakes Community Guide | Located Lifestyle</title>
+  <meta name="description" content="Everything you need to know about living in Hammondsport, NY — Cradle of Aviation, oldest NY winery, Keuka Lake, Pulteney Square, and one of America's coolest small towns." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream:      #f6f3ec;
+      --cream-dark: #ece4da;
+      --taupe:      #b9a590;
+      --taupe-dark: #9a8470;
+      --brown:      #574c3f;
+      --brown-dark: #36302a;
+      --text:       #36302a;
+      --text-mid:   #574c3f;
+      --text-muted: #9a8470;
+      --border:     rgba(87,76,63,0.12);
+      --border-med: rgba(87,76,63,0.2);
+      --card-bg:    #ffffff;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--text); overflow-x: hidden; }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 52px;
+      background: rgba(246,243,236,0.95); backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-brand { text-decoration: none; display: flex; flex-direction: column; gap: 1px; }
+    .nav-brand .sub { font-size: 9px; letter-spacing: 3.5px; text-transform: uppercase; color: var(--taupe); font-weight: 500; }
+    .nav-brand .name { font-family: 'Cormorant Garamond', serif; font-size: 20px; color: var(--brown-dark); font-weight: 600; }
+    .nav-right { display: flex; gap: 24px; align-items: center; }
+    .nav-back { font-size: 13px; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+    .nav-back:hover { color: var(--brown); }
+    .nav-cta { background: var(--brown-dark); color: var(--cream); font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; padding: 10px 22px; border-radius: 2px; text-decoration: none; transition: background 0.2s; }
+    .nav-cta:hover { background: var(--brown); }
+
+    /* ── HERO — steel blue aviation sky meets lake ── */
+    .hero {
+      min-height: 68vh; position: relative; overflow: hidden;
+      display: flex; flex-direction: column; align-items: center; justify-content: flex-end;
+      padding: 120px 24px 64px; text-align: center;
+      background: linear-gradient(180deg, #18222e 0%, #20303e 30%, #2a3e50 55%, #344860 100%);
+    }
+    .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 80% 55% at 50% 40%, rgba(80,130,180,0.15) 0%, transparent 65%); }
+    .hero-lake { position: absolute; bottom: 0; left: 0; right: 0; height: 35%; background: linear-gradient(180deg, transparent 0%, rgba(40,80,130,0.25) 50%, rgba(20,60,110,0.4) 100%); clip-path: ellipse(120% 100% at 50% 100%); }
+    .hero-content { position: relative; z-index: 2; max-width: 780px; }
+
+    .hero-breadcrumb { display: flex; align-items: center; gap: 8px; justify-content: center; margin-bottom: 20px; font-size: 11px; letter-spacing: 1px; color: rgba(246,243,236,0.5); }
+    .hero-breadcrumb a { color: rgba(246,243,236,0.5); text-decoration: none; transition: color 0.2s; }
+    .hero-breadcrumb a:hover { color: var(--cream); }
+    .hero-breadcrumb span { opacity: 0.35; }
+    .hero-eyebrow { font-size: 10px; letter-spacing: 3.5px; text-transform: uppercase; color: rgba(246,243,236,0.6); margin-bottom: 14px; display: block; }
+    .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 7vw, 82px); font-weight: 600; line-height: 0.95; color: var(--cream); margin-bottom: 12px; letter-spacing: -2px; }
+    .hero-tagline { font-family: 'Cormorant Garamond', serif; font-size: clamp(16px, 2.5vw, 22px); font-style: italic; color: rgba(246,243,236,0.72); margin-bottom: 28px; font-weight: 400; }
+    .hero-meta { display: flex; gap: 28px; justify-content: center; flex-wrap: wrap; margin-bottom: 32px; }
+    .meta-item { font-size: 12px; color: rgba(246,243,236,0.55); display: flex; align-items: center; gap: 7px; }
+    .meta-dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(246,243,236,0.35); }
+    .hero-badges { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+    .badge { padding: 5px 13px; border-radius: 100px; font-size: 10px; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; }
+    .badge-water { background: rgba(255,255,255,0.15); color: var(--cream); border: 1px solid rgba(255,255,255,0.28); backdrop-filter: blur(4px); }
+    .badge-warm { background: rgba(255,255,255,0.1); color: rgba(246,243,236,0.82); border: 1px solid rgba(255,255,255,0.18); }
+
+    .stats-bar { background: var(--brown-dark); }
+    .stats-bar-inner { max-width: 960px; margin: 0 auto; display: flex; justify-content: space-around; padding: 28px 24px; flex-wrap: wrap; gap: 20px; }
+    .stat-item { text-align: center; }
+    .stat-value { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 600; color: var(--taupe); display: block; line-height: 1.1; }
+    .stat-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: rgba(246,243,236,0.42); margin-top: 4px; }
+
+    .content-wrap { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+    .section { padding: 72px 0 0; }
+    .section-header { display: flex; align-items: center; gap: 20px; margin-bottom: 32px; }
+    .section-icon { width: 44px; height: 44px; border-radius: 2px; background: var(--cream-dark); border: 1px solid var(--border-med); display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+    .section-header h2 { font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 600; color: var(--brown-dark); letter-spacing: -0.3px; }
+    .section-header h2 em { font-style: italic; color: var(--taupe-dark); }
+    .section-line { flex: 1; height: 1px; background: var(--border); }
+
+    .prose { font-size: 15px; line-height: 1.85; color: var(--text-muted); font-weight: 300; margin-bottom: 22px; }
+    .prose strong { color: var(--brown); font-weight: 500; }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .three-col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .info-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 4px; padding: 22px; }
+    .info-card h3 { font-size: 14px; font-weight: 600; color: var(--brown-dark); margin-bottom: 8px; }
+    .info-card p { font-size: 13px; line-height: 1.7; color: var(--text-muted); font-weight: 300; }
+    .info-card .card-eyebrow { font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--taupe); margin-bottom: 7px; }
+    .pull-quote { border-left: 2px solid var(--taupe); padding: 18px 26px; margin: 32px 0; background: var(--cream-dark); border-radius: 0 4px 4px 0; }
+    .pull-quote p { font-family: 'Cormorant Garamond', serif; font-size: 19px; font-style: italic; color: var(--brown); line-height: 1.6; }
+    .item-list { display: flex; flex-direction: column; gap: 1px; }
+    .item-row { display: flex; align-items: flex-start; gap: 16px; padding: 20px 0; border-bottom: 1px solid var(--border); }
+    .item-row:first-child { border-top: 1px solid var(--border); }
+    .item-emoji { font-size: 20px; flex-shrink: 0; margin-top: 1px; width: 28px; }
+    .item-row h4 { font-size: 14px; font-weight: 600; color: var(--brown-dark); margin-bottom: 5px; }
+    .item-row p { font-size: 13px; color: var(--text-muted); line-height: 1.65; font-weight: 300; }
+    .item-link { color: var(--brown-dark); border-bottom: 1px solid var(--border-med); text-decoration: none; transition: border-color 0.2s; }
+    .item-link:hover { border-color: var(--brown); }
+
+    .fun-fact { background: var(--cream-dark); border: 1px solid var(--border-med); border-radius: 4px; padding: 22px; margin: 32px 0; display: flex; gap: 16px; align-items: flex-start; }
+    .fun-fact-icon { font-size: 28px; flex-shrink: 0; }
+    .fun-fact h4 { font-size: 13px; font-weight: 600; color: var(--brown); margin-bottom: 6px; }
+    .fun-fact p { font-size: 13px; color: var(--text-muted); line-height: 1.65; font-weight: 300; }
+
+    .pricing-links-block { background: var(--card-bg); border: 1px solid var(--border-med); border-radius: 4px; padding: 28px; margin-bottom: 24px; }
+    .pricing-links-label { font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--taupe); margin-bottom: 8px; }
+    .pricing-links-note { font-size: 13px; color: var(--text-muted); margin-bottom: 20px; line-height: 1.6; font-weight: 300; }
+    .pricing-links { display: flex; flex-direction: column; gap: 1px; }
+    .pricing-link { display: flex; align-items: center; gap: 16px; padding: 14px 16px; border-radius: 3px; background: var(--cream); border: 1px solid var(--border); text-decoration: none; transition: all 0.2s; }
+    .pricing-link:hover { border-color: var(--brown); background: var(--cream-dark); }
+    .pricing-link-name { font-size: 14px; font-weight: 600; color: var(--brown-dark); min-width: 100px; }
+    .pricing-link-desc { font-size: 12px; color: var(--text-muted); flex: 1; font-weight: 300; }
+    .pricing-link-arrow { font-size: 14px; color: var(--taupe); transition: color 0.2s; }
+    .pricing-link:hover .pricing-link-arrow { color: var(--brown); }
+    .pricing-disclaimer { font-size: 11px; color: var(--text-muted); margin-top: 14px; opacity: 0.7; line-height: 1.5; font-style: italic; }
+
+    .school-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 4px; padding: 24px; display: flex; align-items: flex-start; gap: 20px; }
+    .school-grade { width: 52px; height: 52px; border-radius: 4px; background: var(--cream-dark); border: 1px solid var(--border-med); display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 700; color: var(--brown); flex-shrink: 0; }
+    .school-info h3 { font-size: 15px; font-weight: 600; color: var(--brown-dark); margin-bottom: 7px; }
+    .school-info p { font-size: 13px; color: var(--text-muted); line-height: 1.65; font-weight: 300; }
+    .school-badges { display: flex; gap: 7px; flex-wrap: wrap; margin-top: 12px; }
+    .school-badge { padding: 3px 10px; border-radius: 100px; font-size: 11px; background: var(--cream-dark); color: var(--brown); border: 1px solid var(--border-med); }
+
+    .realtor-section { margin-top: 72px; background: var(--brown-dark); border-radius: 4px; padding: 52px; text-align: center; }
+    .realtor-section .eyebrow { font-size: 10px; letter-spacing: 3.5px; text-transform: uppercase; color: var(--taupe); margin-bottom: 18px; display: block; }
+    .realtor-section h2 { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 600; color: var(--cream); line-height: 1.15; margin-bottom: 14px; }
+    .realtor-section p { font-size: 15px; color: rgba(246,243,236,0.55); line-height: 1.75; margin-bottom: 14px; font-weight: 300; max-width: 500px; margin-left: auto; margin-right: auto; }
+    .placeholder-cards { display: flex; gap: 16px; justify-content: center; margin: 32px 0; flex-wrap: wrap; }
+    .placeholder-card { width: 200px; border: 1px dashed rgba(185,165,144,0.3); border-radius: 4px; padding: 24px 16px; text-align: center; background: rgba(255,255,255,0.04); }
+    .placeholder-avatar { width: 52px; height: 52px; border-radius: 50%; background: rgba(185,165,144,0.12); border: 1px dashed rgba(185,165,144,0.3); margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; font-size: 20px; }
+    .placeholder-card .ph-title { font-size: 13px; font-weight: 500; color: rgba(246,243,236,0.5); margin-bottom: 5px; }
+    .placeholder-card .ph-sub { font-size: 11px; color: rgba(246,243,236,0.3); line-height: 1.5; }
+    .price-inline { display: inline-flex; align-items: baseline; gap: 4px; margin: 18px 0 26px; }
+    .price-inline .amount { font-family: 'Cormorant Garamond', serif; font-size: 48px; font-weight: 600; color: var(--taupe); }
+    .price-inline .period { font-size: 16px; color: rgba(246,243,236,0.4); }
+    .btn-light { background: var(--cream); color: var(--brown-dark); padding: 14px 32px; border-radius: 2px; font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; transition: all 0.2s; display: inline-block; }
+    .btn-light:hover { background: var(--cream-dark); transform: translateY(-2px); }
+    .founding-note { font-size: 12px; color: var(--taupe); margin-top: 14px; opacity: 0.8; }
+
+    .sources-section { margin-top: 64px; padding: 32px 0 80px; border-top: 1px solid var(--border); }
+    .sources-section h3 { font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 14px; }
+    .sources-list { display: flex; flex-direction: column; gap: 7px; }
+    .sources-list a { font-size: 12px; color: var(--text-muted); text-decoration: none; opacity: 0.6; transition: opacity 0.2s; display: flex; align-items: center; gap: 6px; }
+    .sources-list a:hover { opacity: 1; color: var(--brown); }
+    .sources-list a::before { content: '↗'; font-size: 10px; }
+
+    .bottom-nav { border-top: 1px solid var(--border); padding: 48px 24px; text-align: center; background: var(--cream-dark); }
+    .bottom-nav p { font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 20px; }
+    .bottom-nav-links { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .bottom-nav-links a { padding: 10px 22px; border-radius: 2px; border: 1px solid var(--border-med); font-size: 13px; color: var(--text-muted); text-decoration: none; transition: all 0.2s; }
+    .bottom-nav-links a:hover { border-color: var(--brown); color: var(--brown); background: rgba(87,76,63,0.05); }
+
+    footer { border-top: 1px solid var(--border); padding: 36px 24px; text-align: center; background: var(--cream); }
+    .footer-brand { font-family: 'Cormorant Garamond', serif; font-size: 20px; color: var(--brown-dark); margin-bottom: 6px; font-weight: 600; }
+    .footer-brand span { color: var(--taupe-dark); font-style: italic; }
+    .footer-copy { font-size: 11px; color: var(--text-muted); opacity: 0.5; }
+
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 768px) {
+      nav { padding: 14px 20px; }
+      .two-col, .three-col { grid-template-columns: 1fr; }
+      .stats-bar-inner { gap: 20px; }
+      .placeholder-cards { flex-direction: column; align-items: center; }
+      .realtor-section { padding: 32px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/" class="nav-brand">
+      <span class="sub">communities</span>
+      <span class="name">Located Lifestyle</span>
+    </a>
+    <div class="nav-right">
+      <a href="/" class="nav-back">← Explore New York</a>
+      <a href="https://locatedlifestyle.com/join" class="nav-cta">Join as a Realtor</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-lake"></div>
+    <div class="hero-content">
+      <div class="hero-breadcrumb">
+        <a href="/">Communities</a><span>/</span>
+        <a href="/">Finger Lakes</a><span>/</span>
+        Hammondsport
+      </div>
+      <span class="hero-eyebrow">Steuben County · Finger Lakes</span>
+      <h1>Hammondsport</h1>
+      <div class="hero-tagline">The Cradle of Aviation. The birthplace of New York wine.</div>
+      <div class="hero-meta">
+        <span class="meta-item">Village</span>
+        <span class="meta-dot"></span>
+        <span class="meta-item">Pop. ~700</span>
+        <span class="meta-dot"></span>
+        <span class="meta-item">Steuben County</span>
+        <span class="meta-dot"></span>
+        <span class="meta-item">Southern tip of Keuka Lake</span>
+      </div>
+      <div class="hero-badges">
+        <span class="badge badge-water">💧 Keuka Lake</span>
+        <span class="badge badge-warm">✈️ Cradle of Aviation</span>
+        <span class="badge badge-warm">🍷 Oldest NY Winery</span>
+        <span class="badge badge-warm">🏆 America's Coolest Small Town</span>
+        <span class="badge badge-warm">🏛️ Pulteney Square</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS BAR -->
+  <div class="stats-bar">
+    <div class="stats-bar-inner">
+      <div class="stat-item"><span class="stat-value">See Below</span><div class="stat-label">Current Pricing ↓</div></div>
+      <div class="stat-item"><span class="stat-value">~700</span><div class="stat-label">Population</div></div>
+      <div class="stat-item"><span class="stat-value">1860</span><div class="stat-label">Oldest NY Winery Est.</div></div>
+      <div class="stat-item"><span class="stat-value">&lt;1 sq mi</span><div class="stat-label">Village Size</div></div>
+      <div class="stat-item"><span class="stat-value">1908</span><div class="stat-label">First 1km Flight — June Bug</div></div>
+    </div>
+  </div>
+
+  <div class="content-wrap">
+
+    <!-- OVERVIEW -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">🏘️</div>
+        <h2>Overview & <em>Character</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <p class="prose">Hammondsport sits at the <strong>southern tip of Keuka Lake</strong> in a valley surrounded by vine-covered hills — a village of barely 700 people that holds an outsized place in American history. This is where <strong>Glenn H. Curtiss</strong> was born, built his aircraft, and launched them off the waters of Keuka Lake. This is where <strong>New York's wine industry was born</strong> in 1829. And this is what Budget Travel Magazine once named <strong>"America's Coolest Small Town"</strong> — a title that anyone who has wandered Pulteney Square on a summer evening would find difficult to dispute.</p>
+      <p class="prose">The village occupies less than one square mile — small enough to see entirely on a leisurely stroll. <strong>Pulteney Square</strong>, with its Victorian gazebo and surrounding shops and restaurants, is one of the most charming village squares in New York State. <strong>Depot Park</strong> at the lake's edge is the summer hub — free public docks welcome visitors who arrive by boat for a "dock and dine" experience. And the hills above the village are blanketed with some of the most respected vineyards on the Keuka Lake Wine Trail.</p>
+
+      <div class="fun-fact">
+        <div class="fun-fact-icon">✈️</div>
+        <div>
+          <h4>The Cradle of Aviation — Glenn H. Curtiss</h4>
+          <p>While the Wright Brothers get most of the credit, <strong>Glenn H. Curtiss</strong> of Hammondsport was equally — and some argue more — influential in early aviation. He began with bicycles, then motorcycles, setting a land speed record of <strong>136.4 mph on a V8-powered motorcycle in 1907</strong>, earning him the title "Fastest Man on Earth." He then turned to aircraft — designing and flying the <strong>June Bug</strong> on July 4, 1908, the first American airplane to fly at least 1km publicly. He invented the seaplane, launched the world's first flying boat from Keuka Lake in 1912, and pioneered naval aviation. Hammondsport is rightly called the Cradle of Aviation — and the Glenn H. Curtiss Museum preserves this legacy in extraordinary detail.</p>
+        </div>
+      </div>
+
+      <div class="pull-quote">
+        <p>"Less than 1,000 residents call Hammondsport home. It is less than one square mile — so with a leisurely stroll, you can see it all."</p>
+      </div>
+
+      <p class="prose">For buyers, Hammondsport offers the rarest combination in the Finger Lakes: <strong>genuine national historical significance</strong>, extraordinary natural beauty, a walkable village square, lakefront access, wine trail proximity, and home prices that remain among the most accessible in lake country. It's a village that rewards buyers who prioritize character, history, and quality of life over urban amenity and square footage.</p>
+    </section>
+
+    <!-- VIBE -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">✨</div>
+        <h2>The <em>Vibe</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="two-col">
+        <div class="info-card">
+          <div class="card-eyebrow">Pace of Life</div>
+          <h3>Unhurried, Historic & Genuinely Lovely</h3>
+          <p>Hammondsport is quietly magical in every season — summer brings lakeside bustle, live music in the square, boat shows, and seaplane events; fall turns the surrounding vineyards gold and amber; winter transforms the village into something resembling a holiday movie set, with twinkling lights in the shops around Pulteney Square.</p>
+        </div>
+        <div class="info-card">
+          <div class="card-eyebrow">Summer Life</div>
+          <h3>The Square, the Lake & the Dock</h3>
+          <p>Summer life revolves around Pulteney Square and Depot Park — outdoor dining, art shows in the park, boat shows, live music, and the endlessly pleasant ritual of watching boats come and go at the free public docks. The "dock and dine" culture here is genuine — boaters tie up at Depot Park and walk two minutes to the village square.</p>
+        </div>
+        <div class="info-card">
+          <div class="card-eyebrow">Who Lives Here</div>
+          <h3>History Lovers, Lake People & True Locals</h3>
+          <p>A tight-knit community of longtime residents, winery workers, aviation and history enthusiasts who settled here on purpose, lake house owners who became year-rounders, and a growing number of remote workers who discovered that Hammondsport's combination of beauty, history, and affordability is hard to beat anywhere in New York.</p>
+        </div>
+        <div class="info-card">
+          <div class="card-eyebrow">Honest Note</div>
+          <h3>Tiny Village, Limited Daily Amenities</h3>
+          <p>Hammondsport is genuinely very small — under 700 residents, under 1 square mile. Daily amenity options are limited to what the village and immediate area provide. Bath (20 minutes south) and Penn Yan (20 minutes north along the lake) are the nearest broader service hubs. This is part of its charm, but buyers who need urban convenience should plan accordingly.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- KNOWN FOR -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">🏛️</div>
+        <h2>What It's <em>Known For</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="item-list">
+        <div class="item-row">
+          <div class="item-emoji">✈️</div>
+          <div>
+            <h4>Glenn H. Curtiss Museum — The Cradle of Aviation</h4>
+            <p>The <a href="https://glennhcurtissmuseum.org" target="_blank" rel="noopener" class="item-link">Glenn H. Curtiss Museum</a> is a 60,000-square-foot treasure one mile south of the village — housing an extraordinary collection of early aircraft, vintage motorcycles, the V8 motorcycle that made Curtiss the fastest man on earth, seaplanes, automobiles, and artifacts from the dawn of powered flight. A world-class museum in a tiny village, with a volunteer restoration shop where visitors can watch craftsmen work on historic aircraft. One of the great underrated museums in New York State.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-emoji">🍷</div>
+          <div>
+            <h4>Pleasant Valley Wine Company — New York's Oldest Winery</h4>
+            <p>Founded in 1860, the <a href="https://pleasantvalleywine.com" target="_blank" rel="noopener" class="item-link">Pleasant Valley Wine Company</a> — known for its Great Western Champagne — is the oldest winery in New York State and one of the oldest in the United States. It survived Prohibition by selling sacramental and medicinal wine. Historic stone buildings, guided tours, and tastings make it one of the most distinctive winery experiences in the Finger Lakes.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-emoji">🏛️</div>
+          <div>
+            <h4>Pulteney Square — One of NY's Great Village Squares</h4>
+            <p>The heart of Hammondsport — a beautifully preserved Victorian square with a central gazebo, surrounded by boutique shops, restaurants, and historic buildings. In summer it hosts art shows, live music, and community events. In winter the twinkling lights and historic storefronts make it genuinely magical. It's the kind of village square that most American towns have lost and Hammondsport has kept.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-emoji">🛥️</div>
+          <div>
+            <h4>Finger Lakes Boating Museum</h4>
+            <p>A unique museum preserving the boat-building heritage of the Finger Lakes — with a collection of over 200 antique boats celebrating the vintage craftsmanship of regional boat builders. Seasonal one-hour public Keuka Lake tours aboard the restored 1924 launch <em>Pat II</em> depart from Depot Park, offering a narrated exploration of the lake's history and shores.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-emoji">🏆</div>
+          <div>
+            <h4>Budget Travel's "America's Coolest Small Town"</h4>
+            <p>Budget Travel Magazine named Hammondsport America's Coolest Small Town — a recognition that captured what longtime residents and first-time visitors both feel: that this tiny village at the southern tip of Keuka Lake has somehow assembled aviation history, wine heritage, a perfect village square, lakefront access, and natural beauty into something that punches extraordinarily far above its weight.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-emoji">✈️</div>
+          <div>
+            <h4>Wings & Wheels — Annual September Festival</h4>
+            <p>The annual Wings & Wheels of Hammondsport event brings seaplane demonstrations, classic car shows, family activities, local food, and live entertainment to Depot Park and the Village Square each September — a celebration of Hammondsport's dual heritage in aviation and automotive history that draws visitors from across the region.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESTAURANTS -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">🍽️</div>
+        <h2>Restaurants & <em>Dining</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <p class="prose">Pulteney Square and the immediate village area offer a genuinely good range of dining options for a village this size — from classic diner breakfasts to award-winning bistros. Hours are seasonal; always check ahead.</p>
+      <div class="item-list">
+        <div class="item-row"><div class="item-emoji">🍦</div><div><h4>Crooked Lake Ice Cream Company</h4><p>A Hammondsport icon for nearly 100 years — a classic 1950s-style diner on the village square serving breakfast, lunch, and, of course, ice cream. The breakfast menu pays tribute to hometown heroes including the "Fastest Man on Earth" special named after Glenn Curtiss. A beloved community institution and the perfect morning stop before a day on the lake.</p></div></div>
+        <div class="item-row"><div class="item-emoji">🍕</div><div><h4>Village Tavern Restaurant & Inn</h4><p>A local landmark on Pulteney Square — wood-fired pizzas, prime steaks, local cheeses, and American fare in a relaxed atmosphere. Sunday brunch is a community tradition. One of the most reliable and beloved dining anchors in the village.</p></div></div>
+        <div class="item-row"><div class="item-emoji">☕</div><div><h4>TJ's Coffee & Bagels / Vern's Bakery</h4><p>Quick morning options in the village — for a grab-and-go coffee and bagel before hitting the Curtiss Museum or the wine trail. The kind of no-fuss local staples that make everyday small-town life work.</p></div></div>
+        <div class="item-row"><div class="item-emoji">🍺</div><div><h4>Finger Lakes Beer Company & Brewery of Broken Dreams</h4><p>Two craft breweries right in Hammondsport — ales, IPAs, porters, stouts, and seasonal offerings in relaxed taproom settings. A growing craft beverage scene that complements the village's wine trail heritage with something distinctly its own.</p></div></div>
+        <div class="item-row"><div class="item-emoji">🧇</div><div><h4>Aroma Coffee Art Gallery</h4><p>A unique hybrid of coffee shop and art gallery on Shethar Street — locally made art on the walls, good coffee in hand. A distinctive reflection of Hammondsport's creative character.</p></div></div>
+      </div>
+    </section>
+
+    <!-- SHOPS -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">🛍️</div>
+        <h2>Shops & Local <em>Businesses</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <p class="prose">Pulteney Square and the surrounding streets offer a compact but characterful mix of boutique shops, antique dealers, galleries, and specialty stores — all independently owned and deeply connected to the village's aviation and wine heritage.</p>
+      <div class="three-col">
+        <div class="info-card"><div class="card-eyebrow">Antiques</div><h3>Opera House Antiques</h3><p>A well-regarded antique shop in the village — furniture, collectibles, and regional artifacts at accessible prices. A good stop for buyers and visitors alike.</p></div>
+        <div class="info-card"><div class="card-eyebrow">Antiques</div><h3>Kelley's Korner Antiques</h3><p>Located on NY-54 on the east side of Keuka Lake — a broader antique and collectibles shop serving the lake community with a good range of vintage finds.</p></div>
+        <div class="info-card"><div class="card-eyebrow">Winery</div><h3>Dr. Konstantin Frank Winery</h3><p>Just outside the village — the legendary estate where the vinifera revolution began. Still family-owned and producing some of the finest Rieslings and Pinot Noirs in the eastern United States.</p></div>
+        <div class="info-card"><div class="card-eyebrow">Winery</div><h3>Bully Hill Vineyards</h3><p>One of the most distinctive and unconventional wineries in the Finger Lakes — eccentric, beloved, and deeply local. The tasting room and art gallery reflect the passionate, independent spirit of founder Walter Taylor.</p></div>
+        <div class="info-card"><div class="card-eyebrow">Boutiques</div><h3>Pulteney Square Shops</h3><p>A collection of independently-owned boutiques, gift shops, and specialty stores surrounding the square — changing seasonally, reflecting the village's creative and historical identity.</p></div>
+        <div class="info-card"><div class="card-eyebrow">Groceries</div><h3>Bath (20 min) & Penn Yan (20 min)</h3><p>Broader grocery and retail options are a 20-minute drive in either direction — Bath to the south along Route 54, Penn Yan to the north along the lake.</p></div>
+      </div>
+    </section>
+
+    <!-- OUTDOOR -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">🏞️</div>
+        <h2>Outdoor & <em>Recreation</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="item-list">
+        <div class="item-row"><div class="item-emoji">⛵</div><div><h4>Keuka Lake — Swimming, Boating & Watersports</h4><p>The warm, clear waters of Keuka Lake are right at the village's edge — Depot Park and Champlin Beach offer swimming and kayak rentals. OnKeuka! and Keuka Watersports provide jet skis, paddleboards, pontoon boats, and guided excursions. Free public docks at Depot Park make arriving by boat a genuine option for lake residents.</p></div></div>
+        <div class="item-row"><div class="item-emoji">🛩️</div><div><h4>Seaplane Rides</h4><p>One of the most unique experiences available to Hammondsport residents and visitors — seaplane rides over the village and Keuka Lake, offering the only way to fully appreciate the Y-shape of the lake and the vineyards on the surrounding slopes. A direct nod to Curtiss's legacy that's still available today.</p></div></div>
+        <div class="item-row"><div class="item-emoji">🥾</div><div><h4>Finger Lakes Trail — 1 Mile from the Village</h4><p>The 950-mile Finger Lakes Trail has an access point about one mile from Hammondsport — with trails including the Mitchellsville Gorge Trail and Huckleberry Bog Trail for more serious wilderness hiking just a short drive away.</p></div></div>
+        <div class="item-row"><div class="item-emoji">🍷</div><div><h4>Keuka Lake Wine Trail</h4><p>Hammondsport is the southern anchor of the Keuka Lake Wine Trail — with Pleasant Valley Wine Company (NY's oldest), Dr. Konstantin Frank, Bully Hill Vineyards, Ravines Wine Cellars, and Heron Hill Winery all within a short drive up the east branch of the lake.</p></div></div>
+        <div class="item-row"><div class="item-emoji">🚴</div><div><h4>Keuka Lake Outlet Trail (via Penn Yan)</h4><p>The 6.8-mile Keuka Outlet Trail connecting Keuka to Seneca Lake begins 20 minutes north in Penn Yan — an easy day trip for cyclists and hikers wanting a longer multi-use trail experience.</p></div></div>
+        <div class="item-row"><div class="item-emoji">🎣</div><div><h4>Keuka Lake Fishing</h4><p>Landlocked Atlantic salmon, brown trout, rainbow trout, large and small mouth bass, bluegill, and perch — Keuka Lake is one of the premier cold and warm water fisheries in the Finger Lakes, with exceptional access from Depot Park and Harbor Lights Marina.</p></div></div>
+      </div>
+    </section>
+
+    <!-- NEARBY -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">📍</div>
+        <h2>What's <em>Nearby</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="three-col">
+        <div class="info-card"><div class="card-eyebrow">20 minutes north</div><h3>Penn Yan</h3><p>The heart of Keuka Lake wine country — Windmill Farm Market, Keuka Outlet Trail, Keuka College, and the northern anchor of the Keuka Lake Wine Trail.</p></div>
+        <div class="info-card"><div class="card-eyebrow">20 minutes south</div><h3>Bath & Corning</h3><p>Bath provides broader daily services; Corning — 30 minutes south — is home to the world-renowned Corning Museum of Glass and a revitalized Market Street.</p></div>
+        <div class="info-card"><div class="card-eyebrow">30 minutes north</div><h3>Naples</h3><p>The grape pie capital of the world — Bristol Hills wine country, Bristol Mountain skiing, and the annual Naples Grape Festival each September.</p></div>
+        <div class="info-card"><div class="card-eyebrow">45 minutes north</div><h3>Canandaigua</h3><p>The nearest full-service hub — Wegmans, F.F. Thompson Hospital, Sonnenberg Gardens, and Canandaigua Lake access.</p></div>
+        <div class="info-card"><div class="card-eyebrow">45 minutes east</div><h3>Watkins Glen</h3><p>The gorge state park, Watkins Glen International raceway, and the southern end of the Seneca Lake Wine Trail — a classic Finger Lakes day trip east.</p></div>
+        <div class="info-card"><div class="card-eyebrow">1.5 hours</div><h3>Rochester & Elmira</h3><p>Rochester to the north provides airport, major medical, and urban amenities; Elmira to the southeast offers the nearest regional airport and broader services.</p></div>
+      </div>
+    </section>
+
+    <!-- SCHOOLS -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">🎓</div>
+        <h2>Schools</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="school-card">
+        <div class="school-grade">B</div>
+        <div class="school-info">
+          <h3>Hammondsport Central School District</h3>
+          <p>A small rural district serving Hammondsport and surrounding Steuben County communities — with the intimate class sizes and community-centered character that come with genuine small-town schooling. The school reflects Hammondsport's identity: history, the arts, and the outdoors are woven into the fabric of student life. Families who value a close-knit school experience in a place with extraordinary history will find Hammondsport delivers it fully.</p>
+          <div class="school-badges">
+            <span class="school-badge">B Rated</span>
+            <span class="school-badge">Small Class Sizes</span>
+            <span class="school-badge">History-Rich Community</span>
+            <span class="school-badge">Keuka College 20 min</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REAL ESTATE -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">🏠</div>
+        <h2>Real Estate <em>Overview</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <p class="prose">Hammondsport offers some of the <strong>most affordable and historically rich real estate in the Finger Lakes</strong> — Victorian homes, Federal-style houses, and 19th-century cottages surrounding Pulteney Square and along the lake's edge, at price points that reflect its remote location rather than its extraordinary character. Lakefront properties command premiums, while village homes remain accessible. For buyers who understand what they're getting — national historical significance, a world-class wine trail, a perfect village square, and lakefront access — Hammondsport is exceptional value.</p>
+
+      <div class="pricing-links-block">
+        <div class="pricing-links-label">Current Pricing — Live Data</div>
+        <p class="pricing-links-note">Check these sources for the most current Hammondsport and Steuben County market data:</p>
+        <div class="pricing-links">
+          <a href="https://www.redfin.com/city/7994/NY/Hammondsport/housing-market" target="_blank" rel="noopener" class="pricing-link">
+            <span class="pricing-link-name">Redfin</span>
+            <span class="pricing-link-desc">Median sale price, days on market, price per sq ft</span>
+            <span class="pricing-link-arrow">↗</span>
+          </a>
+          <a href="https://www.zillow.com/hammondsport-ny/home-values/" target="_blank" rel="noopener" class="pricing-link">
+            <span class="pricing-link-name">Zillow</span>
+            <span class="pricing-link-desc">Zillow Home Value Index & market trends</span>
+            <span class="pricing-link-arrow">↗</span>
+          </a>
+          <a href="https://www.realtor.com/realestateandhomes-search/Hammondsport_NY/overview" target="_blank" rel="noopener" class="pricing-link">
+            <span class="pricing-link-name">Realtor.com</span>
+            <span class="pricing-link-desc">Listing prices, market hotness, inventory</span>
+            <span class="pricing-link-arrow">↗</span>
+          </a>
+        </div>
+        <p class="pricing-disclaimer">Real estate data varies by source and changes over time. Always verify current pricing with a licensed local Realtor.</p>
+      </div>
+
+      <div class="two-col">
+        <div class="info-card"><div class="card-eyebrow">Village Homes</div><h3>Historic Character, Accessible Price</h3><p>Victorian and Federal-style homes surrounding Pulteney Square and throughout the village — national historical character at price points that reflect the remote location rather than the extraordinary setting.</p></div>
+        <div class="info-card"><div class="card-eyebrow">Keuka Lakefront</div><h3>Premium for Water Access</h3><p>Properties with direct Keuka Lake frontage or dock access command significant premiums — but remain more accessible than lakefront on Skaneateles or Canandaigua. Cottage and camp-style properties are common along the lake's southern end.</p></div>
+      </div>
+    </section>
+
+    <!-- REALTOR SPOTLIGHT -->
+    <div class="realtor-section fade-in">
+      <span class="eyebrow">Realtor Spotlight</span>
+      <h2>Know Hammondsport?<br />Your Clients Are Looking.</h2>
+      <p>Buyers matched to Hammondsport on Located Lifestyle are seeking a local expert who understands Keuka Lake, the Steuben County market, and what makes this extraordinary village — America's Coolest Small Town — such a compelling place to call home.</p>
+      <div class="placeholder-cards">
+        <div class="placeholder-card"><div class="placeholder-avatar">🏡</div><div class="ph-title">Open Spot</div><div class="ph-sub">Hammondsport specialist</div></div>
+        <div class="placeholder-card"><div class="placeholder-avatar">🏡</div><div class="ph-title">Open Spot</div><div class="ph-sub">Hammondsport specialist</div></div>
+        <div class="placeholder-card"><div class="placeholder-avatar">🏡</div><div class="ph-title">Open Spot</div><div class="ph-sub">Hammondsport specialist</div></div>
+      </div>
+      <div class="price-inline"><span class="amount">$19</span><span class="period">/month</span></div><br />
+      <a href="https://locatedlifestyle.com/join" class="btn-light">List Yourself as a Hammondsport Specialist</a>
+      <p class="founding-note">Founding Member rate — grandfathered when prices increase to $29/month</p>
+    </div>
+
+    <!-- SOURCES -->
+    <div class="sources-section fade-in">
+      <h3>Sources</h3>
+      <div class="sources-list">
+        <a href="https://en.wikipedia.org/wiki/Hammondsport,_New_York" target="_blank" rel="noopener">Wikipedia — Hammondsport, New York</a>
+        <a href="https://www.fingerlakeswinecountry.com/travel-guide/small-town-travel-guide-hammondsport-ny/" target="_blank" rel="noopener">Finger Lakes Wine Country — Hammondsport Travel Guide</a>
+        <a href="https://daytrippingroc.com/explore-hammondsport-ny/" target="_blank" rel="noopener">Day Tripping ROC — Explore Hammondsport</a>
+        <a href="https://glennhcurtissmuseum.org" target="_blank" rel="noopener">Glenn H. Curtiss Museum — Official Site</a>
+        <a href="https://www.fingerlakes.org/explore-the-finger-lakes-region" target="_blank" rel="noopener">Finger Lakes Tourism Alliance — Explore the Region</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="bottom-nav">
+    <p>Continue exploring the Finger Lakes</p>
+    <div class="bottom-nav-links">
+      <a href="/">← Back to All Communities</a>
+      <a href="naples.html">← Naples</a>
+      <a href="penn-yan.html">← Penn Yan</a>
+      <a href="#">Cazenovia →</a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-brand">Located <span>Lifestyle</span></div>
+    <div class="footer-copy">© 2026 Located Lifestyle · communities.locatedlifestyle.com · New York State Community Directory</div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 75);
+      });
+    }, { threshold: 0.06, rootMargin: '0px 0px -30px 0px' });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
