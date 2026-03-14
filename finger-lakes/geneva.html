@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Geneva, NY — Finger Lakes Community Guide | Located Lifestyle</title>
+  <meta name="description" content="Everything you need to know about living in Geneva, NY — vibe, restaurants, shops, outdoor activities, schools, real estate, and local Realtors." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream:      #f6f3ec;
+      --cream-dark: #ece4da;
+      --taupe:      #b9a590;
+      --taupe-dark: #9a8470;
+      --brown:      #574c3f;
+      --brown-dark: #36302a;
+      --text:       #36302a;
+      --text-mid:   #574c3f;
+      --text-muted: #9a8470;
+      --border:     rgba(87,76,63,0.12);
+      --border-med: rgba(87,76,63,0.2);
+      --card-bg:    #ffffff;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--text); overflow-x: hidden; }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 52px;
+      background: rgba(246,243,236,0.95); backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-brand { text-decoration: none; display: flex; flex-direction: column; gap: 1px; }
+    .nav-brand .sub { font-size: 9px; letter-spacing: 3.5px; text-transform: uppercase; color: var(--taupe); font-weight: 500; }
+    .nav-brand .name { font-family: 'Cormorant Garamond', serif; font-size: 20px; color: var(--brown-dark); font-weight: 600; }
+    .nav-right { display: flex; gap: 24px; align-items: center; }
+    .nav-back { font-size: 13px; color: var(--text-muted); text-decoration: none; transition: color 0.2s; display: flex; align-items: center; gap: 6px; }
+    .nav-back:hover { color: var(--brown); }
+    .nav-cta { background: var(--brown-dark); color: var(--cream); font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; padding: 10px 22px; border-radius: 2px; text-decoration: none; transition: background 0.2s; }
+    .nav-cta:hover { background: var(--brown); }
+
+    /* ── HERO — warm Seneca Lake dusk tones ── */
+    .hero {
+      min-height: 68vh; position: relative; overflow: hidden;
+      display: flex; flex-direction: column; align-items: center; justify-content: flex-end;
+      padding: 120px 24px 64px; text-align: center;
+      background: linear-gradient(180deg, #2a2018 0%, #3e3020 30%, #4e4028 55%, #5e5035 100%);
+    }
+    .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 80% 55% at 50% 65%, rgba(160,130,80,0.2) 0%, transparent 65%); }
+    .hero-lake { position: absolute; bottom: 0; left: 0; right: 0; height: 32%; background: linear-gradient(180deg, transparent 0%, rgba(60,80,120,0.2) 50%, rgba(40,60,100,0.35) 100%); clip-path: ellipse(120% 100% at 50% 100%); }
+    .hero-content { position: relative; z-index: 2; max-width: 780px; }
+
+    .hero-breadcrumb { display: flex; align-items: center; gap: 8px; justify-content: center; margin-bottom: 20px; font-size: 11px; letter-spacing: 1px; color: rgba(246,243,236,0.5); }
+    .hero-breadcrumb a { color: rgba(246,243,236,0.5); text-decoration: none; transition: color 0.2s; }
+    .hero-breadcrumb a:hover { color: var(--cream); }
+    .hero-breadcrumb span { opacity: 0.35; }
+    .hero-eyebrow { font-size: 10px; letter-spacing: 3.5px; text-transform: uppercase; color: rgba(246,243,236,0.6); margin-bottom: 14px; display: block; }
+    .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(56px, 10vw, 108px); font-weight: 600; line-height: 0.95; color: var(--cream); margin-bottom: 12px; letter-spacing: -2px; }
+    .hero-tagline { font-family: 'Cormorant Garamond', serif; font-size: clamp(16px, 2.5vw, 22px); font-style: italic; color: rgba(246,243,236,0.72); margin-bottom: 28px; font-weight: 400; }
+    .hero-meta { display: flex; gap: 28px; justify-content: center; flex-wrap: wrap; margin-bottom: 32px; }
+    .meta-item { font-size: 12px; color: rgba(246,243,236,0.55); display: flex; align-items: center; gap: 7px; }
+    .meta-dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(246,243,236,0.35); }
+    .hero-badges { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+    .badge { padding: 5px 13px; border-radius: 100px; font-size: 10px; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; }
+    .badge-water { background: rgba(255,255,255,0.15); color: var(--cream); border: 1px solid rgba(255,255,255,0.28); backdrop-filter: blur(4px); }
+    .badge-warm { background: rgba(255,255,255,0.1); color: rgba(246,243,236,0.82); border: 1px solid rgba(255,255,255,0.18); }
+
+    .stats-bar { background: var(--brown-dark); }
+    .stats-bar-inner { max-width: 960px; margin: 0 auto; display: flex; justify-content: space-around; padding: 28px 24px; flex-wrap: wrap; gap: 20px; }
+    .stat-item { text-align: center; }
+    .stat-value { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 600; color: var(--taupe); display: block; line-height: 1.1; }
+    .stat-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: rgba(246,243,236,0.42); margin-top: 4px; }
+
+    .content-wrap { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+    .section { padding: 72px 0 0; }
+    .section-header { display: flex; align-items: center; gap: 20px; margin-bottom: 32px; }
+    .section-icon { width: 44px; height: 44px; border-radius: 2px; background: var(--cream-dark); border: 1px solid var(--border-med); display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+    .section-header h2 { font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 600; color: var(--brown-dark); letter-spacing: -0.3px; }
+    .section-header h2 em { font-style: italic; color: var(--taupe-dark); }
+    .section-line { flex: 1; height: 1px; background: var(--border); }
+
+    .prose { font-size: 15px; line-height: 1.85; color: var(--text-muted); font-weight: 300; margin-bottom: 22px; }
+    .prose strong { color: var(--brown); font-weight: 500; }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .three-col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .info-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 4px; padding: 22px; }
+    .info-card h3 { font-size: 14px; font-weight: 600; color: var(--brown-dark); margin-bottom: 8px; }
+    .info-card p { font-size: 13px; line-height: 1.7; color: var(--text-muted); font-weight: 300; }
+    .info-card .card-eyebrow { font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--taupe); margin-bottom: 7px; }
+    .pull-quote { border-left: 2px solid var(--taupe); padding: 18px 26px; margin: 32px 0; background: var(--cream-dark); border-radius: 0 4px 4px 0; }
+    .pull-quote p { font-family: 'Cormorant Garamond', serif; font-size: 19px; font-style: italic; color: var(--brown); line-height: 1.6; }
+    .item-list { display: flex; flex-direction: column; gap: 1px; }
+    .item-row { display: flex; align-items: flex-start; gap: 16px; padding: 20px 0; border-bottom: 1px solid var(--border); }
+    .item-row:first-child { border-top: 1px solid var(--border); }
+    .item-emoji { font-size: 20px; flex-shrink: 0; margin-top: 1px; width: 28px; }
+    .item-row h4 { font-size: 14px; font-weight: 600; color: var(--brown-dark); margin-bottom: 5px; }
+    .item-row p { font-size: 13px; color: var(--text-muted); line-height: 1.65; font-weight: 300; }
+    .item-link { color: var(--brown-dark); border-bottom: 1px solid var(--border-med); text-decoration: none; transition: border-color 0.2s; }
+    .item-link:hover { border-color: var(--brown); }
+
+    .pricing-links-block { background: var(--card-bg); border: 1px solid var(--border-med); border-radius: 4px; padding: 28px; margin-bottom: 24px; }
+    .pricing-links-label { font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--taupe); margin-bottom: 8px; }
+    .pricing-links-note { font-size: 13px; color: var(--text-muted); margin-bottom: 20px; line-height: 1.6; font-weight: 300; }
+    .pricing-links { display: flex; flex-direction: column; gap: 1px; }
+    .pricing-link { display: flex; align-items: center; gap: 16px; padding: 14px 16px; border-radius: 3px; background: var(--cream); border: 1px solid var(--border); text-decoration: none; transition: all 0.2s; }
+    .pricing-link:hover { border-color: var(--brown); background: var(--cream-dark); }
+    .pricing-link-name { font-size: 14px; font-weight: 600; color: var(--brown-dark); min-width: 100px; }
+    .pricing-link-desc { font-size: 12px; color: var(--text-muted); flex: 1; font-weight: 300; }
+    .pricing-link-arrow { font-size: 14px; color: var(--taupe); transition: color 0.2s; }
+    .pricing-link:hover .pricing-link-arrow { color: var(--brown); }
+    .pricing-disclaimer { font-size: 11px; color: var(--text-muted); margin-top: 14px; opacity: 0.7; line-height: 1.5; font-style: italic; }
+
+    .school-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 4px; padding: 24px; display: flex; align-items: flex-start; gap: 20px; margin-bottom: 16px; }
+    .school-grade { width: 52px; height: 52px; border-radius: 4px; background: var(--cream-dark); border: 1px solid var(--border-med); display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 700; color: var(--brown); flex-shrink: 0; }
+    .school-info h3 { font-size: 15px; font-weight: 600; color: var(--brown-dark); margin-bottom: 7px; }
+    .school-info p { font-size: 13px; color: var(--text-muted); line-height: 1.65; font-weight: 300; }
+    .school-badges { display: flex; gap: 7px; flex-wrap: wrap; margin-top: 12px; }
+    .school-badge { padding: 3px 10px; border-radius: 100px; font-size: 11px; background: var(--cream-dark); color: var(--brown); border: 1px solid var(--border-med); }
+
+    .realtor-section { margin-top: 72px; background: var(--brown-dark); border-radius: 4px; padding: 52px; text-align: center; }
+    .realtor-section .eyebrow { font-size: 10px; letter-spacing: 3.5px; text-transform: uppercase; color: var(--taupe); margin-bottom: 18px; display: block; }
+    .realtor-section h2 { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 600; color: var(--cream); line-height: 1.15; margin-bottom: 14px; }
+    .realtor-section p { font-size: 15px; color: rgba(246,243,236,0.55); line-height: 1.75; margin-bottom: 14px; font-weight: 300; max-width: 500px; margin-left: auto; margin-right: auto; }
+    .placeholder-cards { display: flex; gap: 16px; justify-content: center; margin: 32px 0; flex-wrap: wrap; }
+    .placeholder-card { width: 200px; border: 1px dashed rgba(185,165,144,0.3); border-radius: 4px; padding: 24px 16px; text-align: center; background: rgba(255,255,255,0.04); }
+    .placeholder-avatar { width: 52px; height: 52px; border-radius: 50%; background: rgba(185,165,144,0.12); border: 1px dashed rgba(185,165,144,0.3); margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; font-size: 20px; }
+    .placeholder-card .ph-title { font-size: 13px; font-weight: 500; color: rgba(246,243,236,0.5); margin-bottom: 5px; }
+    .placeholder-card .ph-sub { font-size: 11px; color: rgba(246,243,236,0.3); line-height: 1.5; }
+    .price-inline { display: inline-flex; align-items: baseline; gap: 4px; margin: 18px 0 26px; }
+    .price-inline .amount { font-family: 'Cormorant Garamond', serif; font-size: 48px; font-weight: 600; color: var(--taupe); }
+    .price-inline .period { font-size: 16px; color: rgba(246,243,236,0.4); }
+    .btn-light { background: var(--cream); color: var(--brown-dark); padding: 14px 32px; border-radius: 2px; font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; transition: all 0.2s; display: inline-block; }
+    .btn-light:hover { background: var(--cream-dark); transform: translateY(-2px); }
+    .founding-note { font-size: 12px; color: var(--taupe); margin-top: 14px; opacity: 0.8; }
+
+    .sources-section { margin-top: 64px; padding: 32px 0 80px; border-top: 1px solid var(--border); }
+    .sources-section h3 { font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 14px; }
+    .sources-list { display: flex; flex-direction: column; gap: 7px; }
+    .sources-list a { font-size: 12px; color: var(--text-muted); text-decoration: none; opacity: 0.6; transition: opacity 0.2s; display: flex; align-items: center; gap: 6px; }
+    .sources-list a:hover { opacity: 1; color: var(--brown); }
+    .sources-list a::before { content: '↗'; font-size: 10px; }
+
+    .bottom-nav { border-top: 1px solid var(--border); padding: 48px 24px; text-align: center; background: var(--cream-dark); }
+    .bottom-nav p { font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 20px; }
+    .bottom-nav-links { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .bottom-nav-links a { padding: 10px 22px; border-radius: 2px; border: 1px solid var(--border-med); font-size: 13px; color: var(--text-muted); text-decoration: none; transition: all 0.2s; }
+    .bottom-nav-links a:hover { border-color: var(--brown); color: var(--brown); background: rgba(87,76,63,0.05); }
+
+    footer { border-top: 1px solid var(--border); padding: 36px 24px; text-align: center; background: var(--cream); }
+    .footer-brand { font-family: 'Cormorant Garamond', serif; font-size: 20px; color: var(--brown-dark); margin-bottom: 6px; font-weight: 600; }
+    .footer-brand span { color: var(--taupe-dark); font-style: italic; }
+    .footer-copy { font-size: 11px; color: var(--text-muted); opacity: 0.5; }
+
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 768px) {
+      nav { padding: 14px 20px; }
+      .two-col, .three-col { grid-template-columns: 1fr; }
+      .stats-bar-inner { gap: 20px; }
+      .placeholder-cards { flex-direction: column; align-items: center; }
+      .realtor-section { padding: 32px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/" class="nav-brand">
+      <span class="sub">communities</span>
+      <span class="name">Located Lifestyle</span>
+    </a>
+    <div class="nav-right">
+      <a href="/" class="nav-back">← <span>Explore New York</span></a>
+      <a href="https://locatedlifestyle.com/join" class="nav-cta">Join as a Realtor</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-lake"></div>
+    <div class="hero-content">
+      <div class="hero-breadcrumb">
+        <a href="/">Communities</a><span>/</span>
+        <a href="/">Finger Lakes</a><span>/</span>
+        Geneva
+      </div>
+      <span class="hero-eyebrow">Ontario County · Finger Lakes</span>
+      <h1>Geneva</h1>
+      <div class="hero-tagline">Uniquely urban. Remarkably affordable. Seneca Lake at your door.</div>
+      <div class="hero-meta">
+        <span class="meta-item">City</span>
+        <span class="meta-dot"></span>
+        <span class="meta-item">Pop. ~12,500</span>
+        <span class="meta-dot"></span>
+        <span class="meta-item">Ontario County</span>
+        <span class="meta-dot"></span>
+        <span class="meta-item">1 hr to Rochester or Syracuse</span>
+      </div>
+      <div class="hero-badges">
+        <span class="badge badge-water">💧 Seneca Lake</span>
+        <span class="badge badge-warm">🎓 Hobart & William Smith</span>
+        <span class="badge badge-warm">🏛️ Victorian Architecture</span>
+        <span class="badge badge-warm">🍷 Seneca Wine Trail</span>
+        <span class="badge badge-warm">💰 Most Affordable Lake City</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS BAR -->
+  <div class="stats-bar">
+    <div class="stats-bar-inner">
+      <div class="stat-item"><span class="stat-value">See Below</span><div class="stat-label">Current Pricing ↓</div></div>
+      <div class="stat-item"><span class="stat-value">~12,500</span><div class="stat-label">Population</div></div>
+      <div class="stat-item"><span class="stat-value">B</span><div class="stat-label">School District</div></div>
+      <div class="stat-item"><span class="stat-value">47</span><div class="stat-label">Days on Market</div></div>
+      <div class="stat-item"><span class="stat-value">18.4%</span><div class="stat-label">Below US Cost of Living</div></div>
+    </div>
+  </div>
+
+  <div class="content-wrap">
+
+    <!-- OVERVIEW -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">🏙️</div>
+        <h2>Overview & <em>Character</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <p class="prose">Geneva sits at the northern tip of Seneca Lake — the deepest of the Finger Lakes — and calls itself <strong>"Uniquely Urban"</strong> for good reason. It's a genuine small city of 12,500 people with real urban bones: a strikingly preserved Victorian streetscape along South Main Street, two respected liberal arts colleges, a performing arts landmark, and a growing restaurant and wine bar scene that reflects both its agricultural surroundings and its college-town energy.</p>
+      <p class="prose">The city traces its origins to <strong>Geneva Academy, established in 1797</strong>, and <strong>Hobart and William Smith Colleges</strong> — which grew from that institution — remain the city's cultural and intellectual anchor today. Geneva also has a fascinating medical history: <strong>Elizabeth Blackwell</strong>, the first woman to receive a medical degree in the United States, earned that degree from Geneva Medical College in 1849. It is a city with a quietly remarkable past.</p>
+      <div class="pull-quote">
+        <p>"Geneva beckons visitors with its small-town hospitality and cultural diversity — the heart of the Finger Lakes region."</p>
+      </div>
+      <p class="prose">For buyers, Geneva's most compelling argument is value. <strong>The cost of living is 18.4% below the US average</strong> — making it one of the most affordable entry points into Finger Lakes lake city living. With Interstate 90 just a few miles north, Rochester and Syracuse are both approximately one hour away. It's a city that rewards buyers willing to look past its rough edges for a genuinely livable, culturally rich, lakeside life at a price that few Finger Lakes communities can match.</p>
+    </section>
+
+    <!-- VIBE -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">✨</div>
+        <h2>The <em>Vibe</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="two-col">
+        <div class="info-card">
+          <div class="card-eyebrow">Culture & Energy</div>
+          <h3>College Town with Victorian Grandeur</h3>
+          <p>Hobart and William Smith Colleges bring a steady flow of students, faculty, and visiting intellectuals that keeps Geneva's cultural life active year-round. Linden Street is the social heart — lined with wine bars, restaurants, and shops that come alive in the warm months. The Smith Opera House anchors the arts scene with performances ranging from touring acts to community theater.</p>
+        </div>
+        <div class="info-card">
+          <div class="card-eyebrow">Who Lives Here</div>
+          <h3>Young Professionals, Academics & Value Seekers</h3>
+          <p>Many young professionals live in Geneva — drawn by affordability, the lake, and proximity to both Rochester and Syracuse. HWS faculty and staff are a significant presence. A growing number of remote workers and retirees are discovering that Geneva offers a genuinely livable Finger Lakes city life at a fraction of what Skaneateles or Ithaca costs.</p>
+        </div>
+        <div class="info-card">
+          <div class="card-eyebrow">Honest Note</div>
+          <h3>A City in Progress</h3>
+          <p>Geneva is honest about its complexity. Downtown has strong blocks alongside quieter ones, and some residents note the city is still working toward its potential. Crime rates are higher than surrounding smaller communities — buyers should research specific neighborhoods carefully. The upside: Geneva's low prices reflect current conditions, not its ceiling. For buyers willing to invest in an up-and-coming city, the opportunity is real.</p>
+        </div>
+        <div class="info-card">
+          <div class="card-eyebrow">Events & Community</div>
+          <h3>Lively Calendar of Street & Lake Events</h3>
+          <p>Geneva punches above its weight for community events: the Rosé Soirée on Linden Street each June, the Cruisin' Night Classic Car Show in July, the Musselman Triathlon, Friday on Linden gatherings, and Seneca Lake State Park events through the summer. The city knows how to use its lakefront and its streets.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- KNOWN FOR -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">🏛️</div>
+        <h2>What It's <em>Known For</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="item-list">
+        <div class="item-row">
+          <div class="item-emoji">🏛️</div>
+          <div>
+            <h4>South Main Street — One of NY's Great Victorian Streetscapes</h4>
+            <p>South Main Street is a stunning mile-long stretch of 19th-century architecture — Federal, Greek Revival, Italianate, and Victorian homes in varying states of preservation and restoration. Walking it feels like stepping into another era. For architecture lovers and history enthusiasts, it's one of the most remarkable streetscapes in upstate New York.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-emoji">🎓</div>
+          <div>
+            <h4>Hobart and William Smith Colleges</h4>
+            <p><a href="https://www.hws.edu" target="_blank" rel="noopener" class="item-link">Hobart and William Smith Colleges</a> are nationally respected liberal arts colleges tracing their origins to Geneva Academy (1797). With over 70 academic programs and a campus that overlooks Seneca Lake, HWS anchors Geneva's intellectual identity and drives much of its cultural and economic life.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-emoji">👩‍⚕️</div>
+          <div>
+            <h4>Elizabeth Blackwell — First Female MD in the US</h4>
+            <p>In 1849, Elizabeth Blackwell became the first woman to receive a medical degree in the United States — from Geneva Medical College. Her acceptance was so unlikely that the student body voted on whether to admit her, and voted yes as a joke. She graduated at the top of her class. Geneva marks this history with quiet pride.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-emoji">🎭</div>
+          <div>
+            <h4>Smith Opera House</h4>
+            <p>Built in 1894, the <a href="https://thesmith.org" target="_blank" rel="noopener" class="item-link">Smith Opera House</a> is an architectural treasure and one of the Finger Lakes' most beloved performance venues — hosting live music, dance, theater, film, and community events in a beautifully preserved historic space. A genuine cultural gem for a city this size.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-emoji">🏰</div>
+          <div>
+            <h4>Belhurst Castle & Geneva On The Lake</h4>
+            <p>Two of the most distinctive lakefront destinations in the Finger Lakes. <strong>Belhurst Castle</strong> is a historic stone landmark on Seneca Lake housing a winery, spa, and Edgar's Restaurant — a popular wedding and romantic getaway destination. <strong>Geneva On The Lake</strong>, built in 1914 to resemble an Italian villa, is an AAA Four Diamond resort with gourmet dining and manicured lakeside gardens.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-emoji">🍎</div>
+          <div>
+            <h4>Red Jacket Orchards</h4>
+            <p>One of the most beloved fruit farms in the Finger Lakes — Red Jacket Orchards in nearby Geneva produces exceptional apples, stone fruits, and juices that are distributed across the Northeast. A landmark of the region's agricultural identity and a must-visit in late summer and fall.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESTAURANTS -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">🍽️</div>
+        <h2>Restaurants & <em>Dining</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <p class="prose">Geneva's dining scene has grown considerably in recent years, anchored by Linden Street and fueled by the college community and wine trail visitors. There's a genuine mix of upscale wine bar dining, casual local favorites, and international options reflecting the city's cultural diversity.</p>
+      <div class="item-list">
+        <div class="item-row"><div class="item-emoji">🍷</div><div><h4>FLX Table</h4><p>One of the most celebrated dining experiences in the Finger Lakes — a chef's table concept showcasing hyperlocal, seasonal ingredients paired with Finger Lakes wines. A destination restaurant that draws visitors from across the region and beyond.</p></div></div>
+        <div class="item-row"><div class="item-emoji">🍸</div><div><h4>Vinifera Wine Bar & Bistro</h4><p>A gorgeous wine bar with a stunning mural of the Finger Lakes on the wall — locals rave about the atmosphere, the craft cocktails, and the Finger Lakes wine selection. One of the most distinctive spaces in the city.</p></div></div>
+        <div class="item-row"><div class="item-emoji">🐘</div><div><h4>The Elephant — Thai Kitchen</h4><p>A beloved local Thai restaurant drawing consistent praise for its authentic, flavorful dishes — one of the most popular spots in Geneva for a casual weeknight dinner.</p></div></div>
+        <div class="item-row"><div class="item-emoji">🍕</div><div><h4>Torrey Park Restaurant</h4><p>Whipped ricotta with focaccia, chicken parm, gnocchi, and vodka pizzas — an Italian-inspired local favorite with a warm, neighborhood feel and consistently excellent food.</p></div></div>
+        <div class="item-row"><div class="item-emoji">🍺</div><div><h4>Twisted Rail Brewing</h4><p>A craft brewery in a historic theater building — the architecture alone is worth a visit, with a great beer selection and a relaxed taproom atmosphere that reflects Geneva's emerging creative scene.</p></div></div>
+        <div class="item-row"><div class="item-emoji">☕</div><div><h4>Kindred Fare</h4><p>A café and gathering spot that draws visitors from Syracuse and beyond — locals cite it as one of the better coffee and casual dining options in the city, with a warm, community-minded atmosphere.</p></div></div>
+      </div>
+    </section>
+
+    <!-- SHOPS -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">🛍️</div>
+        <h2>Shops & Local <em>Businesses</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <p class="prose">Linden Street is Geneva's most vibrant commercial block — a lively mix of wine bars, restaurants, and boutiques that comes alive during street events and warm-weather evenings. The broader downtown is a mix of established businesses and emerging new ones as the city continues its revitalization.</p>
+      <div class="three-col">
+        <div class="info-card"><div class="card-eyebrow">Wine</div><h3>Microclimate Wine Bar</h3><p>A knowledgeable, intimate wine bar with a strong focus on Finger Lakes producers — the owner's expertise and hospitality make it a standout stop on any Geneva visit.</p></div>
+        <div class="info-card"><div class="card-eyebrow">History</div><h3>Rose Hill Mansion</h3><p>A stunning 1839 Greek Revival estate managed by the Geneva Historical Society — one of the finest examples of the style in the Northeast, with beautifully restored interiors and original furnishings.</p></div>
+        <div class="info-card"><div class="card-eyebrow">Orchards</div><h3>Red Jacket Orchards</h3><p>World-class apple orchards and farm stand just outside the city — fresh-picked fruit, exceptional cider, and juices distributed across the Northeast. A Finger Lakes institution.</p></div>
+        <div class="info-card"><div class="card-eyebrow">Performing Arts</div><h3>Smith Opera House</h3><p>A performing arts anchor since 1894 — live music, theater, film, and community events in one of the most beautiful historic venues in the Finger Lakes.</p></div>
+        <div class="info-card"><div class="card-eyebrow">Finger Lakes Gateway</h3><h3>Finger Lakes Welcome Center</h3><p>Located in Geneva — the official welcome center for the entire Finger Lakes region, offering maps, guides, and visitor information for the full region.</p></div>
+        <div class="info-card"><div class="card-eyebrow">Groceries</div><h3>Wegmans & P&C Fresh</h3><p>Full grocery options are accessible in and around Geneva — including Wegmans in nearby Canandaigua (20 minutes) and local options in the city itself.</p></div>
+      </div>
+    </section>
+
+    <!-- OUTDOOR -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">🏞️</div>
+        <h2>Outdoor & <em>Recreation</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="item-list">
+        <div class="item-row"><div class="item-emoji">⛵</div><div><h4>Seneca Lake State Park</h4><p>Right at the city's edge — swimming, hiking, biking, boating, and picnicking at a full-service state park with a sprayground, disc golf course, and two marinas. One of the most accessible state parks in the Finger Lakes region, and a daily asset for Geneva residents.</p></div></div>
+        <div class="item-row"><div class="item-emoji">🍷</div><div><h4>Seneca Lake Wine Trail</h4><p>Geneva is the northern gateway to the Seneca Lake Wine Trail — home to more wineries than any other trail in New York State. Dozens of producers within a short drive along both shores of the deepest Finger Lake.</p></div></div>
+        <div class="item-row"><div class="item-emoji">🥾</div><div><h4>Kashong Conservation Area</h4><p>83 acres of nature trails just outside the city — ideal for hiking, cross-country skiing, snowshoeing, and dog walking year-round. A quiet natural escape within easy reach of downtown.</p></div></div>
+        <div class="item-row"><div class="item-emoji">🚴</div><div><h4>US Route 20 Corridor — Access to All Finger Lakes</h4><p>Geneva sits on US Route 20, the east-west highway that connects all the Finger Lakes communities. From Geneva, every other Finger Lake is accessible for day trips — Canandaigua to the west, Seneca Falls and Cayuga Lake to the east.</p></div></div>
+        <div class="item-row"><div class="item-emoji">🏊</div><div><h4>Musselman Triathlon</h4><p>One of the most acclaimed small triathlons in the country — swim, bike, and run across Geneva's lakefront and surrounding countryside each July. Called the "Best Small Event" by Triathlon Business International and a source of local pride.</p></div></div>
+        <div class="item-row"><div class="item-emoji">🎣</div><div><h4>Seneca Lake Fishing</h4><p>Seneca Lake is one of the premier lake trout and landlocked salmon fisheries in the eastern US — world-class cold-water fishing right from the Geneva waterfront or from charter boats that operate throughout the season.</p></div></div>
+      </div>
+    </section>
+
+    <!-- NEARBY -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">📍</div>
+        <h2>What's <em>Nearby</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="three-col">
+        <div class="info-card"><div class="card-eyebrow">1 hour west via I-90</div><h3>Rochester</h3><p>New York's third-largest city — Greater Rochester International Airport, University of Rochester Medical Center, major employers, and a strong arts and food scene.</p></div>
+        <div class="info-card"><div class="card-eyebrow">1 hour east via I-90</div><h3>Syracuse</h3><p>Central New York's largest city — Upstate University Hospital, Destiny USA, SU sports, and a growing downtown for major urban amenities.</p></div>
+        <div class="info-card"><div class="card-eyebrow">20 minutes west</div><h3>Canandaigua</h3><p>A larger Finger Lakes city with Wegmans, Bristol Mountain skiing, Sonnenberg Gardens, and a revitalized Main Street — the nearest full-service hub west of Geneva.</p></div>
+        <div class="info-card"><div class="card-eyebrow">20 minutes east</div><h3>Seneca Falls</h3><p>Birthplace of the women's rights movement — the Women's Rights National Historical Park and access to the Cayuga Lake Wine Trail.</p></div>
+        <div class="info-card"><div class="card-eyebrow">50 minutes south</div><h3>Watkins Glen</h3><p>The gorge, the racetrack, and the southern end of the Seneca Lake Wine Trail — a scenic drive down either shore of Seneca Lake.</p></div>
+        <div class="info-card"><div class="card-eyebrow">1 hour southeast</div><h3>Ithaca</h3><p>Cornell University, waterfalls, gorges, and the Ithaca Farmers Market — a full day trip through the heart of the Finger Lakes.</p></div>
+      </div>
+    </section>
+
+    <!-- SCHOOLS -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">🎓</div>
+        <h2>Schools</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="school-card">
+        <div class="school-grade">B</div>
+        <div class="school-info">
+          <h3>Geneva City School District</h3>
+          <p>The Geneva City School District earns a B rating from Niche — above average for New York State, with schools that serve a diverse student population. The district is not the primary draw for families relocating to the area, but it is solid and improving. Families prioritizing top-rated schools may also want to explore neighboring districts in Ontario County.</p>
+          <div class="school-badges">
+            <span class="school-badge">B Rated Overall</span>
+            <span class="school-badge">Above Average NY State</span>
+            <span class="school-badge">Diverse Community</span>
+            <span class="school-badge">HWS Colleges Nearby</span>
+          </div>
+        </div>
+      </div>
+      <div class="school-card" style="margin-top:16px;">
+        <div class="school-grade">🎓</div>
+        <div class="school-info">
+          <h3>Hobart and William Smith Colleges</h3>
+          <p>Two nationally respected coordinate liberal arts colleges sharing a single campus overlooking Seneca Lake — with over 70 academic programs, a vibrant arts scene through the Smith Center for the Arts, and a student body that enriches Geneva's cultural life year-round. HWS traces its origins to 1797 and remains the city's most significant institution.</p>
+          <div class="school-badges">
+            <span class="school-badge">National Liberal Arts Ranking</span>
+            <span class="school-badge">70+ Programs</span>
+            <span class="school-badge">Est. 1797</span>
+            <span class="school-badge">Lakeside Campus</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REAL ESTATE -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">🏠</div>
+        <h2>Real Estate <em>Overview</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <p class="prose">Geneva offers some of the most compelling real estate value in the Finger Lakes region. <strong>The median sale price is approximately $220,000</strong> — a fraction of Skaneateles or Ithaca — with a cost of living 18.4% below the US average. The historic housing stock along South Main Street and surrounding neighborhoods includes Federal, Greek Revival, Italianate, and Victorian homes in various states of restoration. For buyers with an eye for historic architecture and a tolerance for a city in transition, Geneva represents genuine opportunity.</p>
+
+      <div class="pricing-links-block">
+        <div class="pricing-links-label">Current Pricing — Live Data</div>
+        <p class="pricing-links-note">Check these sources for the most current Geneva market data:</p>
+        <div class="pricing-links">
+          <a href="https://www.redfin.com/city/7580/NY/Geneva/housing-market" target="_blank" rel="noopener" class="pricing-link">
+            <span class="pricing-link-name">Redfin</span>
+            <span class="pricing-link-desc">Median sale price, days on market, price per sq ft</span>
+            <span class="pricing-link-arrow">↗</span>
+          </a>
+          <a href="https://www.zillow.com/geneva-ny/home-values/" target="_blank" rel="noopener" class="pricing-link">
+            <span class="pricing-link-name">Zillow</span>
+            <span class="pricing-link-desc">Zillow Home Value Index & market trends</span>
+            <span class="pricing-link-arrow">↗</span>
+          </a>
+          <a href="https://www.realtor.com/realestateandhomes-search/Geneva_NY/overview" target="_blank" rel="noopener" class="pricing-link">
+            <span class="pricing-link-name">Realtor.com</span>
+            <span class="pricing-link-desc">Listing prices, market hotness, inventory</span>
+            <span class="pricing-link-arrow">↗</span>
+          </a>
+        </div>
+        <p class="pricing-disclaimer">Real estate data varies by source and changes over time. Always verify current pricing with a licensed local Realtor.</p>
+      </div>
+
+      <div class="two-col">
+        <div class="info-card"><div class="card-eyebrow">City Homes</div><h3>Most Affordable in the Finger Lakes</h3><p>Historic Victorians, Federals, and Colonials at price points well below any comparable Finger Lakes lake city. Geneva's affordability is its most compelling differentiator for budget-conscious buyers.</p></div>
+        <div class="info-card"><div class="card-eyebrow">Lakefront & Resort</div><h3>Premium Properties Available</h3><p>Belhurst Castle and Geneva On The Lake represent the premium end — luxury resort-adjacent properties and lakefront homes command significant premiums over the city average.</p></div>
+      </div>
+    </section>
+
+    <!-- REALTOR SPOTLIGHT -->
+    <div class="realtor-section fade-in">
+      <span class="eyebrow">Realtor Spotlight</span>
+      <h2>Know Geneva?<br />Your Clients Are Looking.</h2>
+      <p>Buyers matched to Geneva on Located Lifestyle are searching for a local expert who understands the historic housing stock, the college market, and the incredible value this city offers. Be the Realtor they find.</p>
+      <div class="placeholder-cards">
+        <div class="placeholder-card"><div class="placeholder-avatar">🏡</div><div class="ph-title">Open Spot</div><div class="ph-sub">Geneva community specialist</div></div>
+        <div class="placeholder-card"><div class="placeholder-avatar">🏡</div><div class="ph-title">Open Spot</div><div class="ph-sub">Geneva community specialist</div></div>
+        <div class="placeholder-card"><div class="placeholder-avatar">🏡</div><div class="ph-title">Open Spot</div><div class="ph-sub">Geneva community specialist</div></div>
+      </div>
+      <div class="price-inline"><span class="amount">$19</span><span class="period">/month</span></div><br />
+      <a href="https://locatedlifestyle.com/join" class="btn-light">List Yourself as a Geneva Specialist</a>
+      <p class="founding-note">Founding Member rate — grandfathered when prices increase to $29/month</p>
+    </div>
+
+    <!-- SOURCES -->
+    <div class="sources-section fade-in">
+      <h3>Sources</h3>
+      <div class="sources-list">
+        <a href="https://www.visitfingerlakes.com/plan-your-trip/ontario-county-ny/geneva/" target="_blank" rel="noopener">Visit Finger Lakes — Geneva Guide</a>
+        <a href="https://www.homes.com/local-guide/geneva-ny/" target="_blank" rel="noopener">Homes.com — Geneva City Guide</a>
+        <a href="https://www.niche.com/places-to-live/geneva-ontario-ny/" target="_blank" rel="noopener">Niche — Geneva Rankings & Schools</a>
+        <a href="https://discoverupstateny.com/geneva/" target="_blank" rel="noopener">Discover Upstate NY — Geneva</a>
+        <a href="https://www.fingerlakes.org/explore-the-finger-lakes-region" target="_blank" rel="noopener">Finger Lakes Tourism Alliance — Explore the Region</a>
+        <a href="https://www.hws.edu" target="_blank" rel="noopener">Hobart and William Smith Colleges</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="bottom-nav">
+    <p>Continue exploring the Finger Lakes</p>
+    <div class="bottom-nav-links">
+      <a href="/">← Back to All Communities</a>
+      <a href="watkins-glen.html">← Watkins Glen</a>
+      <a href="canandaigua.html">← Canandaigua</a>
+      <a href="#">Seneca Falls →</a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-brand">Located <span>Lifestyle</span></div>
+    <div class="footer-copy">© 2026 Located Lifestyle · communities.locatedlifestyle.com · New York State Community Directory</div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 75);
+      });
+    }, { threshold: 0.06, rootMargin: '0px 0px -30px 0px' });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
