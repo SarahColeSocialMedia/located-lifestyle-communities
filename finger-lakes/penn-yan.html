@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Penn Yan, NY — Finger Lakes Community Guide | Located Lifestyle</title>
+  <meta name="description" content="Everything you need to know about living in Penn Yan, NY — Keuka Lake, wine trails, Mennonite farm culture, Main Street charm, and one of the Finger Lakes' most authentic small towns." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream:      #f6f3ec;
+      --cream-dark: #ece4da;
+      --taupe:      #b9a590;
+      --taupe-dark: #9a8470;
+      --brown:      #574c3f;
+      --brown-dark: #36302a;
+      --text:       #36302a;
+      --text-mid:   #574c3f;
+      --text-muted: #9a8470;
+      --border:     rgba(87,76,63,0.12);
+      --border-med: rgba(87,76,63,0.2);
+      --card-bg:    #ffffff;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--text); overflow-x: hidden; }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 52px;
+      background: rgba(246,243,236,0.95); backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-brand { text-decoration: none; display: flex; flex-direction: column; gap: 1px; }
+    .nav-brand .sub { font-size: 9px; letter-spacing: 3.5px; text-transform: uppercase; color: var(--taupe); font-weight: 500; }
+    .nav-brand .name { font-family: 'Cormorant Garamond', serif; font-size: 20px; color: var(--brown-dark); font-weight: 600; }
+    .nav-right { display: flex; gap: 24px; align-items: center; }
+    .nav-back { font-size: 13px; color: var(--text-muted); text-decoration: none; transition: color 0.2s; display: flex; align-items: center; gap: 6px; }
+    .nav-back:hover { color: var(--brown); }
+    .nav-cta { background: var(--brown-dark); color: var(--cream); font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; padding: 10px 22px; border-radius: 2px; text-decoration: none; transition: background 0.2s; }
+    .nav-cta:hover { background: var(--brown); }
+
+    /* ── HERO — warm vineyard green-gold ── */
+    .hero {
+      min-height: 68vh; position: relative; overflow: hidden;
+      display: flex; flex-direction: column; align-items: center; justify-content: flex-end;
+      padding: 120px 24px 64px; text-align: center;
+      background: linear-gradient(180deg, #1e2a18 0%, #2a3820 30%, #364630 55%, #425240 100%);
+    }
+    .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 80% 55% at 50% 65%, rgba(100,130,70,0.25) 0%, transparent 65%); }
+    .hero-lake { position: absolute; bottom: 0; left: 0; right: 0; height: 35%; background: linear-gradient(180deg, transparent 0%, rgba(50,80,110,0.2) 50%, rgba(30,60,90,0.35) 100%); clip-path: ellipse(120% 100% at 50% 100%); }
+    .hero-content { position: relative; z-index: 2; max-width: 780px; }
+
+    .hero-breadcrumb { display: flex; align-items: center; gap: 8px; justify-content: center; margin-bottom: 20px; font-size: 11px; letter-spacing: 1px; color: rgba(246,243,236,0.5); }
+    .hero-breadcrumb a { color: rgba(246,243,236,0.5); text-decoration: none; transition: color 0.2s; }
+    .hero-breadcrumb a:hover { color: var(--cream); }
+    .hero-breadcrumb span { opacity: 0.35; }
+    .hero-eyebrow { font-size: 10px; letter-spacing: 3.5px; text-transform: uppercase; color: rgba(246,243,236,0.6); margin-bottom: 14px; display: block; }
+    .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(52px, 10vw, 108px); font-weight: 600; line-height: 0.95; color: var(--cream); margin-bottom: 12px; letter-spacing: -2px; }
+    .hero-tagline { font-family: 'Cormorant Garamond', serif; font-size: clamp(16px, 2.5vw, 22px); font-style: italic; color: rgba(246,243,236,0.72); margin-bottom: 28px; font-weight: 400; }
+    .hero-meta { display: flex; gap: 28px; justify-content: center; flex-wrap: wrap; margin-bottom: 32px; }
+    .meta-item { font-size: 12px; color: rgba(246,243,236,0.55); display: flex; align-items: center; gap: 7px; }
+    .meta-dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(246,243,236,0.35); }
+    .hero-badges { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+    .badge { padding: 5px 13px; border-radius: 100px; font-size: 10px; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; }
+    .badge-water { background: rgba(255,255,255,0.15); color: var(--cream); border: 1px solid rgba(255,255,255,0.28); backdrop-filter: blur(4px); }
+    .badge-warm { background: rgba(255,255,255,0.1); color: rgba(246,243,236,0.82); border: 1px solid rgba(255,255,255,0.18); }
+
+    .stats-bar { background: var(--brown-dark); }
+    .stats-bar-inner { max-width: 960px; margin: 0 auto; display: flex; justify-content: space-around; padding: 28px 24px; flex-wrap: wrap; gap: 20px; }
+    .stat-item { text-align: center; }
+    .stat-value { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 600; color: var(--taupe); display: block; line-height: 1.1; }
+    .stat-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: rgba(246,243,236,0.42); margin-top: 4px; }
+
+    .content-wrap { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+    .section { padding: 72px 0 0; }
+    .section-header { display: flex; align-items: center; gap: 20px; margin-bottom: 32px; }
+    .section-icon { width: 44px; height: 44px; border-radius: 2px; background: var(--cream-dark); border: 1px solid var(--border-med); display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+    .section-header h2 { font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 600; color: var(--brown-dark); letter-spacing: -0.3px; }
+    .section-header h2 em { font-style: italic; color: var(--taupe-dark); }
+    .section-line { flex: 1; height: 1px; background: var(--border); }
+
+    .prose { font-size: 15px; line-height: 1.85; color: var(--text-muted); font-weight: 300; margin-bottom: 22px; }
+    .prose strong { color: var(--brown); font-weight: 500; }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .three-col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .info-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 4px; padding: 22px; }
+    .info-card h3 { font-size: 14px; font-weight: 600; color: var(--brown-dark); margin-bottom: 8px; }
+    .info-card p { font-size: 13px; line-height: 1.7; color: var(--text-muted); font-weight: 300; }
+    .info-card .card-eyebrow { font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--taupe); margin-bottom: 7px; }
+    .pull-quote { border-left: 2px solid var(--taupe); padding: 18px 26px; margin: 32px 0; background: var(--cream-dark); border-radius: 0 4px 4px 0; }
+    .pull-quote p { font-family: 'Cormorant Garamond', serif; font-size: 19px; font-style: italic; color: var(--brown); line-height: 1.6; }
+    .item-list { display: flex; flex-direction: column; gap: 1px; }
+    .item-row { display: flex; align-items: flex-start; gap: 16px; padding: 20px 0; border-bottom: 1px solid var(--border); }
+    .item-row:first-child { border-top: 1px solid var(--border); }
+    .item-emoji { font-size: 20px; flex-shrink: 0; margin-top: 1px; width: 28px; }
+    .item-row h4 { font-size: 14px; font-weight: 600; color: var(--brown-dark); margin-bottom: 5px; }
+    .item-row p { font-size: 13px; color: var(--text-muted); line-height: 1.65; font-weight: 300; }
+    .item-link { color: var(--brown-dark); border-bottom: 1px solid var(--border-med); text-decoration: none; transition: border-color 0.2s; }
+    .item-link:hover { border-color: var(--brown); }
+
+    .fun-fact { background: var(--cream-dark); border: 1px solid var(--border-med); border-radius: 4px; padding: 22px; margin: 32px 0; display: flex; gap: 16px; align-items: flex-start; }
+    .fun-fact-icon { font-size: 28px; flex-shrink: 0; }
+    .fun-fact h4 { font-size: 13px; font-weight: 600; color: var(--brown); margin-bottom: 6px; letter-spacing: 0.3px; }
+    .fun-fact p { font-size: 13px; color: var(--text-muted); line-height: 1.65; font-weight: 300; }
+
+    .pricing-links-block { background: var(--card-bg); border: 1px solid var(--border-med); border-radius: 4px; padding: 28px; margin-bottom: 24px; }
+    .pricing-links-label { font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--taupe); margin-bottom: 8px; }
+    .pricing-links-note { font-size: 13px; color: var(--text-muted); margin-bottom: 20px; line-height: 1.6; font-weight: 300; }
+    .pricing-links { display: flex; flex-direction: column; gap: 1px; }
+    .pricing-link { display: flex; align-items: center; gap: 16px; padding: 14px 16px; border-radius: 3px; background: var(--cream); border: 1px solid var(--border); text-decoration: none; transition: all 0.2s; }
+    .pricing-link:hover { border-color: var(--brown); background: var(--cream-dark); }
+    .pricing-link-name { font-size: 14px; font-weight: 600; color: var(--brown-dark); min-width: 100px; }
+    .pricing-link-desc { font-size: 12px; color: var(--text-muted); flex: 1; font-weight: 300; }
+    .pricing-link-arrow { font-size: 14px; color: var(--taupe); transition: color 0.2s; }
+    .pricing-link:hover .pricing-link-arrow { color: var(--brown); }
+    .pricing-disclaimer { font-size: 11px; color: var(--text-muted); margin-top: 14px; opacity: 0.7; line-height: 1.5; font-style: italic; }
+
+    .school-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 4px; padding: 24px; display: flex; align-items: flex-start; gap: 20px; }
+    .school-grade { width: 52px; height: 52px; border-radius: 4px; background: var(--cream-dark); border: 1px solid var(--border-med); display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 700; color: var(--brown); flex-shrink: 0; }
+    .school-info h3 { font-size: 15px; font-weight: 600; color: var(--brown-dark); margin-bottom: 7px; }
+    .school-info p { font-size: 13px; color: var(--text-muted); line-height: 1.65; font-weight: 300; }
+    .school-badges { display: flex; gap: 7px; flex-wrap: wrap; margin-top: 12px; }
+    .school-badge { padding: 3px 10px; border-radius: 100px; font-size: 11px; background: var(--cream-dark); color: var(--brown); border: 1px solid var(--border-med); }
+
+    .realtor-section { margin-top: 72px; background: var(--brown-dark); border-radius: 4px; padding: 52px; text-align: center; }
+    .realtor-section .eyebrow { font-size: 10px; letter-spacing: 3.5px; text-transform: uppercase; color: var(--taupe); margin-bottom: 18px; display: block; }
+    .realtor-section h2 { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 600; color: var(--cream); line-height: 1.15; margin-bottom: 14px; }
+    .realtor-section p { font-size: 15px; color: rgba(246,243,236,0.55); line-height: 1.75; margin-bottom: 14px; font-weight: 300; max-width: 500px; margin-left: auto; margin-right: auto; }
+    .placeholder-cards { display: flex; gap: 16px; justify-content: center; margin: 32px 0; flex-wrap: wrap; }
+    .placeholder-card { width: 200px; border: 1px dashed rgba(185,165,144,0.3); border-radius: 4px; padding: 24px 16px; text-align: center; background: rgba(255,255,255,0.04); }
+    .placeholder-avatar { width: 52px; height: 52px; border-radius: 50%; background: rgba(185,165,144,0.12); border: 1px dashed rgba(185,165,144,0.3); margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; font-size: 20px; }
+    .placeholder-card .ph-title { font-size: 13px; font-weight: 500; color: rgba(246,243,236,0.5); margin-bottom: 5px; }
+    .placeholder-card .ph-sub { font-size: 11px; color: rgba(246,243,236,0.3); line-height: 1.5; }
+    .price-inline { display: inline-flex; align-items: baseline; gap: 4px; margin: 18px 0 26px; }
+    .price-inline .amount { font-family: 'Cormorant Garamond', serif; font-size: 48px; font-weight: 600; color: var(--taupe); }
+    .price-inline .period { font-size: 16px; color: rgba(246,243,236,0.4); }
+    .btn-light { background: var(--cream); color: var(--brown-dark); padding: 14px 32px; border-radius: 2px; font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; transition: all 0.2s; display: inline-block; }
+    .btn-light:hover { background: var(--cream-dark); transform: translateY(-2px); }
+    .founding-note { font-size: 12px; color: var(--taupe); margin-top: 14px; opacity: 0.8; }
+
+    .sources-section { margin-top: 64px; padding: 32px 0 80px; border-top: 1px solid var(--border); }
+    .sources-section h3 { font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 14px; }
+    .sources-list { display: flex; flex-direction: column; gap: 7px; }
+    .sources-list a { font-size: 12px; color: var(--text-muted); text-decoration: none; opacity: 0.6; transition: opacity 0.2s; display: flex; align-items: center; gap: 6px; }
+    .sources-list a:hover { opacity: 1; color: var(--brown); }
+    .sources-list a::before { content: '↗'; font-size: 10px; }
+
+    .bottom-nav { border-top: 1px solid var(--border); padding: 48px 24px; text-align: center; background: var(--cream-dark); }
+    .bottom-nav p { font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 20px; }
+    .bottom-nav-links { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .bottom-nav-links a { padding: 10px 22px; border-radius: 2px; border: 1px solid var(--border-med); font-size: 13px; color: var(--text-muted); text-decoration: none; transition: all 0.2s; }
+    .bottom-nav-links a:hover { border-color: var(--brown); color: var(--brown); background: rgba(87,76,63,0.05); }
+
+    footer { border-top: 1px solid var(--border); padding: 36px 24px; text-align: center; background: var(--cream); }
+    .footer-brand { font-family: 'Cormorant Garamond', serif; font-size: 20px; color: var(--brown-dark); margin-bottom: 6px; font-weight: 600; }
+    .footer-brand span { color: var(--taupe-dark); font-style: italic; }
+    .footer-copy { font-size: 11px; color: var(--text-muted); opacity: 0.5; }
+
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 768px) {
+      nav { padding: 14px 20px; }
+      .two-col, .three-col { grid-template-columns: 1fr; }
+      .stats-bar-inner { gap: 20px; }
+      .placeholder-cards { flex-direction: column; align-items: center; }
+      .realtor-section { padding: 32px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/" class="nav-brand">
+      <span class="sub">communities</span>
+      <span class="name">Located Lifestyle</span>
+    </a>
+    <div class="nav-right">
+      <a href="/" class="nav-back">← <span>Explore New York</span></a>
+      <a href="https://locatedlifestyle.com/join" class="nav-cta">Join as a Realtor</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-lake"></div>
+    <div class="hero-content">
+      <div class="hero-breadcrumb">
+        <a href="/">Communities</a><span>/</span>
+        <a href="/">Finger Lakes</a><span>/</span>
+        Penn Yan
+      </div>
+      <span class="hero-eyebrow">Yates County · Finger Lakes</span>
+      <h1>Penn Yan</h1>
+      <div class="hero-tagline">The true heart of wine country — where farm culture runs deep.</div>
+      <div class="hero-meta">
+        <span class="meta-item">Village</span>
+        <span class="meta-dot"></span>
+        <span class="meta-item">Pop. ~4,900</span>
+        <span class="meta-dot"></span>
+        <span class="meta-item">Yates County Seat</span>
+        <span class="meta-dot"></span>
+        <span class="meta-item">Access to 3 Finger Lakes</span>
+      </div>
+      <div class="hero-badges">
+        <span class="badge badge-water">💧 Keuka Lake</span>
+        <span class="badge badge-warm">🍷 Keuka Wine Trail</span>
+        <span class="badge badge-warm">🌾 Mennonite Farm Culture</span>
+        <span class="badge badge-warm">🏆 Top 100 Small Towns</span>
+        <span class="badge badge-warm">🚴 Keuka Outlet Trail</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS BAR -->
+  <div class="stats-bar">
+    <div class="stats-bar-inner">
+      <div class="stat-item"><span class="stat-value">See Below</span><div class="stat-label">Current Pricing ↓</div></div>
+      <div class="stat-item"><span class="stat-value">~4,900</span><div class="stat-label">Population</div></div>
+      <div class="stat-item"><span class="stat-value">3</span><div class="stat-label">Lakes Within Reach</div></div>
+      <div class="stat-item"><span class="stat-value">250+</span><div class="stat-label">Windmill Vendors</div></div>
+      <div class="stat-item"><span class="stat-value">6.8 mi</span><div class="stat-label">Keuka Outlet Trail</div></div>
+    </div>
+  </div>
+
+  <div class="content-wrap">
+
+    <!-- OVERVIEW -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">🏘️</div>
+        <h2>Overview & <em>Character</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <p class="prose">Penn Yan — named for its founding <strong>Pennsylvania and Yankee settlers</strong> — sits at the northern tip of Keuka Lake's east branch and serves as the county seat of Yates County, one of the most rural and scenically beautiful counties in New York State. It is, by multiple accounts, the geographic and spiritual <strong>heart of the Finger Lakes wine country</strong> — positioned at the center of the region, with easy access to Keuka, Seneca, and Canandaigua Lakes from a single base.</p>
+      <p class="prose">What makes Penn Yan genuinely distinctive is the cultural layer that runs beneath the wine trail: a <strong>thriving Mennonite farming community</strong> that shapes the local food culture, the Saturday market, and the agricultural character of the surrounding countryside. Horse-drawn buggies share the roads with vineyard tractors. The Windmill Farm & Craft Market draws 8,000–10,000 visitors each Saturday with handmade quilts, farm-fresh produce, Mennonite baked goods, and artisan crafts unlike anything else in the Finger Lakes.</p>
+      <div class="pull-quote">
+        <p>"In a small town like ours, you'll get to know your local café owner, baker, butcher, and hardware store employees."</p>
+      </div>
+      <p class="prose">Recognized by both <strong>"The 100 Best Small Towns In America"</strong> and <strong>"The Nationwide Guide to The Best Small Town Living"</strong>, Penn Yan is the kind of place that rewards buyers looking for authentic community life over manufactured charm. The Main Street is genuinely alive with independent businesses. The lake is walkable from downtown. And the wine trails start at the doorstep.</p>
+
+      <div class="fun-fact">
+        <div class="fun-fact-icon">🍷</div>
+        <div>
+          <h4>Where New York Wine Began</h4>
+          <p>Keuka Lake — the Y-shaped lake at Penn Yan's doorstep — is where New York State's wine industry was born. <strong>Dr. Konstantin Frank</strong>, whose winery sits on Keuka's shores, pioneered the growing of European vinifera grapes in the cold Finger Lakes climate in the 1950s and 1960s, launching what became one of America's great wine regions. Penn Yan is the gateway to that legacy — within easy reach of Dr. Frank's, Heron Hill, Hunt Country, and the rest of the historic Keuka Lake Wine Trail.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIBE -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">✨</div>
+        <h2>The <em>Vibe</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="two-col">
+        <div class="info-card">
+          <div class="card-eyebrow">Pace of Life</div>
+          <h3>Authentic, Agricultural & Unhurried</h3>
+          <p>Penn Yan moves at the pace of the farming calendar and the lake season. It's genuinely unpretentious — a working county seat with a working main street, where the weekend market draws everyone from Mennonite farmers to wine country visitors. Life here is about the outdoors, the community, and the extraordinary food and wine culture that grows from the land.</p>
+        </div>
+        <div class="info-card">
+          <div class="card-eyebrow">Who Lives Here</div>
+          <h3>Farmers, Locals & Keuka Lake Enthusiasts</h3>
+          <p>A mix of longtime Yates County families, winery workers and hospitality staff, Keuka College students and faculty, and a growing number of remote workers and retirees drawn by affordability and access to three lakes. The Mennonite community adds a distinctive cultural texture that makes Penn Yan unlike any other Finger Lakes town.</p>
+        </div>
+        <div class="info-card">
+          <div class="card-eyebrow">The Mennonite Presence</div>
+          <h3>A Cultural Layer Unlike Any Other</h3>
+          <p>The surrounding Yates County countryside has a significant Mennonite population — and their presence shapes Penn Yan in tangible ways. The Saturday Windmill Market, the bulk food stores, the farm stands along Route 14A, and the handmade goods available throughout the area reflect a community that values craft, agriculture, and tradition. It's a remarkable and enriching cultural layer for a small Finger Lakes town.</p>
+        </div>
+        <div class="info-card">
+          <div class="card-eyebrow">Practical Note</div>
+          <h3>Small Town with Honest Limitations</h3>
+          <p>Penn Yan is a genuine small town — daily amenity options reflect that reality. There's no Wegmans in town; Geneva (30 minutes north) or Canandaigua (30 minutes west) are the nearest larger shopping hubs. For buyers who want big-city amenities, Penn Yan will feel limited. For buyers who want authentic small-town life with extraordinary outdoor access, it's close to perfect.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- KNOWN FOR -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">🏛️</div>
+        <h2>What It's <em>Known For</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="item-list">
+        <div class="item-row">
+          <div class="item-emoji">🌀</div>
+          <div>
+            <h4>Keuka Lake — The Y-Shaped Wonder</h4>
+            <p>Keuka Lake is unique among the Finger Lakes in two remarkable ways: it is the only <strong>Y-shaped lake</strong> in the world of its kind, and the only Finger Lake that drains into another Finger Lake (Seneca Lake at Dresden). The bluff point between the two branches of the Y rises over 800 feet above lake level — one of the most dramatic natural features in the entire region. <strong>Keuka is also the warmest of the major Finger Lakes</strong>, making it exceptional for swimming, paddleboarding, and summer boating.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-emoji">🎪</div>
+          <div>
+            <h4>The Windmill Farm & Craft Market</h4>
+            <p>The <a href="https://thewindmill.com" target="_blank" rel="noopener" class="item-link">Windmill Farm & Craft Market</a> is the oldest farm and craft market in upstate New York — running every Saturday from late April through December with over 250 vendors selling Mennonite handcrafts, farm-fresh produce, quilts, prepared foods, antiques, and unique gifts. Weekly attendance of 8,000–10,000 people. A destination market that draws visitors from across the Northeast and a beloved anchor of Penn Yan community life.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-emoji">🍷</div>
+          <div>
+            <h4>Keuka Lake Wine Trail — Birthplace of NY Wine</h4>
+            <p>The <a href="https://www.keukawinetrail.com" target="_blank" rel="noopener" class="item-link">Keuka Lake Wine Trail</a> is one of the most celebrated in New York State — home to legendary producers including <strong>Dr. Konstantin Frank</strong> (where the vinifera revolution began), Heron Hill, Hunt Country Vineyards, McGregor Vineyard, and Keuka Spring. The trail's 30-mile length makes it easily completed in a day with Penn Yan as a base.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-emoji">🚴</div>
+          <div>
+            <h4>Keuka Lake Outlet Trail</h4>
+            <p>A 6.8-mile multi-use trail following the historic Keuka Outlet — the stream and abandoned railroad connecting Keuka Lake to Seneca Lake. Hike, bike, or run through forests, past waterfalls including the three-tiered Seneca Mills Falls, and over ruins of the old abandoned town of Hopeton. One of the most scenic and accessible trails in the Finger Lakes, starting right in Penn Yan.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-emoji">🎓</div>
+          <div>
+            <h4>Keuka College</h4>
+            <p><a href="https://www.keuka.edu" target="_blank" rel="noopener" class="item-link">Keuka College</a> is an independent four-year liberal arts college right in Penn Yan, with a beautiful lakefront campus that provides meeting facilities year-round and waterfront access for water sports. The college adds an intellectual and cultural energy to the village that extends well beyond its student enrollment.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-emoji">🏆</div>
+          <div>
+            <h4>Named One of America's 100 Best Small Towns</h4>
+            <p>Penn Yan has been recognized by both <em>The 100 Best Small Towns In America</em> and <em>The Nationwide Guide to The Best Small Town Living</em> as an outstanding community — a national acknowledgment of the quality of life, community character, and natural setting that residents already know firsthand.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESTAURANTS -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">🍽️</div>
+        <h2>Restaurants & <em>Dining</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <p class="prose">Main Street and the lakefront anchor Penn Yan's dining scene — a genuine mix of locally-owned spots, lakeside dining, craft cocktails, and farm-to-table options that reflect the agricultural character of the surrounding wine country. Hours change seasonally; always check ahead.</p>
+      <div class="item-list">
+        <div class="item-row"><div class="item-emoji">🍸</div><div><h4>18th Amendment</h4><p>Penn Yan's most upscale dining and cocktail experience — a welcoming, refined spot on Main Street that offers creative cocktails and elevated food in a relaxed atmosphere. The go-to for a special evening out without leaving the village.</p></div></div>
+        <div class="item-row"><div class="item-emoji">🏠</div><div><h4>Main Deck</h4><p>Right on the north end of Keuka Lake — expansive waterfront views from interior dining rooms, outdoor decks, and a basement patio bar. One of the best lake-view dining experiences in the Finger Lakes for casual lakeside meals and drinks.</p></div></div>
+        <div class="item-row"><div class="item-emoji">🍕</div><div><h4>Silverbird Woodfired</h4><p>A gastropub with wood-fired pizza and craft beer — casual, family-friendly, and one of the most popular everyday dining spots in Penn Yan. Consistently praised for its relaxed atmosphere and quality food.</p></div></div>
+        <div class="item-row"><div class="item-emoji">☕</div><div><h4>Amity Coffee</h4><p>The village's beloved independent coffee shop — pour-over, drip brew, lattes, and yogurt parfaits in a gorgeous downtown space. The kind of neighborhood café where regulars have their order memorized and visitors always want to come back.</p></div></div>
+        <div class="item-row"><div class="item-emoji">🍦</div><div><h4>Seneca Farms</h4><p>Legendary fried chicken and frozen custard — a seasonal Finger Lakes institution just outside Penn Yan that locals and visitors alike make special trips for. Closed late fall and winter; a rite of spring when it reopens.</p></div></div>
+        <div class="item-row"><div class="item-emoji">🧁</div><div><h4>Blue Heron Bakery</h4><p>Freshly baked goods right on Main Street — a morning stop beloved by locals for pastries, breads, and the kind of from-scratch baking that reflects Penn Yan's deep connection to food and craft.</p></div></div>
+      </div>
+    </section>
+
+    <!-- SHOPS -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">🛍️</div>
+        <h2>Shops & Local <em>Businesses</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <p class="prose">Main Street and Lake Street Plaza offer an authentic mix of independent shops, wine merchants, artisan studios, and specialty food stores. The Windmill Market on Saturdays extends the shopping experience dramatically — with 250+ vendors just a short drive from downtown.</p>
+      <div class="three-col">
+        <div class="info-card"><div class="card-eyebrow">Wine</div><h3>Folk Bottle</h3><p>A beautifully curated wine shop in Penn Yan offering a thoughtful selection of regional and international wines — one of the best spots to explore Finger Lakes producers beyond the tasting room experience.</p></div>
+        <div class="info-card"><div class="card-eyebrow">Candy</div><h3>Keuka Candy Emporium</h3><p>A beloved local sweet shop — a must-visit for candy lovers and families, with an old-fashioned candy store experience that fits perfectly with Penn Yan's genuine small-town character.</p></div>
+        <div class="info-card"><div class="card-eyebrow">Bulk Foods</div><h3>Oak Hill Bulk Foods</h3><p>A Mennonite-influenced bulk food store offering grains, dried goods, baked items, and specialty products at exceptional prices — a Penn Yan institution reflecting the Yates County agricultural community.</p></div>
+        <div class="info-card"><div class="card-eyebrow">Farm Market</div><h3>The Windmill Farm & Craft Market</h3><p>250+ vendors every Saturday — Mennonite crafts, farm-fresh produce, prepared foods, quilts, antiques, and gifts. The oldest farm market in upstate New York and a weekly community institution.</p></div>
+        <div class="info-card"><div class="card-eyebrow">History</div><h3>Oliver House Museum</h3><p>Built in 1852, this beautifully preserved Victorian home serves as the home of the Yates County Historical Society — with personal guided tours through period rooms and changing exhibits interpreting Yates County history.</p></div>
+        <div class="info-card"><div class="card-eyebrow">Mead</div><h3>Earle Estates Meadery</h3><p>A unique Finger Lakes producer specializing in mead — honey wine in many varieties and blends — with a tasting room overlooking Seneca Lake and surrounding farmlands. A distinctive stop beyond the standard wine trail.</p></div>
+      </div>
+    </section>
+
+    <!-- OUTDOOR -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">🏞️</div>
+        <h2>Outdoor & <em>Recreation</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="item-list">
+        <div class="item-row"><div class="item-emoji">⛵</div><div><h4>Keuka Lake — The Warmest Finger Lake</h4><p>The warmest of the major Finger Lakes — ideal for swimming, paddleboarding, kayaking, and boating. Red Jacket Park in Penn Yan offers a sandy beach, playground, and free swimming access. The Morgan Marina and Penn Yan Village Boat Launch provide easy water access. Rent jet skis, pontoon boats, and paddleboards through local outfitters.</p></div></div>
+        <div class="item-row"><div class="item-emoji">🚴</div><div><h4>Keuka Lake Outlet Trail</h4><p>A 6.8-mile trail from Penn Yan following the historic Keuka Outlet to Seneca Lake — passing waterfalls, forested ravines, and remnants of 19th-century industry. Flat enough for all fitness levels, stunning in every season. Bicycle rentals available at the trailhead in Penn Yan.</p></div></div>
+        <div class="item-row"><div class="item-emoji">🥾</div><div><h4>Bluff Point Trail</h4><p>The peninsula between Keuka Lake's two branches rises to over 800 feet — and the Bluff Point Trail rewards hikers with some of the most dramatic lake views in the Finger Lakes. A beloved local hike with sweeping panoramas of both branches of the Y-shaped lake.</p></div></div>
+        <div class="item-row"><div class="item-emoji">🍷</div><div><h4>Keuka Lake Wine Trail</h4><p>Eight world-class wineries along the shores of Keuka Lake — including Dr. Konstantin Frank's legendary estate where the NY wine industry began. The trail's compact 30-mile loop makes it ideal for a single-day exploration with Penn Yan as the hub.</p></div></div>
+        <div class="item-row"><div class="item-emoji">🚵</div><div><h4>Keuka Lake Gravel Classic</h4><p>An annual cycling event based in Penn Yan — hundreds of riders from across the country tackling scenic dirt roads through vineyards and farmland, celebrating afterward with food, live music, and craft beer at Steuben Brewing Company. A growing event on the Finger Lakes sports calendar.</p></div></div>
+        <div class="item-row"><div class="item-emoji">🏊</div><div><h4>Keuka Lake State Park — Branchport</h4><p>A full-service state park on the west branch of Keuka Lake — swimming beach, hiking trails, picnicking, fishing, and camping just a short drive from Penn Yan along the lake's western shore.</p></div></div>
+      </div>
+    </section>
+
+    <!-- NEARBY -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">📍</div>
+        <h2>What's <em>Nearby</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="three-col">
+        <div class="info-card"><div class="card-eyebrow">30 minutes north</div><h3>Geneva</h3><p>Hobart and William Smith Colleges, the Smith Opera House, South Main Street Victorian architecture, and the northern gateway to the Seneca Lake Wine Trail.</p></div>
+        <div class="info-card"><div class="card-eyebrow">30 minutes west</div><h3>Canandaigua</h3><p>Canandaigua Lake, Bristol Mountain skiing, Sonnenberg Gardens, Wegmans, and a revitalized Main Street — the nearest full-service hub west of Penn Yan.</p></div>
+        <div class="info-card"><div class="card-eyebrow">30 minutes south</div><h3>Hammondsport</h3><p>The southern tip of Keuka Lake — Glenn Curtiss Aviation Museum, historic village square, and access to the southern Keuka Wine Trail wineries.</p></div>
+        <div class="info-card"><div class="card-eyebrow">1 hour northeast</div><h3>Seneca Falls</h3><p>Birthplace of the women's rights movement, Montezuma National Wildlife Refuge, and the eastern Finger Lakes wine country.</p></div>
+        <div class="info-card"><div class="card-eyebrow">1 hour southeast</div><h3>Watkins Glen</h3><p>The gorge, the racetrack, and the southern Seneca Lake Wine Trail — a scenic drive through the heart of wine country.</p></div>
+        <div class="info-card"><div class="card-eyebrow">1.5 hours</div><h3>Rochester & Syracuse</h3><p>Both major cities are approximately 1.5 hours from Penn Yan — airports, major medical centers, and urban amenities accessible for bigger-city needs.</p></div>
+      </div>
+    </section>
+
+    <!-- SCHOOLS -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">🎓</div>
+        <h2>Schools</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="school-card">
+        <div class="school-grade">B+</div>
+        <div class="school-info">
+          <h3>Penn Yan Central School District</h3>
+          <p>A solid small-district serving Penn Yan and surrounding Yates County communities — well-regarded for its community feel, small class sizes, and strong extracurricular programs that reflect the area's outdoor and agricultural identity. Keuka College's presence in the village adds a higher education option right in the community. For families prioritizing a genuinely small school experience with strong community ties, Penn Yan delivers.</p>
+          <div class="school-badges">
+            <span class="school-badge">B+ Rated</span>
+            <span class="school-badge">Small Class Sizes</span>
+            <span class="school-badge">Community-Oriented</span>
+            <span class="school-badge">Keuka College in Town</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REAL ESTATE -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">🏠</div>
+        <h2>Real Estate <em>Overview</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <p class="prose">Penn Yan offers some of the <strong>most compelling value in Finger Lakes lake country</strong> — village homes at accessible price points, with Keuka Lake access, wine trail proximity, and the bonus of three lakes within easy reach. The housing stock reflects the village's 19th-century roots — Federal, Greek Revival, and Victorian homes line the historic downtown streets. Lakefront properties on Keuka command a premium but remain more accessible than comparable properties on Skaneateles or Cayuga Lake.</p>
+
+      <div class="pricing-links-block">
+        <div class="pricing-links-label">Current Pricing — Live Data</div>
+        <p class="pricing-links-note">Check these sources for the most current Penn Yan and Yates County market data:</p>
+        <div class="pricing-links">
+          <a href="https://www.redfin.com/city/14406/NY/Penn-Yan/housing-market" target="_blank" rel="noopener" class="pricing-link">
+            <span class="pricing-link-name">Redfin</span>
+            <span class="pricing-link-desc">Median sale price, days on market, price per sq ft</span>
+            <span class="pricing-link-arrow">↗</span>
+          </a>
+          <a href="https://www.zillow.com/penn-yan-ny/home-values/" target="_blank" rel="noopener" class="pricing-link">
+            <span class="pricing-link-name">Zillow</span>
+            <span class="pricing-link-desc">Zillow Home Value Index & market trends</span>
+            <span class="pricing-link-arrow">↗</span>
+          </a>
+          <a href="https://www.realtor.com/realestateandhomes-search/Penn-Yan_NY/overview" target="_blank" rel="noopener" class="pricing-link">
+            <span class="pricing-link-name">Realtor.com</span>
+            <span class="pricing-link-desc">Listing prices, market hotness, inventory</span>
+            <span class="pricing-link-arrow">↗</span>
+          </a>
+        </div>
+        <p class="pricing-disclaimer">Real estate data varies by source and changes over time. Always verify current pricing with a licensed local Realtor.</p>
+      </div>
+
+      <div class="two-col">
+        <div class="info-card"><div class="card-eyebrow">Village Homes</div><h3>Accessible Wine Country Value</h3><p>Historic village homes in the downtown and surrounding residential streets at price points well below other Finger Lakes lake communities. Strong value for buyers wanting wine country proximity without Skaneateles or Canandaigua prices.</p></div>
+        <div class="info-card"><div class="card-eyebrow">Keuka Lake Access</div><h3>Lakefront & Near-Lake Premium</h3><p>Properties with direct Keuka Lake access or water views command a premium — but Keuka remains more accessible than Skaneateles or Canandaigua for lakefront buyers. Cottage and camp-style properties are also common along the lake shores.</p></div>
+      </div>
+    </section>
+
+    <!-- REALTOR SPOTLIGHT -->
+    <div class="realtor-section fade-in">
+      <span class="eyebrow">Realtor Spotlight</span>
+      <h2>Know Penn Yan?<br />Your Clients Are Looking.</h2>
+      <p>Buyers matched to Penn Yan on Located Lifestyle are seeking a local expert who understands Keuka Lake, the Yates County market, and what makes this extraordinary wine country village such a compelling place to call home.</p>
+      <div class="placeholder-cards">
+        <div class="placeholder-card"><div class="placeholder-avatar">🏡</div><div class="ph-title">Open Spot</div><div class="ph-sub">Penn Yan specialist</div></div>
+        <div class="placeholder-card"><div class="placeholder-avatar">🏡</div><div class="ph-title">Open Spot</div><div class="ph-sub">Penn Yan specialist</div></div>
+        <div class="placeholder-card"><div class="placeholder-avatar">🏡</div><div class="ph-title">Open Spot</div><div class="ph-sub">Penn Yan specialist</div></div>
+      </div>
+      <div class="price-inline"><span class="amount">$19</span><span class="period">/month</span></div><br />
+      <a href="https://locatedlifestyle.com/join" class="btn-light">List Yourself as a Penn Yan Specialist</a>
+      <p class="founding-note">Founding Member rate — grandfathered when prices increase to $29/month</p>
+    </div>
+
+    <!-- SOURCES -->
+    <div class="sources-section fade-in">
+      <h3>Sources</h3>
+      <div class="sources-list">
+        <a href="https://www.fingerlakeswinecountry.com/travel-guide/small-town-travel-guide-penn-yan-ny/" target="_blank" rel="noopener">Finger Lakes Wine Country — Penn Yan Travel Guide</a>
+        <a href="https://www.fingerlakes.org/partners/village-of-penn-yan" target="_blank" rel="noopener">Finger Lakes Tourism Alliance — Village of Penn Yan</a>
+        <a href="https://www.fingerlakescountrysides.com/downtown-penn-yan/" target="_blank" rel="noopener">Finger Lakes Countrysides — Downtown Penn Yan</a>
+        <a href="https://exploresteuben.com/stories/the-complete-guide-to-keuka-lake/" target="_blank" rel="noopener">Explore Steuben — Complete Guide to Keuka Lake</a>
+        <a href="https://www.fingerlakes.org/explore-the-finger-lakes-region" target="_blank" rel="noopener">Finger Lakes Tourism Alliance — Explore the Region</a>
+        <a href="https://www.keukawinetrail.com" target="_blank" rel="noopener">Keuka Lake Wine Trail</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="bottom-nav">
+    <p>Continue exploring the Finger Lakes</p>
+    <div class="bottom-nav-links">
+      <a href="/">← Back to All Communities</a>
+      <a href="seneca-falls.html">← Seneca Falls</a>
+      <a href="watkins-glen.html">← Watkins Glen</a>
+      <a href="#">Hammondsport →</a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-brand">Located <span>Lifestyle</span></div>
+    <div class="footer-copy">© 2026 Located Lifestyle · communities.locatedlifestyle.com · New York State Community Directory</div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 75);
+      });
+    }, { threshold: 0.06, rootMargin: '0px 0px -30px 0px' });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
