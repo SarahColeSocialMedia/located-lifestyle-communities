@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Skaneateles, NY — Finger Lakes Community Guide | Located Lifestyle</title>
+  <meta name="description" content="Everything you need to know about living in Skaneateles, NY — vibe, restaurants, shops, outdoor activities, schools, real estate, and local Realtors." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream:      #f6f3ec;
+      --cream-dark: #ece4da;
+      --taupe:      #b9a590;
+      --taupe-dark: #9a8470;
+      --brown:      #574c3f;
+      --brown-dark: #36302a;
+      --text:       #36302a;
+      --text-mid:   #574c3f;
+      --text-muted: #9a8470;
+      --border:     rgba(87,76,63,0.12);
+      --border-med: rgba(87,76,63,0.2);
+      --card-bg:    #ffffff;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--text); overflow-x: hidden; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 52px;
+      background: rgba(246,243,236,0.95); backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-brand { text-decoration: none; display: flex; flex-direction: column; gap: 1px; }
+    .nav-brand .sub { font-size: 9px; letter-spacing: 3.5px; text-transform: uppercase; color: var(--taupe); font-weight: 500; }
+    .nav-brand .name { font-family: 'Cormorant Garamond', serif; font-size: 20px; color: var(--brown-dark); font-weight: 600; }
+    .nav-right { display: flex; gap: 24px; align-items: center; }
+    .nav-back { font-size: 13px; color: var(--text-muted); text-decoration: none; transition: color 0.2s; display: flex; align-items: center; gap: 6px; }
+    .nav-back:hover { color: var(--brown); }
+    .nav-cta {
+      background: var(--brown-dark); color: var(--cream);
+      font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase;
+      padding: 10px 22px; border-radius: 2px; text-decoration: none; transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--brown); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 68vh; position: relative; overflow: hidden;
+      display: flex; flex-direction: column; align-items: center; justify-content: flex-end;
+      padding: 120px 24px 64px; text-align: center;
+      background: linear-gradient(180deg, #d4cfc6 0%, #c8c0b4 40%, #b8afa0 70%, #a89880 100%);
+    }
+    .hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 70%, rgba(185,165,144,0.4) 0%, transparent 65%);
+    }
+    /* Water shimmer at bottom */
+    .hero-water {
+      position: absolute; bottom: 0; left: 0; right: 0; height: 30%;
+      background: linear-gradient(180deg, transparent 0%, rgba(120,160,200,0.25) 50%, rgba(100,140,180,0.4) 100%);
+      clip-path: ellipse(110% 100% at 50% 100%);
+    }
+    .hero-content { position: relative; z-index: 2; max-width: 760px; }
+
+    .hero-breadcrumb {
+      display: flex; align-items: center; gap: 8px; justify-content: center;
+      margin-bottom: 20px; font-size: 11px; letter-spacing: 1px; color: rgba(54,48,42,0.55);
+    }
+    .hero-breadcrumb a { color: rgba(54,48,42,0.55); text-decoration: none; transition: color 0.2s; }
+    .hero-breadcrumb a:hover { color: var(--brown); }
+    .hero-breadcrumb span { opacity: 0.4; }
+
+    .hero-eyebrow {
+      font-size: 10px; letter-spacing: 3.5px; text-transform: uppercase;
+      color: var(--brown); opacity: 0.7; margin-bottom: 14px; display: block;
+    }
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(56px, 10vw, 108px);
+      font-weight: 600; line-height: 0.95;
+      color: var(--brown-dark); margin-bottom: 12px; letter-spacing: -2px;
+    }
+    .hero-tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(17px, 2.5vw, 24px); font-style: italic;
+      color: var(--brown); margin-bottom: 28px; font-weight: 400; opacity: 0.8;
+    }
+    .hero-meta {
+      display: flex; gap: 28px; justify-content: center; flex-wrap: wrap; margin-bottom: 32px;
+    }
+    .meta-item { font-size: 12px; color: rgba(54,48,42,0.6); display: flex; align-items: center; gap: 7px; }
+    .meta-dot { width: 3px; height: 3px; border-radius: 50%; background: var(--taupe); opacity: 0.6; }
+    .hero-badges { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+    .badge {
+      padding: 5px 13px; border-radius: 100px; font-size: 10px; font-weight: 600;
+      letter-spacing: 0.8px; text-transform: uppercase;
+    }
+    .badge-water { background: rgba(255,255,255,0.35); color: var(--brown-dark); border: 1px solid rgba(255,255,255,0.5); backdrop-filter: blur(4px); }
+    .badge-warm { background: rgba(54,48,42,0.12); color: var(--brown-dark); border: 1px solid rgba(54,48,42,0.2); }
+
+    /* ── STATS BAR ── */
+    .stats-bar { background: var(--brown-dark); }
+    .stats-bar-inner {
+      max-width: 960px; margin: 0 auto;
+      display: flex; justify-content: space-around; padding: 28px 24px; flex-wrap: wrap; gap: 20px;
+    }
+    .stat-item { text-align: center; }
+    .stat-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px; font-weight: 600; color: var(--taupe); display: block; line-height: 1.1;
+    }
+    .stat-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: rgba(246,243,236,0.45); margin-top: 4px; }
+
+    /* ── CONTENT ── */
+    .content-wrap { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+
+    .section { padding: 72px 0 0; }
+    .section-header { display: flex; align-items: center; gap: 20px; margin-bottom: 32px; }
+    .section-icon {
+      width: 44px; height: 44px; border-radius: 2px;
+      background: var(--cream-dark); border: 1px solid var(--border-med);
+      display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0;
+    }
+    .section-header h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 30px; font-weight: 600; color: var(--brown-dark); letter-spacing: -0.3px;
+    }
+    .section-header h2 em { font-style: italic; color: var(--taupe-dark); }
+    .section-line { flex: 1; height: 1px; background: var(--border); }
+
+    .prose { font-size: 15px; line-height: 1.85; color: var(--text-muted); font-weight: 300; margin-bottom: 22px; }
+    .prose strong { color: var(--brown); font-weight: 500; }
+
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .three-col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+
+    .info-card {
+      background: var(--card-bg); border: 1px solid var(--border); border-radius: 4px; padding: 22px;
+    }
+    .info-card h3 { font-size: 14px; font-weight: 600; color: var(--brown-dark); margin-bottom: 8px; }
+    .info-card p { font-size: 13px; line-height: 1.7; color: var(--text-muted); font-weight: 300; }
+    .info-card .card-eyebrow { font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--taupe); margin-bottom: 7px; }
+
+    .pull-quote {
+      border-left: 2px solid var(--taupe);
+      padding: 18px 26px; margin: 32px 0;
+      background: var(--cream-dark); border-radius: 0 4px 4px 0;
+    }
+    .pull-quote p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 19px; font-style: italic; color: var(--brown); line-height: 1.6;
+    }
+
+    .item-list { display: flex; flex-direction: column; gap: 1px; }
+    .item-row {
+      display: flex; align-items: flex-start; gap: 16px;
+      padding: 20px 0; border-bottom: 1px solid var(--border);
+    }
+    .item-row:first-child { border-top: 1px solid var(--border); }
+    .item-emoji { font-size: 20px; flex-shrink: 0; margin-top: 1px; width: 28px; }
+    .item-row h4 { font-size: 14px; font-weight: 600; color: var(--brown-dark); margin-bottom: 5px; }
+    .item-row p { font-size: 13px; color: var(--text-muted); line-height: 1.65; font-weight: 300; }
+
+    /* ── REAL ESTATE ── */
+    .re-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 28px; }
+    .re-card {
+      background: var(--card-bg); border: 1px solid var(--border); border-radius: 4px;
+      padding: 20px; text-align: center;
+    }
+    .re-card .re-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 30px; font-weight: 600; color: var(--brown); display: block; margin-bottom: 4px;
+    }
+    .re-card .re-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); }
+    .re-card .re-sub { font-size: 11px; color: var(--text-muted); margin-top: 5px; opacity: 0.7; }
+
+    /* ── SCHOOLS ── */
+    .school-card {
+      background: var(--card-bg); border: 1px solid var(--border); border-radius: 4px;
+      padding: 24px; display: flex; align-items: flex-start; gap: 20px;
+    }
+    .school-grade {
+      width: 52px; height: 52px; border-radius: 4px;
+      background: var(--cream-dark); border: 1px solid var(--border-med);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 700;
+      color: var(--brown); flex-shrink: 0;
+    }
+    .school-info h3 { font-size: 15px; font-weight: 600; color: var(--brown-dark); margin-bottom: 7px; }
+    .school-info p { font-size: 13px; color: var(--text-muted); line-height: 1.65; font-weight: 300; }
+    .school-badges { display: flex; gap: 7px; flex-wrap: wrap; margin-top: 12px; }
+    .school-badge {
+      padding: 3px 10px; border-radius: 100px; font-size: 11px;
+      background: var(--cream-dark); color: var(--brown); border: 1px solid var(--border-med);
+    }
+
+    /* ── REALTOR SPOTLIGHT ── */
+    .realtor-section {
+      margin-top: 72px; background: var(--brown-dark); border-radius: 4px;
+      padding: 52px; text-align: center;
+    }
+    .realtor-section .eyebrow { font-size: 10px; letter-spacing: 3.5px; text-transform: uppercase; color: var(--taupe); margin-bottom: 18px; display: block; }
+    .realtor-section h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 36px; font-weight: 600; color: var(--cream);
+      line-height: 1.15; margin-bottom: 14px;
+    }
+    .realtor-section p { font-size: 15px; color: rgba(246,243,236,0.55); line-height: 1.75; margin-bottom: 14px; font-weight: 300; max-width: 500px; margin-left: auto; margin-right: auto; }
+
+    .placeholder-cards { display: flex; gap: 16px; justify-content: center; margin: 32px 0; flex-wrap: wrap; }
+    .placeholder-card {
+      width: 200px; border: 1px dashed rgba(185,165,144,0.3);
+      border-radius: 4px; padding: 24px 16px; text-align: center;
+      background: rgba(255,255,255,0.04);
+    }
+    .placeholder-avatar {
+      width: 52px; height: 52px; border-radius: 50%;
+      background: rgba(185,165,144,0.12); border: 1px dashed rgba(185,165,144,0.3);
+      margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; font-size: 20px;
+    }
+    .placeholder-card .ph-title { font-size: 13px; font-weight: 500; color: rgba(246,243,236,0.5); margin-bottom: 5px; }
+    .placeholder-card .ph-sub { font-size: 11px; color: rgba(246,243,236,0.3); line-height: 1.5; }
+
+    .price-inline { display: inline-flex; align-items: baseline; gap: 4px; margin: 18px 0 26px; }
+    .price-inline .amount { font-family: 'Cormorant Garamond', serif; font-size: 48px; font-weight: 600; color: var(--taupe); }
+    .price-inline .period { font-size: 16px; color: rgba(246,243,236,0.4); }
+
+    .btn-light {
+      background: var(--cream); color: var(--brown-dark); padding: 14px 32px; border-radius: 2px;
+      font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
+      text-decoration: none; transition: all 0.2s; display: inline-block;
+    }
+    .btn-light:hover { background: var(--cream-dark); transform: translateY(-2px); }
+    .founding-note { font-size: 12px; color: var(--taupe); margin-top: 14px; opacity: 0.8; }
+
+    /* ── SOURCES ── */
+    .sources-section { margin-top: 64px; padding: 32px 0 80px; border-top: 1px solid var(--border); }
+    .sources-section h3 { font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 14px; }
+    .sources-list { display: flex; flex-direction: column; gap: 7px; }
+    .sources-list a { font-size: 12px; color: var(--text-muted); text-decoration: none; opacity: 0.6; transition: opacity 0.2s; display: flex; align-items: center; gap: 6px; }
+    .sources-list a:hover { opacity: 1; color: var(--brown); }
+    .sources-list a::before { content: '↗'; font-size: 10px; }
+
+    /* ── BOTTOM NAV ── */
+    .bottom-nav { border-top: 1px solid var(--border); padding: 48px 24px; text-align: center; background: var(--cream-dark); }
+    .bottom-nav p { font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 20px; }
+    .bottom-nav-links { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .bottom-nav-links a {
+      padding: 10px 22px; border-radius: 2px; border: 1px solid var(--border-med);
+      font-size: 13px; color: var(--text-muted); text-decoration: none; transition: all 0.2s;
+    }
+    .bottom-nav-links a:hover { border-color: var(--brown); color: var(--brown); background: rgba(87,76,63,0.05); }
+
+    /* ── FOOTER ── */
+    footer { border-top: 1px solid var(--border); padding: 36px 24px; text-align: center; background: var(--cream); }
+    .footer-brand { font-family: 'Cormorant Garamond', serif; font-size: 20px; color: var(--brown-dark); margin-bottom: 6px; font-weight: 600; }
+    .footer-brand span { color: var(--taupe-dark); font-style: italic; }
+    .footer-copy { font-size: 11px; color: var(--text-muted); opacity: 0.5; }
+
+    /* ── PRICING LINKS ── */
+    .pricing-links-block {
+      background: var(--card-bg);
+      border: 1px solid var(--border-med);
+      border-radius: 4px;
+      padding: 28px; margin-bottom: 24px;
+    }
+    .pricing-links-label {
+      font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase;
+      color: var(--taupe); margin-bottom: 8px;
+    }
+    .pricing-links-note {
+      font-size: 13px; color: var(--text-muted); margin-bottom: 20px;
+      line-height: 1.6; font-weight: 300;
+    }
+    .pricing-links { display: flex; flex-direction: column; gap: 1px; }
+    .pricing-link {
+      display: flex; align-items: center; gap: 16px;
+      padding: 14px 16px; border-radius: 3px;
+      background: var(--cream); border: 1px solid var(--border);
+      text-decoration: none; transition: all 0.2s;
+    }
+    .pricing-link:hover { border-color: var(--brown); background: var(--cream-dark); }
+    .pricing-link-name {
+      font-size: 14px; font-weight: 600; color: var(--brown-dark);
+      min-width: 100px;
+    }
+    .pricing-link-desc { font-size: 12px; color: var(--text-muted); flex: 1; font-weight: 300; }
+    .pricing-link-arrow { font-size: 14px; color: var(--taupe); transition: color 0.2s; }
+    .pricing-link:hover .pricing-link-arrow { color: var(--brown); }
+    .pricing-disclaimer {
+      font-size: 11px; color: var(--text-muted); margin-top: 14px;
+      opacity: 0.7; line-height: 1.5; font-style: italic;
+    }
+
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 768px) {
+      nav { padding: 14px 20px; }
+      .two-col, .three-col, .re-grid { grid-template-columns: 1fr; }
+      .stats-bar-inner { gap: 20px; }
+      .placeholder-cards { flex-direction: column; align-items: center; }
+      .realtor-section { padding: 32px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/" class="nav-brand">
+      <span class="sub">communities</span>
+      <span class="name">Located Lifestyle</span>
+    </a>
+    <div class="nav-right">
+      <a href="/" class="nav-back">← <span>Explore New York</span></a>
+      <a href="https://locatedlifestyle.com/join" class="nav-cta">Join as a Realtor</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-water"></div>
+    <div class="hero-content">
+      <div class="hero-breadcrumb">
+        <a href="/">Communities</a><span>/</span>
+        <a href="/">Finger Lakes</a><span>/</span>
+        Skaneateles
+      </div>
+      <span class="hero-eyebrow">Onondaga County · Finger Lakes</span>
+      <h1>Skaneateles</h1>
+      <div class="hero-tagline">Where the lake is the life.</div>
+      <div class="hero-meta">
+        <span class="meta-item">Village</span>
+        <span class="meta-dot"></span>
+        <span class="meta-item">Pop. 2,533</span>
+        <span class="meta-dot"></span>
+        <span class="meta-item">1.4 sq mi</span>
+        <span class="meta-dot"></span>
+        <span class="meta-item">20 min to Syracuse</span>
+      </div>
+      <div class="hero-badges">
+        <span class="badge badge-water">💧 Skaneateles Lake</span>
+        <span class="badge badge-warm">⭐ A+ Schools</span>
+        <span class="badge badge-warm">🍷 Wine Trail</span>
+        <span class="badge badge-warm">🏛️ Historic Village</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS BAR -->
+  <div class="stats-bar">
+    <div class="stats-bar-inner">
+      <div class="stat-item">
+        <span class="stat-value">See Current</span>
+        <div class="stat-label">Pricing Below ↓</div>
+      </div>
+      <div class="stat-item"><span class="stat-value">16 mi</span><div class="stat-label">Lake Length</div></div>
+      <div class="stat-item"><span class="stat-value">A+</span><div class="stat-label">School District</div></div>
+      <div class="stat-item"><span class="stat-value">2,533</span><div class="stat-label">Population</div></div>
+      <div class="stat-item"><span class="stat-value">1.4 sq mi</span><div class="stat-label">Land Area</div></div>
+    </div>
+  </div>
+
+  <div class="content-wrap">
+
+    <!-- OVERVIEW -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">🏡</div>
+        <h2>Overview & <em>Character</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <p class="prose">Skaneateles — pronounced <strong>"SKAN-ee-AT-ləs"</strong> — is an affluent Finger Lakes village set at the northern tip of one of the most pristine lakes in North America. Just 20 miles southwest of Syracuse, it occupies a world apart: a compact, walkable downtown of boutique shops, white-tablecloth restaurants, and Victorian homes, all anchored by a lake so clean it has supplied drinking water to the city of Syracuse for over a century without filtration.</p>
+      <p class="prose">The name is Iroquois for <strong>"long lake,"</strong> and at 16 miles long, Skaneateles Lake lives up to it — stretching southeast through cliffs and pastures with a clarity that turns the water a striking blue-green. Settlement began in the 1790s, and by the 1800s Skaneateles had attracted wealthy merchants, industrialists, and members of the Roosevelt family, leaving behind a legacy of Greek Revival and Gothic Revival architecture still evident on every street.</p>
+      <div class="pull-quote">
+        <p>"You feel a sense of belonging here — whether it's to raise a family, build a business, escape for a weekend, or stay for the season."</p>
+      </div>
+      <p class="prose">Today Skaneateles draws two distinct crowds: families who come for the school district (consistently among the best in Central New York) and second-home buyers from New York City and the Northeast. Home values are among the highest in the Finger Lakes region — and inventory is chronically thin.</p>
+    </section>
+
+    <!-- THE VIBE -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">✨</div>
+        <h2>The <em>Vibe</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="two-col">
+        <div class="info-card">
+          <div class="card-eyebrow">Pace of Life</div>
+          <h3>Unhurried & Intentional</h3>
+          <p>Skaneateles moves at the pace of the lake. Summer brings sailboats, lake cruises, and dinner al fresco. Fall brings foliage and a quieter village locals love. Winter brings Dickens Christmas — one of New York's most beloved holiday traditions.</p>
+        </div>
+        <div class="info-card">
+          <div class="card-eyebrow">Who Lives Here</div>
+          <h3>Professionals, Families & Second-Home Buyers</h3>
+          <p>A mix of longtime locals, Syracuse-area professionals commuting 20 minutes, retirees, and weekend residents from NYC and beyond. Median household income is $114K. Homes rarely hit the market — and when they do, they sell fast.</p>
+        </div>
+        <div class="info-card">
+          <div class="card-eyebrow">Politics & Culture</div>
+          <h3>Quietly Conservative, Community-Minded</h3>
+          <p>Skaneateles trends conservative relative to broader New York State, but the village's identity is more civic than political — rallying around the school district, the lake's cleanliness, and a shared pride in keeping things beautiful.</p>
+        </div>
+        <div class="info-card">
+          <div class="card-eyebrow">Summer vs. Year-Round</div>
+          <h3>A Town of Two Seasons</h3>
+          <p>The population doubles from Memorial Day to Labor Day as seasonal residents arrive. Year-round, Skaneateles is quieter, smaller — and some say even more beautiful. The lake in October, with fall foliage reflected in the water, is unforgettable.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- KNOWN FOR -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">🏛️</div>
+        <h2>What It's <em>Known For</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="item-list">
+        <div class="item-row">
+          <div class="item-emoji">💧</div>
+          <div><h4>One of the Cleanest Lakes in the Country</h4><p>Skaneateles Lake has supplied unfiltered drinking water to Syracuse for over a century. Development is tightly controlled, water quality is legendary, and the lake remains the community's most fiercely protected asset.</p></div>
+        </div>
+        <div class="item-row">
+          <div class="item-emoji">⛵</div>
+          <div><h4>Mid-Lakes Navigation Cruises</h4><p>A Skaneateles institution — <a href="https://www.midlakesnavigation.com" target="_blank" rel="noopener" style="color:var(--brown-dark); border-bottom:1px solid var(--border-med); text-decoration:none;">Mid-Lakes Navigation</a> offers sightseeing, lunch, dinner, cocktail, and themed specialty cruises on the lake aboard their antique fleet. Running mid-May through mid-October, it's one of the quintessential Finger Lakes experiences.</p></div>
+        </div>
+        <div class="item-row">
+          <div class="item-emoji">🎄</div>
+          <div><h4>Dickens Christmas</h4><p>Each weekend from late November through December, the village transforms into a Dickensian scene — Victorian-costumed actors, carolers, and horse-drawn wagon parades. Visitors come from across New York State for it.</p></div>
+        </div>
+        <div class="item-row">
+          <div class="item-emoji">🏛️</div>
+          <div><h4>Historic Architecture & Underground Railroad History</h4><p>A remarkable concentration of 19th-century homes, including Gothic Revival and Greek Revival landmarks. James Canning Fuller operated an active Underground Railroad station here in the 1840s.</p></div>
+        </div>
+        <div class="item-row">
+          <div class="item-emoji">🎪</div>
+          <div><h4>Antique & Classic Boat Show</h4><p>Held each July, this beloved event draws wooden boat enthusiasts from across the Northeast for a weekend of stunning watercraft on the lake.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESTAURANTS -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">🍽️</div>
+        <h2>Restaurants & <em>Dining</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <p class="prose">For a village of 2,500 people, Skaneateles punches well above its weight in dining — ranging from beloved casual institutions to white-tablecloth lakeside experiences.</p>
+      <div class="item-list">
+        <div class="item-row"><div class="item-emoji">🦞</div><div><h4>The Sherwood Inn</h4><p>A Skaneateles landmark since 1807 — the original stagecoach inn founded by Isaac Sherwood. An elegant lakefront inn and dining room that remains one of the finest in the Finger Lakes. Classic American fare, an exceptional wine list, and views to match.</p></div></div>
+        <div class="item-row"><div class="item-emoji">🐟</div><div><h4>Doug's Fish Fry</h4><p>A beloved local institution on Jordan Street. Cash-only, no-frills, and absolutely worth it — locals swear by the fish fry and the haddock sandwich. A must-visit counterpoint to the village's upscale options.</p></div></div>
+        <div class="item-row"><div class="item-emoji">🍕</div><div><h4>Mandana Inn</h4><p>A short drive south — a rustic roadhouse that has been a local gathering spot for generations, known for pizza, cold beer, and an unpretentious atmosphere.</p></div></div>
+        <div class="item-row"><div class="item-emoji">☕</div><div><h4>Vermont Green Mountain Specialty Co.</h4><p>The village's go-to coffee stop on East Genesee Street — ideal for a morning latte before a walk along the lake.</p></div></div>
+        <div class="item-row"><div class="item-emoji">🍫</div><div><h4>Chocolate & More</h4><p>A downtown staple for handmade chocolates, truffles, and confections — a dangerous stop on any afternoon walk through the village.</p></div></div>
+      </div>
+    </section>
+
+    <!-- SHOPS -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">🛍️</div>
+        <h2>Shops & Local <em>Businesses</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <p class="prose">Skaneateles' downtown along East Genesee Street is compact, curated, and notably independent — the village has resisted chain retail, keeping its core filled with boutiques, galleries, and local specialists.</p>
+      <div class="three-col">
+        <div class="info-card"><div class="card-eyebrow">Arts & Crafts</div><h3>Papavero Clay Studio</h3><p>Wheel-throwing and hand-building classes — a favorite creative outlet for residents and a great window into the village's artisan culture.</p></div>
+        <div class="info-card"><div class="card-eyebrow">Antiques</div><h3>Skaneateles Antique Center</h3><p>Multi-dealer antique shop with an excellent selection of Americana, furniture, and regional collectibles — well worth an afternoon browse.</p></div>
+        <div class="info-card"><div class="card-eyebrow">Clothing</div><h3>The Wandering Kind</h3><p>A popular women's boutique known for casual and resort-style apparel perfectly suited to lakeside life.</p></div>
+        <div class="info-card"><div class="card-eyebrow">Books & Gallery</div><h3>Skaneateles Library Gallery</h3><p>The public library hosts a walk-in gallery of works by the late Skaneateles artist John Barrow — a quiet cultural gem in the heart of the village.</p></div>
+        <div class="info-card"><div class="card-eyebrow">Home & Décor</div><h3>Village Boutiques</h3><p>Several home decoration and gift shops line the downtown, catering to second-home buyers and seasonal visitors seeking the Finger Lakes aesthetic.</p></div>
+        <div class="info-card"><div class="card-eyebrow">Groceries</div><h3>Wegmans — Auburn (6 mi)</h3><p>The nearest full-service Wegmans is just 6 miles away in Auburn — a short drive for the full western New York grocery experience.</p></div>
+      </div>
+    </section>
+
+    <!-- OUTDOOR -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">🏞️</div>
+        <h2>Outdoor & <em>Recreation</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="item-list">
+        <div class="item-row"><div class="item-emoji">⛵</div><div><h4>Skaneateles Lake — Boating, Swimming & Fishing</h4><p>Sailing, kayaking, motor boating, and paddleboarding are central to summer life. Clift Park on the waterfront hosts live music on Friday nights — locals spread blankets on the lawn in front of the gazebo.</p></div></div>
+        <div class="item-row"><div class="item-emoji">🥾</div><div><h4>Charlie C. Major Nature Trail</h4><p>A beloved local walking and biking trail following the Skaneateles Creek outlet — easy access to nature just steps from the village center.</p></div></div>
+        <div class="item-row"><div class="item-emoji">🎈</div><div><h4>Hot Air Balloon Rides</h4><p>Several operators offer rides over the Finger Lakes from the Skaneateles area — one of the most dramatic ways to take in the lake and its surrounding hills.</p></div></div>
+        <div class="item-row"><div class="item-emoji">⛷️</div><div><h4><a href="https://www.skiskan.com" target="_blank" rel="noopener" style="color:var(--brown-dark); text-decoration:none; border-bottom: 1px solid var(--border-med);">Ski Skan</a> — Right in Skaneateles</h4><p>The local ski area beloved by Skaneateles residents — a classic Central New York hill with a loyal community following for family skiing and weekend days on the slopes.</p></div></div>
+        <div class="item-row"><div class="item-emoji">🍷</div><div><h4>Finger Lakes Wine Trails</h4><p>Skaneateles sits at the eastern edge of the Finger Lakes wine country — the Cayuga Lake Wine Trail is a short drive west, with dozens of wineries open year-round.</p></div></div>
+        <div class="item-row"><div class="item-emoji">🏇</div><div><h4>Polo at Skaneateles</h4><p>Weekend polo matches in the summer — a beloved local tradition that speaks to the village's long history as a retreat for New York's well-heeled set.</p></div></div>
+      </div>
+    </section>
+
+    <!-- NEARBY -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">📍</div>
+        <h2>What's <em>Nearby</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="three-col">
+        <div class="info-card"><div class="card-eyebrow">20 minutes</div><h3>Syracuse</h3><p>Central New York's largest city — hospitals, universities, Destiny USA, SU sports, and a growing food and arts scene.</p></div>
+        <div class="info-card"><div class="card-eyebrow">10 minutes</div><h3>Auburn</h3><p>A historic canal city with Harriet Tubman National Historical Park, Wegmans, and a growing downtown restaurant scene.</p></div>
+        <div class="info-card"><div class="card-eyebrow">1.5 hours</div><h3>Rochester</h3><p>Western New York's second city — University of Rochester, Strong National Museum of Play, and a strong job market.</p></div>
+        <div class="info-card"><div class="card-eyebrow">45 minutes</div><h3>Ithaca</h3><p>Cornell, Ithaca College, gorges, waterfalls, and one of the state's most vibrant small cities.</p></div>
+        <div class="info-card"><div class="card-eyebrow">30 minutes</div><h3>Toggenburg & Greek Peak</h3><p>Two local ski areas in the hills south of Syracuse — accessible for weeknight and weekend skiing.</p></div>
+        <div class="info-card"><div class="card-eyebrow">1 hour</div><h3>Seneca Falls & Wine Country</h3><p>The birthplace of the women's rights movement and the heart of the Finger Lakes wine trails.</p></div>
+      </div>
+    </section>
+
+    <!-- SCHOOLS -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">🎓</div>
+        <h2>Schools</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="school-card">
+        <div class="school-grade">A+</div>
+        <div class="school-info">
+          <h3>Skaneateles Central School District</h3>
+          <p>Consistently rated one of the top school districts in Central New York and among the best in New York State. The district earns an overall A rating from Niche, with strengths in academics, college preparation, and extracurricular offerings. Small class sizes and strong parental involvement make it a primary driver of home values and one of the most cited reasons families choose Skaneateles over surrounding communities.</p>
+          <div class="school-badges">
+            <span class="school-badge">A+ Overall</span>
+            <span class="school-badge">Top 5% in NY State</span>
+            <span class="school-badge">High College Readiness</span>
+            <span class="school-badge">Small Class Sizes</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REAL ESTATE -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">🏠</div>
+        <h2>Real Estate <em>Overview</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <p class="prose">Skaneateles is one of the tightest real estate markets in Central New York. <strong>Village homes</strong> range from $300K–$700K for inland properties and historic Victorians, while <strong>lakefront properties</strong> routinely climb into the millions. Over half of homes were built before 1939 — buyers find Federal, Greek Revival, Italianate, and Colonial Revival architecture throughout.</p>
+
+      <!-- LIVE PRICING LINKS -->
+      <div class="pricing-links-block">
+        <div class="pricing-links-label">Current Pricing — Live Data</div>
+        <p class="pricing-links-note">Real estate prices change frequently. Check these sources for the most up-to-date Skaneateles market data:</p>
+        <div class="pricing-links">
+          <a href="https://www.redfin.com/city/30580/NY/Skaneateles/housing-market" target="_blank" rel="noopener" class="pricing-link">
+            <span class="pricing-link-name">Redfin</span>
+            <span class="pricing-link-desc">Median sale price, days on market, price per sq ft</span>
+            <span class="pricing-link-arrow">↗</span>
+          </a>
+          <a href="https://www.zillow.com/skaneateles-ny/home-values/" target="_blank" rel="noopener" class="pricing-link">
+            <span class="pricing-link-name">Zillow</span>
+            <span class="pricing-link-desc">Zillow Home Value Index & market trends</span>
+            <span class="pricing-link-arrow">↗</span>
+          </a>
+          <a href="https://www.realtor.com/realestateandhomes-search/Skaneateles_NY/overview" target="_blank" rel="noopener" class="pricing-link">
+            <span class="pricing-link-name">Realtor.com</span>
+            <span class="pricing-link-desc">Listing prices, market hotness, inventory</span>
+            <span class="pricing-link-arrow">↗</span>
+          </a>
+        </div>
+        <p class="pricing-disclaimer">Real estate data varies by source and changes over time. Always verify current pricing with a licensed local Realtor.</p>
+      </div>
+      <div class="two-col" style="margin-top:20px;">
+        <div class="info-card"><div class="card-eyebrow">Village Homes</div><h3>$300K – $700K</h3><p>Historic Victorians and Colonials on tree-lined streets within walking distance of the lake and downtown. Tight supply, high demand, and properties that rarely come to market.</p></div>
+        <div class="info-card"><div class="card-eyebrow">Lakefront Properties</div><h3>$1M – $5M+</h3><p>Direct lakefront access commands a significant premium. Properties rarely come to market — and when they do, they draw buyers from across the Northeast.</p></div>
+      </div>
+    </section>
+
+    <!-- REALTOR SPOTLIGHT -->
+    <div class="realtor-section fade-in">
+      <span class="eyebrow">Realtor Spotlight</span>
+      <h2>Know Skaneateles?<br />Your Clients Are Looking.</h2>
+      <p>Buyers matched to Skaneateles on Located Lifestyle are actively searching for a local expert. Be the Realtor they find — no bidding, no tiers, equal rotation with every active specialist in this community.</p>
+      <div class="placeholder-cards">
+        <div class="placeholder-card"><div class="placeholder-avatar">🏡</div><div class="ph-title">Open Spot</div><div class="ph-sub">Skaneateles community specialist</div></div>
+        <div class="placeholder-card"><div class="placeholder-avatar">🏡</div><div class="ph-title">Open Spot</div><div class="ph-sub">Skaneateles community specialist</div></div>
+        <div class="placeholder-card"><div class="placeholder-avatar">🏡</div><div class="ph-title">Open Spot</div><div class="ph-sub">Skaneateles community specialist</div></div>
+      </div>
+      <div class="price-inline"><span class="amount">$19</span><span class="period">/month</span></div><br />
+      <a href="https://locatedlifestyle.com/join" class="btn-light">List Yourself as a Skaneateles Specialist</a>
+      <p class="founding-note">Founding Member rate — grandfathered when prices increase to $29/month</p>
+    </div>
+
+    <!-- SOURCES -->
+    <div class="sources-section fade-in">
+      <h3>Sources</h3>
+      <div class="sources-list">
+        <a href="https://en.wikipedia.org/wiki/Skaneateles_(village),_New_York" target="_blank" rel="noopener">Wikipedia — Skaneateles (village), New York</a>
+        <a href="https://www.redfin.com/city/30580/NY/Skaneateles/housing-market" target="_blank" rel="noopener">Redfin — Skaneateles Housing Market Data (Jan 2025)</a>
+        <a href="https://www.city-data.com/city/Skaneateles-New-York.html" target="_blank" rel="noopener">City-Data — Skaneateles, NY Demographics & Statistics</a>
+        <a href="https://datausa.io/profile/geo/skaneateles-ny" target="_blank" rel="noopener">Data USA — Skaneateles, NY Profile</a>
+        <a href="https://www.niche.com/places-to-live/skaneateles-onondaga-ny/" target="_blank" rel="noopener">Niche — Skaneateles Rankings & Schools</a>
+        <a href="https://www.homes.com/local-guide/skaneateles-ny/" target="_blank" rel="noopener">Homes.com — Skaneateles Local Guide</a>
+        <a href="https://www.neighborhoodscout.com/ny/skaneateles/real-estate" target="_blank" rel="noopener">NeighborhoodScout — Skaneateles Real Estate Appreciation</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- BOTTOM NAV -->
+  <div class="bottom-nav">
+    <p>Continue exploring the Finger Lakes</p>
+    <div class="bottom-nav-links">
+      <a href="/">← Back to All Communities</a>
+      <a href="#">Ithaca →</a>
+      <a href="#">Canandaigua →</a>
+      <a href="#">Cazenovia →</a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-brand">Located <span>Lifestyle</span></div>
+    <div class="footer-copy">© 2026 Located Lifestyle · communities.locatedlifestyle.com · New York State Community Directory</div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 75);
+      });
+    }, { threshold: 0.06, rootMargin: '0px 0px -30px 0px' });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
