@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ithaca, NY — Finger Lakes Community Guide | Located Lifestyle</title>
+  <meta name="description" content="Everything you need to know about living in Ithaca, NY — vibe, restaurants, shops, outdoor activities, schools, real estate, and local Realtors." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream:      #f6f3ec;
+      --cream-dark: #ece4da;
+      --taupe:      #b9a590;
+      --taupe-dark: #9a8470;
+      --brown:      #574c3f;
+      --brown-dark: #36302a;
+      --text:       #36302a;
+      --text-mid:   #574c3f;
+      --text-muted: #9a8470;
+      --border:     rgba(87,76,63,0.12);
+      --border-med: rgba(87,76,63,0.2);
+      --card-bg:    #ffffff;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--text); overflow-x: hidden; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 52px;
+      background: rgba(246,243,236,0.95); backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-brand { text-decoration: none; display: flex; flex-direction: column; gap: 1px; }
+    .nav-brand .sub { font-size: 9px; letter-spacing: 3.5px; text-transform: uppercase; color: var(--taupe); font-weight: 500; }
+    .nav-brand .name { font-family: 'Cormorant Garamond', serif; font-size: 20px; color: var(--brown-dark); font-weight: 600; }
+    .nav-right { display: flex; gap: 24px; align-items: center; }
+    .nav-back { font-size: 13px; color: var(--text-muted); text-decoration: none; transition: color 0.2s; display: flex; align-items: center; gap: 6px; }
+    .nav-back:hover { color: var(--brown); }
+    .nav-cta {
+      background: var(--brown-dark); color: var(--cream);
+      font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase;
+      padding: 10px 22px; border-radius: 2px; text-decoration: none; transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--brown); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 68vh; position: relative; overflow: hidden;
+      display: flex; flex-direction: column; align-items: center; justify-content: flex-end;
+      padding: 120px 24px 64px; text-align: center;
+      background: linear-gradient(180deg, #2a3a2a 0%, #3a5a3a 30%, #4a6a4a 60%, #5a7a5a 100%);
+    }
+    .hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 70%, rgba(100,140,100,0.3) 0%, transparent 65%);
+    }
+    .hero-mist {
+      position: absolute; bottom: 0; left: 0; right: 0; height: 40%;
+      background: linear-gradient(180deg, transparent 0%, rgba(200,220,200,0.15) 50%, rgba(180,210,180,0.3) 100%);
+    }
+    .hero-content { position: relative; z-index: 2; max-width: 780px; }
+
+    .hero-breadcrumb {
+      display: flex; align-items: center; gap: 8px; justify-content: center;
+      margin-bottom: 20px; font-size: 11px; letter-spacing: 1px; color: rgba(246,243,236,0.55);
+    }
+    .hero-breadcrumb a { color: rgba(246,243,236,0.55); text-decoration: none; transition: color 0.2s; }
+    .hero-breadcrumb a:hover { color: var(--cream); }
+    .hero-breadcrumb span { opacity: 0.4; }
+
+    .hero-eyebrow { font-size: 10px; letter-spacing: 3.5px; text-transform: uppercase; color: rgba(246,243,236,0.65); margin-bottom: 14px; display: block; }
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(56px, 10vw, 108px);
+      font-weight: 600; line-height: 0.95;
+      color: var(--cream); margin-bottom: 12px; letter-spacing: -2px;
+    }
+    .hero-tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(17px, 2.5vw, 24px); font-style: italic;
+      color: rgba(246,243,236,0.75); margin-bottom: 28px; font-weight: 400;
+    }
+    .hero-meta {
+      display: flex; gap: 28px; justify-content: center; flex-wrap: wrap; margin-bottom: 32px;
+    }
+    .meta-item { font-size: 12px; color: rgba(246,243,236,0.6); display: flex; align-items: center; gap: 7px; }
+    .meta-dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(246,243,236,0.4); }
+    .hero-badges { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+    .badge {
+      padding: 5px 13px; border-radius: 100px; font-size: 10px; font-weight: 600;
+      letter-spacing: 0.8px; text-transform: uppercase;
+    }
+    .badge-water { background: rgba(255,255,255,0.15); color: var(--cream); border: 1px solid rgba(255,255,255,0.3); backdrop-filter: blur(4px); }
+    .badge-warm { background: rgba(255,255,255,0.1); color: rgba(246,243,236,0.85); border: 1px solid rgba(255,255,255,0.2); }
+
+    /* ── STATS BAR ── */
+    .stats-bar { background: var(--brown-dark); }
+    .stats-bar-inner {
+      max-width: 960px; margin: 0 auto;
+      display: flex; justify-content: space-around; padding: 28px 24px; flex-wrap: wrap; gap: 20px;
+    }
+    .stat-item { text-align: center; }
+    .stat-value { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 600; color: var(--taupe); display: block; line-height: 1.1; }
+    .stat-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: rgba(246,243,236,0.45); margin-top: 4px; }
+
+    /* ── CONTENT ── */
+    .content-wrap { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+    .section { padding: 72px 0 0; }
+    .section-header { display: flex; align-items: center; gap: 20px; margin-bottom: 32px; }
+    .section-icon { width: 44px; height: 44px; border-radius: 2px; background: var(--cream-dark); border: 1px solid var(--border-med); display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+    .section-header h2 { font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 600; color: var(--brown-dark); letter-spacing: -0.3px; }
+    .section-header h2 em { font-style: italic; color: var(--taupe-dark); }
+    .section-line { flex: 1; height: 1px; background: var(--border); }
+
+    .prose { font-size: 15px; line-height: 1.85; color: var(--text-muted); font-weight: 300; margin-bottom: 22px; }
+    .prose strong { color: var(--brown); font-weight: 500; }
+
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .three-col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+
+    .info-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 4px; padding: 22px; }
+    .info-card h3 { font-size: 14px; font-weight: 600; color: var(--brown-dark); margin-bottom: 8px; }
+    .info-card p { font-size: 13px; line-height: 1.7; color: var(--text-muted); font-weight: 300; }
+    .info-card .card-eyebrow { font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--taupe); margin-bottom: 7px; }
+
+    .pull-quote { border-left: 2px solid var(--taupe); padding: 18px 26px; margin: 32px 0; background: var(--cream-dark); border-radius: 0 4px 4px 0; }
+    .pull-quote p { font-family: 'Cormorant Garamond', serif; font-size: 19px; font-style: italic; color: var(--brown); line-height: 1.6; }
+    .pull-quote cite { font-size: 11px; color: var(--text-muted); display: block; margin-top: 10px; font-style: normal; letter-spacing: 0.5px; }
+
+    .item-list { display: flex; flex-direction: column; gap: 1px; }
+    .item-row { display: flex; align-items: flex-start; gap: 16px; padding: 20px 0; border-bottom: 1px solid var(--border); }
+    .item-row:first-child { border-top: 1px solid var(--border); }
+    .item-emoji { font-size: 20px; flex-shrink: 0; margin-top: 1px; width: 28px; }
+    .item-row h4 { font-size: 14px; font-weight: 600; color: var(--brown-dark); margin-bottom: 5px; }
+    .item-row p { font-size: 13px; color: var(--text-muted); line-height: 1.65; font-weight: 300; }
+    .item-link { color: var(--brown-dark); border-bottom: 1px solid var(--border-med); text-decoration: none; transition: border-color 0.2s; }
+    .item-link:hover { border-color: var(--brown); }
+
+    /* ── NEIGHBORHOODS ── */
+    .neighborhood-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .neighborhood-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 4px; padding: 18px; }
+    .neighborhood-card .n-name { font-size: 14px; font-weight: 600; color: var(--brown-dark); margin-bottom: 5px; }
+    .neighborhood-card .n-tag { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--taupe); margin-bottom: 8px; display: block; }
+    .neighborhood-card p { font-size: 12px; color: var(--text-muted); line-height: 1.6; font-weight: 300; }
+
+    /* ── PRICING LINKS ── */
+    .pricing-links-block { background: var(--card-bg); border: 1px solid var(--border-med); border-radius: 4px; padding: 28px; margin-bottom: 24px; }
+    .pricing-links-label { font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--taupe); margin-bottom: 8px; }
+    .pricing-links-note { font-size: 13px; color: var(--text-muted); margin-bottom: 20px; line-height: 1.6; font-weight: 300; }
+    .pricing-links { display: flex; flex-direction: column; gap: 1px; }
+    .pricing-link { display: flex; align-items: center; gap: 16px; padding: 14px 16px; border-radius: 3px; background: var(--cream); border: 1px solid var(--border); text-decoration: none; transition: all 0.2s; }
+    .pricing-link:hover { border-color: var(--brown); background: var(--cream-dark); }
+    .pricing-link-name { font-size: 14px; font-weight: 600; color: var(--brown-dark); min-width: 100px; }
+    .pricing-link-desc { font-size: 12px; color: var(--text-muted); flex: 1; font-weight: 300; }
+    .pricing-link-arrow { font-size: 14px; color: var(--taupe); transition: color 0.2s; }
+    .pricing-link:hover .pricing-link-arrow { color: var(--brown); }
+    .pricing-disclaimer { font-size: 11px; color: var(--text-muted); margin-top: 14px; opacity: 0.7; line-height: 1.5; font-style: italic; }
+
+    /* ── SCHOOLS ── */
+    .school-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 4px; padding: 24px; display: flex; align-items: flex-start; gap: 20px; margin-bottom: 16px; }
+    .school-grade { width: 52px; height: 52px; border-radius: 4px; background: var(--cream-dark); border: 1px solid var(--border-med); display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 700; color: var(--brown); flex-shrink: 0; }
+    .school-info h3 { font-size: 15px; font-weight: 600; color: var(--brown-dark); margin-bottom: 7px; }
+    .school-info p { font-size: 13px; color: var(--text-muted); line-height: 1.65; font-weight: 300; }
+    .school-badges { display: flex; gap: 7px; flex-wrap: wrap; margin-top: 12px; }
+    .school-badge { padding: 3px 10px; border-radius: 100px; font-size: 11px; background: var(--cream-dark); color: var(--brown); border: 1px solid var(--border-med); }
+
+    /* ── REALTOR SPOTLIGHT ── */
+    .realtor-section { margin-top: 72px; background: var(--brown-dark); border-radius: 4px; padding: 52px; text-align: center; }
+    .realtor-section .eyebrow { font-size: 10px; letter-spacing: 3.5px; text-transform: uppercase; color: var(--taupe); margin-bottom: 18px; display: block; }
+    .realtor-section h2 { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 600; color: var(--cream); line-height: 1.15; margin-bottom: 14px; }
+    .realtor-section p { font-size: 15px; color: rgba(246,243,236,0.55); line-height: 1.75; margin-bottom: 14px; font-weight: 300; max-width: 500px; margin-left: auto; margin-right: auto; }
+    .placeholder-cards { display: flex; gap: 16px; justify-content: center; margin: 32px 0; flex-wrap: wrap; }
+    .placeholder-card { width: 200px; border: 1px dashed rgba(185,165,144,0.3); border-radius: 4px; padding: 24px 16px; text-align: center; background: rgba(255,255,255,0.04); }
+    .placeholder-avatar { width: 52px; height: 52px; border-radius: 50%; background: rgba(185,165,144,0.12); border: 1px dashed rgba(185,165,144,0.3); margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; font-size: 20px; }
+    .placeholder-card .ph-title { font-size: 13px; font-weight: 500; color: rgba(246,243,236,0.5); margin-bottom: 5px; }
+    .placeholder-card .ph-sub { font-size: 11px; color: rgba(246,243,236,0.3); line-height: 1.5; }
+    .price-inline { display: inline-flex; align-items: baseline; gap: 4px; margin: 18px 0 26px; }
+    .price-inline .amount { font-family: 'Cormorant Garamond', serif; font-size: 48px; font-weight: 600; color: var(--taupe); }
+    .price-inline .period { font-size: 16px; color: rgba(246,243,236,0.4); }
+    .btn-light { background: var(--cream); color: var(--brown-dark); padding: 14px 32px; border-radius: 2px; font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; transition: all 0.2s; display: inline-block; }
+    .btn-light:hover { background: var(--cream-dark); transform: translateY(-2px); }
+    .founding-note { font-size: 12px; color: var(--taupe); margin-top: 14px; opacity: 0.8; }
+
+    /* ── SOURCES ── */
+    .sources-section { margin-top: 64px; padding: 32px 0 80px; border-top: 1px solid var(--border); }
+    .sources-section h3 { font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 14px; }
+    .sources-list { display: flex; flex-direction: column; gap: 7px; }
+    .sources-list a { font-size: 12px; color: var(--text-muted); text-decoration: none; opacity: 0.6; transition: opacity 0.2s; display: flex; align-items: center; gap: 6px; }
+    .sources-list a:hover { opacity: 1; color: var(--brown); }
+    .sources-list a::before { content: '↗'; font-size: 10px; }
+
+    /* ── BOTTOM NAV ── */
+    .bottom-nav { border-top: 1px solid var(--border); padding: 48px 24px; text-align: center; background: var(--cream-dark); }
+    .bottom-nav p { font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 20px; }
+    .bottom-nav-links { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .bottom-nav-links a { padding: 10px 22px; border-radius: 2px; border: 1px solid var(--border-med); font-size: 13px; color: var(--text-muted); text-decoration: none; transition: all 0.2s; }
+    .bottom-nav-links a:hover { border-color: var(--brown); color: var(--brown); background: rgba(87,76,63,0.05); }
+
+    /* ── FOOTER ── */
+    footer { border-top: 1px solid var(--border); padding: 36px 24px; text-align: center; background: var(--cream); }
+    .footer-brand { font-family: 'Cormorant Garamond', serif; font-size: 20px; color: var(--brown-dark); margin-bottom: 6px; font-weight: 600; }
+    .footer-brand span { color: var(--taupe-dark); font-style: italic; }
+    .footer-copy { font-size: 11px; color: var(--text-muted); opacity: 0.5; }
+
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 768px) {
+      nav { padding: 14px 20px; }
+      .two-col, .three-col, .neighborhood-grid { grid-template-columns: 1fr; }
+      .stats-bar-inner { gap: 20px; }
+      .placeholder-cards { flex-direction: column; align-items: center; }
+      .realtor-section { padding: 32px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/" class="nav-brand">
+      <span class="sub">communities</span>
+      <span class="name">Located Lifestyle</span>
+    </a>
+    <div class="nav-right">
+      <a href="/" class="nav-back">← <span>Explore New York</span></a>
+      <a href="https://locatedlifestyle.com/join" class="nav-cta">Join as a Realtor</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-mist"></div>
+    <div class="hero-content">
+      <div class="hero-breadcrumb">
+        <a href="/">Communities</a><span>/</span>
+        <a href="/">Finger Lakes</a><span>/</span>
+        Ithaca
+      </div>
+      <span class="hero-eyebrow">Tompkins County · Finger Lakes</span>
+      <h1>Ithaca</h1>
+      <div class="hero-tagline">Ithaca is gorges. And so much more.</div>
+      <div class="hero-meta">
+        <span class="meta-item">City</span>
+        <span class="meta-dot"></span>
+        <span class="meta-item">Pop. ~32,000</span>
+        <span class="meta-dot"></span>
+        <span class="meta-item">5.2 sq mi</span>
+        <span class="meta-dot"></span>
+        <span class="meta-item">Cornell & Ithaca College</span>
+      </div>
+      <div class="hero-badges">
+        <span class="badge badge-water">💧 Cayuga Lake</span>
+        <span class="badge badge-warm">🎓 Ivy League City</span>
+        <span class="badge badge-warm">🌊 100+ Waterfalls</span>
+        <span class="badge badge-warm">🌱 Progressive Community</span>
+        <span class="badge badge-warm">🏆 CNN Best Town 2025</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS BAR -->
+  <div class="stats-bar">
+    <div class="stats-bar-inner">
+      <div class="stat-item"><span class="stat-value">See Below</span><div class="stat-label">Current Pricing ↓</div></div>
+      <div class="stat-item"><span class="stat-value">100+</span><div class="stat-label">Waterfalls</div></div>
+      <div class="stat-item"><span class="stat-value">2</span><div class="stat-label">Major Colleges</div></div>
+      <div class="stat-item"><span class="stat-value">~32K</span><div class="stat-label">Population</div></div>
+      <div class="stat-item"><span class="stat-value">#1</span><div class="stat-label">CNN Best Town 2025</div></div>
+    </div>
+  </div>
+
+  <div class="content-wrap">
+
+    <!-- OVERVIEW -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">🏙️</div>
+        <h2>Overview & <em>Character</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <p class="prose">Ithaca sits at the southern tip of Cayuga Lake — the longest of the Finger Lakes — in a dramatic landscape of gorges, waterfalls, and forested hillsides that give the city its most famous tagline: <strong>"Ithaca is Gorges."</strong> With over 100 waterfalls within city limits and two major universities anchoring its economy and culture, Ithaca is unlike anywhere else in New York State — a place where Ivy League intellect meets outdoor adventure, and where the food at the farmers market rivals anything you'd find in Brooklyn.</p>
+      <p class="prose"><strong>Cornell University</strong>, founded in 1865 and perched dramatically on East Hill above the city, is one of the world's great research universities and sets the intellectual tone for everything here. <strong>Ithaca College</strong> adds to that critical mass from its South Hill campus. Together, the two schools bring in students, faculty, and researchers from around the world — giving Ithaca a cosmopolitan, globally minded energy that's rare for a city of 32,000.</p>
+      <div class="pull-quote">
+        <p>"Ithaca is a Finger Lakes destination in and of itself, blending hippie grunge with the buttoned-up Ivy League atmosphere of Cornell University."</p>
+        <cite>— Lonely Planet</cite>
+      </div>
+      <p class="prose">Named <strong>CNN's Best Town to Visit in America for 2025</strong>, Ithaca draws visitors and new residents alike for its natural beauty, vibrant food scene, progressive culture, and quality of life that punches well above its weight for a small city. It is also, by some measures, the second most expensive city to live in New York State after New York City — a reflection of low housing supply and persistently high demand driven by the universities.</p>
+    </section>
+
+    <!-- THE VIBE -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">✨</div>
+        <h2>The <em>Vibe</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="two-col">
+        <div class="info-card">
+          <div class="card-eyebrow">Culture & Politics</div>
+          <h3>Deeply Progressive & Proudly Diverse</h3>
+          <p>Ithaca is one of the most liberal cities in New York State — a place where sustainability, social justice, LGBTQ+ inclusivity, and community activism are woven into daily life. One of the first cities in the US to prohibit discrimination based on sexual orientation, it has a long history of progressive firsts.</p>
+        </div>
+        <div class="info-card">
+          <div class="card-eyebrow">Who Lives Here</div>
+          <h3>Students, Professors, Creatives & Lifers</h3>
+          <p>The population is a mix of Cornell and Ithaca College students and faculty, longtime residents who came for school and never left, artists, farmers, musicians, and professionals drawn by the quality of life. The city has a high renter population due to its transient academic cycle, but also a strong core of committed permanent residents.</p>
+        </div>
+        <div class="info-card">
+          <div class="card-eyebrow">Pace of Life</div>
+          <h3>Energetic, Walkable & Nature-Saturated</h3>
+          <p>Ithaca is remarkably walkable and bikeable for an upstate city — electric bikeshare bikes are everywhere, The Commons pedestrian mall is the social hub, and the gorge trails are right in the middle of town. Life here moves with purpose but never feels rushed. The natural world is always minutes away.</p>
+        </div>
+        <div class="info-card">
+          <div class="card-eyebrow">Honest Note</div>
+          <h3>Hilly, Snowy & Sometimes Expensive</h3>
+          <p>Ithaca's terrain is dramatically hilly — expect to work for your views. Winters are cold and snowy, and the hilly roads require snow tires. Housing costs are high relative to the rest of upstate New York. And while crime is not a major issue, it is slightly higher than comparable small cities. Eyes open, and most residents wouldn't trade it.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- KNOWN FOR -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">🏛️</div>
+        <h2>What It's <em>Known For</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="item-list">
+        <div class="item-row">
+          <div class="item-emoji">🌊</div>
+          <div>
+            <h4>Over 100 Waterfalls — Including Taughannock Falls</h4>
+            <p>Ithaca has more waterfalls per square mile than almost anywhere in the eastern United States. <a href="https://www.visitithaca.com" target="_blank" rel="noopener" class="item-link">Taughannock Falls</a> — at 215 feet — is three stories taller than Niagara Falls and the tallest single-drop waterfall east of the Rocky Mountains. Gorge trails weave through the city, with Cascadilla Gorge connecting downtown to Cornell University through a natural stone canyon.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-emoji">🎓</div>
+          <div>
+            <h4>Cornell University</h4>
+            <p>One of the world's great Ivy League research universities, founded in 1865 on East Hill. Cornell's campus is a destination in its own right — the Cornell Botanic Gardens, the Johnson Museum of Art, and the Lab of Ornithology (the world's foremost bird research center) are all open to the public and anchor Ithaca's intellectual identity.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-emoji">🥗</div>
+          <div>
+            <h4>Moosewood Restaurant</h4>
+            <p>One of the most influential restaurants in American culinary history. Opened in 1973, Moosewood helped pioneer vegetarian cuisine in the United States and its bestselling cookbook changed how the country thought about plant-based food. It's still serving on Cayuga Street, five decades later.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-emoji">🛒</div>
+          <div>
+            <h4>Ithaca Farmers Market</h4>
+            <p>One of the finest farmers markets in New York State — held every Wednesday and Saturday at the Steamboat Landing pavilion on Cayuga Lake. Local produce, artisan foods, crafts, live music, and prepared food from dozens of vendors. A cornerstone of Ithaca community life year-round.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-emoji">🎵</div>
+          <div>
+            <h4>Live Music & Arts Scene</h4>
+            <p>The historic <strong>State Theatre of Ithaca</strong> hosts nationally touring acts September through May. The Hangar Theatre is a beloved regional company. Street musicians fill The Commons year-round. For a city its size, Ithaca's cultural output — in music, film, art, and theater — is extraordinary.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-emoji">🍺</div>
+          <div>
+            <h4>Craft Beverage Scene</h4>
+            <p>The Cayuga Lake Wine Trail — the nation's first wine trail — begins right at Ithaca's doorstep. Add South Hill Cider, Ithaca Beer Co., and a growing number of craft breweries and distilleries, and Ithaca is a serious destination for beverage lovers.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEIGHBORHOODS -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">🗺️</div>
+        <h2>Neighborhoods to <em>Know</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <p class="prose">Ithaca's neighborhoods each have a distinct character — shaped by proximity to the universities, the gorges, and Cayuga Lake.</p>
+      <div class="neighborhood-grid">
+        <div class="neighborhood-card">
+          <span class="n-tag">Most Walkable</span>
+          <div class="n-name">Downtown & The Commons</div>
+          <p>The four-block pedestrian mall is the heart of the city — 100+ independent shops, restaurants, galleries, and street performers. The social and commercial hub of Ithaca.</p>
+        </div>
+        <div class="neighborhood-card">
+          <span class="n-tag">Most Sought-After</span>
+          <div class="n-name">Fall Creek</div>
+          <p>A fan favorite among buyers — classic architecture, community gardens, proximity to the gorge and Sciencenter, and a strong neighborhood identity. Homes move fast here.</p>
+        </div>
+        <div class="neighborhood-card">
+          <span class="n-tag">Most Prestigious</span>
+          <div class="n-name">Cayuga Heights</div>
+          <p>A separate village adjacent to Cornell with stately historic homes, excellent schools, tree-lined streets, and the highest home values in the Ithaca area. Park-like and quiet.</p>
+        </div>
+        <div class="neighborhood-card">
+          <span class="n-tag">Near Cornell</span>
+          <div class="n-name">Cornell Heights</div>
+          <p>Historic homes along Fall Creek Gorge, close to Cornell campus. Diverse architectural styles, strong community feel, and scenic trails right outside the door.</p>
+        </div>
+        <div class="neighborhood-card">
+          <span class="n-tag">Near Ithaca College</span>
+          <div class="n-name">South Hill</div>
+          <p>Ithaca College's campus offers some of the best views of Cayuga Lake in the city. South Hill has a more suburban feel with access to Buttermilk Falls State Park.</p>
+        </div>
+        <div class="neighborhood-card">
+          <span class="n-tag">Family-Friendly</span>
+          <div class="n-name">Belle Sherman</div>
+          <p>A quiet, walkable neighborhood near Collegetown known for its safety, top-rated elementary school, community parks, and easy commute to Cornell and downtown.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESTAURANTS -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">🍽️</div>
+        <h2>Restaurants & <em>Dining</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <p class="prose">Ithaca's dining scene is far beyond what you'd expect from a city its size — driven by Cornell's hospitality school, a globally diverse population, and deep roots in local and sustainable food culture.</p>
+      <div class="item-list">
+        <div class="item-row"><div class="item-emoji">🥗</div><div><h4>Moosewood Restaurant</h4><p>An American culinary landmark since 1973 — the restaurant that helped pioneer vegetarian cuisine nationally. Still serving on Cayuga Street, with seasonal vegetable-forward dishes and the warmth of a true community institution.</p></div></div>
+        <div class="item-row"><div class="item-emoji">🥐</div><div><h4>Le Café Cent Dix</h4><p>Contemporary French bistro fare with a strong emphasis on seasonal, local vegetables — named one of CNN's highlights for Ithaca in 2025. Duck breast, steak frites, and rotating seasonal vegetable dishes in an intimate setting.</p></div></div>
+        <div class="item-row"><div class="item-emoji">🍹</div><div><h4>Mercato Bar & Kitchen</h4><p>One of downtown Ithaca's most popular dinner spots — a lively bar and kitchen on The Commons known for creative cocktails and a menu that draws on global influences.</p></div></div>
+        <div class="item-row"><div class="item-emoji">☕</div><div><h4>Gimme! Coffee</h4><p>An Ithaca institution with multiple locations — a specialty roaster and café that has been a cornerstone of the city's coffee culture since 2000. Also found in Cayuga Heights and New York City.</p></div></div>
+        <div class="item-row"><div class="item-emoji">🌮</div><div><h4>Luna Inspired Street Food</h4><p>Global street food and American dishes in the heart of downtown — a lively, casual spot known for mac and cheese, burgers, and street tacos that draws a devoted local following.</p></div></div>
+        <div class="item-row"><div class="item-emoji">🍦</div><div><h4>Purity Ice Cream</h4><p>A beloved Ithaca institution since 1936 — locally owned and coined "Ice Cream of The Finger Lakes." A summer pilgrimage for locals and visitors alike.</p></div></div>
+        <div class="item-row"><div class="item-emoji">🍎</div><div><h4>South Hill Cider</h4><p>A scenic cidery near Buttermilk Falls offering guided tastings of fermented ciders, drinks by the glass, and live music — with campsites bookable online. A true Ithaca original.</p></div></div>
+      </div>
+    </section>
+
+    <!-- SHOPS -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">🛍️</div>
+        <h2>Shops & Local <em>Businesses</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <p class="prose">The Ithaca Commons — a four-block pedestrian mall in the heart of downtown — is home to over 100 independently owned shops, galleries, and eateries. Ithaca has a strong local-first shopping culture and minimal chain retail presence downtown.</p>
+      <div class="three-col">
+        <div class="info-card"><div class="card-eyebrow">Books</div><h3>Autumn Leaves Used Books</h3><p>A beloved independent used bookstore on The Commons — a perfect rainy afternoon stop with an eclectic, well-curated selection.</p></div>
+        <div class="info-card"><div class="card-eyebrow">Groceries</div><h3>GreenStar Food Co-op</h3><p>A worker- and community-owned natural foods co-op with two locations — the heart of Ithaca's local and organic food culture. A beloved institution.</p></div>
+        <div class="info-card"><div class="card-eyebrow">Wine</div><h3>Cellar d'Or</h3><p>A curated wine shop on The Commons specializing in Finger Lakes wines alongside international selections — a great stop before any dinner party.</p></div>
+        <div class="info-card"><div class="card-eyebrow">Organic Home</div><h3>Home Green Home</h3><p>Organic products for the home — part of The Commons' diverse retail mix reflecting Ithaca's sustainability-minded community values.</p></div>
+        <div class="info-card"><div class="card-eyebrow">Boutique</div><h3>The Commons Boutiques</h3><p>Dozens of independently owned clothing boutiques, gift shops, and specialty stores line The Commons — strongly independent, with minimal chain presence.</p></div>
+        <div class="info-card"><div class="card-eyebrow">Groceries</div><h3>Wegmans & Aldi</h3><p>Full-service Wegmans and Aldi both located off NY Route 13 — accessible for full grocery runs outside of the co-op.</p></div>
+      </div>
+    </section>
+
+    <!-- OUTDOOR -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">🏞️</div>
+        <h2>Outdoor & <em>Recreation</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <p class="prose">Outdoor recreation is inseparable from life in Ithaca. The gorges, waterfalls, lake, and state parks are not weekend destinations — they're part of the daily commute, the lunch break, and the evening walk.</p>
+      <div class="item-list">
+        <div class="item-row"><div class="item-emoji">🌊</div><div><h4>Taughannock Falls State Park</h4><p>Home to the tallest single-drop waterfall east of the Rocky Mountains at 215 feet — three stories taller than Niagara. Open year-round, with two main viewing access points and hiking trails through the dramatic gorge. A short drive north of the city.</p></div></div>
+        <div class="item-row"><div class="item-emoji">🥾</div><div><h4>Cascadilla Gorge Trail</h4><p>A secluded cascading falls and stone path connecting downtown Ithaca directly to Cornell University through a natural gorge — a quiet, beautiful refuge that runs right through the heart of the city. Open seasonally.</p></div></div>
+        <div class="item-row"><div class="item-emoji">💦</div><div><h4>Buttermilk Falls & Robert H. Treman State Parks</h4><p>Two beloved state parks on the south side of the city — winding gorges, multiple waterfalls including the notable Lucifer Falls, swimming holes, camping, and miles of trails. Robert H. Treman is one of the most dramatic parks in the entire Finger Lakes region.</p></div></div>
+        <div class="item-row"><div class="item-emoji">🚲</div><div><h4>Black Diamond Trail & Cayuga Waterfront Trail</h4><p>The Black Diamond Trail is an 8.5-mile rail trail connecting Trumansburg to Ithaca — equally good for biking or cross-country skiing. The Cayuga Waterfront Trail runs along the lake through Cass Park, connecting to the Farmers Market pavilion.</p></div></div>
+        <div class="item-row"><div class="item-emoji">🌊</div><div><h4>Cayuga Lake — Swimming, Boating & Paddling</h4><p>The longest of the Finger Lakes at 61 miles, Cayuga Lake offers swimming at Stewart Park and Taughannock, kayaking, paddleboarding, sailing, and access to the Cayuga Lake Wine Trail along its eastern and western shores.</p></div></div>
+        <div class="item-row"><div class="item-emoji">🌿</div><div><h4>Cornell Botanic Gardens</h4><p>Free and open to the public year-round — 2,800 acres of natural areas and gardens on Cornell's campus, including arboreta, wetlands, and beautifully curated botanical collections. One of the great public gardens of the Northeast.</p></div></div>
+      </div>
+    </section>
+
+    <!-- NEARBY -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">📍</div>
+        <h2>What's <em>Nearby</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="three-col">
+        <div class="info-card"><div class="card-eyebrow">20 minutes north</div><h3>Trumansburg</h3><p>Gateway to Taughannock Falls and a vibrant arts and music scene — a popular choice for Ithaca residents seeking a quieter, more rural lifestyle.</p></div>
+        <div class="info-card"><div class="card-eyebrow">45 minutes north</div><h3>Seneca Falls</h3><p>Birthplace of the women's rights movement, the Erie Canal Wine Trail, and access to both the Cayuga and Seneca lake wine regions.</p></div>
+        <div class="info-card"><div class="card-eyebrow">1 hour north</div><h3>Geneva & Canandaigua</h3><p>Historic Finger Lakes cities at the north end of Seneca and Canandaigua Lakes — wine country, dining, and lakefront access.</p></div>
+        <div class="info-card"><div class="card-eyebrow">1 hour north</div><h3>Syracuse</h3><p>Central New York's largest city for major medical centers, airport, Destiny USA, SU sports, and urban amenities.</p></div>
+        <div class="info-card"><div class="card-eyebrow">1.5 hours north</div><h3>Rochester</h3><p>University of Rochester, Strong National Museum of Play, a strong job market, and one of upstate New York's most interesting food and arts scenes.</p></div>
+        <div class="info-card"><div class="card-eyebrow">4 hours south</div><h3>New York City</h3><p>Direct bus service (Shortline/Coach USA) connects Ithaca to NYC in approximately 4.5 hours — a realistic weekend trip for city-connected residents.</p></div>
+      </div>
+    </section>
+
+    <!-- SCHOOLS -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">🎓</div>
+        <h2>Schools</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="school-card">
+        <div class="school-grade">A</div>
+        <div class="school-info">
+          <h3>Ithaca City School District</h3>
+          <p>The Ithaca City School District is well-regarded and diverse, serving the city's broad mix of longtime residents and university families. Ithaca Senior High School earns an A rating from Niche with an average SAT score of 1350 and 38% of students enrolled in advanced placement programs. Boynton Middle School earns an A- rating. The district reflects Ithaca's progressive values — with strong arts, music, and equity programs alongside rigorous academics.</p>
+          <div class="school-badges">
+            <span class="school-badge">A Rated Overall</span>
+            <span class="school-badge">Strong AP Programs</span>
+            <span class="school-badge">Diverse & Inclusive</span>
+            <span class="school-badge">Strong Arts Program</span>
+          </div>
+        </div>
+      </div>
+      <div class="school-card">
+        <div class="school-grade">A+</div>
+        <div class="school-info">
+          <h3>Cayuga Heights — Village Schools</h3>
+          <p>The village of Cayuga Heights, adjacent to Ithaca, is served by the Ithaca City School District but is considered the top-rated residential area in the broader Ithaca market — with the highest-rated schools, lowest crime, and most prestigious home values. Families prioritizing school ratings often target Cayuga Heights specifically.</p>
+          <div class="school-badges">
+            <span class="school-badge">A+ Rated</span>
+            <span class="school-badge">#1 in Tompkins County</span>
+            <span class="school-badge">Highest Home Values</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REAL ESTATE -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">🏠</div>
+        <h2>Real Estate <em>Overview</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <p class="prose">Ithaca is one of the most expensive real estate markets in upstate New York — a direct result of chronically low inventory and persistently high demand from university employees, graduates who stayed, and remote workers attracted by the quality of life. <strong>The home price-to-income ratio is 46% higher than the New York State average</strong> — a stark number that reflects the supply-demand imbalance. Village homes in Cayuga Heights represent the top of the market; more affordable options exist on the West Hill and in the city's outer neighborhoods.</p>
+
+      <div class="pricing-links-block">
+        <div class="pricing-links-label">Current Pricing — Live Data</div>
+        <p class="pricing-links-note">Ithaca's market moves quickly. Check these sources for up-to-date pricing:</p>
+        <div class="pricing-links">
+          <a href="https://www.redfin.com/city/8612/NY/Ithaca/housing-market" target="_blank" rel="noopener" class="pricing-link">
+            <span class="pricing-link-name">Redfin</span>
+            <span class="pricing-link-desc">Median sale price, days on market, price per sq ft</span>
+            <span class="pricing-link-arrow">↗</span>
+          </a>
+          <a href="https://www.zillow.com/ithaca-ny/home-values/" target="_blank" rel="noopener" class="pricing-link">
+            <span class="pricing-link-name">Zillow</span>
+            <span class="pricing-link-desc">Zillow Home Value Index & market trends</span>
+            <span class="pricing-link-arrow">↗</span>
+          </a>
+          <a href="https://www.realtor.com/realestateandhomes-search/Ithaca_NY/overview" target="_blank" rel="noopener" class="pricing-link">
+            <span class="pricing-link-name">Realtor.com</span>
+            <span class="pricing-link-desc">Listing prices, market hotness, inventory</span>
+            <span class="pricing-link-arrow">↗</span>
+          </a>
+        </div>
+        <p class="pricing-disclaimer">Real estate data varies by source and changes over time. Always verify current pricing with a licensed local Realtor.</p>
+      </div>
+
+      <div class="two-col">
+        <div class="info-card"><div class="card-eyebrow">City Neighborhoods</div><h3>$350K – $600K</h3><p>Fall Creek, Belle Sherman, East Hill, and similar neighborhoods offer classic Ithaca homes at mid-market prices. Low inventory means properties move quickly when they do appear.</p></div>
+        <div class="info-card"><div class="card-eyebrow">Cayuga Heights</div><h3>$600K – $1.5M+</h3><p>The most prestigious and expensive residential area in the Ithaca market — stately homes, A+ schools, low crime, and proximity to Cornell. Consistently high demand.</p></div>
+      </div>
+    </section>
+
+    <!-- REALTOR SPOTLIGHT -->
+    <div class="realtor-section fade-in">
+      <span class="eyebrow">Realtor Spotlight</span>
+      <h2>Know Ithaca?<br />Your Clients Are Looking.</h2>
+      <p>Buyers matched to Ithaca on Located Lifestyle are actively searching for a local expert who understands the neighborhoods, the university market, and what makes this city so special. Be the Realtor they find.</p>
+      <div class="placeholder-cards">
+        <div class="placeholder-card"><div class="placeholder-avatar">🏡</div><div class="ph-title">Open Spot</div><div class="ph-sub">Ithaca community specialist</div></div>
+        <div class="placeholder-card"><div class="placeholder-avatar">🏡</div><div class="ph-title">Open Spot</div><div class="ph-sub">Ithaca community specialist</div></div>
+        <div class="placeholder-card"><div class="placeholder-avatar">🏡</div><div class="ph-title">Open Spot</div><div class="ph-sub">Ithaca community specialist</div></div>
+      </div>
+      <div class="price-inline"><span class="amount">$19</span><span class="period">/month</span></div><br />
+      <a href="https://locatedlifestyle.com/join" class="btn-light">List Yourself as an Ithaca Specialist</a>
+      <p class="founding-note">Founding Member rate — grandfathered when prices increase to $29/month</p>
+    </div>
+
+    <!-- SOURCES -->
+    <div class="sources-section fade-in">
+      <h3>Sources</h3>
+      <div class="sources-list">
+        <a href="https://www.visitithaca.com" target="_blank" rel="noopener">Visit Ithaca — Official Tourism Website</a>
+        <a href="https://www.cnn.com/travel/ithaca-new-york-best-towns-america-2025" target="_blank" rel="noopener">CNN Travel — America's Best Towns to Visit 2025</a>
+        <a href="https://www.homes.com/local-guide/ithaca-ny/" target="_blank" rel="noopener">Homes.com — Ithaca City Guide</a>
+        <a href="https://www.niche.com/places-to-live/search/best-places-to-live/c/tompkins-county-ny/" target="_blank" rel="noopener">Niche — Best Places to Live in Tompkins County</a>
+        <a href="https://www.fingerlakes.org/explore-the-finger-lakes-region" target="_blank" rel="noopener">Finger Lakes Tourism Alliance — Explore the Region</a>
+        <a href="https://www.thehotelithaca.com/area-guide" target="_blank" rel="noopener">The Hotel Ithaca — Area Guide</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- BOTTOM NAV -->
+  <div class="bottom-nav">
+    <p>Continue exploring the Finger Lakes</p>
+    <div class="bottom-nav-links">
+      <a href="/">← Back to All Communities</a>
+      <a href="skaneateles.html">← Skaneateles</a>
+      <a href="#">Canandaigua →</a>
+      <a href="#">Watkins Glen →</a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-brand">Located <span>Lifestyle</span></div>
+    <div class="footer-copy">© 2026 Located Lifestyle · communities.locatedlifestyle.com · New York State Community Directory</div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 75);
+      });
+    }, { threshold: 0.06, rootMargin: '0px 0px -30px 0px' });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
