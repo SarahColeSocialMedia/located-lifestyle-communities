@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Watkins Glen, NY — Finger Lakes Community Guide | Located Lifestyle</title>
+  <meta name="description" content="Everything you need to know about living in Watkins Glen, NY — vibe, restaurants, shops, outdoor activities, schools, real estate, and local Realtors." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream:      #f6f3ec;
+      --cream-dark: #ece4da;
+      --taupe:      #b9a590;
+      --taupe-dark: #9a8470;
+      --brown:      #574c3f;
+      --brown-dark: #36302a;
+      --text:       #36302a;
+      --text-mid:   #574c3f;
+      --text-muted: #9a8470;
+      --border:     rgba(87,76,63,0.12);
+      --border-med: rgba(87,76,63,0.2);
+      --card-bg:    #ffffff;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--text); overflow-x: hidden; }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 52px;
+      background: rgba(246,243,236,0.95); backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-brand { text-decoration: none; display: flex; flex-direction: column; gap: 1px; }
+    .nav-brand .sub { font-size: 9px; letter-spacing: 3.5px; text-transform: uppercase; color: var(--taupe); font-weight: 500; }
+    .nav-brand .name { font-family: 'Cormorant Garamond', serif; font-size: 20px; color: var(--brown-dark); font-weight: 600; }
+    .nav-right { display: flex; gap: 24px; align-items: center; }
+    .nav-back { font-size: 13px; color: var(--text-muted); text-decoration: none; transition: color 0.2s; display: flex; align-items: center; gap: 6px; }
+    .nav-back:hover { color: var(--brown); }
+    .nav-cta { background: var(--brown-dark); color: var(--cream); font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; padding: 10px 22px; border-radius: 2px; text-decoration: none; transition: background 0.2s; }
+    .nav-cta:hover { background: var(--brown); }
+
+    /* ── HERO — deep forest gorge green ── */
+    .hero {
+      min-height: 68vh; position: relative; overflow: hidden;
+      display: flex; flex-direction: column; align-items: center; justify-content: flex-end;
+      padding: 120px 24px 64px; text-align: center;
+      background: linear-gradient(180deg, #1a2a1a 0%, #243424 30%, #2e4030 60%, #3a4e3a 100%);
+    }
+    .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 75% 55% at 50% 65%, rgba(80,120,80,0.3) 0%, transparent 65%); }
+    .hero-gorge {
+      position: absolute; bottom: 0; left: 0; right: 0; height: 40%;
+      background: linear-gradient(180deg, transparent 0%, rgba(30,60,40,0.4) 50%, rgba(20,50,30,0.6) 100%);
+    }
+    .hero-content { position: relative; z-index: 2; max-width: 780px; }
+
+    .hero-breadcrumb { display: flex; align-items: center; gap: 8px; justify-content: center; margin-bottom: 20px; font-size: 11px; letter-spacing: 1px; color: rgba(246,243,236,0.5); }
+    .hero-breadcrumb a { color: rgba(246,243,236,0.5); text-decoration: none; transition: color 0.2s; }
+    .hero-breadcrumb a:hover { color: var(--cream); }
+    .hero-breadcrumb span { opacity: 0.35; }
+    .hero-eyebrow { font-size: 10px; letter-spacing: 3.5px; text-transform: uppercase; color: rgba(246,243,236,0.6); margin-bottom: 14px; display: block; }
+    .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(40px, 8vw, 88px); font-weight: 600; line-height: 0.95; color: var(--cream); margin-bottom: 12px; letter-spacing: -2px; }
+    .hero-tagline { font-family: 'Cormorant Garamond', serif; font-size: clamp(16px, 2.5vw, 22px); font-style: italic; color: rgba(246,243,236,0.72); margin-bottom: 28px; font-weight: 400; }
+    .hero-meta { display: flex; gap: 28px; justify-content: center; flex-wrap: wrap; margin-bottom: 32px; }
+    .meta-item { font-size: 12px; color: rgba(246,243,236,0.55); display: flex; align-items: center; gap: 7px; }
+    .meta-dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(246,243,236,0.35); }
+    .hero-badges { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+    .badge { padding: 5px 13px; border-radius: 100px; font-size: 10px; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; }
+    .badge-water { background: rgba(255,255,255,0.15); color: var(--cream); border: 1px solid rgba(255,255,255,0.28); backdrop-filter: blur(4px); }
+    .badge-warm { background: rgba(255,255,255,0.1); color: rgba(246,243,236,0.82); border: 1px solid rgba(255,255,255,0.18); }
+
+    /* ── AWARDS BAR ── */
+    .awards-bar {
+      background: var(--cream-dark);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 24px;
+      overflow: hidden;
+    }
+    .awards-inner {
+      max-width: 960px; margin: 0 auto;
+      display: flex; gap: 40px; justify-content: center; flex-wrap: wrap; align-items: center;
+    }
+    .award-item { display: flex; align-items: center; gap: 8px; }
+    .award-item .trophy { font-size: 16px; }
+    .award-text { font-size: 11px; color: var(--brown); font-weight: 500; letter-spacing: 0.3px; }
+    .award-text strong { font-weight: 600; }
+
+    .stats-bar { background: var(--brown-dark); }
+    .stats-bar-inner { max-width: 960px; margin: 0 auto; display: flex; justify-content: space-around; padding: 28px 24px; flex-wrap: wrap; gap: 20px; }
+    .stat-item { text-align: center; }
+    .stat-value { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 600; color: var(--taupe); display: block; line-height: 1.1; }
+    .stat-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: rgba(246,243,236,0.42); margin-top: 4px; }
+
+    .content-wrap { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+    .section { padding: 72px 0 0; }
+    .section-header { display: flex; align-items: center; gap: 20px; margin-bottom: 32px; }
+    .section-icon { width: 44px; height: 44px; border-radius: 2px; background: var(--cream-dark); border: 1px solid var(--border-med); display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+    .section-header h2 { font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 600; color: var(--brown-dark); letter-spacing: -0.3px; }
+    .section-header h2 em { font-style: italic; color: var(--taupe-dark); }
+    .section-line { flex: 1; height: 1px; background: var(--border); }
+
+    .prose { font-size: 15px; line-height: 1.85; color: var(--text-muted); font-weight: 300; margin-bottom: 22px; }
+    .prose strong { color: var(--brown); font-weight: 500; }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .three-col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .info-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 4px; padding: 22px; }
+    .info-card h3 { font-size: 14px; font-weight: 600; color: var(--brown-dark); margin-bottom: 8px; }
+    .info-card p { font-size: 13px; line-height: 1.7; color: var(--text-muted); font-weight: 300; }
+    .info-card .card-eyebrow { font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--taupe); margin-bottom: 7px; }
+    .pull-quote { border-left: 2px solid var(--taupe); padding: 18px 26px; margin: 32px 0; background: var(--cream-dark); border-radius: 0 4px 4px 0; }
+    .pull-quote p { font-family: 'Cormorant Garamond', serif; font-size: 19px; font-style: italic; color: var(--brown); line-height: 1.6; }
+    .item-list { display: flex; flex-direction: column; gap: 1px; }
+    .item-row { display: flex; align-items: flex-start; gap: 16px; padding: 20px 0; border-bottom: 1px solid var(--border); }
+    .item-row:first-child { border-top: 1px solid var(--border); }
+    .item-emoji { font-size: 20px; flex-shrink: 0; margin-top: 1px; width: 28px; }
+    .item-row h4 { font-size: 14px; font-weight: 600; color: var(--brown-dark); margin-bottom: 5px; }
+    .item-row p { font-size: 13px; color: var(--text-muted); line-height: 1.65; font-weight: 300; }
+    .item-link { color: var(--brown-dark); border-bottom: 1px solid var(--border-med); text-decoration: none; transition: border-color 0.2s; }
+    .item-link:hover { border-color: var(--brown); }
+
+    .pricing-links-block { background: var(--card-bg); border: 1px solid var(--border-med); border-radius: 4px; padding: 28px; margin-bottom: 24px; }
+    .pricing-links-label { font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--taupe); margin-bottom: 8px; }
+    .pricing-links-note { font-size: 13px; color: var(--text-muted); margin-bottom: 20px; line-height: 1.6; font-weight: 300; }
+    .pricing-links { display: flex; flex-direction: column; gap: 1px; }
+    .pricing-link { display: flex; align-items: center; gap: 16px; padding: 14px 16px; border-radius: 3px; background: var(--cream); border: 1px solid var(--border); text-decoration: none; transition: all 0.2s; }
+    .pricing-link:hover { border-color: var(--brown); background: var(--cream-dark); }
+    .pricing-link-name { font-size: 14px; font-weight: 600; color: var(--brown-dark); min-width: 100px; }
+    .pricing-link-desc { font-size: 12px; color: var(--text-muted); flex: 1; font-weight: 300; }
+    .pricing-link-arrow { font-size: 14px; color: var(--taupe); transition: color 0.2s; }
+    .pricing-link:hover .pricing-link-arrow { color: var(--brown); }
+    .pricing-disclaimer { font-size: 11px; color: var(--text-muted); margin-top: 14px; opacity: 0.7; line-height: 1.5; font-style: italic; }
+
+    .school-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 4px; padding: 24px; display: flex; align-items: flex-start; gap: 20px; }
+    .school-grade { width: 52px; height: 52px; border-radius: 4px; background: var(--cream-dark); border: 1px solid var(--border-med); display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 700; color: var(--brown); flex-shrink: 0; }
+    .school-info h3 { font-size: 15px; font-weight: 600; color: var(--brown-dark); margin-bottom: 7px; }
+    .school-info p { font-size: 13px; color: var(--text-muted); line-height: 1.65; font-weight: 300; }
+    .school-badges { display: flex; gap: 7px; flex-wrap: wrap; margin-top: 12px; }
+    .school-badge { padding: 3px 10px; border-radius: 100px; font-size: 11px; background: var(--cream-dark); color: var(--brown); border: 1px solid var(--border-med); }
+
+    .realtor-section { margin-top: 72px; background: var(--brown-dark); border-radius: 4px; padding: 52px; text-align: center; }
+    .realtor-section .eyebrow { font-size: 10px; letter-spacing: 3.5px; text-transform: uppercase; color: var(--taupe); margin-bottom: 18px; display: block; }
+    .realtor-section h2 { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 600; color: var(--cream); line-height: 1.15; margin-bottom: 14px; }
+    .realtor-section p { font-size: 15px; color: rgba(246,243,236,0.55); line-height: 1.75; margin-bottom: 14px; font-weight: 300; max-width: 500px; margin-left: auto; margin-right: auto; }
+    .placeholder-cards { display: flex; gap: 16px; justify-content: center; margin: 32px 0; flex-wrap: wrap; }
+    .placeholder-card { width: 200px; border: 1px dashed rgba(185,165,144,0.3); border-radius: 4px; padding: 24px 16px; text-align: center; background: rgba(255,255,255,0.04); }
+    .placeholder-avatar { width: 52px; height: 52px; border-radius: 50%; background: rgba(185,165,144,0.12); border: 1px dashed rgba(185,165,144,0.3); margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; font-size: 20px; }
+    .placeholder-card .ph-title { font-size: 13px; font-weight: 500; color: rgba(246,243,236,0.5); margin-bottom: 5px; }
+    .placeholder-card .ph-sub { font-size: 11px; color: rgba(246,243,236,0.3); line-height: 1.5; }
+    .price-inline { display: inline-flex; align-items: baseline; gap: 4px; margin: 18px 0 26px; }
+    .price-inline .amount { font-family: 'Cormorant Garamond', serif; font-size: 48px; font-weight: 600; color: var(--taupe); }
+    .price-inline .period { font-size: 16px; color: rgba(246,243,236,0.4); }
+    .btn-light { background: var(--cream); color: var(--brown-dark); padding: 14px 32px; border-radius: 2px; font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; transition: all 0.2s; display: inline-block; }
+    .btn-light:hover { background: var(--cream-dark); transform: translateY(-2px); }
+    .founding-note { font-size: 12px; color: var(--taupe); margin-top: 14px; opacity: 0.8; }
+
+    .sources-section { margin-top: 64px; padding: 32px 0 80px; border-top: 1px solid var(--border); }
+    .sources-section h3 { font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 14px; }
+    .sources-list { display: flex; flex-direction: column; gap: 7px; }
+    .sources-list a { font-size: 12px; color: var(--text-muted); text-decoration: none; opacity: 0.6; transition: opacity 0.2s; display: flex; align-items: center; gap: 6px; }
+    .sources-list a:hover { opacity: 1; color: var(--brown); }
+    .sources-list a::before { content: '↗'; font-size: 10px; }
+
+    .bottom-nav { border-top: 1px solid var(--border); padding: 48px 24px; text-align: center; background: var(--cream-dark); }
+    .bottom-nav p { font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 20px; }
+    .bottom-nav-links { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .bottom-nav-links a { padding: 10px 22px; border-radius: 2px; border: 1px solid var(--border-med); font-size: 13px; color: var(--text-muted); text-decoration: none; transition: all 0.2s; }
+    .bottom-nav-links a:hover { border-color: var(--brown); color: var(--brown); background: rgba(87,76,63,0.05); }
+
+    footer { border-top: 1px solid var(--border); padding: 36px 24px; text-align: center; background: var(--cream); }
+    .footer-brand { font-family: 'Cormorant Garamond', serif; font-size: 20px; color: var(--brown-dark); margin-bottom: 6px; font-weight: 600; }
+    .footer-brand span { color: var(--taupe-dark); font-style: italic; }
+    .footer-copy { font-size: 11px; color: var(--text-muted); opacity: 0.5; }
+
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 768px) {
+      nav { padding: 14px 20px; }
+      .two-col, .three-col { grid-template-columns: 1fr; }
+      .stats-bar-inner { gap: 20px; }
+      .awards-inner { gap: 20px; }
+      .placeholder-cards { flex-direction: column; align-items: center; }
+      .realtor-section { padding: 32px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/" class="nav-brand">
+      <span class="sub">communities</span>
+      <span class="name">Located Lifestyle</span>
+    </a>
+    <div class="nav-right">
+      <a href="/" class="nav-back">← <span>Explore New York</span></a>
+      <a href="https://locatedlifestyle.com/join" class="nav-cta">Join as a Realtor</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-gorge"></div>
+    <div class="hero-content">
+      <div class="hero-breadcrumb">
+        <a href="/">Communities</a><span>/</span>
+        <a href="/">Finger Lakes</a><span>/</span>
+        Watkins Glen
+      </div>
+      <span class="hero-eyebrow">Schuyler County · Finger Lakes</span>
+      <h1>Watkins Glen</h1>
+      <div class="hero-tagline">19 waterfalls. One legendary racetrack. Endless wine.</div>
+      <div class="hero-meta">
+        <span class="meta-item">Village</span>
+        <span class="meta-dot"></span>
+        <span class="meta-item">Pop. ~1,800</span>
+        <span class="meta-dot"></span>
+        <span class="meta-item">Schuyler County Seat</span>
+        <span class="meta-dot"></span>
+        <span class="meta-item">30 min to Ithaca or Corning</span>
+      </div>
+      <div class="hero-badges">
+        <span class="badge badge-water">💧 Seneca Lake</span>
+        <span class="badge badge-warm">🏁 NASCAR #1 Track</span>
+        <span class="badge badge-warm">🌊 19 Waterfalls</span>
+        <span class="badge badge-warm">🍷 Seneca Wine Trail</span>
+        <span class="badge badge-warm">🏆 #3 Small Town for Adventure</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- AWARDS BAR -->
+  <div class="awards-bar">
+    <div class="awards-inner">
+      <div class="award-item"><span class="trophy">🏆</span><span class="award-text"><strong>#1 NASCAR Track</strong> — USA Today</span></div>
+      <div class="award-item"><span class="trophy">🏆</span><span class="award-text"><strong>#3 State Park</strong> — USA Today</span></div>
+      <div class="award-item"><span class="trophy">🏆</span><span class="award-text"><strong>#1 Wine Festival</strong> — USA Today</span></div>
+      <div class="award-item"><span class="trophy">🏆</span><span class="award-text"><strong>#1 Waterfront Hotel</strong> — USA Today</span></div>
+      <div class="award-item"><span class="trophy">🏆</span><span class="award-text"><strong>#3 Small Town for Adventure</strong> — USA Today</span></div>
+    </div>
+  </div>
+
+  <!-- STATS BAR -->
+  <div class="stats-bar">
+    <div class="stats-bar-inner">
+      <div class="stat-item"><span class="stat-value">See Below</span><div class="stat-label">Current Pricing ↓</div></div>
+      <div class="stat-item"><span class="stat-value">19</span><div class="stat-label">Waterfalls in Park</div></div>
+      <div class="stat-item"><span class="stat-value">~1,800</span><div class="stat-label">Population</div></div>
+      <div class="stat-item"><span class="stat-value">35+</span><div class="stat-label">Seneca Wineries</div></div>
+      <div class="stat-item"><span class="stat-value">2 mi</span><div class="stat-label">Gorge Trail Length</div></div>
+    </div>
+  </div>
+
+  <div class="content-wrap">
+
+    <!-- OVERVIEW -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">🏘️</div>
+        <h2>Overview & <em>Character</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <p class="prose">Watkins Glen is one of the most improbable small villages in New York State — a community of fewer than 2,000 people that somehow hosts one of the world's most famous racetracks, one of the most dramatic state parks in the eastern United States, and the gateway to the Seneca Lake Wine Trail, home to more wineries than any other trail in New York. It sits at the <strong>southern tip of Seneca Lake</strong> — the deepest of the Finger Lakes — in Schuyler County, one of the most rural and strikingly beautiful counties in the state.</p>
+      <p class="prose">The village is compact and unpretentious — <strong>Franklin Street</strong> is the main artery, lined with locally-owned restaurants, shops, and hotels. Look down as you walk and you'll find checkerboard crosswalks, a nod to the racing heritage that runs through everything here. The state park entrance is literally steps from downtown. The lake pier is a short walk from anywhere in the village. It is the kind of place that feels bigger than it is because of everything it contains.</p>
+      <div class="pull-quote">
+        <p>"Watkins Glen is a small village packing a big punch in New York's Finger Lakes region."</p>
+      </div>
+      <p class="prose">For buyers, Watkins Glen represents one of the most <strong>affordable entry points</strong> into Finger Lakes lakeside living — with home prices significantly lower than Skaneateles or Ithaca, and a lifestyle that trades upscale polish for genuine adventure, natural beauty, and a tight-knit community identity built around the gorge, the lake, and the race. It's also the <strong>county seat of Schuyler County</strong>, giving it a stability and civic infrastructure that belies its small size.</p>
+    </section>
+
+    <!-- VIBE -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">✨</div>
+        <h2>The <em>Vibe</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="two-col">
+        <div class="info-card">
+          <div class="card-eyebrow">Pace of Life</div>
+          <h3>Adventurous, Outdoor & Genuinely Local</h3>
+          <p>Life in Watkins Glen revolves around the outdoors — the gorge trails, the lake, the wine country, and the race calendar. Summer brings an influx of visitors and a festival-like energy downtown. The rest of the year is quieter, more local, and deeply tied to the natural rhythms of the Finger Lakes. Friday on Franklin events draw the community together monthly through the warm season.</p>
+        </div>
+        <div class="info-card">
+          <div class="card-eyebrow">Who Lives Here</div>
+          <h3>Locals, Nature Lovers & Value-Seekers</h3>
+          <p>A mix of longtime Schuyler County families, outdoor enthusiasts who came for the gorge and stayed, winery workers and hospitality staff, and a growing number of remote workers and retirees who discovered that Finger Lakes living doesn't have to cost Skaneateles prices. The community is unpretentious and proud of what makes it unique.</p>
+        </div>
+        <div class="info-card">
+          <div class="card-eyebrow">Race Season</div>
+          <h3>June & July Bring the World to Franklin Street</h3>
+          <p>Watkins Glen International hosts major NASCAR and IMSA events each summer — most notably the NASCAR Cup Series race in August and Sahlen's Six Hours of The Glen in June. Race weekends transform the village with tens of thousands of visitors. Locals either love the energy or plan a weekend away — there's rarely a middle ground.</p>
+        </div>
+        <div class="info-card">
+          <div class="card-eyebrow">Honest Note</div>
+          <h3>Small Village with Limited Daily Amenities</h3>
+          <p>With fewer than 2,000 residents, Watkins Glen is genuinely small — daily amenities are limited compared to Canandaigua or Ithaca, and major shopping or medical facilities require a drive. The Arnot Mall is about 20 minutes south in Horseheads. Corning, Ithaca, and Elmira are all within 30 minutes for broader services.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- KNOWN FOR -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">🏛️</div>
+        <h2>What It's <em>Known For</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="item-list">
+        <div class="item-row">
+          <div class="item-emoji">🌊</div>
+          <div>
+            <h4>Watkins Glen State Park — 19 Waterfalls</h4>
+            <p><a href="https://parks.ny.gov/parks/watkinsglen" target="_blank" rel="noopener" class="item-link">Watkins Glen State Park</a> is consistently rated one of the top state parks in America — and for good reason. The two-mile Gorge Trail winds through a dramatic natural canyon, passing 19 cascading waterfalls including the spectacular Rainbow Falls. The park entrance is steps from Franklin Street, making it uniquely accessible for residents. Voted <strong>#3 State Park in the Nation</strong> by USA Today readers.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-emoji">🏁</div>
+          <div>
+            <h4>Watkins Glen International — America's Premier Road Course</h4>
+            <p><a href="https://www.theglen.com" target="_blank" rel="noopener" class="item-link">Watkins Glen International</a> is one of the most celebrated road racing circuits in the world — hosting NASCAR, IMSA, and other major series throughout the season. Road racing first came to Watkins Glen in 1948, when the village streets themselves served as the circuit. Today you can still drive the original 6.6-mile course through the village, and the annual <strong>Grand Prix Festival</strong> in September draws 25,000 spectators to watch classic race cars take to the streets. Voted <strong>#1 NASCAR Track in the Nation</strong> by USA Today readers.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-emoji">🍷</div>
+          <div>
+            <h4>Seneca Lake Wine Trail — Most Wineries in New York</h4>
+            <p>The Seneca Lake Wine Trail is home to more wineries than any other trail in New York State — over 35 producers along both shores of the deepest Finger Lake. Seneca's depth moderates the local climate, creating ideal conditions for Riesling, Gewürztraminer, and bold red varieties. The annual <strong>Finger Lakes Wine Festival</strong>, held at Watkins Glen International, was voted <strong>#1 Wine Festival in the Nation</strong> by USA Today readers.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-emoji">🐄</div>
+          <div>
+            <h4>Farm Sanctuary</h4>
+            <p>A 275-acre animal rescue sanctuary just west of the village — home to over 800 rescued farm animals and a beloved destination for families, school groups, and animal lovers. One of the most visited attractions in the broader Watkins Glen area and a symbol of the region's progressive, nature-loving streak.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-emoji">🏎️</div>
+          <div>
+            <h4>Drive the Glen</h4>
+            <p>Watkins Glen International welcomes guests nearly daily from April through October to <strong>drive their personal vehicle on the famed road course</strong> — one of the most unique experiences available to residents and visitors in the entire Finger Lakes. Few communities can offer something like this in their backyard.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESTAURANTS -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">🍽️</div>
+        <h2>Restaurants & <em>Dining</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <p class="prose">Franklin Street and the Seneca Lake waterfront anchor the dining scene — a mix of lakeside casual, wine bar culture, and locally-rooted spots that reflect the village's outdoor and agricultural identity. Hours change seasonally, so always check ahead.</p>
+      <div class="item-list">
+        <div class="item-row"><div class="item-emoji">🍺</div><div><h4>Lucky Hare Bar & Grill</h4><p>A popular local bar and grill with an outdoor lakeside deck — one of the best spots in the village for a casual meal with Seneca Lake views. A local favorite year-round, especially on warm evenings when the deck is open.</p></div></div>
+        <div class="item-row"><div class="item-emoji">🍷</div><div><h4>J.R. Dill's Wine Bar</h4><p>A laid-back wine bar on Franklin Street — great for exploring local Seneca Lake wines in a relaxed, no-fuss setting right in the heart of the village.</p></div></div>
+        <div class="item-row"><div class="item-emoji">🥗</div><div><h4>Graft Wine & Cider Bar</h4><p>Seasonally and locally inspired food paired with an excellent selection of local ciders and wines — one of the more distinctive dining options in the village, with a farm-to-table sensibility that fits the Finger Lakes perfectly.</p></div></div>
+        <div class="item-row"><div class="item-emoji">🥞</div><div><h4>Elf and The Oak / Jonny's Kitchen</h4><p>Popular brunch and breakfast options loved by locals and visitors alike — the kind of neighborhood spots that anchor everyday village life alongside the more tourist-facing establishments.</p></div></div>
+        <div class="item-row"><div class="item-emoji">☕</div><div><h4>Seneca Sunrise Coffee</h4><p>The village's local coffee option on Franklin Street — a casual morning stop before hitting the gorge trail or heading out on the wine trail.</p></div></div>
+        <div class="item-row"><div class="item-emoji">🧀</div><div><h4>Seneca Cheese Company</h4><p>A Franklin Street staple for locally sourced cheeses and specialty foods — a perfect stop for wine trail picnic supplies or a taste of what the region's agricultural producers make.</p></div></div>
+      </div>
+    </section>
+
+    <!-- SHOPS -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">🛍️</div>
+        <h2>Shops & Local <em>Businesses</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <p class="prose">Franklin Street is the commercial heart of Watkins Glen — a walkable main street with a mix of souvenir shops, clothing boutiques, art galleries, and sporting goods stores. The retail is modest in scale but authentic in character, reflecting a village that's genuinely lived-in rather than curated for tourists.</p>
+      <div class="three-col">
+        <div class="info-card"><div class="card-eyebrow">Specialty Food</div><h3>Seneca Cheese Company</h3><p>Locally sourced cheeses, specialty foods, and artisan products — a Franklin Street mainstay for food lovers and wine trail picnic prep.</p></div>
+        <div class="info-card"><div class="card-eyebrow">Art</div><h3>Quintus Gallery</h3><p>Collectable art and an inspiring event venue space — one of the more distinctive cultural offerings in the village, also hosting retreats and workshops.</p></div>
+        <div class="info-card"><div class="card-eyebrow">Farm Market</div><h3>Watkins Glen Farmers Market</h3><p>Seasonal outdoor market from Memorial Day through late October — fresh produce, meats, baked goods, cheese, maple syrup, wine, and local crafts.</p></div>
+        <div class="info-card"><div class="card-eyebrow">Regional</div><h3>The Windmill Farm & Craft Market</h3><p>A short drive north on Route 14A — a premier regional farm and craft market drawing 8,000–10,000 visitors weekly, with an extraordinary range of local products.</p></div>
+        <div class="info-card"><div class="card-eyebrow">Racing</div><h3>International Motor Racing Research Center</h3><p>A free museum dedicated to preserving motorsports history — a fascinating stop for racing enthusiasts and a reminder of Watkins Glen's place in American sporting history.</p></div>
+        <div class="info-card"><div class="card-eyebrow">Shopping</div><h3>Arnot Mall — Horseheads (20 min)</h3><p>The nearest full-service mall is about 20 minutes south in Horseheads — movie theater, food court, and major retailers for residents who need more than the village offers.</p></div>
+      </div>
+    </section>
+
+    <!-- OUTDOOR -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">🏞️</div>
+        <h2>Outdoor & <em>Recreation</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <p class="prose">Outdoor recreation is the defining feature of life in Watkins Glen — and the variety on offer within minutes of Franklin Street is extraordinary for a village this size.</p>
+      <div class="item-list">
+        <div class="item-row"><div class="item-emoji">🌊</div><div><h4>Watkins Glen State Park — Gorge Trail</h4><p>The park's famous 2.5-mile Gorge Trail winds through 200-foot rock walls, passing 19 waterfalls and crossing stone bridges over Glen Creek. The park also offers rim trails overlooking the gorge from above. The park is closed in winter, but the surrounding trails remain accessible year-round. Steps from downtown.</p></div></div>
+        <div class="item-row"><div class="item-emoji">⛵</div><div><h4>Seneca Lake — Boating, Sailing & Cruises</h4><p>The deepest of the Finger Lakes, Seneca offers excellent boating, sailing, fishing, and kayaking from the village pier. The <a href="https://www.senecasailingsailing.com" target="_blank" rel="noopener" class="item-link">True Love schooner</a> and Captain Bill offer sightseeing and dinner cruises from the waterfront — a classic Watkins Glen experience.</p></div></div>
+        <div class="item-row"><div class="item-emoji">🚲</div><div><h4>Catherine Valley Trail</h4><p>A 12-mile multi-use trail running from the village south to Horseheads, following an abandoned railroad and canal towpath through wildlife habitats. Perfect for walking, biking, cross-country skiing, and snowshoeing — and one of the best year-round outdoor options in the area.</p></div></div>
+        <div class="item-row"><div class="item-emoji">🏎️</div><div><h4>Drive the Glen & Watkins Glen International</h4><p>Open April through October — drive your own vehicle on the legendary road course, or spectate at NASCAR and IMSA events throughout the season. One of the most unique resident perks in the entire Finger Lakes.</p></div></div>
+        <div class="item-row"><div class="item-emoji">🍷</div><div><h4>Seneca Lake Wine Trail</h4><p>35+ wineries along both shores of Seneca Lake — the most of any wine trail in New York State. Fall is the most spectacular time to explore, with harvest season, foliage, and winery events running through October.</p></div></div>
+        <div class="item-row"><div class="item-emoji">🌲</div><div><h4>Sugar Hill State Forest & Finger Lakes National Forest</h4><p>Thousands of acres of state and national forest land surrounding the village — hiking, mountain biking, horseback riding, and hunting just minutes from Franklin Street.</p></div></div>
+      </div>
+    </section>
+
+    <!-- NEARBY -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">📍</div>
+        <h2>What's <em>Nearby</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="three-col">
+        <div class="info-card"><div class="card-eyebrow">30 minutes north</div><h3>Seneca Falls</h3><p>Birthplace of the women's rights movement, the Erie Canal, and access to both the Cayuga and Seneca Lake wine regions.</p></div>
+        <div class="info-card"><div class="card-eyebrow">30 minutes east</div><h3>Ithaca</h3><p>Cornell University, gorges, waterfalls, the Ithaca Farmers Market, and one of the state's most vibrant small cities — an easy commute east.</p></div>
+        <div class="info-card"><div class="card-eyebrow">30 minutes south</div><h3>Corning</h3><p>The Corning Museum of Glass — one of the world's great museums — anchors a small city with a revitalized Market Street and a strong arts identity.</p></div>
+        <div class="info-card"><div class="card-eyebrow">20 minutes south</div><h3>Horseheads & Elmira</h3><p>The Arnot Mall, major grocery stores, medical facilities, and the broader Chemung Valley commercial corridor — the nearest full-service hub for daily needs.</p></div>
+        <div class="info-card"><div class="card-eyebrow">45 minutes north</div><h3>Geneva & Canandaigua</h3><p>Two of the larger Finger Lakes cities — wine country, lakefront access, and broader amenities along the northern reach of Seneca and Canandaigua Lakes.</p></div>
+        <div class="info-card"><div class="card-eyebrow">1.5 hours northwest</div><h3>Rochester</h3><p>New York's third-largest city — Greater Rochester International Airport, major medical centers, and urban amenities for bigger-city needs.</p></div>
+      </div>
+    </section>
+
+    <!-- SCHOOLS -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">🎓</div>
+        <h2>Schools</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="school-card">
+        <div class="school-grade">B+</div>
+        <div class="school-info">
+          <h3>Watkins Glen Central School District</h3>
+          <p>A small rural school district serving the village and surrounding Schuyler County communities. The district serves grades K–12 with approximately 510 upper-grade students — small class sizes and a tight-knit school community are among its strengths. Families prioritizing highly-rated school districts may want to look at surrounding communities, but for residents who value a genuine small-town school experience with strong community ties, Watkins Glen delivers that in full.</p>
+          <div class="school-badges">
+            <span class="school-badge">Small Class Sizes</span>
+            <span class="school-badge">K–12 District</span>
+            <span class="school-badge">Tight-Knit Community</span>
+            <span class="school-badge">30 min to FLCC & IC</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REAL ESTATE -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">🏠</div>
+        <h2>Real Estate <em>Overview</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <p class="prose">Watkins Glen offers some of the most <strong>affordable real estate in the Finger Lakes region</strong> — a genuine opportunity for buyers who want lakeside living and natural beauty without the price tags of Skaneateles or Ithaca. Village homes are modest and historic; lakefront access on Seneca adds a premium. The broader Schuyler County market is one of the most affordable in the state.</p>
+
+      <div class="pricing-links-block">
+        <div class="pricing-links-label">Current Pricing — Live Data</div>
+        <p class="pricing-links-note">Check these sources for current Watkins Glen and Schuyler County market data:</p>
+        <div class="pricing-links">
+          <a href="https://www.redfin.com/city/20532/NY/Watkins-Glen/housing-market" target="_blank" rel="noopener" class="pricing-link">
+            <span class="pricing-link-name">Redfin</span>
+            <span class="pricing-link-desc">Median sale price, days on market, price per sq ft</span>
+            <span class="pricing-link-arrow">↗</span>
+          </a>
+          <a href="https://www.zillow.com/watkins-glen-ny/home-values/" target="_blank" rel="noopener" class="pricing-link">
+            <span class="pricing-link-name">Zillow</span>
+            <span class="pricing-link-desc">Zillow Home Value Index & market trends</span>
+            <span class="pricing-link-arrow">↗</span>
+          </a>
+          <a href="https://www.realtor.com/realestateandhomes-search/Watkins-Glen_NY/overview" target="_blank" rel="noopener" class="pricing-link">
+            <span class="pricing-link-name">Realtor.com</span>
+            <span class="pricing-link-desc">Listing prices, market hotness, inventory</span>
+            <span class="pricing-link-arrow">↗</span>
+          </a>
+        </div>
+        <p class="pricing-disclaimer">Real estate data varies by source and changes over time. Always verify current pricing with a licensed local Realtor.</p>
+      </div>
+
+      <div class="two-col">
+        <div class="info-card"><div class="card-eyebrow">Village Homes</div><h3>Most Affordable Entry Point</h3><p>Historic village homes, cottages, and modest single-family properties at some of the lowest price points in the Finger Lakes region. An accessible entry into lake country living.</p></div>
+        <div class="info-card"><div class="card-eyebrow">Seneca Lake Access</div><h3>Premium for Waterfront</h3><p>Properties with direct Seneca Lake access or views command a significant premium over village homes. Lakefront inventory is limited along both the east and west shores.</p></div>
+      </div>
+    </section>
+
+    <!-- REALTOR SPOTLIGHT -->
+    <div class="realtor-section fade-in">
+      <span class="eyebrow">Realtor Spotlight</span>
+      <h2>Know Watkins Glen?<br />Your Clients Are Looking.</h2>
+      <p>Buyers matched to Watkins Glen on Located Lifestyle are searching for an expert who understands Seneca Lake, the Schuyler County market, and what makes this extraordinary little village so special. Be the Realtor they find.</p>
+      <div class="placeholder-cards">
+        <div class="placeholder-card"><div class="placeholder-avatar">🏡</div><div class="ph-title">Open Spot</div><div class="ph-sub">Watkins Glen specialist</div></div>
+        <div class="placeholder-card"><div class="placeholder-avatar">🏡</div><div class="ph-title">Open Spot</div><div class="ph-sub">Watkins Glen specialist</div></div>
+        <div class="placeholder-card"><div class="placeholder-avatar">🏡</div><div class="ph-title">Open Spot</div><div class="ph-sub">Watkins Glen specialist</div></div>
+      </div>
+      <div class="price-inline"><span class="amount">$19</span><span class="period">/month</span></div><br />
+      <a href="https://locatedlifestyle.com/join" class="btn-light">List Yourself as a Watkins Glen Specialist</a>
+      <p class="founding-note">Founding Member rate — grandfathered when prices increase to $29/month</p>
+    </div>
+
+    <!-- SOURCES -->
+    <div class="sources-section fade-in">
+      <h3>Sources</h3>
+      <div class="sources-list">
+        <a href="https://www.watkinsglenchamber.com" target="_blank" rel="noopener">Watkins Glen Area Chamber of Commerce</a>
+        <a href="https://www.fingerlakeswinecountry.com/travel-guide/small-town-travel-guide-watkins-glen-ny/" target="_blank" rel="noopener">Finger Lakes Wine Country — Watkins Glen Travel Guide</a>
+        <a href="https://wherearethosemorgans.com/best-things-to-do-in-watkins-glen-ny/" target="_blank" rel="noopener">Where Are Those Morgans — Things to Do in Watkins Glen</a>
+        <a href="https://www.explorewatkinsglen.com" target="_blank" rel="noopener">Explore Watkins Glen — Official Tourism Site</a>
+        <a href="https://parks.ny.gov/parks/watkinsglen" target="_blank" rel="noopener">NYS Parks — Watkins Glen State Park</a>
+        <a href="https://www.fingerlakes.org/explore-the-finger-lakes-region" target="_blank" rel="noopener">Finger Lakes Tourism Alliance — Explore the Region</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="bottom-nav">
+    <p>Continue exploring the Finger Lakes</p>
+    <div class="bottom-nav-links">
+      <a href="/">← Back to All Communities</a>
+      <a href="ithaca.html">← Ithaca</a>
+      <a href="canandaigua.html">← Canandaigua</a>
+      <a href="#">Geneva →</a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-brand">Located <span>Lifestyle</span></div>
+    <div class="footer-copy">© 2026 Located Lifestyle · communities.locatedlifestyle.com · New York State Community Directory</div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 75);
+      });
+    }, { threshold: 0.06, rootMargin: '0px 0px -30px 0px' });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
