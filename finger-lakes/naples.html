@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Naples, NY — Finger Lakes Community Guide | Located Lifestyle</title>
+  <meta name="description" content="Everything you need to know about living in Naples, NY — grape pie capital of the world, Bristol Hills wine country, Canandaigua Lake, and one of the Finger Lakes' most scenic small villages." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream:      #f6f3ec;
+      --cream-dark: #ece4da;
+      --taupe:      #b9a590;
+      --taupe-dark: #9a8470;
+      --brown:      #574c3f;
+      --brown-dark: #36302a;
+      --text:       #36302a;
+      --text-mid:   #574c3f;
+      --text-muted: #9a8470;
+      --border:     rgba(87,76,63,0.12);
+      --border-med: rgba(87,76,63,0.2);
+      --card-bg:    #ffffff;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--text); overflow-x: hidden; }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 52px;
+      background: rgba(246,243,236,0.95); backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-brand { text-decoration: none; display: flex; flex-direction: column; gap: 1px; }
+    .nav-brand .sub { font-size: 9px; letter-spacing: 3.5px; text-transform: uppercase; color: var(--taupe); font-weight: 500; }
+    .nav-brand .name { font-family: 'Cormorant Garamond', serif; font-size: 20px; color: var(--brown-dark); font-weight: 600; }
+    .nav-right { display: flex; gap: 24px; align-items: center; }
+    .nav-back { font-size: 13px; color: var(--text-muted); text-decoration: none; transition: color 0.2s; display: flex; align-items: center; gap: 6px; }
+    .nav-back:hover { color: var(--brown); }
+    .nav-cta { background: var(--brown-dark); color: var(--cream); font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; padding: 10px 22px; border-radius: 2px; text-decoration: none; transition: background 0.2s; }
+    .nav-cta:hover { background: var(--brown); }
+
+    /* ── HERO — deep purple grape harvest tones ── */
+    .hero {
+      min-height: 68vh; position: relative; overflow: hidden;
+      display: flex; flex-direction: column; align-items: center; justify-content: flex-end;
+      padding: 120px 24px 64px; text-align: center;
+      background: linear-gradient(180deg, #221828 0%, #301e38 30%, #3e2848 55%, #4a3055 100%);
+    }
+    .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 80% 55% at 50% 65%, rgba(140,80,160,0.18) 0%, transparent 65%); }
+    .hero-hills { position: absolute; bottom: 0; left: 0; right: 0; height: 40%; background: linear-gradient(180deg, transparent 0%, rgba(60,30,70,0.3) 50%, rgba(40,20,50,0.5) 100%); clip-path: polygon(0 40%, 15% 20%, 30% 35%, 45% 15%, 60% 30%, 75% 10%, 90% 25%, 100% 15%, 100% 100%, 0 100%); }
+    .hero-content { position: relative; z-index: 2; max-width: 780px; }
+
+    .hero-breadcrumb { display: flex; align-items: center; gap: 8px; justify-content: center; margin-bottom: 20px; font-size: 11px; letter-spacing: 1px; color: rgba(246,243,236,0.5); }
+    .hero-breadcrumb a { color: rgba(246,243,236,0.5); text-decoration: none; transition: color 0.2s; }
+    .hero-breadcrumb a:hover { color: var(--cream); }
+    .hero-breadcrumb span { opacity: 0.35; }
+    .hero-eyebrow { font-size: 10px; letter-spacing: 3.5px; text-transform: uppercase; color: rgba(246,243,236,0.6); margin-bottom: 14px; display: block; }
+    .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(56px, 10vw, 108px); font-weight: 600; line-height: 0.95; color: var(--cream); margin-bottom: 12px; letter-spacing: -2px; }
+    .hero-tagline { font-family: 'Cormorant Garamond', serif; font-size: clamp(16px, 2.5vw, 22px); font-style: italic; color: rgba(246,243,236,0.72); margin-bottom: 28px; font-weight: 400; }
+    .hero-meta { display: flex; gap: 28px; justify-content: center; flex-wrap: wrap; margin-bottom: 32px; }
+    .meta-item { font-size: 12px; color: rgba(246,243,236,0.55); display: flex; align-items: center; gap: 7px; }
+    .meta-dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(246,243,236,0.35); }
+    .hero-badges { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+    .badge { padding: 5px 13px; border-radius: 100px; font-size: 10px; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; }
+    .badge-grape { background: rgba(180,100,200,0.2); color: #d4a8e8; border: 1px solid rgba(180,100,200,0.35); backdrop-filter: blur(4px); }
+    .badge-warm { background: rgba(255,255,255,0.1); color: rgba(246,243,236,0.82); border: 1px solid rgba(255,255,255,0.18); }
+
+    .stats-bar { background: var(--brown-dark); }
+    .stats-bar-inner { max-width: 960px; margin: 0 auto; display: flex; justify-content: space-around; padding: 28px 24px; flex-wrap: wrap; gap: 20px; }
+    .stat-item { text-align: center; }
+    .stat-value { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 600; color: var(--taupe); display: block; line-height: 1.1; }
+    .stat-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: rgba(246,243,236,0.42); margin-top: 4px; }
+
+    .content-wrap { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+    .section { padding: 72px 0 0; }
+    .section-header { display: flex; align-items: center; gap: 20px; margin-bottom: 32px; }
+    .section-icon { width: 44px; height: 44px; border-radius: 2px; background: var(--cream-dark); border: 1px solid var(--border-med); display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+    .section-header h2 { font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 600; color: var(--brown-dark); letter-spacing: -0.3px; }
+    .section-header h2 em { font-style: italic; color: var(--taupe-dark); }
+    .section-line { flex: 1; height: 1px; background: var(--border); }
+
+    .prose { font-size: 15px; line-height: 1.85; color: var(--text-muted); font-weight: 300; margin-bottom: 22px; }
+    .prose strong { color: var(--brown); font-weight: 500; }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .three-col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .info-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 4px; padding: 22px; }
+    .info-card h3 { font-size: 14px; font-weight: 600; color: var(--brown-dark); margin-bottom: 8px; }
+    .info-card p { font-size: 13px; line-height: 1.7; color: var(--text-muted); font-weight: 300; }
+    .info-card .card-eyebrow { font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--taupe); margin-bottom: 7px; }
+    .pull-quote { border-left: 2px solid var(--taupe); padding: 18px 26px; margin: 32px 0; background: var(--cream-dark); border-radius: 0 4px 4px 0; }
+    .pull-quote p { font-family: 'Cormorant Garamond', serif; font-size: 19px; font-style: italic; color: var(--brown); line-height: 1.6; }
+    .item-list { display: flex; flex-direction: column; gap: 1px; }
+    .item-row { display: flex; align-items: flex-start; gap: 16px; padding: 20px 0; border-bottom: 1px solid var(--border); }
+    .item-row:first-child { border-top: 1px solid var(--border); }
+    .item-emoji { font-size: 20px; flex-shrink: 0; margin-top: 1px; width: 28px; }
+    .item-row h4 { font-size: 14px; font-weight: 600; color: var(--brown-dark); margin-bottom: 5px; }
+    .item-row p { font-size: 13px; color: var(--text-muted); line-height: 1.65; font-weight: 300; }
+    .item-link { color: var(--brown-dark); border-bottom: 1px solid var(--border-med); text-decoration: none; transition: border-color 0.2s; }
+    .item-link:hover { border-color: var(--brown); }
+
+    .fun-fact { background: var(--cream-dark); border: 1px solid var(--border-med); border-radius: 4px; padding: 22px; margin: 32px 0; display: flex; gap: 16px; align-items: flex-start; }
+    .fun-fact-icon { font-size: 28px; flex-shrink: 0; }
+    .fun-fact h4 { font-size: 13px; font-weight: 600; color: var(--brown); margin-bottom: 6px; letter-spacing: 0.3px; }
+    .fun-fact p { font-size: 13px; color: var(--text-muted); line-height: 1.65; font-weight: 300; }
+
+    .pricing-links-block { background: var(--card-bg); border: 1px solid var(--border-med); border-radius: 4px; padding: 28px; margin-bottom: 24px; }
+    .pricing-links-label { font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--taupe); margin-bottom: 8px; }
+    .pricing-links-note { font-size: 13px; color: var(--text-muted); margin-bottom: 20px; line-height: 1.6; font-weight: 300; }
+    .pricing-links { display: flex; flex-direction: column; gap: 1px; }
+    .pricing-link { display: flex; align-items: center; gap: 16px; padding: 14px 16px; border-radius: 3px; background: var(--cream); border: 1px solid var(--border); text-decoration: none; transition: all 0.2s; }
+    .pricing-link:hover { border-color: var(--brown); background: var(--cream-dark); }
+    .pricing-link-name { font-size: 14px; font-weight: 600; color: var(--brown-dark); min-width: 100px; }
+    .pricing-link-desc { font-size: 12px; color: var(--text-muted); flex: 1; font-weight: 300; }
+    .pricing-link-arrow { font-size: 14px; color: var(--taupe); transition: color 0.2s; }
+    .pricing-link:hover .pricing-link-arrow { color: var(--brown); }
+    .pricing-disclaimer { font-size: 11px; color: var(--text-muted); margin-top: 14px; opacity: 0.7; line-height: 1.5; font-style: italic; }
+
+    .school-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 4px; padding: 24px; display: flex; align-items: flex-start; gap: 20px; }
+    .school-grade { width: 52px; height: 52px; border-radius: 4px; background: var(--cream-dark); border: 1px solid var(--border-med); display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 700; color: var(--brown); flex-shrink: 0; }
+    .school-info h3 { font-size: 15px; font-weight: 600; color: var(--brown-dark); margin-bottom: 7px; }
+    .school-info p { font-size: 13px; color: var(--text-muted); line-height: 1.65; font-weight: 300; }
+    .school-badges { display: flex; gap: 7px; flex-wrap: wrap; margin-top: 12px; }
+    .school-badge { padding: 3px 10px; border-radius: 100px; font-size: 11px; background: var(--cream-dark); color: var(--brown); border: 1px solid var(--border-med); }
+
+    .realtor-section { margin-top: 72px; background: var(--brown-dark); border-radius: 4px; padding: 52px; text-align: center; }
+    .realtor-section .eyebrow { font-size: 10px; letter-spacing: 3.5px; text-transform: uppercase; color: var(--taupe); margin-bottom: 18px; display: block; }
+    .realtor-section h2 { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 600; color: var(--cream); line-height: 1.15; margin-bottom: 14px; }
+    .realtor-section p { font-size: 15px; color: rgba(246,243,236,0.55); line-height: 1.75; margin-bottom: 14px; font-weight: 300; max-width: 500px; margin-left: auto; margin-right: auto; }
+    .placeholder-cards { display: flex; gap: 16px; justify-content: center; margin: 32px 0; flex-wrap: wrap; }
+    .placeholder-card { width: 200px; border: 1px dashed rgba(185,165,144,0.3); border-radius: 4px; padding: 24px 16px; text-align: center; background: rgba(255,255,255,0.04); }
+    .placeholder-avatar { width: 52px; height: 52px; border-radius: 50%; background: rgba(185,165,144,0.12); border: 1px dashed rgba(185,165,144,0.3); margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; font-size: 20px; }
+    .placeholder-card .ph-title { font-size: 13px; font-weight: 500; color: rgba(246,243,236,0.5); margin-bottom: 5px; }
+    .placeholder-card .ph-sub { font-size: 11px; color: rgba(246,243,236,0.3); line-height: 1.5; }
+    .price-inline { display: inline-flex; align-items: baseline; gap: 4px; margin: 18px 0 26px; }
+    .price-inline .amount { font-family: 'Cormorant Garamond', serif; font-size: 48px; font-weight: 600; color: var(--taupe); }
+    .price-inline .period { font-size: 16px; color: rgba(246,243,236,0.4); }
+    .btn-light { background: var(--cream); color: var(--brown-dark); padding: 14px 32px; border-radius: 2px; font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; transition: all 0.2s; display: inline-block; }
+    .btn-light:hover { background: var(--cream-dark); transform: translateY(-2px); }
+    .founding-note { font-size: 12px; color: var(--taupe); margin-top: 14px; opacity: 0.8; }
+
+    .sources-section { margin-top: 64px; padding: 32px 0 80px; border-top: 1px solid var(--border); }
+    .sources-section h3 { font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 14px; }
+    .sources-list { display: flex; flex-direction: column; gap: 7px; }
+    .sources-list a { font-size: 12px; color: var(--text-muted); text-decoration: none; opacity: 0.6; transition: opacity 0.2s; display: flex; align-items: center; gap: 6px; }
+    .sources-list a:hover { opacity: 1; color: var(--brown); }
+    .sources-list a::before { content: '↗'; font-size: 10px; }
+
+    .bottom-nav { border-top: 1px solid var(--border); padding: 48px 24px; text-align: center; background: var(--cream-dark); }
+    .bottom-nav p { font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 20px; }
+    .bottom-nav-links { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .bottom-nav-links a { padding: 10px 22px; border-radius: 2px; border: 1px solid var(--border-med); font-size: 13px; color: var(--text-muted); text-decoration: none; transition: all 0.2s; }
+    .bottom-nav-links a:hover { border-color: var(--brown); color: var(--brown); background: rgba(87,76,63,0.05); }
+
+    footer { border-top: 1px solid var(--border); padding: 36px 24px; text-align: center; background: var(--cream); }
+    .footer-brand { font-family: 'Cormorant Garamond', serif; font-size: 20px; color: var(--brown-dark); margin-bottom: 6px; font-weight: 600; }
+    .footer-brand span { color: var(--taupe-dark); font-style: italic; }
+    .footer-copy { font-size: 11px; color: var(--text-muted); opacity: 0.5; }
+
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 768px) {
+      nav { padding: 14px 20px; }
+      .two-col, .three-col { grid-template-columns: 1fr; }
+      .stats-bar-inner { gap: 20px; }
+      .placeholder-cards { flex-direction: column; align-items: center; }
+      .realtor-section { padding: 32px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/" class="nav-brand">
+      <span class="sub">communities</span>
+      <span class="name">Located Lifestyle</span>
+    </a>
+    <div class="nav-right">
+      <a href="/" class="nav-back">← <span>Explore New York</span></a>
+      <a href="https://locatedlifestyle.com/join" class="nav-cta">Join as a Realtor</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-hills"></div>
+    <div class="hero-content">
+      <div class="hero-breadcrumb">
+        <a href="/">Communities</a><span>/</span>
+        <a href="/">Finger Lakes</a><span>/</span>
+        Naples
+      </div>
+      <span class="hero-eyebrow">Ontario County · Finger Lakes</span>
+      <h1>Naples</h1>
+      <div class="hero-tagline">Grape pie capital of the world. Bristol Hills at every turn.</div>
+      <div class="hero-meta">
+        <span class="meta-item">Village</span>
+        <span class="meta-dot"></span>
+        <span class="meta-item">Pop. ~1,000</span>
+        <span class="meta-dot"></span>
+        <span class="meta-item">Ontario County</span>
+        <span class="meta-dot"></span>
+        <span class="meta-item">16 mi south of Canandaigua</span>
+      </div>
+      <div class="hero-badges">
+        <span class="badge badge-grape">🍇 Grape Pie Capital of the World</span>
+        <span class="badge badge-warm">🍷 Bristol Hills Wine Country</span>
+        <span class="badge badge-warm">⛷️ Bristol Mountain</span>
+        <span class="badge badge-warm">🎭 Bristol Valley Theatre</span>
+        <span class="badge badge-warm">🏔️ Named After Naples, Italy</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS BAR -->
+  <div class="stats-bar">
+    <div class="stats-bar-inner">
+      <div class="stat-item"><span class="stat-value">See Below</span><div class="stat-label">Current Pricing ↓</div></div>
+      <div class="stat-item"><span class="stat-value">~1,000</span><div class="stat-label">Village Population</div></div>
+      <div class="stat-item"><span class="stat-value">70K</span><div class="stat-label">Grape Pies Sold / Year</div></div>
+      <div class="stat-item"><span class="stat-value">1961</span><div class="stat-label">First Grape Festival</div></div>
+      <div class="stat-item"><span class="stat-value">9 mi</span><div class="stat-label">To Bristol Mountain</div></div>
+    </div>
+  </div>
+
+  <div class="content-wrap">
+
+    <!-- OVERVIEW -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">🏘️</div>
+        <h2>Overview & <em>Character</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <p class="prose">Naples sits in a dramatic glacially-carved valley at the <strong>southern end of Canandaigua Lake</strong>, surrounded by the steep, vine-covered slopes of the Bristol Hills. It is one of the smallest villages in this guide — barely 1,000 residents — and one of the most distinctively itself. Naples doesn't try to be anything other than what it is: a grape-growing, pie-baking, hill-climbing, wine-making community that has been celebrating its harvest culture since 1961.</p>
+      <p class="prose">The village name itself comes from a visiting European count who reportedly remarked that the scenery rivaled Naples, Italy — and the name stuck in 1808. Before European settlement it was <strong>Nundawao</strong>, an old Seneca village. The town was established in 1789 with settlers from Massachusetts, making it one of the oldest communities in the western Finger Lakes.</p>
+
+      <div class="fun-fact">
+        <div class="fun-fact-icon">🍇</div>
+        <div>
+          <h4>The Grape Pie Capital of the World — And It's Earned</h4>
+          <p>In the fall of 1959, <strong>Irene Bouchard</strong> began baking Concord grape pies out of her home in Naples. Over the years she sold roughly 300,000 pies — and helped Naples earn a title that has stuck ever since. Today, an estimated <strong>70,000 grape pies are sold in Naples each year</strong>, and the annual Grape Festival features the World's Greatest Grape Pie Contest where over 20 local bakers compete for the coveted title. Monica's Pies on Main Street is the current standard-bearer — open year-round and worth a special trip in September when the Concord grapes come in.</p>
+        </div>
+      </div>
+
+      <p class="prose">For buyers, Naples offers something genuinely rare — a village with a <strong>singular, authentic identity</strong>, extraordinary natural scenery, Bristol Mountain skiing nine miles away, multiple wineries within walking distance, and a professional theater company in its backyard. It's not a destination for buyers who need urban amenities. It's a destination for buyers who want to live inside one of the Finger Lakes' most beautiful and character-rich landscapes.</p>
+
+      <div class="pull-quote">
+        <p>"Nestled in the hills at the southern end of Canandaigua Lake, Naples is renowned for its stunning natural surroundings, which have inspired many artists and farmers to create and work here."</p>
+      </div>
+    </section>
+
+    <!-- VIBE -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">✨</div>
+        <h2>The <em>Vibe</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="two-col">
+        <div class="info-card">
+          <div class="card-eyebrow">Pace of Life</div>
+          <h3>Deeply Seasonal & Genuinely Rural</h3>
+          <p>Naples lives by the agricultural calendar — grape harvest in September brings tens of thousands of visitors to a village of 1,000, while winter is quiet, snow-covered, and centered on Bristol Mountain skiing. Spring brings the vineyards back to life; summer means Canandaigua Lake day trips and outdoor theater. Each season here has a distinct, unhurried rhythm.</p>
+        </div>
+        <div class="info-card">
+          <div class="card-eyebrow">Arts & Culture</div>
+          <h3>Unexpectedly Rich Creative Scene</h3>
+          <p>For a village this small, Naples has a remarkable arts presence — the <strong>Bristol Valley Theater</strong> brings professional productions from New York City and regional artists for a full summer season. The surrounding hills have long attracted painters, sculptors, and artisans. The Grape Festival itself is a juried arts and crafts show as much as a food celebration.</p>
+        </div>
+        <div class="info-card">
+          <div class="card-eyebrow">Who Lives Here</div>
+          <h3>Artists, Winemakers & Nature Seekers</h3>
+          <p>Naples draws a mix of multi-generational local families, winery and distillery workers, artists attracted by the scenery and the theater community, retirees seeking genuine rural seclusion, and outdoor enthusiasts who want Bristol Mountain skiing and Canandaigua Lake access within minutes of their front door.</p>
+        </div>
+        <div class="info-card">
+          <div class="card-eyebrow">Honest Note</div>
+          <h3>Very Small, Very Rural — Intentionally So</h3>
+          <p>Naples has one main thoroughfare in and out. Daily amenity options are extremely limited — a handful of local restaurants, a wayside market, and a few specialty shops. Canandaigua (16 miles north) is the nearest real hub for groceries, medical care, and broader retail. This is a feature, not a bug, for the right buyer — but eyes open.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- KNOWN FOR -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">🏛️</div>
+        <h2>What It's <em>Known For</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="item-list">
+        <div class="item-row">
+          <div class="item-emoji">🍇</div>
+          <div>
+            <h4>Naples Grape Festival — Since 1961</h4>
+            <p>Held every September, the <a href="https://naplesgrapefest.org" target="_blank" rel="noopener" class="item-link">Naples Grape Festival</a> has been a Finger Lakes autumn tradition for over 60 years — drawing between 30,000 and 40,000 visitors to a village of 1,000 for two days of grape pie contests, juried arts and crafts, live music, wine and cider tastings, and every grape-flavored treat imaginable. The World's Greatest Grape Pie Contest is the centerpiece — over 20 local bakers compete for the coveted title each year.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-emoji">🎭</div>
+          <div>
+            <h4>Bristol Valley Theater</h4>
+            <p>A professional regional theater company that has called Naples home for decades — bringing productions by artists from New York City and across the region to a beautifully intimate venue in the Bristol Hills. Comedy, dance, drama, and family programming through a full summer season. One of the great cultural surprises of the Finger Lakes.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-emoji">⛷️</div>
+          <div>
+            <h4>Bristol Mountain — 9 Miles Away</h4>
+            <p><a href="https://www.bristolmountain.com" target="_blank" rel="noopener" class="item-link">Bristol Mountain</a> ski resort is just 9 miles north of Naples — one of the closest major ski areas to any Finger Lakes community. With 32 trails and 1,200 vertical feet, it's a genuine ski destination that makes Naples an exceptional choice for winter sports enthusiasts.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-emoji">🍷</div>
+          <div>
+            <h4>Bristol Hills Wine Country</h4>
+            <p>The hills surrounding Naples are blanketed with vineyards — Hazlitt Red Cat Cellars (in the former Widmer Wine Cellars), Arbor Hill Winery & Grapery, and Inspire Moore Winery are all right in or near the village. The terrain and microclimate of the Bristol Hills produce distinctive wines, and the Canandaigua Lake Wine Trail extends the options north.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-emoji">🔥</div>
+          <div>
+            <h4>Purple Fire Hydrants</h4>
+            <p>Naples takes its grape identity seriously — the village fire hydrants are painted purple. A charming, genuine expression of community pride that sums up Naples perfectly: unhurried, confident in its identity, and not above a little fun.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-emoji">🍂</div>
+          <div>
+            <h4>One of the Best Fall Drives in New York</h4>
+            <p>The drive between Rochester and Naples is consistently cited as one of the most spectacular fall foliage drives in New York State. County Roads 12, 21, 33, 34, and 64 each offer stunning views — especially in October when the Bristol Hills turn. The Jump Off Overlook on Gannett Hill offers panoramic views where, on a clear day, you can see the Rochester city skyline.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESTAURANTS -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">🍽️</div>
+        <h2>Restaurants & <em>Dining</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <p class="prose">Naples' dining scene reflects the village's scale and character — a handful of beloved local spots, a distillery restaurant, a historic hotel, and the unmissable pie shops that make September here a pilgrimage. Hours are very seasonal; always check ahead.</p>
+      <div class="item-list">
+        <div class="item-row"><div class="item-emoji">🥧</div><div><h4>Monica's Pies</h4><p>The standard-bearer for Naples grape pie — open year-round on Main Street, Monica's is the reason many people visit Naples in the first place. The Concord grape pie in September, when the fresh harvest comes in, is a once-a-year experience not to be missed.</p></div></div>
+        <div class="item-row"><div class="item-emoji">🥃</div><div><h4>Hollerhorn Distilling</h4><p>Globally inspired cuisine paired with house-made spirits in a beautiful setting — one of the most sophisticated dining experiences in the Naples area and a local anchor for food and beverage culture beyond the standard wine-trail format.</p></div></div>
+        <div class="item-row"><div class="item-emoji">🏨</div><div><h4>The Naples Hotel</h4><p>A local landmark built in 1895 — originally a travelers' stop between Canandaigua and Bath, now under renewed ownership with updated rooms and a dining room that serves as a genuine village gathering place.</p></div></div>
+        <div class="item-row"><div class="item-emoji">🍳</div><div><h4>Old School Café</h4><p>A renovated 1870s schoolhouse offering a creative brunch menu — one of the most charming dining settings in the Finger Lakes, with locally sourced ingredients and the kind of thoughtful cooking that fits Naples' artistic character.</p></div></div>
+        <div class="item-row"><div class="item-emoji">🍕</div><div><h4>Redwood Restaurant</h4><p>A dependable local comfort food spot — burgers, pasta, and classic American fare in an unpretentious setting. The kind of neighborhood restaurant that makes everyday life in a small village genuinely pleasant.</p></div></div>
+        <div class="item-row"><div class="item-emoji">🛒</div><div><h4>Joseph's Wayside Market</h4><p>A local market on South Main Street carrying local and regional products including grape pie, fresh local grapes in season, and a range of Finger Lakes specialty items. A community staple for daily provisions.</p></div></div>
+      </div>
+    </section>
+
+    <!-- SHOPS -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">🛍️</div>
+        <h2>Shops & Local <em>Businesses</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <p class="prose">Main Street Naples is genuinely compact — a one-street village with a handful of specialty shops, galleries, and local businesses. What it lacks in variety it makes up for in character and authenticity.</p>
+      <div class="three-col">
+        <div class="info-card"><div class="card-eyebrow">Art</div><h3>The Naples Studio</h3><p>A local art gallery and studio space on Reed Street — reflecting Naples' deep connection to the visual arts and the creative community drawn by the Bristol Hills scenery.</p></div>
+        <div class="info-card"><div class="card-eyebrow">Fishing</div><h3>Sutton Company</h3><p>An old-time fishing gear and tackle shop — all the equipment needed for Canandaigua Lake and surrounding waterways, run with the kind of local expertise only a multi-generational shop provides.</p></div>
+        <div class="info-card"><div class="card-eyebrow">Art & Gifts</div><h3>Cheshire Union (nearby)</h3><p>Located in a historic four-room schoolhouse south of Canandaigua on Route 21 — a gallery, gift shop, artist studio space, and classroom for over 120 regional artists. A remarkable creative hub just north of Naples.</p></div>
+        <div class="info-card"><div class="card-eyebrow">Winery</div><h3>Arbor Hill Winery & Grapery</h3><p>A Naples institution producing wines from Concord and vinifera grapes — and offering a unique "grapery" experience celebrating the village's deep grape culture beyond just wine.</p></div>
+        <div class="info-card"><div class="card-eyebrow">Nature</div><h3>West Hill Preserve</h3><p>A 450-acre nature preserve at the south end of the Bristol Hills — an excellent spot to observe wildlife including turkeys, hawks, deer, foxes, and turtles in the hills above the village.</p></div>
+        <div class="info-card"><div class="card-eyebrow">Groceries</div><h3>Canandaigua (16 mi north)</h3><p>Full grocery and retail options — including Wegmans — are 16 miles north in Canandaigua. Naples itself has basic provisions only; planning ahead is part of rural village life.</p></div>
+      </div>
+    </section>
+
+    <!-- OUTDOOR -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">🏞️</div>
+        <h2>Outdoor & <em>Recreation</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="item-list">
+        <div class="item-row"><div class="item-emoji">⛷️</div><div><h4>Bristol Mountain Ski Resort — 9 Miles</h4><p>The closest major ski area to Naples — 32 trails, 1,200 vertical feet, and the longest season in the Finger Lakes. Bristol also offers summer aerial adventures and zipline tours, and the spectacular Fall Sky Rides chairlift from mid-September through October for foliage viewing.</p></div></div>
+        <div class="item-row"><div class="item-emoji">🥾</div><div><h4>Grimes Glen County Park</h4><p>A beautiful gorge park just outside the village — waterfall hiking through a dramatic rock canyon that offers a taste of Watkins Glen-style scenery right in Naples' backyard. One of the most scenic short hikes in Ontario County.</p></div></div>
+        <div class="item-row"><div class="item-emoji">🦅</div><div><h4>Jump Off Overlook — Gannett Hill</h4><p>One of the most spectacular viewpoints in the entire Finger Lakes — the Jump Off Overlook on Gannett Hill offers panoramic views of Canandaigua Lake, Bare Hill, South Hill, and Great Hill Nature Preserve. On clear days, the Rochester city skyline is visible. A defining Naples experience.</p></div></div>
+        <div class="item-row"><div class="item-emoji">🍷</div><div><h4>Bristol Hills Wine Country</h4><p>Multiple wineries within minutes of the village center — Hazlitt Red Cat Cellars, Arbor Hill Winery, and Inspire Moore Winery are all nearby. The Canandaigua Lake Wine Trail extends the options north with Bristol Mountain skiing as a winter complement.</p></div></div>
+        <div class="item-row"><div class="item-emoji">⛵</div><div><h4>Canandaigua Lake — 16 Miles North</h4><p>The Sawmill Restaurant and Canandaigua Lake State Park are accessible from Naples as a day trip north — swimming, boating, and lakefront dining within easy reach of the village.</p></div></div>
+        <div class="item-row"><div class="item-emoji">🍎</div><div><h4>U-Pick Orchards & Farm Stands</h4><p>Jerome's U-Pick and other local farms along Route 53 offer apple picking, fresh produce, and farm-direct shopping that reflects Naples' deep agricultural roots. Fall harvest season is the pinnacle — fresh Concord grapes, apples, and squash from the surrounding hillside farms.</p></div></div>
+      </div>
+    </section>
+
+    <!-- NEARBY -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">📍</div>
+        <h2>What's <em>Nearby</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="three-col">
+        <div class="info-card"><div class="card-eyebrow">16 miles north</div><h3>Canandaigua</h3><p>The nearest full-service hub — Wegmans, F.F. Thompson Hospital, Sonnenberg Gardens, Bristol Mountain access, and a revitalized downtown on the lake.</p></div>
+        <div class="info-card"><div class="card-eyebrow">9 miles north</div><h3>Bristol Mountain</h3><p>The closest major ski resort — 32 trails, 1,200 vertical feet, aerial adventures, and spectacular fall chairlift rides. Naples' most important outdoor amenity.</p></div>
+        <div class="info-card"><div class="card-eyebrow">1 hour north</div><h3>Rochester</h3><p>Greater Rochester International Airport, University of Rochester Medical Center, and the full amenities of New York's third-largest city — connected by some of the most scenic fall drives in the state.</p></div>
+        <div class="info-card"><div class="card-eyebrow">30 minutes south</div><h3>Hammondsport</h3><p>The southern tip of Keuka Lake — Glenn Curtiss Aviation Museum, the Keuka Lake Wine Trail's southern producers, and a beautifully preserved historic village square.</p></div>
+        <div class="info-card"><div class="card-eyebrow">30 minutes east</div><h3>Penn Yan</h3><p>The heart of Keuka Lake wine country — the Windmill Farm Market, Keuka Lake Outlet Trail, and additional wine and mead producers in a genuine small-town setting.</p></div>
+        <div class="info-card"><div class="card-eyebrow">45 minutes south</div><h3>Corning</h3><p>The Corning Museum of Glass — one of the world's great museums — and a revitalized Market Street with dining and arts in a small city with genuine character.</p></div>
+      </div>
+    </section>
+
+    <!-- SCHOOLS -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">🎓</div>
+        <h2>Schools</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="school-card">
+        <div class="school-grade">B</div>
+        <div class="school-info">
+          <h3>Naples Central School District</h3>
+          <p>A small rural district serving the Naples community — with the intimate class sizes and tight-knit school community that come with genuine small-town schooling. The district reflects Naples' character: arts are valued, the outdoors are part of the curriculum, and the school is a central community institution. Families prioritizing highly-rated academic rankings will want to consider nearby districts; families prioritizing a genuine small-school experience will find Naples delivers it fully.</p>
+          <div class="school-badges">
+            <span class="school-badge">B Rated</span>
+            <span class="school-badge">Small Class Sizes</span>
+            <span class="school-badge">Arts-Focused Community</span>
+            <span class="school-badge">Rural Character</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REAL ESTATE -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">🏠</div>
+        <h2>Real Estate <em>Overview</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <p class="prose">Naples offers some of the most <strong>affordable and scenically dramatic real estate in the Finger Lakes</strong> — a village of historic homes surrounded by vineyard-covered hills, with Bristol Mountain skiing minutes away and Canandaigua Lake accessible to the north. The housing stock includes 19th-century homes throughout the village, farmhouses on the surrounding hillsides, and a growing number of vacation rental properties reflecting the area's tourism appeal. For buyers seeking genuine rural seclusion with extraordinary natural beauty and wine country identity, Naples is exceptional value.</p>
+
+      <div class="pricing-links-block">
+        <div class="pricing-links-label">Current Pricing — Live Data</div>
+        <p class="pricing-links-note">Check these sources for the most current Naples and Ontario County market data:</p>
+        <div class="pricing-links">
+          <a href="https://www.redfin.com/city/13291/NY/Naples/housing-market" target="_blank" rel="noopener" class="pricing-link">
+            <span class="pricing-link-name">Redfin</span>
+            <span class="pricing-link-desc">Median sale price, days on market, price per sq ft</span>
+            <span class="pricing-link-arrow">↗</span>
+          </a>
+          <a href="https://www.zillow.com/naples-ny/home-values/" target="_blank" rel="noopener" class="pricing-link">
+            <span class="pricing-link-name">Zillow</span>
+            <span class="pricing-link-desc">Zillow Home Value Index & market trends</span>
+            <span class="pricing-link-arrow">↗</span>
+          </a>
+          <a href="https://www.realtor.com/realestateandhomes-search/Naples_NY/overview" target="_blank" rel="noopener" class="pricing-link">
+            <span class="pricing-link-name">Realtor.com</span>
+            <span class="pricing-link-desc">Listing prices, market hotness, inventory</span>
+            <span class="pricing-link-arrow">↗</span>
+          </a>
+        </div>
+        <p class="pricing-disclaimer">Real estate data varies by source and changes over time. Always verify current pricing with a licensed local Realtor.</p>
+      </div>
+
+      <div class="two-col">
+        <div class="info-card"><div class="card-eyebrow">Village & Hillside Homes</div><h3>Most Affordable Entry Point</h3><p>Historic village homes and hillside farmhouses at some of the lowest price points in the Ontario County market — exceptional value for buyers seeking scenic rural living with wine country character.</p></div>
+        <div class="info-card"><div class="card-eyebrow">Vacation & View Properties</div><h3>Premium for Lake & Hill Views</h3><p>Properties with Canandaigua Lake views or hilltop vineyard settings command premiums over the village average — and have strong vacation rental potential given the area's tourism draw.</p></div>
+      </div>
+    </section>
+
+    <!-- REALTOR SPOTLIGHT -->
+    <div class="realtor-section fade-in">
+      <span class="eyebrow">Realtor Spotlight</span>
+      <h2>Know Naples?<br />Your Clients Are Looking.</h2>
+      <p>Buyers matched to Naples on Located Lifestyle are seeking a local expert who understands the Bristol Hills market, the vacation rental landscape, and what makes this extraordinary grape country village such a compelling place to call home.</p>
+      <div class="placeholder-cards">
+        <div class="placeholder-card"><div class="placeholder-avatar">🏡</div><div class="ph-title">Open Spot</div><div class="ph-sub">Naples community specialist</div></div>
+        <div class="placeholder-card"><div class="placeholder-avatar">🏡</div><div class="ph-title">Open Spot</div><div class="ph-sub">Naples community specialist</div></div>
+        <div class="placeholder-card"><div class="placeholder-avatar">🏡</div><div class="ph-title">Open Spot</div><div class="ph-sub">Naples community specialist</div></div>
+      </div>
+      <div class="price-inline"><span class="amount">$19</span><span class="period">/month</span></div><br />
+      <a href="https://locatedlifestyle.com/join" class="btn-light">List Yourself as a Naples Specialist</a>
+      <p class="founding-note">Founding Member rate — grandfathered when prices increase to $29/month</p>
+    </div>
+
+    <!-- SOURCES -->
+    <div class="sources-section fade-in">
+      <h3>Sources</h3>
+      <div class="sources-list">
+        <a href="https://www.visitfingerlakes.com/plan-your-trip/ontario-county-ny/naples/" target="_blank" rel="noopener">Visit Finger Lakes — Naples Guide</a>
+        <a href="https://naplesgrapefest.org" target="_blank" rel="noopener">Naples Grape Festival — Official Site</a>
+        <a href="https://daytrippingroc.com/explore-naples-ny/" target="_blank" rel="noopener">Day Tripping ROC — Explore Naples NY</a>
+        <a href="https://www.lifeinthefingerlakes.com/naples/" target="_blank" rel="noopener">Life in the Finger Lakes — Naples</a>
+        <a href="https://www.fingerlakes.org/explore-the-finger-lakes-region" target="_blank" rel="noopener">Finger Lakes Tourism Alliance — Explore the Region</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="bottom-nav">
+    <p>Continue exploring the Finger Lakes</p>
+    <div class="bottom-nav-links">
+      <a href="/">← Back to All Communities</a>
+      <a href="canandaigua.html">← Canandaigua</a>
+      <a href="penn-yan.html">← Penn Yan</a>
+      <a href="#">Hammondsport →</a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-brand">Located <span>Lifestyle</span></div>
+    <div class="footer-copy">© 2026 Located Lifestyle · communities.locatedlifestyle.com · New York State Community Directory</div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 75);
+      });
+    }, { threshold: 0.06, rootMargin: '0px 0px -30px 0px' });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
