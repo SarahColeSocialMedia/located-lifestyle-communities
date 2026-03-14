@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Seneca Falls, NY — Finger Lakes Community Guide | Located Lifestyle</title>
+  <meta name="description" content="Everything you need to know about living in Seneca Falls, NY — birthplace of women's rights, canal town, wine country, and one of the Finger Lakes' most historic communities." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream:      #f6f3ec;
+      --cream-dark: #ece4da;
+      --taupe:      #b9a590;
+      --taupe-dark: #9a8470;
+      --brown:      #574c3f;
+      --brown-dark: #36302a;
+      --text:       #36302a;
+      --text-mid:   #574c3f;
+      --text-muted: #9a8470;
+      --border:     rgba(87,76,63,0.12);
+      --border-med: rgba(87,76,63,0.2);
+      --card-bg:    #ffffff;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--text); overflow-x: hidden; }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 52px;
+      background: rgba(246,243,236,0.95); backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-brand { text-decoration: none; display: flex; flex-direction: column; gap: 1px; }
+    .nav-brand .sub { font-size: 9px; letter-spacing: 3.5px; text-transform: uppercase; color: var(--taupe); font-weight: 500; }
+    .nav-brand .name { font-family: 'Cormorant Garamond', serif; font-size: 20px; color: var(--brown-dark); font-weight: 600; }
+    .nav-right { display: flex; gap: 24px; align-items: center; }
+    .nav-back { font-size: 13px; color: var(--text-muted); text-decoration: none; transition: color 0.2s; display: flex; align-items: center; gap: 6px; }
+    .nav-back:hover { color: var(--brown); }
+    .nav-cta { background: var(--brown-dark); color: var(--cream); font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; padding: 10px 22px; border-radius: 2px; text-decoration: none; transition: background 0.2s; }
+    .nav-cta:hover { background: var(--brown); }
+
+    /* ── HERO — warm canal/history tone, muted blue-slate ── */
+    .hero {
+      min-height: 68vh; position: relative; overflow: hidden;
+      display: flex; flex-direction: column; align-items: center; justify-content: flex-end;
+      padding: 120px 24px 64px; text-align: center;
+      background: linear-gradient(180deg, #1e2430 0%, #2a3040 30%, #34404e 55%, #3e4c5a 100%);
+    }
+    .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 80% 55% at 50% 65%, rgba(100,120,150,0.2) 0%, transparent 65%); }
+    .hero-canal { position: absolute; bottom: 0; left: 0; right: 0; height: 35%; background: linear-gradient(180deg, transparent 0%, rgba(60,80,110,0.25) 50%, rgba(40,60,90,0.4) 100%); clip-path: ellipse(120% 100% at 50% 100%); }
+    .hero-content { position: relative; z-index: 2; max-width: 780px; }
+
+    .hero-breadcrumb { display: flex; align-items: center; gap: 8px; justify-content: center; margin-bottom: 20px; font-size: 11px; letter-spacing: 1px; color: rgba(246,243,236,0.5); }
+    .hero-breadcrumb a { color: rgba(246,243,236,0.5); text-decoration: none; transition: color 0.2s; }
+    .hero-breadcrumb a:hover { color: var(--cream); }
+    .hero-breadcrumb span { opacity: 0.35; }
+    .hero-eyebrow { font-size: 10px; letter-spacing: 3.5px; text-transform: uppercase; color: rgba(246,243,236,0.6); margin-bottom: 14px; display: block; }
+    .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(38px, 7.5vw, 84px); font-weight: 600; line-height: 0.95; color: var(--cream); margin-bottom: 12px; letter-spacing: -2px; }
+    .hero-tagline { font-family: 'Cormorant Garamond', serif; font-size: clamp(16px, 2.5vw, 22px); font-style: italic; color: rgba(246,243,236,0.72); margin-bottom: 28px; font-weight: 400; }
+    .hero-meta { display: flex; gap: 28px; justify-content: center; flex-wrap: wrap; margin-bottom: 32px; }
+    .meta-item { font-size: 12px; color: rgba(246,243,236,0.55); display: flex; align-items: center; gap: 7px; }
+    .meta-dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(246,243,236,0.35); }
+    .hero-badges { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+    .badge { padding: 5px 13px; border-radius: 100px; font-size: 10px; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; }
+    .badge-water { background: rgba(255,255,255,0.15); color: var(--cream); border: 1px solid rgba(255,255,255,0.28); backdrop-filter: blur(4px); }
+    .badge-warm { background: rgba(255,255,255,0.1); color: rgba(246,243,236,0.82); border: 1px solid rgba(255,255,255,0.18); }
+
+    .stats-bar { background: var(--brown-dark); }
+    .stats-bar-inner { max-width: 960px; margin: 0 auto; display: flex; justify-content: space-around; padding: 28px 24px; flex-wrap: wrap; gap: 20px; }
+    .stat-item { text-align: center; }
+    .stat-value { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 600; color: var(--taupe); display: block; line-height: 1.1; }
+    .stat-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: rgba(246,243,236,0.42); margin-top: 4px; }
+
+    .content-wrap { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+    .section { padding: 72px 0 0; }
+    .section-header { display: flex; align-items: center; gap: 20px; margin-bottom: 32px; }
+    .section-icon { width: 44px; height: 44px; border-radius: 2px; background: var(--cream-dark); border: 1px solid var(--border-med); display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+    .section-header h2 { font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 600; color: var(--brown-dark); letter-spacing: -0.3px; }
+    .section-header h2 em { font-style: italic; color: var(--taupe-dark); }
+    .section-line { flex: 1; height: 1px; background: var(--border); }
+
+    .prose { font-size: 15px; line-height: 1.85; color: var(--text-muted); font-weight: 300; margin-bottom: 22px; }
+    .prose strong { color: var(--brown); font-weight: 500; }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .three-col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .info-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 4px; padding: 22px; }
+    .info-card h3 { font-size: 14px; font-weight: 600; color: var(--brown-dark); margin-bottom: 8px; }
+    .info-card p { font-size: 13px; line-height: 1.7; color: var(--text-muted); font-weight: 300; }
+    .info-card .card-eyebrow { font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--taupe); margin-bottom: 7px; }
+    .pull-quote { border-left: 2px solid var(--taupe); padding: 18px 26px; margin: 32px 0; background: var(--cream-dark); border-radius: 0 4px 4px 0; }
+    .pull-quote p { font-family: 'Cormorant Garamond', serif; font-size: 19px; font-style: italic; color: var(--brown); line-height: 1.6; }
+    .pull-quote cite { font-size: 11px; color: var(--text-muted); display: block; margin-top: 10px; font-style: normal; letter-spacing: 0.5px; }
+    .item-list { display: flex; flex-direction: column; gap: 1px; }
+    .item-row { display: flex; align-items: flex-start; gap: 16px; padding: 20px 0; border-bottom: 1px solid var(--border); }
+    .item-row:first-child { border-top: 1px solid var(--border); }
+    .item-emoji { font-size: 20px; flex-shrink: 0; margin-top: 1px; width: 28px; }
+    .item-row h4 { font-size: 14px; font-weight: 600; color: var(--brown-dark); margin-bottom: 5px; }
+    .item-row p { font-size: 13px; color: var(--text-muted); line-height: 1.65; font-weight: 300; }
+    .item-link { color: var(--brown-dark); border-bottom: 1px solid var(--border-med); text-decoration: none; transition: border-color 0.2s; }
+    .item-link:hover { border-color: var(--brown); }
+
+    /* Fun fact card */
+    .fun-fact {
+      background: var(--cream-dark); border: 1px solid var(--border-med);
+      border-radius: 4px; padding: 22px; margin: 32px 0;
+      display: flex; gap: 16px; align-items: flex-start;
+    }
+    .fun-fact-icon { font-size: 28px; flex-shrink: 0; }
+    .fun-fact h4 { font-size: 13px; font-weight: 600; color: var(--brown); margin-bottom: 6px; letter-spacing: 0.3px; }
+    .fun-fact p { font-size: 13px; color: var(--text-muted); line-height: 1.65; font-weight: 300; }
+
+    .pricing-links-block { background: var(--card-bg); border: 1px solid var(--border-med); border-radius: 4px; padding: 28px; margin-bottom: 24px; }
+    .pricing-links-label { font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--taupe); margin-bottom: 8px; }
+    .pricing-links-note { font-size: 13px; color: var(--text-muted); margin-bottom: 20px; line-height: 1.6; font-weight: 300; }
+    .pricing-links { display: flex; flex-direction: column; gap: 1px; }
+    .pricing-link { display: flex; align-items: center; gap: 16px; padding: 14px 16px; border-radius: 3px; background: var(--cream); border: 1px solid var(--border); text-decoration: none; transition: all 0.2s; }
+    .pricing-link:hover { border-color: var(--brown); background: var(--cream-dark); }
+    .pricing-link-name { font-size: 14px; font-weight: 600; color: var(--brown-dark); min-width: 100px; }
+    .pricing-link-desc { font-size: 12px; color: var(--text-muted); flex: 1; font-weight: 300; }
+    .pricing-link-arrow { font-size: 14px; color: var(--taupe); transition: color 0.2s; }
+    .pricing-link:hover .pricing-link-arrow { color: var(--brown); }
+    .pricing-disclaimer { font-size: 11px; color: var(--text-muted); margin-top: 14px; opacity: 0.7; line-height: 1.5; font-style: italic; }
+
+    .school-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 4px; padding: 24px; display: flex; align-items: flex-start; gap: 20px; }
+    .school-grade { width: 52px; height: 52px; border-radius: 4px; background: var(--cream-dark); border: 1px solid var(--border-med); display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 700; color: var(--brown); flex-shrink: 0; }
+    .school-info h3 { font-size: 15px; font-weight: 600; color: var(--brown-dark); margin-bottom: 7px; }
+    .school-info p { font-size: 13px; color: var(--text-muted); line-height: 1.65; font-weight: 300; }
+    .school-badges { display: flex; gap: 7px; flex-wrap: wrap; margin-top: 12px; }
+    .school-badge { padding: 3px 10px; border-radius: 100px; font-size: 11px; background: var(--cream-dark); color: var(--brown); border: 1px solid var(--border-med); }
+
+    .realtor-section { margin-top: 72px; background: var(--brown-dark); border-radius: 4px; padding: 52px; text-align: center; }
+    .realtor-section .eyebrow { font-size: 10px; letter-spacing: 3.5px; text-transform: uppercase; color: var(--taupe); margin-bottom: 18px; display: block; }
+    .realtor-section h2 { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 600; color: var(--cream); line-height: 1.15; margin-bottom: 14px; }
+    .realtor-section p { font-size: 15px; color: rgba(246,243,236,0.55); line-height: 1.75; margin-bottom: 14px; font-weight: 300; max-width: 500px; margin-left: auto; margin-right: auto; }
+    .placeholder-cards { display: flex; gap: 16px; justify-content: center; margin: 32px 0; flex-wrap: wrap; }
+    .placeholder-card { width: 200px; border: 1px dashed rgba(185,165,144,0.3); border-radius: 4px; padding: 24px 16px; text-align: center; background: rgba(255,255,255,0.04); }
+    .placeholder-avatar { width: 52px; height: 52px; border-radius: 50%; background: rgba(185,165,144,0.12); border: 1px dashed rgba(185,165,144,0.3); margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; font-size: 20px; }
+    .placeholder-card .ph-title { font-size: 13px; font-weight: 500; color: rgba(246,243,236,0.5); margin-bottom: 5px; }
+    .placeholder-card .ph-sub { font-size: 11px; color: rgba(246,243,236,0.3); line-height: 1.5; }
+    .price-inline { display: inline-flex; align-items: baseline; gap: 4px; margin: 18px 0 26px; }
+    .price-inline .amount { font-family: 'Cormorant Garamond', serif; font-size: 48px; font-weight: 600; color: var(--taupe); }
+    .price-inline .period { font-size: 16px; color: rgba(246,243,236,0.4); }
+    .btn-light { background: var(--cream); color: var(--brown-dark); padding: 14px 32px; border-radius: 2px; font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; transition: all 0.2s; display: inline-block; }
+    .btn-light:hover { background: var(--cream-dark); transform: translateY(-2px); }
+    .founding-note { font-size: 12px; color: var(--taupe); margin-top: 14px; opacity: 0.8; }
+
+    .sources-section { margin-top: 64px; padding: 32px 0 80px; border-top: 1px solid var(--border); }
+    .sources-section h3 { font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 14px; }
+    .sources-list { display: flex; flex-direction: column; gap: 7px; }
+    .sources-list a { font-size: 12px; color: var(--text-muted); text-decoration: none; opacity: 0.6; transition: opacity 0.2s; display: flex; align-items: center; gap: 6px; }
+    .sources-list a:hover { opacity: 1; color: var(--brown); }
+    .sources-list a::before { content: '↗'; font-size: 10px; }
+
+    .bottom-nav { border-top: 1px solid var(--border); padding: 48px 24px; text-align: center; background: var(--cream-dark); }
+    .bottom-nav p { font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 20px; }
+    .bottom-nav-links { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .bottom-nav-links a { padding: 10px 22px; border-radius: 2px; border: 1px solid var(--border-med); font-size: 13px; color: var(--text-muted); text-decoration: none; transition: all 0.2s; }
+    .bottom-nav-links a:hover { border-color: var(--brown); color: var(--brown); background: rgba(87,76,63,0.05); }
+
+    footer { border-top: 1px solid var(--border); padding: 36px 24px; text-align: center; background: var(--cream); }
+    .footer-brand { font-family: 'Cormorant Garamond', serif; font-size: 20px; color: var(--brown-dark); margin-bottom: 6px; font-weight: 600; }
+    .footer-brand span { color: var(--taupe-dark); font-style: italic; }
+    .footer-copy { font-size: 11px; color: var(--text-muted); opacity: 0.5; }
+
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 768px) {
+      nav { padding: 14px 20px; }
+      .two-col, .three-col { grid-template-columns: 1fr; }
+      .stats-bar-inner { gap: 20px; }
+      .placeholder-cards { flex-direction: column; align-items: center; }
+      .realtor-section { padding: 32px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/" class="nav-brand">
+      <span class="sub">communities</span>
+      <span class="name">Located Lifestyle</span>
+    </a>
+    <div class="nav-right">
+      <a href="/" class="nav-back">← <span>Explore New York</span></a>
+      <a href="https://locatedlifestyle.com/join" class="nav-cta">Join as a Realtor</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-canal"></div>
+    <div class="hero-content">
+      <div class="hero-breadcrumb">
+        <a href="/">Communities</a><span>/</span>
+        <a href="/">Finger Lakes</a><span>/</span>
+        Seneca Falls
+      </div>
+      <span class="hero-eyebrow">Seneca County · Finger Lakes</span>
+      <h1>Seneca Falls</h1>
+      <div class="hero-tagline">Where history changed everything — and quiet living awaits.</div>
+      <div class="hero-meta">
+        <span class="meta-item">Town</span>
+        <span class="meta-dot"></span>
+        <span class="meta-item">Pop. ~9,000</span>
+        <span class="meta-dot"></span>
+        <span class="meta-item">Seneca County</span>
+        <span class="meta-dot"></span>
+        <span class="meta-item">45 min to Syracuse or Rochester</span>
+      </div>
+      <div class="hero-badges">
+        <span class="badge badge-water">💧 Cayuga-Seneca Canal</span>
+        <span class="badge badge-warm">⚖️ Birthplace of Women's Rights</span>
+        <span class="badge badge-warm">🎬 Inspiration for Bedford Falls</span>
+        <span class="badge badge-warm">🦅 Montezuma Wildlife Refuge</span>
+        <span class="badge badge-warm">🍷 Cayuga Wine Trail</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS BAR -->
+  <div class="stats-bar">
+    <div class="stats-bar-inner">
+      <div class="stat-item"><span class="stat-value">See Below</span><div class="stat-label">Current Pricing ↓</div></div>
+      <div class="stat-item"><span class="stat-value">1848</span><div class="stat-label">Women's Convention</div></div>
+      <div class="stat-item"><span class="stat-value">~9,000</span><div class="stat-label">Population</div></div>
+      <div class="stat-item"><span class="stat-value">9,000+</span><div class="stat-label">Acres — Montezuma Refuge</div></div>
+      <div class="stat-item"><span class="stat-value">5</span><div class="stat-label">Museums in Walking Distance</div></div>
+    </div>
+  </div>
+
+  <div class="content-wrap">
+
+    <!-- OVERVIEW -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">🏘️</div>
+        <h2>Overview & <em>Character</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <p class="prose">Seneca Falls carries more history per square mile than almost any small town in America. On <strong>July 19–20, 1848</strong>, 300 women and 42 men gathered at Wesleyan Chapel here for the first women's rights convention in United States history — setting in motion the movement that would eventually secure the 19th Amendment and change the country forever. That chapel still stands at the corner of Fall and Mynderse streets, now part of the <strong>Women's Rights National Historical Park</strong>, administered by the National Park Service.</p>
+      <p class="prose">The town sits on the <strong>Cayuga-Seneca Canal</strong> — a branch of the Erie Canal connecting Cayuga and Seneca Lakes — and its working canal character gives it a distinct identity among Finger Lakes communities. <strong>Fall Street</strong> is the main artery through downtown, lined with antique shops, restaurants, and locally-owned businesses that feel genuinely lived-in. The Cayuga Lake State Park is right in town. The Montezuma National Wildlife Refuge — 9,000 acres of marsh, forest, and grassland — is just minutes away.</p>
+
+      <div class="fun-fact">
+        <div class="fun-fact-icon">🎬</div>
+        <div>
+          <h4>The Bedford Falls Connection</h4>
+          <p>It's widely believed — though never definitively proven — that Seneca Falls inspired the fictional town of Bedford Falls in Frank Capra's beloved 1946 film <em>It's a Wonderful Life</em>. The story goes that Capra visited the area in the 1940s and was so struck by the Bridge Street bridge — where a real-life rescue took place in 1917, honored by a plaque with bells tied around it — that it found its way into his film. Seneca Falls has embraced this legacy with warmth: look for the "George Bailey" and "Clarence" street signs near the bridge, and visit the <em>It's a Wonderful Life</em> Museum on Fall Street.</p>
+        </div>
+      </div>
+
+      <p class="prose">For buyers, Seneca Falls offers something increasingly rare: <strong>genuine affordability combined with genuine history</strong>. Home prices are among the lowest in the Finger Lakes region, the canal waterfront is a daily amenity, and the town's historic identity gives it a sense of purpose and pride that purely residential communities often lack.</p>
+    </section>
+
+    <!-- VIBE -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">✨</div>
+        <h2>The <em>Vibe</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="two-col">
+        <div class="info-card">
+          <div class="card-eyebrow">Pace of Life</div>
+          <h3>Quiet, Historic & Genuinely Unpretentious</h3>
+          <p>Seneca Falls is a working town with a working canal running through it. Life here is unhurried, community-minded, and rooted — more about front porches and canal walks than wine bars and boutiques. Visitors come for the history; residents stay for the quiet. The canal promenade and lakeside parks make for a genuinely pleasant everyday outdoor life.</p>
+        </div>
+        <div class="info-card">
+          <div class="card-eyebrow">Who Lives Here</div>
+          <h3>Longtime Locals, History Lovers & Value Seekers</h3>
+          <p>A mix of multi-generational Seneca County families, history enthusiasts drawn by the Women's Rights legacy, retirees seeking affordable lakeside living, and remote workers discovering that the Finger Lakes doesn't have to cost Finger Lakes prices. Goulds Pumps — a leading global pump manufacturer — is headquartered here, providing stable local employment.</p>
+        </div>
+        <div class="info-card">
+          <div class="card-eyebrow">Community Identity</div>
+          <h3>Proud of Its Place in American History</h3>
+          <p>Seneca Falls wears its history with genuine pride — not as a tourist gimmick, but as a living identity. The Women's Rights National Historical Park, the National Women's Hall of Fame, and the Elizabeth Cady Stanton home are not afterthoughts. They're the reason people know Seneca Falls exists, and residents understand that. There's a quiet civic dignity here that's hard to manufacture.</p>
+        </div>
+        <div class="info-card">
+          <div class="card-eyebrow">Honest Note</div>
+          <h3>A Small Town with Small-Town Limitations</h3>
+          <p>Seneca Falls is not a destination dining or shopping town — Fall Street has a range of businesses, but daily amenity options are modest. Geneva is 20 minutes west for broader services; Auburn is 20 minutes east. For buyers who want a quiet, historically rich, affordable base from which to explore the Finger Lakes, it delivers. For buyers wanting a vibrant urban scene, look elsewhere.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- KNOWN FOR -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">🏛️</div>
+        <h2>What It's <em>Known For</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="item-list">
+        <div class="item-row">
+          <div class="item-emoji">⚖️</div>
+          <div>
+            <h4>Women's Rights National Historical Park</h4>
+            <p>Administered by the National Park Service, the <a href="https://www.nps.gov/wori" target="_blank" rel="noopener" class="item-link">Women's Rights National Historical Park</a> encompasses the Wesleyan Chapel where the 1848 convention was held, the Elizabeth Cady Stanton House (known as "Center of the Rebellion"), and the M'Clintock House. Free to visit. A place of genuine national significance — not a reconstruction but the actual site where it happened.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-emoji">🏆</div>
+          <div>
+            <h4>National Women's Hall of Fame</h4>
+            <p>The <a href="https://www.womenofthehall.org" target="_blank" rel="noopener" class="item-link">National Women's Hall of Fame</a> honors trailblazing American women from Anne Hutchinson to Oprah Winfrey — an inspiring, information-packed museum in the beautifully restored Seneca Knitting Mill on the canal. One of the most compelling cultural institutions in the Finger Lakes.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-emoji">🎬</div>
+          <div>
+            <h4>It's a Wonderful Life Museum & Bailey Bridge</h4>
+            <p>The only museum in the world dedicated to Frank Capra's classic film — packed with movie scripts, photos, memorabilia, and the backstories of cast members. Down the hill, the Bridge Street bridge (known locally as Bailey Bridge) bears a plaque honoring Antonio Varacalli, whose real-life rescue inspired the film's most iconic scene.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-emoji">🦅</div>
+          <div>
+            <h4>Montezuma National Wildlife Refuge</h4>
+            <p>Established in 1938, <a href="https://www.fws.gov/refuge/montezuma" target="_blank" rel="noopener" class="item-link">Montezuma National Wildlife Refuge</a> spans over 9,000 acres of marsh, forest, and grassland — home to 242 bird species, 43 mammals, and sitting along one of the East Coast's most important migratory bird pathways. Hundreds of thousands of birds pass through each spring and fall. A world-class birding destination right at Seneca Falls' doorstep.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-emoji">🏭</div>
+          <div>
+            <h4>Goulds Pumps</h4>
+            <p>One of the world's leading pump manufacturers has been headquartered in Seneca Falls since the 1800s — a symbol of the town's industrial heritage and a source of stable local employment. The Seneca Museum of Waterways and Industry tells the story of the region's remarkable manufacturing past, rooted in the waterpower of the original falls.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-emoji">👗</div>
+          <div>
+            <h4>Amelia Bloomer — Dress Reform Pioneer</h4>
+            <p>Seneca Falls was also home to Amelia Jenks Bloomer, the pioneering women's rights activist who advocated for practical women's dress reform in the 1850s — and gave her name to "bloomers," the bifurcated garment that became a symbol of women's liberation from restrictive Victorian clothing.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESTAURANTS -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">🍽️</div>
+        <h2>Restaurants & <em>Dining</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <p class="prose">Fall Street anchors the dining scene — a range of casual local spots serving the everyday needs of a working town. Seneca Falls is not a destination dining community, but it has solid local options and Geneva (20 minutes west) expands the choices significantly. Always check hours seasonally.</p>
+      <div class="item-list">
+        <div class="item-row"><div class="item-emoji">🥪</div><div><h4>The It's a Wonderful Life Panini Café</h4><p>A lunch spot famous for its generously sized sandwiches with names like "The George Bailey" (hot roast beef, melted Swiss, portobello mushrooms on sourdough) and other movie-themed paninis. A fun, locally beloved spot that leans into the town's cinematic connection with warmth rather than kitsch.</p></div></div>
+        <div class="item-row"><div class="item-emoji">🍺</div><div><h4>Downtown Pubs & Local Bars</h4><p>Fall Street has several classic local bars and pub-style restaurants that serve as genuine community gathering spots — the kind of places where locals know each other's names and visitors feel welcome. Casual, unpretentious, and exactly right for the town's character.</p></div></div>
+        <div class="item-row"><div class="item-emoji">🍷</div><div><h4>Montezuma Winery & Hidden Marsh Distillery</h4><p>The closest winery to Seneca Falls — a local producer offering wine tastings and distillery tours just minutes from downtown. A good first stop on any Cayuga Lake Wine Trail exploration from a Seneca Falls base.</p></div></div>
+        <div class="item-row"><div class="item-emoji">☕</div><div><h4>Local Cafés on Fall Street</h4><p>Several casual coffee spots and breakfast cafés line Fall Street — the kind of neighborhood morning stops where you'll run into your neighbors and get a sense of everyday life in a small Finger Lakes town.</p></div></div>
+        <div class="item-row"><div class="item-emoji">🧀</div><div><h4>Muranda Cheese Company (nearby)</h4><p>A local artisan cheesemaker just outside Seneca Falls — producing small-batch, award-winning cheeses that reflect the Finger Lakes' deep agricultural roots. A great stop for local food enthusiasts.</p></div></div>
+      </div>
+    </section>
+
+    <!-- SHOPS -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">🛍️</div>
+        <h2>Shops & Local <em>Businesses</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <p class="prose">Fall Street offers a modest but authentic mix of antique shops, thrift stores, locally-owned gift shops, and specialty stores. It's not a boutique shopping destination, but what's there reflects the town's genuine character rather than a curated tourist experience.</p>
+      <div class="three-col">
+        <div class="info-card"><div class="card-eyebrow">Gift & Advocacy</div><h3>WomanMade Products</h3><p>An inspiring gift shop on Fall Street whose proceeds support and uplift women — a local institution that embodies the community's ongoing connection to its women's rights heritage.</p></div>
+        <div class="info-card"><div class="card-eyebrow">Antiques</div><h3>Fall Street Antique Shops</h3><p>A mix of antique and thrift stores along Fall Street — accessible browsing for furniture, collectibles, and local artifacts at genuinely affordable prices.</p></div>
+        <div class="info-card"><div class="card-eyebrow">Canal Harbor</div><h3>Canal Harbor & Promenade</h3><p>The Cayuga-Seneca Canal Harbor offers docking facilities, a pleasant waterfront promenade, and boater amenities — a gathering point for the community and arriving canal travelers in warm weather.</p></div>
+        <div class="info-card"><div class="card-eyebrow">Museums</div><h3>Five Museums in Walking Distance</h3><p>Women's Rights NHP, National Women's Hall of Fame, It's a Wonderful Life Museum, Seneca Falls Historical Society Mansion, and the Seneca Museum of Waterways & Industry — all within an easy walk of each other downtown.</p></div>
+        <div class="info-card"><div class="card-eyebrow">Groceries</div><h3>Local Markets & Auburn (20 min)</h3><p>Basic grocery options are available in town. Auburn — 20 minutes east — offers a Wegmans and full retail options for bigger shopping needs.</p></div>
+        <div class="info-card"><div class="card-eyebrow">Wine</div><h3>Cayuga Lake Wine Trail Gateway</h3><p>Seneca Falls sits between both the Cayuga and Seneca Lake wine trails — dozens of award-winning wineries are within a 20-30 minute drive in either direction.</p></div>
+      </div>
+    </section>
+
+    <!-- OUTDOOR -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">🏞️</div>
+        <h2>Outdoor & <em>Recreation</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="item-list">
+        <div class="item-row"><div class="item-emoji">🦅</div><div><h4>Montezuma National Wildlife Refuge</h4><p>One of the great birding destinations in the eastern US — 9,000+ acres of wetlands along the Atlantic Flyway migratory route. Spring and fall migrations bring hundreds of thousands of waterfowl, raptors, and songbirds. Free to visit, with a wildlife drive, observation tower, and walking trails. Minutes from downtown.</p></div></div>
+        <div class="item-row"><div class="item-emoji">⛵</div><div><h4>Cayuga Lake State Park</h4><p>Right in Seneca Falls — swimming, boating, fishing, and picnicking at a full-service state park on the shores of Cayuga Lake. One of the most accessible lakefront parks in the Finger Lakes, and a daily summer asset for residents.</p></div></div>
+        <div class="item-row"><div class="item-emoji">🚶</div><div><h4>Canal Harbor Promenade</h4><p>A pleasant waterfront walk along the Cayuga-Seneca Canal — benches, canal views, and the quiet rhythm of an active working waterway. One of the most underrated everyday outdoor spaces in the Finger Lakes.</p></div></div>
+        <div class="item-row"><div class="item-emoji">🍷</div><div><h4>Cayuga & Seneca Lake Wine Trails</h4><p>Seneca Falls is perfectly positioned between both major wine trails — the Cayuga Lake Wine Trail to the east and the Seneca Lake Wine Trail to the west. Dozens of wineries within a short drive in either direction, making it an ideal base for wine country exploration.</p></div></div>
+        <div class="item-row"><div class="item-emoji">🚴</div><div><h4>Cayuga Lake Scenic Byway</h4><p>The Cayuga Lake Scenic Byway runs along the lake's western shore — a beautiful drive and cycling route through farmland, wetlands, and lakeside communities connecting Seneca Falls north to Auburn and south toward Ithaca.</p></div></div>
+        <div class="item-row"><div class="item-emoji">🐟</div><div><h4>Cayuga Lake Fishing</h4><p>Cayuga Lake — the longest of the Finger Lakes at 61 miles — offers excellent fishing for lake trout, landlocked salmon, bass, and walleye. Access from Cayuga Lake State Park and the canal harbor marina.</p></div></div>
+      </div>
+    </section>
+
+    <!-- NEARBY -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">📍</div>
+        <h2>What's <em>Nearby</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="three-col">
+        <div class="info-card"><div class="card-eyebrow">20 minutes west</div><h3>Geneva</h3><p>Hobart and William Smith Colleges, South Main Street Victorian architecture, the Smith Opera House, and the northern gateway to the Seneca Lake Wine Trail.</p></div>
+        <div class="info-card"><div class="card-eyebrow">20 minutes east</div><h3>Auburn</h3><p>The Harriet Tubman National Historical Park, Wegmans, and a historic canal city with a growing downtown restaurant scene — the nearest full-service hub.</p></div>
+        <div class="info-card"><div class="card-eyebrow">45 minutes east</div><h3>Syracuse</h3><p>Central New York's largest city — Upstate University Hospital, Destiny USA, SU sports, and the major urban amenities of the region.</p></div>
+        <div class="info-card"><div class="card-eyebrow">45 minutes west</div><h3>Rochester</h3><p>Greater Rochester International Airport, University of Rochester Medical Center, and a strong arts, food, and cultural scene.</p></div>
+        <div class="info-card"><div class="card-eyebrow">1 hour south</div><h3>Ithaca</h3><p>Cornell University, waterfalls, gorges, and the Ithaca Farmers Market — a full day trip south through the heart of Finger Lakes wine country.</p></div>
+        <div class="info-card"><div class="card-eyebrow">25 minutes south</div><h3>Canandaigua</h3><p>Canandaigua Lake, Bristol Mountain skiing, Sonnenberg Gardens, and a Wegmans — the broader amenity hub west of Seneca Falls.</p></div>
+      </div>
+    </section>
+
+    <!-- SCHOOLS -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">🎓</div>
+        <h2>Schools</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="school-card">
+        <div class="school-grade">B</div>
+        <div class="school-info">
+          <h3>Seneca Falls Central School District</h3>
+          <p>A small district serving the town with four schools — Frank M. Knight Elementary (K–2), Elizabeth Cady Stanton School (grades 3–5), Seneca Falls Middle School (6–8), and the high school. Note that one of the elementary schools is named after Elizabeth Cady Stanton — a lovely reflection of the community's commitment to its history. The district is solid and community-oriented, with small class sizes that reflect the town's scale. Northeast College of Health Sciences (formerly New York Chiropractic College), one of the best chiropractic colleges in the country, is also located in Seneca Falls.</p>
+          <div class="school-badges">
+            <span class="school-badge">B Rated</span>
+            <span class="school-badge">Small Class Sizes</span>
+            <span class="school-badge">Named After E.C. Stanton</span>
+            <span class="school-badge">College in Town</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REAL ESTATE -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">🏠</div>
+        <h2>Real Estate <em>Overview</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <p class="prose">Seneca Falls offers some of the <strong>most affordable real estate in the entire Finger Lakes region</strong> — a genuine opportunity for buyers seeking historic homes, canal waterfront access, and a nationally significant community at entry-level price points. The historic housing stock includes Federal, Greek Revival, and Victorian homes throughout the downtown and residential neighborhoods, many in excellent condition given the town's pride in historic preservation.</p>
+
+      <div class="pricing-links-block">
+        <div class="pricing-links-label">Current Pricing — Live Data</div>
+        <p class="pricing-links-note">Check these sources for the most current Seneca Falls market data:</p>
+        <div class="pricing-links">
+          <a href="https://www.redfin.com/city/16800/NY/Seneca-Falls/housing-market" target="_blank" rel="noopener" class="pricing-link">
+            <span class="pricing-link-name">Redfin</span>
+            <span class="pricing-link-desc">Median sale price, days on market, price per sq ft</span>
+            <span class="pricing-link-arrow">↗</span>
+          </a>
+          <a href="https://www.zillow.com/seneca-falls-ny/home-values/" target="_blank" rel="noopener" class="pricing-link">
+            <span class="pricing-link-name">Zillow</span>
+            <span class="pricing-link-desc">Zillow Home Value Index & market trends</span>
+            <span class="pricing-link-arrow">↗</span>
+          </a>
+          <a href="https://www.realtor.com/realestateandhomes-search/Seneca-Falls_NY/overview" target="_blank" rel="noopener" class="pricing-link">
+            <span class="pricing-link-name">Realtor.com</span>
+            <span class="pricing-link-desc">Listing prices, market hotness, inventory</span>
+            <span class="pricing-link-arrow">↗</span>
+          </a>
+        </div>
+        <p class="pricing-disclaimer">Real estate data varies by source and changes over time. Always verify current pricing with a licensed local Realtor.</p>
+      </div>
+
+      <div class="two-col">
+        <div class="info-card"><div class="card-eyebrow">Historic Town Homes</div><h3>Most Affordable Entry Point</h3><p>Federal, Greek Revival, and Victorian homes throughout the historic district at some of the lowest price points in the Finger Lakes — a genuine opportunity for buyers who appreciate historic architecture and want maximum value.</p></div>
+        <div class="info-card"><div class="card-eyebrow">Canal & Lakeside</div><h3>Waterfront Premium</h3><p>Properties with canal views or Cayuga Lake State Park access command a modest premium over the town average — but still represent exceptional value compared to other Finger Lakes waterfront communities.</p></div>
+      </div>
+    </section>
+
+    <!-- REALTOR SPOTLIGHT -->
+    <div class="realtor-section fade-in">
+      <span class="eyebrow">Realtor Spotlight</span>
+      <h2>Know Seneca Falls?<br />Your Clients Are Looking.</h2>
+      <p>Buyers matched to Seneca Falls on Located Lifestyle are seeking a local expert who understands the historic housing stock, the canal waterfront, and what makes this extraordinary town such a compelling value in the Finger Lakes. Be the Realtor they find.</p>
+      <div class="placeholder-cards">
+        <div class="placeholder-card"><div class="placeholder-avatar">🏡</div><div class="ph-title">Open Spot</div><div class="ph-sub">Seneca Falls specialist</div></div>
+        <div class="placeholder-card"><div class="placeholder-avatar">🏡</div><div class="ph-title">Open Spot</div><div class="ph-sub">Seneca Falls specialist</div></div>
+        <div class="placeholder-card"><div class="placeholder-avatar">🏡</div><div class="ph-title">Open Spot</div><div class="ph-sub">Seneca Falls specialist</div></div>
+      </div>
+      <div class="price-inline"><span class="amount">$19</span><span class="period">/month</span></div><br />
+      <a href="https://locatedlifestyle.com/join" class="btn-light">List Yourself as a Seneca Falls Specialist</a>
+      <p class="founding-note">Founding Member rate — grandfathered when prices increase to $29/month</p>
+    </div>
+
+    <!-- SOURCES -->
+    <div class="sources-section fade-in">
+      <h3>Sources</h3>
+      <div class="sources-list">
+        <a href="https://www.nps.gov/wori" target="_blank" rel="noopener">NPS — Women's Rights National Historical Park</a>
+        <a href="https://en.wikipedia.org/wiki/Seneca_Falls,_New_York" target="_blank" rel="noopener">Wikipedia — Seneca Falls, New York</a>
+        <a href="https://frominwoodout.com/things-to-do-in-seneca-falls-ny/" target="_blank" rel="noopener">From Inwood Out — Things to Do in Seneca Falls</a>
+        <a href="https://www.iloveny.com/blog/post/48-hours-in-seneca-falls/" target="_blank" rel="noopener">I Love NY — 48 Hours in Seneca Falls</a>
+        <a href="https://senecamuseum.com/tourism-center/" target="_blank" rel="noopener">Seneca Falls Museum & Tourism Center</a>
+        <a href="https://www.fingerlakes.org/explore-the-finger-lakes-region" target="_blank" rel="noopener">Finger Lakes Tourism Alliance — Explore the Region</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="bottom-nav">
+    <p>Continue exploring the Finger Lakes</p>
+    <div class="bottom-nav-links">
+      <a href="/">← Back to All Communities</a>
+      <a href="geneva.html">← Geneva</a>
+      <a href="canandaigua.html">← Canandaigua</a>
+      <a href="#">Cazenovia →</a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-brand">Located <span>Lifestyle</span></div>
+    <div class="footer-copy">© 2026 Located Lifestyle · communities.locatedlifestyle.com · New York State Community Directory</div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 75);
+      });
+    }, { threshold: 0.06, rootMargin: '0px 0px -30px 0px' });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
