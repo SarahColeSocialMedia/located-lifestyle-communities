@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Explore Central New York | Located Lifestyle Communities</title>
+  <meta name="description" content="An interactive guide to Central New York communities -- Syracuse, the FM suburbs, Liverpool, Baldwinsville, DeWitt, North Syracuse, Cicero, Clay, Chittenango, Cazenovia, Marcellus, Tully, Canastota, Brewerton, Fulton, Phoenix, and Bridgeport." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+    :root {
+      --cream:#f6f3ec; --cream-dark:#ece4da; --taupe:#b9a590; --taupe-dark:#9a8470;
+      --brown:#574c3f; --brown-dark:#36302a; --text-muted:#9a8470;
+      --border:rgba(87,76,63,0.12); --border-med:rgba(87,76,63,0.22);
+      --water:#3a6e9e;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--brown-dark);overflow-x:hidden;}
+    nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:16px 48px;background:rgba(246,243,236,0.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
+    .nav-brand{text-decoration:none;display:flex;flex-direction:column;gap:1px;}
+    .nav-brand .sub{font-size:9px;letter-spacing:3.5px;text-transform:uppercase;color:var(--taupe);font-weight:500;}
+    .nav-brand .name{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--brown-dark);font-weight:600;}
+    .nav-right{display:flex;gap:24px;align-items:center;}
+    .nav-back{font-size:13px;color:var(--text-muted);text-decoration:none;}
+    .nav-back:hover{color:var(--brown);}
+    .nav-cta{background:var(--brown-dark);color:var(--cream);font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:10px 22px;border-radius:2px;text-decoration:none;}
+    .nav-cta:hover{background:var(--brown);}
+    .hero{max-width:1100px;margin:0 auto;padding:118px 48px 44px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;}
+    .hero-eyebrow{font-size:10px;letter-spacing:3.5px;text-transform:uppercase;color:var(--taupe);margin-bottom:14px;display:block;}
+    .hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(38px,4.8vw,64px);font-weight:500;line-height:1.0;color:var(--brown-dark);letter-spacing:-1.5px;margin-bottom:18px;}
+    .hero h1 em{font-style:italic;color:var(--water);}
+    .hero-desc{font-size:15px;line-height:1.8;color:var(--text-muted);font-weight:300;max-width:400px;}
+    .hero-stats{display:flex;gap:32px;margin-top:32px;padding-top:28px;border-top:1px solid var(--border);}
+    .hs-val{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:600;color:var(--brown-dark);line-height:1;}
+    .hs-lbl{font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-top:3px;}
+    .hero-tip{align-self:end;}
+    .tip-box{background:var(--cream-dark);border:1px solid var(--border-med);border-radius:4px;padding:20px 22px;}
+    .tip-label{font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--taupe);margin-bottom:10px;}
+    .tip-item{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--brown);font-weight:300;margin-bottom:8px;}
+    .tip-item:last-child{margin-bottom:0;}
+    .tip-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
+    .map-section{max-width:1100px;margin:0 auto;padding:0 48px 60px;}
+    .map-label{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--text-muted);margin-bottom:14px;display:flex;align-items:center;gap:16px;}
+    .map-label::after{content:'';flex:1;height:1px;background:var(--border);}
+    .map-frame{border:1px solid var(--border-med);border-radius:6px;overflow:hidden;box-shadow:0 4px 32px rgba(54,48,42,0.1);height:540px;}
+    #map{width:100%;height:100%;}
+    .leaflet-container{font-family:'Jost',sans-serif;background:#d4c9b0;}
+    .leaflet-popup-content-wrapper{background:var(--brown-dark);color:var(--cream);border-radius:4px;box-shadow:0 4px 20px rgba(0,0,0,0.25);border:none;padding:0;}
+    .leaflet-popup-content{margin:0;line-height:1;}
+    .leaflet-popup-tip{background:var(--brown-dark);}
+    .leaflet-popup-close-button{color:var(--taupe) !important;font-size:18px !important;top:8px !important;right:10px !important;}
+    .leaflet-popup-close-button:hover{color:var(--cream) !important;}
+    .leaflet-control-zoom a{background:var(--cream) !important;color:var(--brown-dark) !important;border-color:var(--border-med) !important;}
+    .leaflet-control-attribution{background:rgba(246,243,236,0.85) !important;font-size:9px !important;}
+    .pop-inner{padding:16px 20px 18px;min-width:180px;}
+    .pop-type{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--taupe);margin-bottom:5px;}
+    .pop-name{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:var(--cream);margin-bottom:6px;line-height:1.1;}
+    .pop-desc{font-size:12px;color:rgba(246,243,236,0.6);line-height:1.5;margin-bottom:12px;font-weight:300;}
+    .pop-link{display:inline-block;background:var(--cream);color:var(--brown-dark);font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:8px 14px;border-radius:2px;text-decoration:none;}
+    .pop-link:hover{background:var(--cream-dark);}
+    .panels{max-width:1100px;margin:0 auto;padding:0 48px 90px;}
+    .panels-hdr{display:flex;align-items:baseline;gap:20px;margin-bottom:36px;}
+    .panels-hdr h2{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:500;color:var(--brown-dark);}
+    .panels-hdr h2 em{font-style:italic;color:var(--taupe-dark);}
+    .ph-line{flex:1;height:1px;background:var(--border);}
+    .lg{margin-bottom:52px;scroll-margin-top:80px;}
+    .lg-hdr{display:flex;align-items:center;gap:14px;margin-bottom:18px;padding-bottom:12px;border-bottom:1px solid var(--border);}
+    .lg-sw{width:30px;height:11px;border-radius:100px;flex-shrink:0;background:var(--brown-dark);}
+    .lg-name{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:500;color:var(--brown-dark);}
+    .lg-sz{font-size:12px;color:var(--text-muted);font-weight:300;}
+    .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(255px,1fr));gap:12px;}
+    .card{background:white;border:1px solid var(--border);border-radius:4px;padding:18px 20px 38px;text-decoration:none;display:block;position:relative;transition:all 0.2s;}
+    .card:hover{border-color:var(--water);transform:translateY(-2px);box-shadow:0 6px 24px rgba(58,110,158,0.12);}
+    .card.lw{background:var(--cream-dark);border-style:dashed;}
+    .card.lw:hover{border-color:var(--taupe);box-shadow:none;transform:none;}
+    .c-type{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--taupe);margin-bottom:5px;}
+    .c-name{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:var(--brown-dark);margin-bottom:5px;}
+    .c-desc{font-size:12px;color:var(--text-muted);line-height:1.55;font-weight:300;}
+    .c-arr{position:absolute;bottom:14px;right:16px;font-size:14px;color:var(--taupe);transition:all 0.2s;}
+    .card:hover .c-arr{color:var(--water);transform:translateX(3px);}
+    .card.lw:hover .c-arr{transform:none;}
+    .rb-wrap{max-width:1100px;margin:0 auto 80px;padding:0 48px;}
+    .rb{background:var(--brown-dark);border-radius:4px;padding:48px;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;}
+    .rb-eye{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--taupe);margin-bottom:12px;display:block;}
+    .rb-title{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:500;color:var(--cream);line-height:1.15;margin-bottom:10px;}
+    .rb-desc{font-size:14px;color:rgba(246,243,236,0.5);line-height:1.7;font-weight:300;max-width:500px;}
+    .rb-price{text-align:center;}
+    .rb-amt{font-family:'Cormorant Garamond',serif;font-size:50px;font-weight:600;color:var(--taupe);line-height:1;}
+    .rb-per{font-size:13px;color:rgba(246,243,236,0.4);display:block;margin-bottom:16px;}
+    .rb-btn{display:inline-block;background:var(--cream);color:var(--brown-dark);font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;padding:13px 26px;border-radius:2px;text-decoration:none;white-space:nowrap;}
+    .rb-btn:hover{background:var(--cream-dark);}
+    .rb-found{font-size:10px;color:var(--taupe);margin-top:8px;opacity:0.75;display:block;}
+    footer{border-top:1px solid var(--border);padding:30px 48px;display:flex;align-items:center;justify-content:space-between;}
+    .f-brand{font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--brown-dark);font-weight:600;}
+    .f-brand span{font-style:italic;color:var(--taupe-dark);}
+    .f-copy{font-size:11px;color:var(--text-muted);opacity:0.5;}
+    .fi{opacity:0;transform:translateY(14px);transition:opacity 0.6s ease,transform 0.6s ease;}
+    .fi.v{opacity:1;transform:translateY(0);}
+    @media(max-width:860px){
+      nav{padding:14px 20px;}
+      .hero{grid-template-columns:1fr;padding:108px 20px 36px;gap:24px;}
+      .hero-tip{display:none;}
+      .map-section,.panels,.rb-wrap{padding-left:20px;padding-right:20px;}
+      .map-frame{height:380px;}
+      .rb{grid-template-columns:1fr;padding:32px 24px;}
+      .rb-price{text-align:left;}
+      footer{padding:24px 20px;flex-direction:column;gap:6px;text-align:center;}
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-brand">
+    <span class="sub">communities</span>
+    <span class="name">Located Lifestyle</span>
+  </a>
+  <div class="nav-right">
+    <a href="/" class="nav-back">&larr; All Regions</a>
+    <a href="https://locatedlifestyle.com/join" class="nav-cta">Join as a Realtor</a>
+  </div>
+</nav>
+
+<div class="hero fi">
+  <div>
+    <span class="hero-eyebrow">New York State &middot; Central New York</span>
+    <h1>Explore<br /><em>Central</em><br />New York</h1>
+    <p class="hero-desc">From the anchor city of Syracuse to the Boxing Hall of Fame in Canastota, the Oz birthplace of Chittenango, the walleye waters of Oneida Lake, and the river towns of Fulton and Phoenix -- Central New York rewards buyers who look closely.</p>
+    <div class="hero-stats">
+      <div><div class="hs-val">19</div><div class="hs-lbl">Communities</div></div>
+      <div><div class="hs-val">4</div><div class="hs-lbl">Counties</div></div>
+      <div><div class="hs-val">$100B</div><div class="hs-lbl">Micron Investment</div></div>
+    </div>
+  </div>
+  <div class="hero-tip">
+    <div class="tip-box">
+      <div class="tip-label">How to use this map</div>
+      <div class="tip-item"><div class="tip-dot" style="background:var(--brown-dark)"></div>Full community page -- click to explore</div>
+      <div class="tip-item"><div class="tip-dot" style="background:var(--taupe-dark)"></div>Lightweight listing -- local Realtor invited</div>
+      <div class="tip-item" style="margin-top:10px;font-size:12px;color:var(--text-muted);font-style:italic;">Scroll down to browse all communities</div>
+    </div>
+  </div>
+</div>
+
+<section class="map-section fi">
+  <div class="map-label">Interactive Map -- Click Any Marker</div>
+  <div class="map-frame"><div id="map"></div></div>
+</section>
+
+<section class="panels" id="panels">
+  <div class="panels-hdr">
+    <h2>Communities by <em>Area</em></h2>
+    <div class="ph-line"></div>
+  </div>
+
+  <!-- ANCHOR CITY -->
+  <div class="lg fi" id="panel-syracuse">
+    <div class="lg-hdr"><div class="lg-sw"></div><div class="lg-name">Syracuse</div><div class="lg-sz">Onondaga County &middot; The Anchor City</div></div>
+    <div class="cards">
+      <a href="syracuse.html" class="card">
+        <div class="c-type">City &middot; Onondaga County</div>
+        <div class="c-name">Syracuse</div>
+        <div class="c-desc">Three universities, Micron breaking ground in Clay, Armory Square, the NY State Fair, and Beak &amp; Skiff. Central NY's most affordable big-city proposition.</div>
+        <span class="c-arr">&rarr;</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- EAST SUBURBS -->
+  <div class="lg fi" id="panel-east-suburbs">
+    <div class="lg-hdr"><div class="lg-sw"></div><div class="lg-name">East Suburbs</div><div class="lg-sz">Onondaga County &middot; FM District, JD District &amp; DeWitt</div></div>
+    <div class="cards">
+      <a href="fayetteville.html" class="card">
+        <div class="c-type">Village &middot; FM School District</div>
+        <div class="c-name">Fayetteville</div>
+        <div class="c-desc">The FM school district, Green Lakes at the back door, Limestone Plaza, the Matilda Joslyn Gage Foundation, and a 5-star rated public library.</div>
+        <span class="c-arr">&rarr;</span>
+      </a>
+      <a href="manlius.html" class="card">
+        <div class="c-type">Village &middot; FM School District</div>
+        <div class="c-name">Manlius</div>
+        <div class="c-desc">Swan Pond, Seneca Street, FM High School right in the village, and the first village incorporated in Onondaga County.</div>
+        <span class="c-arr">&rarr;</span>
+      </a>
+      <a href="dewitt.html" class="card">
+        <div class="c-type">Town &middot; JD School District -- #1 Syracuse Area</div>
+        <div class="c-name">DeWitt</div>
+        <div class="c-desc">Le Moyne College, the #1 ranked JD school district, the Old Erie Canal trail, Jamesville Beach Park, and Carrier Corporation HQ.</div>
+        <span class="c-arr">&rarr;</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- NORTH -->
+  <div class="lg fi" id="panel-north">
+    <div class="lg-hdr"><div class="lg-sw"></div><div class="lg-name">North of Syracuse</div><div class="lg-sz">Onondaga County &middot; Seneca River, Onondaga Lake &amp; Micron Corridor</div></div>
+    <div class="cards">
+      <a href="liverpool.html" class="card">
+        <div class="c-type">Village &middot; 6 miles north</div>
+        <div class="c-name">Liverpool</div>
+        <div class="c-desc">Onondaga Lake Park, Heid's hot dogs, the Salt Museum, Lights on the Lake, and one of the most walkable village centers in the Syracuse metro.</div>
+        <span class="c-arr">&rarr;</span>
+      </a>
+      <a href="baldwinsville.html" class="card">
+        <div class="c-type">Village &middot; 15 miles northwest</div>
+        <div class="c-name">Baldwinsville</div>
+        <div class="c-desc">B'ville -- the Seneca River, Paper Mill Island, the "Anything That Floats" race at Seneca River Days, and a strong school district.</div>
+        <span class="c-arr">&rarr;</span>
+      </a>
+      <a href="north-syracuse-cicero-clay.html" class="card">
+        <div class="c-type">Village &amp; Towns &middot; Northstar Nation</div>
+        <div class="c-name">North Syracuse, Cicero &amp; Clay</div>
+        <div class="c-desc">The CNS school district, Micron's White Pine Commerce Park breaking ground, Oneida Lake access, and the most affordable housing near the Syracuse metro.</div>
+        <span class="c-arr">&rarr;</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- EAST -->
+  <div class="lg fi" id="panel-east">
+    <div class="lg-hdr"><div class="lg-sw"></div><div class="lg-name">East of Syracuse</div><div class="lg-sz">Madison County &middot; Erie Canal Heritage &amp; Literary History</div></div>
+    <div class="cards">
+      <a href="chittenango.html" class="card">
+        <div class="c-type">Village &middot; 15 miles east</div>
+        <div class="c-name">Chittenango</div>
+        <div class="c-desc">Birthplace of L. Frank Baum. Yellow brick sidewalks, Oz-Stravaganza, the All Things Oz Museum, and Chittenango Falls State Park.</div>
+        <span class="c-arr">&rarr;</span>
+      </a>
+      <a href="cazenovia.html" class="card">
+        <div class="c-type">Village &middot; 20 miles southeast</div>
+        <div class="c-name">Cazenovia</div>
+        <div class="c-desc">Lorenzo State Historic Site, the Lincklaen House, Federal-era architecture, and Cazenovia Lake. One of the most intact 19th-century village streetscapes in New York.</div>
+        <span class="c-arr">&rarr;</span>
+      </a>
+      <a href="canastota.html" class="card">
+        <div class="c-type">Village &middot; 25 miles east on I-90</div>
+        <div class="c-name">Canastota</div>
+        <div class="c-desc">Home of the International Boxing Hall of Fame. Carmen Basilio, the Old Erie Canal, the Great Swamp Conservancy, and a $4.5M NY Forward revitalization grant.</div>
+        <span class="c-arr">&rarr;</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- ONEIDA LAKE -->
+  <div class="lg fi" id="panel-oneida">
+    <div class="lg-hdr"><div class="lg-sw"></div><div class="lg-name">Oneida Lake Corridor</div><div class="lg-sz">Onondaga &amp; Oswego Counties &middot; NY's Largest Inland Lake &middot; 649K Angler-Days / Year</div></div>
+    <div class="cards">
+      <a href="brewerton-central-square-constantia-west-monroe.html" class="card">
+        <div class="c-type">Four Communities &middot; West &amp; North Shore</div>
+        <div class="c-name">Brewerton, Central Square, Constantia &amp; West Monroe</div>
+        <div class="c-desc">Fort Brewerton, Lock E23 with the book exchange lockmaster, 300M walleye eggs harvested annually at Constantia, and affordable lakefront living.</div>
+        <span class="c-arr">&rarr;</span>
+      </a>
+      <a href="bridgeport.html" class="card lw">
+        <div class="c-type">Hamlet &middot; South Shore</div>
+        <div class="c-name">Bridgeport</div>
+        <div class="c-desc">Where Chittenango Creek meets Oneida Lake. Harbour Town waterfront development, Gold Coast south shore, and minutes to Micron.</div>
+        <span class="c-arr">&rarr;</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- SOUTHWEST -->
+  <div class="lg fi" id="panel-southwest">
+    <div class="lg-hdr"><div class="lg-sw"></div><div class="lg-name">Southwest of Syracuse</div><div class="lg-sz">Onondaga County &middot; Hills, Creeks &amp; Finger Lakes Edge</div></div>
+    <div class="cards">
+      <a href="marcellus.html" class="card">
+        <div class="c-type">Village &middot; 12 miles southwest</div>
+        <div class="c-name">Marcellus</div>
+        <div class="c-desc">High hills, Nine Mile Creek trout fishing, Baltimore Woods Nature Center, goldfish races at the Village Tavern, and Skaneateles Lake 5 miles west.</div>
+        <span class="c-arr">&rarr;</span>
+      </a>
+      <a href="tully.html" class="card">
+        <div class="c-type">Village &middot; 15 miles south</div>
+        <div class="c-name">Tully</div>
+        <div class="c-desc">Song Mountain ski resort, Otisco Lake, Green Lakes nearby, and the small-town character of the southern Onondaga hills.</div>
+        <span class="c-arr">&rarr;</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- OSWEGO COUNTY -->
+  <div class="lg fi" id="panel-oswego">
+    <div class="lg-hdr"><div class="lg-sw"></div><div class="lg-name">Oswego County Corridor</div><div class="lg-sz">Oswego County &middot; Oswego River, Canal &amp; 30 Miles North of Syracuse</div></div>
+    <div class="cards">
+      <a href="fulton.html" class="card">
+        <div class="c-type">City &middot; Oswego County</div>
+        <div class="c-name">Fulton</div>
+        <div class="c-desc">Named for the inventor of the steamboat. The Oswego River runs through the center, Lake Neatahwanta at the western edge, downtown revitalization underway.</div>
+        <span class="c-arr">&rarr;</span>
+      </a>
+      <a href="phoenix.html" class="card lw">
+        <div class="c-type">Village &middot; Oswego County</div>
+        <div class="c-name">Phoenix</div>
+        <div class="c-desc">A canal village on the Oswego River with Lock 1, the Bridge House Museum, and 19th-century character. Rose from ashes after the Great Fire of 1916.</div>
+        <span class="c-arr">&rarr;</span>
+      </a>
+    </div>
+  </div>
+
+</section>
+
+<div class="rb-wrap fi">
+  <div class="rb">
+    <div>
+      <span class="rb-eye">For Central New York Realtors</span>
+      <div class="rb-title">Your Community.<br />Your Clients.<br />Your Expertise.</div>
+      <p class="rb-desc">Located Lifestyle connects buyers matched to specific Central New York communities with local Realtors who know those communities best. Pick your community. Be the specialist buyers find.</p>
+    </div>
+    <div class="rb-price">
+      <div class="rb-amt">$19</div>
+      <span class="rb-per">/month founding rate</span>
+      <a href="https://locatedlifestyle.com/join" class="rb-btn">Join as a Founding Member</a>
+      <span class="rb-found">Grandfathered when prices increase to $29/month</span>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="f-brand">Located <span>Lifestyle</span></div>
+  <div class="f-copy">&copy; 2026 Located Lifestyle &middot; communities.locatedlifestyle.com</div>
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+  var map = L.map('map', { center: [43.10, -76.20], zoom: 9, scrollWheelZoom: true });
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    maxZoom: 18
+  }).addTo(map);
+
+  function makeIcon(lw) {
+    var color = lw ? '#9a8470' : '#36302a';
+    var svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 42"><path d="M16 0C7.163 0 0 7.163 0 16c0 10 16 26 16 26S32 26 32 16C32 7.163 24.837 0 16 0z" fill="' + color + '" stroke="white" stroke-width="2"/><circle cx="16" cy="16" r="6" fill="white" opacity="0.9"/></svg>';
+    return L.divIcon({ html: svg, className: '', iconSize: [32,42], iconAnchor: [16,42], popupAnchor: [0,-44] });
+  }
+
+  function pop(type, name, desc, href) {
+    return '<div class="pop-inner"><div class="pop-type">' + type + '</div><div class="pop-name">' + name + '</div><div class="pop-desc">' + desc + '</div><a href="' + href + '" class="pop-link">View Community</a></div>';
+  }
+
+  function scrollPanel(id) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    el.style.outline = '2px solid #3a6e9e';
+    el.style.outlineOffset = '8px';
+    setTimeout(function() { el.style.outline = ''; el.style.outlineOffset = ''; }, 1400);
+  }
+
+  var communities = [
+    { lat:43.048, lng:-76.147, type:'City -- Onondaga County', name:'Syracuse',
+      desc:'Three universities, Micron breaking ground, Armory Square, and the NY State Fair.',
+      href:'syracuse.html', panel:'panel-syracuse', lw:false },
+    { lat:43.028, lng:-76.004, type:'Village -- Onondaga County', name:'Fayetteville',
+      desc:'FM school district, Green Lakes State Park, and a 5-star rated library.',
+      href:'fayetteville.html', panel:'panel-east-suburbs', lw:false },
+    { lat:43.000, lng:-75.978, type:'Village -- Onondaga County', name:'Manlius',
+      desc:'Swan Pond, Seneca Street, FM High School in the village.',
+      href:'manlius.html', panel:'panel-east-suburbs', lw:false },
+    { lat:43.038, lng:-76.068, type:'Town -- Onondaga County', name:'DeWitt',
+      desc:'Le Moyne College, the #1 JD school district, and the Old Erie Canal trail.',
+      href:'dewitt.html', panel:'panel-east-suburbs', lw:false },
+    { lat:43.105, lng:-76.218, type:'Village -- Onondaga County', name:'Liverpool',
+      desc:"Onondaga Lake Park, Heid's, Lights on the Lake.",
+      href:'liverpool.html', panel:'panel-north', lw:false },
+    { lat:43.158, lng:-76.333, type:'Village -- Onondaga County', name:'Baldwinsville',
+      desc:"B'ville -- Seneca River, Paper Mill Island, the Anything That Floats race.",
+      href:'baldwinsville.html', panel:'panel-north', lw:false },
+    { lat:43.132, lng:-76.124, type:'Village & Towns -- Onondaga County', name:'North Syracuse / Cicero / Clay',
+      desc:'Northstar Nation school district, Micron breaking ground, Oneida Lake nearby.',
+      href:'north-syracuse-cicero-clay.html', panel:'panel-north', lw:false },
+    { lat:43.046, lng:-75.858, type:'Village -- Madison County', name:'Chittenango',
+      desc:'Birthplace of L. Frank Baum. Yellow brick sidewalks, Oz-Stravaganza.',
+      href:'chittenango.html', panel:'panel-east', lw:false },
+    { lat:42.927, lng:-75.852, type:'Village -- Madison County', name:'Cazenovia',
+      desc:'Lorenzo State Historic Site, Federal-era architecture, Cazenovia Lake.',
+      href:'cazenovia.html', panel:'panel-east', lw:false },
+    { lat:43.079, lng:-75.847, type:'Village -- Madison County', name:'Canastota',
+      desc:'International Boxing Hall of Fame, Old Erie Canal, Great Swamp Conservancy.',
+      href:'canastota.html', panel:'panel-east', lw:false },
+    { lat:43.236, lng:-76.140, type:'CDP -- Onondaga County', name:'Brewerton',
+      desc:'Fort Brewerton, Lock E23, Oneida Shores Park, Brewerton Speedway.',
+      href:'brewerton-central-square-constantia-west-monroe.html', panel:'panel-oneida', lw:false },
+    { lat:43.291, lng:-76.132, type:'Village -- Oswego County', name:'Central Square',
+      desc:'Service hub of the Oneida Lake corridor, Central Square school district.',
+      href:'brewerton-central-square-constantia-west-monroe.html', panel:'panel-oneida', lw:false },
+    { lat:43.327, lng:-75.988, type:'Town -- Oswego County', name:'Constantia',
+      desc:'DEC walleye hatchery, Taft Bay Park, north shore of Oneida Lake.',
+      href:'brewerton-central-square-constantia-west-monroe.html', panel:'panel-oneida', lw:false },
+    { lat:43.230, lng:-75.958, type:'Hamlet -- Onondaga County', name:'Bridgeport',
+      desc:'Where Chittenango Creek meets Oneida Lake. South shore fishing and waterfront development.',
+      href:'bridgeport.html', panel:'panel-oneida', lw:true },
+    { lat:42.988, lng:-76.345, type:'Village -- Onondaga County', name:'Marcellus',
+      desc:'Nine Mile Creek, Baltimore Woods, goldfish races, Skaneateles Lake 5 miles west.',
+      href:'marcellus.html', panel:'panel-southwest', lw:false },
+    { lat:42.797, lng:-76.114, type:'Village -- Onondaga County', name:'Tully',
+      desc:'Song Mountain skiing, Otisco Lake, southern Onondaga hills.',
+      href:'tully.html', panel:'panel-southwest', lw:false },
+    { lat:43.323, lng:-76.418, type:'City -- Oswego County', name:'Fulton',
+      desc:'Oswego River, Lake Neatahwanta, downtown revitalization underway.',
+      href:'fulton.html', panel:'panel-oswego', lw:false },
+    { lat:43.231, lng:-76.300, type:'Village -- Oswego County', name:'Phoenix',
+      desc:'Canal village on the Oswego River, Lock 1, Bridge House Museum.',
+      href:'phoenix.html', panel:'panel-oswego', lw:true }
+  ];
+
+  communities.forEach(function(c) {
+    var m = L.marker([c.lat, c.lng], { icon: makeIcon(c.lw) }).addTo(map);
+    m.bindPopup(pop(c.type, c.name, c.desc, c.href), { maxWidth: 260 });
+    m.on('popupopen', function() { scrollPanel(c.panel); });
+  });
+
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e, i) {
+      if (e.isIntersecting) setTimeout(function() { e.target.classList.add('v'); }, i * 70);
+    });
+  }, { threshold: 0.04, rootMargin: '0px 0px -20px 0px' });
+  document.querySelectorAll('.fi').forEach(function(el) { obs.observe(el); });
+</script>
+</body>
+</html>
