@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lakeville &amp; Conesus Lake, NY -- Finger Lakes Community Guide | Located Lifestyle</title>
+  <meta name="description" content="Lakeville and Conesus Lake, NY -- the western gateway to the Finger Lakes. Vitale Park, Sunday concerts, excellent fishing, and Geneseo nearby." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root{--cream:#f6f3ec;--cream-dark:#ece4da;--taupe:#b9a590;--taupe-dark:#9a8470;--brown:#574c3f;--brown-dark:#36302a;--text:#36302a;--text-muted:#9a8470;--border:rgba(87,76,63,0.12);--border-med:rgba(87,76,63,0.2);--card-bg:#ffffff;}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden;}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:18px 52px;background:rgba(246,243,236,0.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);}
+    .nav-brand{text-decoration:none;display:flex;flex-direction:column;gap:1px;}
+    .nav-brand .sub{font-size:9px;letter-spacing:3.5px;text-transform:uppercase;color:var(--taupe);font-weight:500;}
+    .nav-brand .name{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--brown-dark);font-weight:600;}
+    .nav-right{display:flex;gap:24px;align-items:center;}
+    .nav-back{font-size:13px;color:var(--text-muted);text-decoration:none;}
+    .nav-back:hover{color:var(--brown);}
+    .nav-cta{background:var(--brown-dark);color:var(--cream);font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:10px 22px;border-radius:2px;text-decoration:none;}
+    .nav-cta:hover{background:var(--brown);}
+    .hero{min-height:55vh;position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:100px 24px 56px;text-align:center;background:linear-gradient(180deg,#1a2218 0%,#243028 40%,#2e3c32 100%);}
+    .hero-content{position:relative;z-index:2;max-width:700px;}
+    .hero-eyebrow{font-size:10px;letter-spacing:3.5px;text-transform:uppercase;color:rgba(246,243,236,0.6);margin-bottom:12px;display:block;}
+    .hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(44px,8vw,88px);font-weight:600;line-height:0.95;color:var(--cream);margin-bottom:10px;letter-spacing:-2px;}
+    .hero-tagline{font-family:'Cormorant Garamond',serif;font-size:clamp(15px,2.2vw,20px);font-style:italic;color:rgba(246,243,236,0.68);margin-bottom:24px;}
+    .hero-meta{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;margin-bottom:28px;}
+    .meta-item{font-size:12px;color:rgba(246,243,236,0.52);}
+    .meta-dot{display:inline-block;width:3px;height:3px;border-radius:50%;background:rgba(246,243,236,0.3);margin:0 4px;vertical-align:middle;}
+    .badge{display:inline-block;padding:4px 12px;border-radius:100px;font-size:10px;font-weight:600;letter-spacing:0.8px;text-transform:uppercase;margin:3px;background:rgba(255,255,255,0.1);color:rgba(246,243,236,0.8);border:1px solid rgba(255,255,255,0.18);}
+    .stats-bar{background:var(--brown-dark);}
+    .stats-bar-inner{max-width:900px;margin:0 auto;display:flex;justify-content:space-around;padding:24px;flex-wrap:wrap;gap:16px;}
+    .stat-item{text-align:center;}
+    .stat-value{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:var(--taupe);display:block;line-height:1.1;}
+    .stat-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(246,243,236,0.4);margin-top:3px;}
+    .content-wrap{max-width:900px;margin:0 auto;padding:0 24px;}
+    .section{padding:60px 0 0;}
+    .section-header{display:flex;align-items:center;gap:18px;margin-bottom:28px;}
+    .section-label{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--taupe);font-weight:600;white-space:nowrap;}
+    .section-line{flex:1;height:1px;background:var(--border);}
+    .prose{font-size:15px;line-height:1.85;color:var(--text-muted);font-weight:300;margin-bottom:20px;}
+    .prose strong{color:var(--brown);font-weight:500;}
+    .item-list{display:flex;flex-direction:column;}
+    .item-row{display:flex;gap:16px;padding:18px 0;border-bottom:1px solid var(--border);}
+    .item-row:first-child{border-top:1px solid var(--border);}
+    .item-marker{font-size:12px;font-weight:600;color:var(--taupe);flex-shrink:0;width:24px;font-family:'Cormorant Garamond',serif;}
+    .item-row h4{font-size:14px;font-weight:600;color:var(--brown-dark);margin-bottom:4px;}
+    .item-row p{font-size:13px;color:var(--text-muted);line-height:1.6;font-weight:300;}
+    .write-in{background:var(--cream-dark);border:1px solid var(--border-med);border-radius:4px;padding:32px;margin:40px 0;}
+    .write-in .wi-label{font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--taupe);margin-bottom:12px;}
+    .write-in h3{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--brown-dark);margin-bottom:10px;}
+    .write-in p{font-size:13px;color:var(--text-muted);line-height:1.7;font-weight:300;margin-bottom:12px;}
+    .write-in .wi-cta{display:inline-block;background:var(--brown-dark);color:var(--cream);font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:11px 24px;border-radius:2px;text-decoration:none;margin-top:6px;}
+    .write-in .wi-cta:hover{background:var(--brown);}
+    .pricing-block{background:var(--card-bg);border:1px solid var(--border-med);border-radius:4px;padding:24px;margin-bottom:20px;}
+    .pricing-block .p-label{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--taupe);margin-bottom:8px;}
+    .pricing-block .p-note{font-size:13px;color:var(--text-muted);margin-bottom:16px;font-weight:300;}
+    .p-links{display:flex;flex-direction:column;gap:1px;}
+    .p-link{display:flex;align-items:center;gap:14px;padding:12px 14px;background:var(--cream);border:1px solid var(--border);border-radius:3px;text-decoration:none;transition:all 0.2s;}
+    .p-link:hover{border-color:var(--brown);background:var(--cream-dark);}
+    .p-link-name{font-size:14px;font-weight:600;color:var(--brown-dark);min-width:90px;}
+    .p-link-desc{font-size:12px;color:var(--text-muted);flex:1;font-weight:300;}
+    .p-link-arrow{font-size:13px;color:var(--taupe);}
+    .p-disclaimer{font-size:11px;color:var(--text-muted);margin-top:12px;opacity:0.65;font-style:italic;}
+    .realtor-cta{margin-top:60px;background:var(--brown-dark);border-radius:4px;padding:44px;text-align:center;}
+    .realtor-cta .eyebrow{font-size:10px;letter-spacing:3.5px;text-transform:uppercase;color:var(--taupe);margin-bottom:16px;display:block;}
+    .realtor-cta h2{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:600;color:var(--cream);margin-bottom:12px;}
+    .realtor-cta p{font-size:14px;color:rgba(246,243,236,0.5);line-height:1.7;margin-bottom:24px;font-weight:300;max-width:480px;margin-left:auto;margin-right:auto;}
+    .price-line{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:600;color:var(--taupe);margin-bottom:20px;}
+    .price-line span{font-size:15px;color:rgba(246,243,236,0.38);font-family:'Jost',sans-serif;font-weight:300;}
+    .btn-cream{background:var(--cream);color:var(--brown-dark);font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;padding:13px 28px;border-radius:2px;text-decoration:none;display:inline-block;}
+    .founding{font-size:11px;color:var(--taupe);margin-top:12px;opacity:0.75;}
+    .sources{margin-top:52px;padding:28px 0 70px;border-top:1px solid var(--border);}
+    .sources h3{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--text-muted);margin-bottom:12px;}
+    .sources a{display:block;font-size:12px;color:var(--text-muted);text-decoration:none;opacity:0.58;margin-bottom:6px;}
+    .sources a:hover{opacity:1;color:var(--brown);}
+    .bottom-nav{border-top:1px solid var(--border);padding:40px 24px;text-align:center;background:var(--cream-dark);}
+    .bottom-nav p{font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:16px;}
+    .bottom-nav-links{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+    .bottom-nav-links a{padding:9px 20px;border-radius:2px;border:1px solid var(--border-med);font-size:13px;color:var(--text-muted);text-decoration:none;}
+    .bottom-nav-links a:hover{border-color:var(--brown);color:var(--brown);}
+    footer{border-top:1px solid var(--border);padding:28px 24px;text-align:center;}
+    .footer-brand{font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--brown-dark);margin-bottom:4px;font-weight:600;}
+    .footer-brand span{color:var(--taupe-dark);font-style:italic;}
+    .footer-copy{font-size:11px;color:var(--text-muted);opacity:0.45;}
+    .fade-in{opacity:0;transform:translateY(18px);transition:opacity 0.6s ease,transform 0.6s ease;}
+    .fade-in.visible{opacity:1;transform:translateY(0);}
+    @media(max-width:768px){nav{padding:14px 20px;}.realtor-cta{padding:28px 16px;}}
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="/" class="nav-brand"><span class="sub">communities</span><span class="name">Located Lifestyle</span></a>
+    <div class="nav-right">
+      <a href="/" class="nav-back">&larr; Explore New York</a>
+      <a href="https://locatedlifestyle.com/join" class="nav-cta">Join as a Realtor</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-content">
+      <span class="hero-eyebrow">Livingston County &middot; Finger Lakes</span>
+      <h1>Lakeville &amp;<br />Conesus Lake</h1>
+      <div class="hero-tagline">The westernmost Finger Lake -- the Jewel of Livingston County.</div>
+      <div class="hero-meta">
+        <span class="meta-item">Hamlet</span>
+        <span class="meta-dot"></span>
+        <span class="meta-item">North end of Conesus Lake</span>
+        <span class="meta-dot"></span>
+        <span class="meta-item">25 mi south of Rochester</span>
+      </div>
+      <div>
+        <span class="badge">Conesus Lake</span>
+        <span class="badge">Vitale Park</span>
+        <span class="badge">Geneseo 5 min</span>
+        <span class="badge">Letchworth 20 min</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="stats-bar">
+    <div class="stats-bar-inner">
+      <div class="stat-item"><span class="stat-value">See Below</span><div class="stat-label">Current Pricing &darr;</div></div>
+      <div class="stat-item"><span class="stat-value">8 mi</span><div class="stat-label">Lake Length</div></div>
+      <div class="stat-item"><span class="stat-value">25 mi</span><div class="stat-label">South of Rochester</div></div>
+      <div class="stat-item"><span class="stat-value">18.5 mi</span><div class="stat-label">Shoreline</div></div>
+    </div>
+  </div>
+
+  <div class="content-wrap">
+
+    <section class="section fade-in">
+      <div class="section-header"><div class="section-label">Overview</div><div class="section-line"></div></div>
+      <p class="prose">Conesus Lake is the <strong>westernmost of the eleven Finger Lakes</strong> -- long called the Jewel of Livingston County -- a year-round recreational lake 25 miles south of Rochester, off Interstate 390. Lakeville is the hamlet at the lake's north end, serving as the primary commerce center and the location of the lake's outlet, Conesus Creek, which flows to the Genesee River.</p>
+      <p class="prose">Unlike Hemlock and Canadice to the east, Conesus Lake is a heavily populated, fully developed residential lake -- the <strong>entire shoreline is served by public sewers, water, and electricity</strong>, making it one of the most livable of the smaller Finger Lakes year-round. The community is a mix of longtime lake families, Rochester commuters who make the 25-mile drive, and seasonal residents who have turned their cottages into year-round homes.</p>
+      <p class="prose">The nearest full-service community is <strong>Geneseo</strong> -- just 5 minutes south -- home to SUNY Geneseo, a Main Street with excellent restaurants and shops, and the full amenity set that Lakeville's hamlet scale doesn't offer independently. Letchworth State Park -- the Grand Canyon of the East -- is 20 minutes west.</p>
+    </section>
+
+    <section class="section fade-in">
+      <div class="section-header"><div class="section-label">What's Here</div><div class="section-line"></div></div>
+      <div class="item-list">
+        <div class="item-row"><div class="item-marker">--</div><div><h4>Vitale Park -- Sunday Night Concerts</h4><p>The Town of Livonia's beautiful community park at the northern end of the lake, right at the outlet. Picnic areas, a gazebo, fishing access, and a beloved summer concert series held every Sunday evening. A genuine community gathering point and one of the most pleasant public spaces on any of the smaller Finger Lakes.</p></div></div>
+        <div class="item-row"><div class="item-marker">--</div><div><h4>Conesus Lake Fishing</h4><p>A productive year-round fishery for warmwater species -- walleye, northern pike, largemouth and smallmouth bass, yellow perch, tiger muskie, and bluegill. The lake has traditionally been one of the best bass and pike lakes in western New York. Boat launches on both the east and west shores with easy access. Ice fishing in winter when conditions allow.</p></div></div>
+        <div class="item-row"><div class="item-marker">--</div><div><h4>Long Point Park -- Public Swimming</h4><p>On the west shore in the town of Geneseo -- a community park on a peninsula with public swimming, picnic tables, grills, a pavilion, and a hand boat launch. One of the few spots on Conesus Lake with a guarded swimming area.</p></div></div>
+        <div class="item-row"><div class="item-marker">--</div><div><h4>Chip Holt Nature Center</h4><p>At the north end of Conesus Lake -- educational programs, nature trails, and recreational opportunities focused on the lake's ecology and watershed. A community resource reflecting Livingston County's investment in environmental education.</p></div></div>
+        <div class="item-row"><div class="item-marker">--</div><div><h4>Geneseo -- 5 Minutes South</h4><p>SUNY Geneseo, one of the most respected public liberal arts colleges in the country, anchors a thriving small-city Main Street with restaurants, shops, galleries, and the cultural energy of a college town. The nearest full-service hub for Lakeville and Conesus Lake residents.</p></div></div>
+        <div class="item-row"><div class="item-marker">--</div><div><h4>Letchworth State Park -- 20 Minutes West</h4><p>The Grand Canyon of the East -- 17 miles of gorge, three major waterfalls (including the 107-foot Middle Falls), and over 66 miles of trails. Consistently rated one of the best state parks in the country. An extraordinary backyard amenity for Conesus Lake residents.</p></div></div>
+      </div>
+    </section>
+
+    <section class="section fade-in">
+      <div class="section-header"><div class="section-label">Real Estate</div><div class="section-line"></div></div>
+      <p class="prose">Conesus Lake offers a mix of lakefront cottages converted to year-round homes, newly built lake houses, and more modest in-hamlet properties in Lakeville. As one of the most fully developed of the smaller Finger Lakes, the lakefront market is active and competitive. Geneseo properties -- 5 minutes south -- offer a solid alternative for buyers who want lake proximity without lakefront prices.</p>
+      <div class="pricing-block">
+        <div class="p-label">Current Pricing -- Live Data</div>
+        <p class="p-note">Check these sources for the most current Conesus Lake and Livingston County market data:</p>
+        <div class="p-links">
+          <a href="https://www.redfin.com/zipcode/14480/housing-market" target="_blank" rel="noopener" class="p-link"><span class="p-link-name">Redfin</span><span class="p-link-desc">Median sale price, days on market</span><span class="p-link-arrow">&rarr;</span></a>
+          <a href="https://www.zillow.com/lakeville-ny/home-values/" target="_blank" rel="noopener" class="p-link"><span class="p-link-name">Zillow</span><span class="p-link-desc">Home Value Index &amp; market trends</span><span class="p-link-arrow">&rarr;</span></a>
+          <a href="https://www.realtor.com/realestateandhomes-search/Lakeville_NY/overview" target="_blank" rel="noopener" class="p-link"><span class="p-link-name">Realtor.com</span><span class="p-link-desc">Listing prices &amp; inventory</span><span class="p-link-arrow">&rarr;</span></a>
+        </div>
+        <p class="p-disclaimer">Real estate data varies by source and changes over time. Always verify with a licensed local Realtor.</p>
+      </div>
+    </section>
+
+    <div class="write-in fade-in">
+      <div class="wi-label">Local Expert Section</div>
+      <h3>Know Conesus Lake? Tell Your Clients.</h3>
+      <p>This section is reserved for a Located Lifestyle Realtor who specializes in Conesus Lake and Livingston County. Local Realtors are invited to contribute their expertise -- the lake neighborhoods, the seasonal vs. year-round market, the fishing spots, the best launch ramps, the things that make Conesus Lake special that no outsider would know.</p>
+      <p>When you join as a Conesus Lake specialist, your name, photo, bio, and contact information will appear here alongside your local knowledge.</p>
+      <a href="https://locatedlifestyle.com/join" class="wi-cta">Become the Conesus Lake Specialist</a>
+    </div>
+
+    <div class="realtor-cta fade-in">
+      <span class="eyebrow">Realtor Spotlight</span>
+      <h2>Know Conesus Lake?<br />Your Clients Are Looking.</h2>
+      <p>Buyers matched to Conesus Lake are seeking year-round lake living, Rochester commute access, and the Grand Canyon of the East in their backyard.</p>
+      <div class="price-line">$19 <span>/month</span></div>
+      <a href="https://locatedlifestyle.com/join" class="btn-cream">List Yourself as a Conesus Lake Specialist</a>
+      <div class="founding">Founding Member rate -- grandfathered when prices increase to $29/month</div>
+    </div>
+
+    <div class="sources fade-in">
+      <h3>Sources</h3>
+      <a href="https://conesuslake.org/conesus-lake-the-facts/" target="_blank" rel="noopener">Conesus Lake Association -- The Facts</a>
+      <a href="https://www.fingerlakes.org/explore-the-finger-lakes-region/history-of-the-finger-lakes/conesus-lake" target="_blank" rel="noopener">Finger Lakes Tourism Alliance -- Conesus Lake</a>
+      <a href="https://en.wikipedia.org/wiki/Conesus_Lake" target="_blank" rel="noopener">Wikipedia -- Conesus Lake</a>
+    </div>
+  </div>
+
+  <div class="bottom-nav">
+    <p>Continue exploring the Finger Lakes</p>
+    <div class="bottom-nav-links">
+      <a href="/">&larr; All Communities</a>
+      <a href="canandaigua.html">Canandaigua &rarr;</a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-brand">Located <span>Lifestyle</span></div>
+    <div class="footer-copy">&copy; 2026 Located Lifestyle &middot; communities.locatedlifestyle.com</div>
+  </footer>
+
+  <script>
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((e,i) => { if(e.isIntersecting) setTimeout(()=>e.target.classList.add('visible'),i*75); });
+    },{threshold:0.06,rootMargin:'0px 0px -30px 0px'});
+    document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
+  </script>
+</body>
+</html>
