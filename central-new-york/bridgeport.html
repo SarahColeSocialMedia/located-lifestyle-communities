@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bridgeport, NY -- Central New York Community Guide | Located Lifestyle</title>
+  <meta name="description" content="Bridgeport, NY -- where Chittenango Creek meets Oneida Lake. A south-shore fishing and boating hamlet 20 minutes from Syracuse with some of the most accessible lakefront real estate in Central New York." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream:#f6f3ec; --cream-dark:#ece4da; --taupe:#b9a590; --taupe-dark:#9a8470;
+      --brown:#574c3f; --brown-dark:#36302a; --text:#36302a; --text-muted:#9a8470;
+      --border:rgba(87,76,63,0.12); --border-med:rgba(87,76,63,0.2); --card-bg:#ffffff;
+      --water:#3a6e9e;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden;}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:18px 52px;background:rgba(246,243,236,0.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);}
+    .nav-brand{text-decoration:none;display:flex;flex-direction:column;gap:1px;}
+    .nav-brand .sub{font-size:9px;letter-spacing:3.5px;text-transform:uppercase;color:var(--taupe);font-weight:500;}
+    .nav-brand .name{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--brown-dark);font-weight:600;}
+    .nav-right{display:flex;gap:24px;align-items:center;}
+    .nav-back{font-size:13px;color:var(--text-muted);text-decoration:none;}
+    .nav-back:hover{color:var(--brown);}
+    .nav-cta{background:var(--brown-dark);color:var(--cream);font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:10px 22px;border-radius:2px;text-decoration:none;}
+    .nav-cta:hover{background:var(--brown);}
+    .hero{min-height:52vh;position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:120px 24px 56px;text-align:center;background:linear-gradient(180deg,#0e1820 0%,#142232 40%,#1a2c40 100%);}
+    .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 70%,rgba(30,80,130,0.22) 0%,transparent 65%);}
+    .hero-content{position:relative;z-index:2;max-width:720px;}
+    .hero-breadcrumb{display:flex;align-items:center;gap:8px;justify-content:center;margin-bottom:18px;font-size:11px;letter-spacing:1px;color:rgba(246,243,236,0.5);}
+    .hero-breadcrumb a{color:rgba(246,243,236,0.5);text-decoration:none;}
+    .hero-breadcrumb a:hover{color:var(--cream);}
+    .hero-breadcrumb span{opacity:0.35;}
+    .hero-eyebrow{font-size:10px;letter-spacing:3.5px;text-transform:uppercase;color:rgba(246,243,236,0.6);margin-bottom:12px;display:block;}
+    .hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(52px,9vw,96px);font-weight:600;line-height:0.95;color:var(--cream);margin-bottom:10px;letter-spacing:-2px;}
+    .hero-tagline{font-family:'Cormorant Garamond',serif;font-size:clamp(14px,2vw,20px);font-style:italic;color:rgba(246,243,236,0.72);margin-bottom:24px;}
+    .hero-meta{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-bottom:24px;}
+    .meta-item{font-size:12px;color:rgba(246,243,236,0.55);}
+    .meta-dot{display:inline-block;width:3px;height:3px;border-radius:50%;background:rgba(246,243,236,0.35);margin:0 4px;vertical-align:middle;}
+    .hero-badges{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;}
+    .badge{padding:5px 13px;border-radius:100px;font-size:10px;font-weight:600;letter-spacing:0.8px;text-transform:uppercase;background:rgba(255,255,255,0.1);color:rgba(246,243,236,0.82);border:1px solid rgba(255,255,255,0.18);}
+    .badge-water{background:rgba(58,110,158,0.3);color:rgba(180,220,255,0.9);border-color:rgba(58,110,158,0.5);}
+    .content-wrap{max-width:860px;margin:0 auto;padding:0 24px;}
+    .lw-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:52px 0 0;}
+    .lw-card{background:var(--card-bg);border:1px solid var(--border);border-radius:4px;padding:22px;}
+    .lw-card .lc-eyebrow{font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--taupe);margin-bottom:8px;}
+    .lw-card h2{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:600;color:var(--brown-dark);margin-bottom:10px;}
+    .lw-card p{font-size:13px;line-height:1.7;color:var(--text-muted);font-weight:300;}
+    .lw-card.full{grid-column:1/-1;}
+    .lw-card.highlight{background:var(--cream-dark);border:1px solid var(--border-med);}
+    .lw-card.lake-card{background:linear-gradient(135deg,#1a2c3e 0%,#1e3448 100%);border:1px solid rgba(58,110,158,0.3);}
+    .lw-card.lake-card .lc-eyebrow{color:rgba(120,180,220,0.8);}
+    .lw-card.lake-card h2{color:var(--cream);}
+    .lw-card.lake-card p{color:rgba(246,243,236,0.6);}
+    .know-section{margin-top:44px;background:var(--cream-dark);border:1px solid var(--border-med);border-radius:4px;padding:32px;}
+    .know-section .ks-label{font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--taupe);margin-bottom:12px;}
+    .know-section h2{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--brown-dark);margin-bottom:10px;}
+    .know-list{display:flex;flex-direction:column;}
+    .know-item{display:flex;gap:14px;padding:13px 0;border-bottom:1px solid var(--border);}
+    .know-item:first-child{border-top:1px solid var(--border);}
+    .know-marker{font-size:12px;color:var(--taupe);flex-shrink:0;font-family:'Cormorant Garamond',serif;font-weight:600;width:22px;}
+    .know-item p{font-size:13px;color:var(--text-muted);line-height:1.6;font-weight:300;}
+    .know-item strong{color:var(--brown);font-weight:500;}
+    .pricing-block{margin-top:36px;background:var(--card-bg);border:1px solid var(--border-med);border-radius:4px;padding:24px;}
+    .pricing-label{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--taupe);margin-bottom:8px;}
+    .pricing-note{font-size:13px;color:var(--text-muted);margin-bottom:16px;line-height:1.6;font-weight:300;}
+    .pricing-links{display:flex;flex-direction:column;gap:1px;}
+    .pricing-link{display:flex;align-items:center;gap:16px;padding:12px 14px;border-radius:3px;background:var(--cream);border:1px solid var(--border);text-decoration:none;transition:all 0.2s;}
+    .pricing-link:hover{border-color:var(--brown);background:var(--cream-dark);}
+    .pl-name{font-size:14px;font-weight:600;color:var(--brown-dark);min-width:100px;}
+    .pl-desc{font-size:12px;color:var(--text-muted);flex:1;font-weight:300;}
+    .pl-arr{font-size:13px;color:var(--taupe);}
+    .pricing-disclaimer{font-size:11px;color:var(--text-muted);margin-top:10px;opacity:0.65;font-style:italic;}
+    .realtor-section{margin-top:44px;background:var(--brown-dark);border-radius:4px;padding:40px;text-align:center;}
+    .realtor-section .eyebrow{font-size:10px;letter-spacing:3.5px;text-transform:uppercase;color:var(--taupe);margin-bottom:14px;display:block;}
+    .realtor-section h2{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;color:var(--cream);line-height:1.2;margin-bottom:10px;}
+    .realtor-section p{font-size:13px;color:rgba(246,243,236,0.5);line-height:1.75;margin-bottom:14px;font-weight:300;max-width:480px;margin-left:auto;margin-right:auto;}
+    .write-in-box{background:rgba(255,255,255,0.05);border:1px dashed rgba(185,165,144,0.3);border-radius:4px;padding:22px;margin:20px 0;}
+    .write-in-box p{font-size:12px;color:rgba(246,243,236,0.45);line-height:1.7;margin-bottom:14px;}
+    .price-inline{display:inline-flex;align-items:baseline;gap:4px;margin:10px 0 18px;}
+    .price-inline .amount{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:600;color:var(--taupe);}
+    .price-inline .period{font-size:14px;color:rgba(246,243,236,0.4);}
+    .btn-light{background:var(--cream);color:var(--brown-dark);padding:12px 26px;border-radius:2px;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;text-decoration:none;display:inline-block;}
+    .btn-light:hover{background:var(--cream-dark);}
+    .founding-note{font-size:11px;color:var(--taupe);margin-top:10px;opacity:0.8;display:block;}
+    .sources-section{margin-top:44px;padding:20px 0 72px;border-top:1px solid var(--border);}
+    .sources-section h3{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--text-muted);margin-bottom:10px;}
+    .sources-list a{display:block;font-size:12px;color:var(--text-muted);text-decoration:none;opacity:0.6;margin-bottom:5px;}
+    .sources-list a:hover{opacity:1;color:var(--brown);}
+    .bottom-nav{border-top:1px solid var(--border);padding:36px 24px;text-align:center;background:var(--cream-dark);}
+    .bottom-nav p{font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:16px;}
+    .bottom-nav-links{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+    .bottom-nav-links a{padding:9px 20px;border-radius:2px;border:1px solid var(--border-med);font-size:13px;color:var(--text-muted);text-decoration:none;}
+    .bottom-nav-links a:hover{border-color:var(--brown);color:var(--brown);}
+    footer{border-top:1px solid var(--border);padding:28px 24px;text-align:center;}
+    .footer-brand{font-family:'Cormorant Garamond',serif;font-size:19px;color:var(--brown-dark);margin-bottom:4px;font-weight:600;}
+    .footer-brand span{color:var(--taupe-dark);font-style:italic;}
+    .footer-copy{font-size:11px;color:var(--text-muted);opacity:0.45;}
+    .fade-in{opacity:0;transform:translateY(14px);transition:opacity 0.6s ease,transform 0.6s ease;}
+    .fade-in.visible{opacity:1;transform:translateY(0);}
+    @media(max-width:680px){nav{padding:14px 20px;}.lw-grid{grid-template-columns:1fr;}.lw-card.full{grid-column:1;}.realtor-section{padding:28px 16px;}}
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/" class="nav-brand"><span class="sub">communities</span><span class="name">Located Lifestyle</span></a>
+    <div class="nav-right">
+      <a href="/central-new-york/" class="nav-back">&larr; Central New York</a>
+      <a href="https://locatedlifestyle.com/join" class="nav-cta">Join as a Realtor</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-breadcrumb">
+        <a href="/">Communities</a><span>/</span>
+        <a href="/central-new-york/">Central New York</a><span>/</span>
+        Bridgeport
+      </div>
+      <span class="hero-eyebrow">Onondaga County &middot; Central New York</span>
+      <h1>Bridgeport</h1>
+      <div class="hero-tagline">Where Chittenango Creek meets Oneida Lake -- south shore fishing, new waterfront development, and 20 minutes from Syracuse.</div>
+      <div class="hero-meta">
+        <span class="meta-item">Hamlet &middot; Onondaga County</span>
+        <span class="meta-dot"></span>
+        <span class="meta-item">South Shore -- Oneida Lake</span>
+        <span class="meta-dot"></span>
+        <span class="meta-item">20 miles northeast of Syracuse</span>
+        <span class="meta-dot"></span>
+        <span class="meta-item">Minutes to Micron</span>
+      </div>
+      <div class="hero-badges">
+        <span class="badge badge-water">Oneida Lake South Shore</span>
+        <span class="badge">Chittenango Creek</span>
+        <span class="badge">Harbour Town Development</span>
+        <span class="badge">Point Place Casino</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="content-wrap">
+    <div class="lw-grid fade-in">
+
+      <div class="lw-card full lake-card">
+        <div class="lc-eyebrow">Where It Is &amp; What It Is</div>
+        <h2>The South Shore -- Where Chittenango Creek Enters Oneida Lake</h2>
+        <p>Bridgeport is a hamlet on the south shore of Oneida Lake in Onondaga County, sitting at the mouth of Chittenango Creek -- one of Central New York's most productive trout streams, running from the hills above Cazenovia all the way down to the lake. This is not a downtown village with a main street. Bridgeport is a waterfront enclave -- a cluster of residential neighborhoods, fishing camps, cottages, and newer lakefront developments arranged around lake access and creek fishing. A five-minute boat ride down Chittenango Creek puts you on Oneida Lake. A 20-minute drive down Route 31 or I-481 puts you in Syracuse. Few places in Central New York offer that combination at these prices.</p>
+      </div>
+
+      <div class="lw-card">
+        <div class="lc-eyebrow">The Vibe</div>
+        <h2>Quiet, Waterfront &amp; Year-Round</h2>
+        <p>Bridgeport draws anglers, boaters, and buyers who want a genuinely lakeside life without the resort-town premium. The community is year-round -- ice fishing on Oneida Lake in winter, walleye and bass through the spring and summer, Chittenango Creek trout fishing from the banks. Listings routinely describe properties as "minutes to Micron, Rt 81, 481, Hancock Airport, and shopping" -- reflecting a community that knows it sits at an unusually practical location for a place this quiet and this close to the water.</p>
+      </div>
+
+      <div class="lw-card">
+        <div class="lc-eyebrow">New Development</div>
+        <h2>Harbour Town -- Waterfront Community</h2>
+        <p>Harbour Town is a growing lakefront community in Bridgeport -- a New England-style fishing village design with deeded docks, deep-water dockage, private kayak launches on Chittenango Creek, and an HOA covering lawn maintenance, snow removal, and dock dredging. Multiple phases are open or under development. For buyers who want to build a lakefront home with private dock access at a price point well below typical waterfront markets, Harbour Town is the primary new-construction option in the Bridgeport area.</p>
+      </div>
+
+      <div class="lw-card">
+        <div class="lc-eyebrow">Commute &amp; Access</div>
+        <h2>Route 31 &amp; I-481 -- Everything Within Reach</h2>
+        <p>Route 31 runs east-west along the south shore, connecting Bridgeport to Canastota to the east and Clay, Liverpool, and I-481 to the west. The Micron White Pine Commerce Park in Clay is a realistic commute. Turning Stone Resort Casino and Point Place Casino are both within minutes. Syracuse Hancock International Airport is roughly 20 miles. Oneida Lake access in every direction from the south shore.</p>
+      </div>
+
+      <div class="lw-card">
+        <div class="lc-eyebrow">Schools</div>
+        <h2>East Syracuse-Minoa &amp; CNS -- Check by Address</h2>
+        <p>Bridgeport addresses fall within either the East Syracuse-Minoa Central School District or the Cicero-North Syracuse Central School District depending on exact location. Both are solid above-average districts. A local Realtor who knows the area street by street is essential for families where school district assignment is the deciding factor -- always verify before purchase.</p>
+      </div>
+
+    </div>
+
+    <div class="know-section fade-in">
+      <div class="ks-label">What Bridgeport Is Known For</div>
+      <h2>Lake Access, Creek Fishing &amp; South Shore Character</h2>
+      <div class="know-list">
+        <div class="know-item">
+          <div class="know-marker">01</div>
+          <p><strong>Chittenango Creek -- Trout, Walleye &amp; Bass</strong> -- One of Central New York's most popular trout streams enters Oneida Lake at Bridgeport. The upper creek runs from Cazenovia through Chittenango Falls (167 feet) and down to the lake. Brown trout and brook trout dominate the upper sections; walleye, smallmouth bass, and panfish appear in the lower reaches approaching the lake. A five-minute boat ride from Bridgeport puts you on Oneida Lake and into the premier walleye fishery in New York State.</p>
+        </div>
+        <div class="know-item">
+          <div class="know-marker">02</div>
+          <p><strong>Oneida Lake South Shore</strong> -- Bridgeport sits on the "Gold Coast" south shore of Oneida Lake -- the most sought-after stretch of the lake's shoreline for its views, fishing, and access. Multiple public fishing access sites, marinas, and private docks. Williams Beach (William's Park) at Route 31 and 48 provides public beach access, a splash pad, sandy shoreline, dock, and gazebo within walking distance of many Bridgeport addresses.</p>
+        </div>
+        <div class="know-item">
+          <div class="know-marker">03</div>
+          <p><strong>Point Place Casino -- Nearby</strong> -- The Oneida Nation's Point Place Casino is minutes from Bridgeport, adding a regional entertainment and employment anchor to the community's immediate area. A practical local amenity and a significant employer for Onondaga County residents along the Route 31 corridor.</p>
+        </div>
+        <div class="know-item">
+          <div class="know-marker">04</div>
+          <p><strong>Minutes to Micron</strong> -- Bridgeport is among the communities closest to the Micron White Pine Commerce Park in Clay -- a practical commute west on Route 31 or I-481. As the Micron development draws workers and suppliers to the north Onondaga corridor, the south shore of Oneida Lake is one of the most logical places for those employees to plant roots.</p>
+        </div>
+        <div class="know-item">
+          <div class="know-marker">05</div>
+          <p><strong>Affordable Lakefront Real Estate</strong> -- Bridgeport offers some of the most accessible lakefront and near-lakefront pricing in the greater Oneida Lake area. Cottages on Chittenango Creek with boat access to the lake, lakefront homes along the south shore, and Harbour Town lots for custom new construction all represent a range of entry points into lake life at prices that reflect the community's character rather than a resort premium.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="pricing-block fade-in">
+      <div class="pricing-label">Current Pricing -- Live Data</div>
+      <p class="pricing-note">Bridgeport offers some of the most accessible lakefront and waterfront pricing in Central New York. Check current market data below:</p>
+      <div class="pricing-links">
+        <a href="https://www.redfin.com/city/21604/NY/Bridgeport/housing-market" target="_blank" rel="noopener" class="pricing-link">
+          <span class="pl-name">Redfin</span><span class="pl-desc">Median sale price, days on market</span><span class="pl-arr">&rarr;</span>
+        </a>
+        <a href="https://www.zillow.com/bridgeport-ny/home-values/" target="_blank" rel="noopener" class="pricing-link">
+          <span class="pl-name">Zillow</span><span class="pl-desc">Home Value Index &amp; market trends</span><span class="pl-arr">&rarr;</span>
+        </a>
+        <a href="https://www.realtor.com/realestateandhomes-search/Bridgeport_NY/overview" target="_blank" rel="noopener" class="pricing-link">
+          <span class="pl-name">Realtor.com</span><span class="pl-desc">Listing prices, inventory</span><span class="pl-arr">&rarr;</span>
+        </a>
+      </div>
+      <p class="pricing-disclaimer">Always verify current pricing with a licensed local Realtor who knows the south shore market.</p>
+    </div>
+
+    <div class="realtor-section fade-in">
+      <span class="eyebrow">Realtor Spotlight</span>
+      <h2>Know Bridgeport?<br />Be the South Shore Expert.</h2>
+      <p>Buyers matched to Bridgeport want lakefront access, Chittenango Creek fishing, and a practical commute to Syracuse or Micron -- and a Realtor who knows the difference between a cottage on the creek and a lakefront home on the Gold Coast, and where the school district boundaries actually fall.</p>
+      <div class="write-in-box">
+        <p>Are you a Realtor who specializes in Bridgeport, the south shore of Oneida Lake, or the Route 31 corridor? Join Located Lifestyle as the local specialist for this area -- your expertise on the waterfront properties, the Harbour Town development, and the commute corridors is exactly what buyers are looking for.</p>
+        <div class="price-inline"><span class="amount">$19</span><span class="period">/month</span></div><br />
+        <a href="https://locatedlifestyle.com/join" class="btn-light">List Yourself as a Bridgeport Specialist</a>
+        <span class="founding-note">Founding Member rate -- grandfathered when prices increase to $29/month</span>
+      </div>
+    </div>
+
+    <div class="sources-section fade-in">
+      <h3>Sources</h3>
+      <div class="sources-list">
+        <a href="https://www.redfin.com/city/21604/NY/Bridgeport" target="_blank" rel="noopener">Redfin -- Bridgeport, NY Real Estate</a>
+        <a href="https://www.coldwellbankerprime.com/bridgeport-new-york-real-estate-and-homes.html" target="_blank" rel="noopener">Coldwell Banker Prime -- Bridgeport Community Overview</a>
+        <a href="https://fishonondagacounty.com/about-the-fishing/bodies-of-water/chittenango-creek/" target="_blank" rel="noopener">Fish Onondaga County -- Chittenango Creek Guide</a>
+        <a href="https://nyfalls.com/lakes/oneida-lake/" target="_blank" rel="noopener">NY Falls -- Oneida Lake Beaches &amp; Parks Guide</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="bottom-nav">
+    <p>Continue exploring Central New York</p>
+    <div class="bottom-nav-links">
+      <a href="/central-new-york/">&larr; Central New York</a>
+      <a href="brewerton-central-square-constantia-west-monroe.html">&larr; Oneida Lake Communities</a>
+      <a href="canastota.html">&larr; Canastota</a>
+      <a href="phoenix.html">&larr; Phoenix</a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-brand">Located <span>Lifestyle</span></div>
+    <div class="footer-copy">&copy; 2026 Located Lifestyle &middot; communities.locatedlifestyle.com &middot; New York State Community Directory</div>
+  </footer>
+
+  <script>
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 75);
+      });
+    }, { threshold: 0.06, rootMargin: '0px 0px -30px 0px' });
+    document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>
