@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fayetteville, NY -- Central New York Community Guide | Located Lifestyle</title>
+  <meta name="description" content="Everything you need to know about living in Fayetteville, NY -- the FM school district, Green Lakes State Park, historic architecture, Limestone Plaza, and village life 15 minutes from Syracuse." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream:      #f6f3ec;
+      --cream-dark: #ece4da;
+      --taupe:      #b9a590;
+      --taupe-dark: #9a8470;
+      --brown:      #574c3f;
+      --brown-dark: #36302a;
+      --text:       #36302a;
+      --text-muted: #9a8470;
+      --border:     rgba(87,76,63,0.12);
+      --border-med: rgba(87,76,63,0.2);
+      --card-bg:    #ffffff;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--text); overflow-x: hidden; }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 52px;
+      background: rgba(246,243,236,0.95); backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-brand { text-decoration: none; display: flex; flex-direction: column; gap: 1px; }
+    .nav-brand .sub { font-size: 9px; letter-spacing: 3.5px; text-transform: uppercase; color: var(--taupe); font-weight: 500; }
+    .nav-brand .name { font-family: 'Cormorant Garamond', serif; font-size: 20px; color: var(--brown-dark); font-weight: 600; }
+    .nav-right { display: flex; gap: 24px; align-items: center; }
+    .nav-back { font-size: 13px; color: var(--text-muted); text-decoration: none; }
+    .nav-back:hover { color: var(--brown); }
+    .nav-cta { background: var(--brown-dark); color: var(--cream); font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; padding: 10px 22px; border-radius: 2px; text-decoration: none; }
+    .nav-cta:hover { background: var(--brown); }
+
+    .hero {
+      min-height: 62vh; position: relative; overflow: hidden;
+      display: flex; flex-direction: column; align-items: center; justify-content: flex-end;
+      padding: 120px 24px 64px; text-align: center;
+      background: linear-gradient(180deg, #1c1e16 0%, #262820 35%, #303424 60%, #3a3e2c 100%);
+    }
+    .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 80% 50% at 50% 65%, rgba(90,100,60,0.18) 0%, transparent 65%); }
+    .hero-content { position: relative; z-index: 2; max-width: 780px; }
+    .hero-breadcrumb { display: flex; align-items: center; gap: 8px; justify-content: center; margin-bottom: 20px; font-size: 11px; letter-spacing: 1px; color: rgba(246,243,236,0.5); }
+    .hero-breadcrumb a { color: rgba(246,243,236,0.5); text-decoration: none; }
+    .hero-breadcrumb a:hover { color: var(--cream); }
+    .hero-breadcrumb span { opacity: 0.35; }
+    .hero-eyebrow { font-size: 10px; letter-spacing: 3.5px; text-transform: uppercase; color: rgba(246,243,236,0.6); margin-bottom: 14px; display: block; }
+    .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(52px, 9vw, 100px); font-weight: 600; line-height: 0.95; color: var(--cream); margin-bottom: 12px; letter-spacing: -2px; }
+    .hero-tagline { font-family: 'Cormorant Garamond', serif; font-size: clamp(15px, 2.2vw, 21px); font-style: italic; color: rgba(246,243,236,0.72); margin-bottom: 28px; }
+    .hero-meta { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; margin-bottom: 28px; }
+    .meta-item { font-size: 12px; color: rgba(246,243,236,0.55); }
+    .meta-dot { display: inline-block; width: 3px; height: 3px; border-radius: 50%; background: rgba(246,243,236,0.35); margin: 0 4px; vertical-align: middle; }
+    .hero-badges { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+    .badge { padding: 5px 13px; border-radius: 100px; font-size: 10px; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; background: rgba(255,255,255,0.1); color: rgba(246,243,236,0.82); border: 1px solid rgba(255,255,255,0.18); }
+
+    .stats-bar { background: var(--brown-dark); }
+    .stats-bar-inner { max-width: 960px; margin: 0 auto; display: flex; justify-content: space-around; padding: 26px 24px; flex-wrap: wrap; gap: 18px; }
+    .stat-item { text-align: center; }
+    .stat-value { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 600; color: var(--taupe); display: block; line-height: 1.1; }
+    .stat-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: rgba(246,243,236,0.42); margin-top: 4px; }
+
+    .content-wrap { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+    .section { padding: 68px 0 0; }
+    .section-header { display: flex; align-items: center; gap: 20px; margin-bottom: 30px; }
+    .section-icon { width: 44px; height: 44px; border-radius: 2px; background: var(--cream-dark); border: 1px solid var(--border-med); display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 700; color: var(--brown); font-family: 'Cormorant Garamond', serif; flex-shrink: 0; }
+    .section-header h2 { font-family: 'Cormorant Garamond', serif; font-size: 29px; font-weight: 600; color: var(--brown-dark); }
+    .section-header h2 em { font-style: italic; color: var(--taupe-dark); }
+    .section-line { flex: 1; height: 1px; background: var(--border); }
+
+    .prose { font-size: 15px; line-height: 1.85; color: var(--text-muted); font-weight: 300; margin-bottom: 20px; }
+    .prose strong { color: var(--brown); font-weight: 500; }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .info-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 4px; padding: 20px 22px; }
+    .info-card h3 { font-size: 14px; font-weight: 600; color: var(--brown-dark); margin-bottom: 7px; }
+    .info-card p { font-size: 13px; line-height: 1.7; color: var(--text-muted); font-weight: 300; }
+    .info-card .card-eyebrow { font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--taupe); margin-bottom: 6px; }
+    .highlight-card { background: var(--cream-dark); border: 1px solid var(--border-med); border-radius: 4px; padding: 26px; margin: 28px 0; }
+    .highlight-card .hc-label { font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--taupe); margin-bottom: 10px; }
+    .highlight-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 21px; font-weight: 600; color: var(--brown-dark); margin-bottom: 10px; }
+    .highlight-card p { font-size: 13px; color: var(--text-muted); line-height: 1.75; font-weight: 300; }
+    .item-list { display: flex; flex-direction: column; }
+    .item-row { display: flex; align-items: flex-start; gap: 16px; padding: 18px 0; border-bottom: 1px solid var(--border); }
+    .item-row:first-child { border-top: 1px solid var(--border); }
+    .item-marker { font-size: 13px; font-weight: 600; color: var(--taupe); flex-shrink: 0; width: 26px; font-family: 'Cormorant Garamond', serif; }
+    .item-row h4 { font-size: 14px; font-weight: 600; color: var(--brown-dark); margin-bottom: 4px; }
+    .item-row p { font-size: 13px; color: var(--text-muted); line-height: 1.65; font-weight: 300; }
+
+    .school-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 4px; padding: 24px; display: flex; align-items: flex-start; gap: 20px; }
+    .school-grade { width: 52px; height: 52px; border-radius: 4px; background: var(--cream-dark); border: 1px solid var(--border-med); display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 700; color: var(--brown); flex-shrink: 0; }
+    .school-info h3 { font-size: 15px; font-weight: 600; color: var(--brown-dark); margin-bottom: 7px; }
+    .school-info p { font-size: 13px; color: var(--text-muted); line-height: 1.65; font-weight: 300; }
+    .school-badges { display: flex; gap: 7px; flex-wrap: wrap; margin-top: 10px; }
+    .school-badge { padding: 3px 10px; border-radius: 100px; font-size: 11px; background: var(--cream-dark); color: var(--brown); border: 1px solid var(--border-med); }
+
+    .pricing-block { background: var(--card-bg); border: 1px solid var(--border-med); border-radius: 4px; padding: 26px; margin-bottom: 20px; }
+    .pricing-label { font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--taupe); margin-bottom: 8px; }
+    .pricing-note { font-size: 13px; color: var(--text-muted); margin-bottom: 18px; line-height: 1.6; font-weight: 300; }
+    .pricing-links { display: flex; flex-direction: column; gap: 1px; }
+    .pricing-link { display: flex; align-items: center; gap: 16px; padding: 13px 15px; border-radius: 3px; background: var(--cream); border: 1px solid var(--border); text-decoration: none; transition: all 0.2s; }
+    .pricing-link:hover { border-color: var(--brown); background: var(--cream-dark); }
+    .pl-name { font-size: 14px; font-weight: 600; color: var(--brown-dark); min-width: 100px; }
+    .pl-desc { font-size: 12px; color: var(--text-muted); flex: 1; font-weight: 300; }
+    .pl-arr { font-size: 13px; color: var(--taupe); }
+    .pricing-disclaimer { font-size: 11px; color: var(--text-muted); margin-top: 12px; opacity: 0.65; font-style: italic; }
+
+    .realtor-section { margin-top: 68px; background: var(--brown-dark); border-radius: 4px; padding: 48px; text-align: center; }
+    .realtor-section .eyebrow { font-size: 10px; letter-spacing: 3.5px; text-transform: uppercase; color: var(--taupe); margin-bottom: 16px; display: block; }
+    .realtor-section h2 { font-family: 'Cormorant Garamond', serif; font-size: 34px; font-weight: 600; color: var(--cream); line-height: 1.15; margin-bottom: 12px; }
+    .realtor-section p { font-size: 14px; color: rgba(246,243,236,0.55); line-height: 1.75; margin-bottom: 12px; font-weight: 300; max-width: 500px; margin-left: auto; margin-right: auto; }
+    .placeholder-cards { display: flex; gap: 14px; justify-content: center; margin: 28px 0; flex-wrap: wrap; }
+    .placeholder-card { width: 190px; border: 1px dashed rgba(185,165,144,0.3); border-radius: 4px; padding: 22px 14px; text-align: center; background: rgba(255,255,255,0.04); }
+    .placeholder-avatar { width: 48px; height: 48px; border-radius: 50%; background: rgba(185,165,144,0.12); border: 1px dashed rgba(185,165,144,0.3); margin: 0 auto 10px; display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-size: 20px; color: var(--taupe); }
+    .placeholder-card .ph-title { font-size: 12px; font-weight: 500; color: rgba(246,243,236,0.5); margin-bottom: 4px; }
+    .placeholder-card .ph-sub { font-size: 10px; color: rgba(246,243,236,0.3); line-height: 1.5; }
+    .price-inline { display: inline-flex; align-items: baseline; gap: 4px; margin: 16px 0 22px; }
+    .price-inline .amount { font-family: 'Cormorant Garamond', serif; font-size: 46px; font-weight: 600; color: var(--taupe); }
+    .price-inline .period { font-size: 15px; color: rgba(246,243,236,0.4); }
+    .btn-light { background: var(--cream); color: var(--brown-dark); padding: 13px 30px; border-radius: 2px; font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; display: inline-block; }
+    .btn-light:hover { background: var(--cream-dark); }
+    .founding-note { font-size: 11px; color: var(--taupe); margin-top: 12px; opacity: 0.8; }
+
+    .sources-section { margin-top: 60px; padding: 28px 0 80px; border-top: 1px solid var(--border); }
+    .sources-section h3 { font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 12px; }
+    .sources-list a { display: block; font-size: 12px; color: var(--text-muted); text-decoration: none; opacity: 0.6; margin-bottom: 6px; }
+    .sources-list a:hover { opacity: 1; color: var(--brown); }
+
+    .bottom-nav { border-top: 1px solid var(--border); padding: 44px 24px; text-align: center; background: var(--cream-dark); }
+    .bottom-nav p { font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 18px; }
+    .bottom-nav-links { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+    .bottom-nav-links a { padding: 9px 20px; border-radius: 2px; border: 1px solid var(--border-med); font-size: 13px; color: var(--text-muted); text-decoration: none; }
+    .bottom-nav-links a:hover { border-color: var(--brown); color: var(--brown); }
+
+    footer { border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; }
+    .footer-brand { font-family: 'Cormorant Garamond', serif; font-size: 19px; color: var(--brown-dark); margin-bottom: 5px; font-weight: 600; }
+    .footer-brand span { color: var(--taupe-dark); font-style: italic; }
+    .footer-copy { font-size: 11px; color: var(--text-muted); opacity: 0.45; }
+
+    .fade-in { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 768px) {
+      nav { padding: 14px 20px; }
+      .two-col { grid-template-columns: 1fr; }
+      .realtor-section { padding: 32px 18px; }
+      .placeholder-cards { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/" class="nav-brand">
+      <span class="sub">communities</span>
+      <span class="name">Located Lifestyle</span>
+    </a>
+    <div class="nav-right">
+      <a href="/central-new-york/" class="nav-back">&larr; Central New York</a>
+      <a href="https://locatedlifestyle.com/join" class="nav-cta">Join as a Realtor</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-breadcrumb">
+        <a href="/">Communities</a><span>/</span>
+        <a href="/central-new-york/">Central New York</a><span>/</span>
+        Fayetteville
+      </div>
+      <span class="hero-eyebrow">Onondaga County &middot; Central New York</span>
+      <h1>Fayetteville</h1>
+      <div class="hero-tagline">Village character, top-rated schools, and Green Lakes at the back door.</div>
+      <div class="hero-meta">
+        <span class="meta-item">Village</span>
+        <span class="meta-dot"></span>
+        <span class="meta-item">Pop. ~4,200</span>
+        <span class="meta-dot"></span>
+        <span class="meta-item">Onondaga County</span>
+        <span class="meta-dot"></span>
+        <span class="meta-item">15 min to Syracuse</span>
+      </div>
+      <div class="hero-badges">
+        <span class="badge">FM School District</span>
+        <span class="badge">Green Lakes State Park</span>
+        <span class="badge">Limestone Plaza</span>
+        <span class="badge">Matilda Joslyn Gage</span>
+        <span class="badge">Stickley Museum</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="stats-bar">
+    <div class="stats-bar-inner">
+      <div class="stat-item"><span class="stat-value">See Below</span><div class="stat-label">Current Pricing &darr;</div></div>
+      <div class="stat-item"><span class="stat-value">~4,200</span><div class="stat-label">Population</div></div>
+      <div class="stat-item"><span class="stat-value">15 min</span><div class="stat-label">To Syracuse</div></div>
+      <div class="stat-item"><span class="stat-value">1792</span><div class="stat-label">First Settled</div></div>
+      <div class="stat-item"><span class="stat-value">5-Star</span><div class="stat-label">Public Library Rating</div></div>
+    </div>
+  </div>
+
+  <div class="content-wrap">
+
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">A</div>
+        <h2>Overview &amp; <em>Character</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <p class="prose">Fayetteville is the kind of village that makes people stay longer than they planned. A genuine historic downtown with brick-lined sidewalks and well-preserved 19th-century architecture, Green Lakes State Park at its eastern edge, one of the most celebrated school districts in New York State, and a community culture built around events, libraries, parks, and neighborliness -- all within 15 minutes of downtown Syracuse on Interstate 690. It is, by most measures, exactly what people mean when they say they want to raise a family in a village that feels like a real place.</p>
+      <p class="prose"><strong>Named for the Marquis de Lafayette</strong>, the French hero of the American Revolution, Fayetteville was first settled in 1792 and incorporated in 1844. It grew as a trade and waterpower hub along Limestone Creek, and its history has left a remarkably intact architectural legacy -- the Genesee Street Hill-Limestone Plaza Historic District, the Charles Estabrook Mansion, and the Levi Snell House are all listed on the National Register of Historic Places. Walking the village's older streets feels like a genuine step into the 19th century, with Greek Revival, Italianate, and Federal-style homes in exceptional condition alongside well-maintained mid-century colonials and newer construction.</p>
+      <p class="prose">For buyers, the calculus is straightforward: <strong>Fayetteville-Manlius schools, Green Lakes State Park, a walkable historic village core, and a Syracuse commute under 20 minutes</strong>. The village draws families with school-age children above all else, but also retirees drawn by the walkability and community programming, and professionals who want suburban amenities without giving up proximity to the city.</p>
+
+      <div class="highlight-card">
+        <div class="hc-label">Why People Choose Fayetteville</div>
+        <h3>The FM School District -- Consistently Among New York's Best</h3>
+        <p>The single most common reason buyers choose Fayetteville is the Fayetteville-Manlius Central School District -- a nationally recognized district known particularly for its arts programs alongside strong academics. The district includes three elementary schools, two middle schools, and one high school. Fayetteville Elementary School and Wellwood Middle School are located within the village itself; high school students attend FM High School in Manlius. In 2009, the Fayetteville Free Library was rated a 5-star public library by Library Journal -- a rating reflecting the library's extraordinary range of services including a makerspace with 3D printers, a CNC router, and a laser cutter, alongside the programming that has made it a genuine community hub.</p>
+      </div>
+    </section>
+
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">V</div>
+        <h2>The <em>Vibe</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="two-col">
+        <div class="info-card">
+          <div class="card-eyebrow">Pace of Life</div>
+          <h3>Village-Scale, Community-Oriented</h3>
+          <p>Fayetteville moves at a village pace -- unhurried, neighborly, and organized around community events, the library, the schools, and the parks. Residents describe a strong sense of community identity and genuine neighborliness. The annual Fayetteville Fest, Symphoria at Beard Pond, and Christmas at the Firehouse are local traditions that reflect a community that invests in itself.</p>
+        </div>
+        <div class="info-card">
+          <div class="card-eyebrow">Downtown</div>
+          <h3>Historic Limestone Plaza &amp; Route 5 Corridor</h3>
+          <p>Limestone Plaza anchors the village's historic shopping and dining scene -- local restaurants and shops in a setting that showcases the area's 19th-century architectural character. The broader Route 5 corridor houses Towne Center at Fayetteville with major national retailers, Target, TOPS, and a YMCA. Canal Landing Park along Limestone Creek provides a quiet green counterpoint to the commercial activity.</p>
+        </div>
+        <div class="info-card">
+          <div class="card-eyebrow">Who Lives Here</div>
+          <h3>Families, Professionals &amp; Retirees</h3>
+          <p>Fayetteville draws primarily families with school-age children -- the FM school district is the defining draw. Alongside them are established professionals commuting to Syracuse and its medical/university corridors, and a meaningful retiree population drawn by the walkability, community programming, and the library. The village tends toward the liberal end of the political spectrum and is known for being open-minded and community-oriented.</p>
+        </div>
+        <div class="info-card">
+          <div class="card-eyebrow">Commute</div>
+          <h3>15-20 Minutes to Downtown Syracuse</h3>
+          <p>Interstate 690 makes the commute to downtown Syracuse, Syracuse University, and the Upstate Medical corridor genuinely easy -- 15 to 20 minutes in normal traffic. The village is well-positioned for anyone working anywhere in the Syracuse metro while wanting to live in a school district and community that feels nothing like the city.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">K</div>
+        <h2>What It's <em>Known For</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="item-list">
+        <div class="item-row">
+          <div class="item-marker">01</div>
+          <div>
+            <h4>Green Lakes State Park -- Right at the Village Edge</h4>
+            <p>Nearly 2,000 acres of old-growth forest, two extraordinary meromictic glacial lakes (Green Lake and Round Lake) with waters of unusual turquoise clarity, a sandy swimming beach, 15 miles of trails for hiking and cross-country skiing, an 18-hole golf course, a disc golf course, and camping -- all at Fayetteville's eastern edge. For residents, this is not a day trip. It is a 10-minute drive that most families use every week throughout the year. One of the most beautiful state parks in New York, and Fayetteville has it in its backyard.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-marker">02</div>
+          <div>
+            <h4>The Matilda Joslyn Gage Foundation</h4>
+            <p>Fayetteville was the home of Matilda Joslyn Gage -- one of the most significant but least celebrated figures of the 19th-century women's suffrage and abolitionist movements. A colleague of Elizabeth Cady Stanton and Susan B. Anthony, Gage was also the mother-in-law of L. Frank Baum, who is said to have based elements of Oz on her home. The Matilda Joslyn Gage Foundation preserves her home as a museum and educational center. An extraordinary piece of American history located right in the village.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-marker">03</div>
+          <div>
+            <h4>The Stickley Museum at Craftsman Farms</h4>
+            <p>Located on the site of the original L. &amp; J.G. Stickley furniture factory -- one of the most celebrated names in American Arts and Crafts furniture making -- the Stickley Museum offers factory tours and furniture manufacturing demonstrations. For anyone interested in American design history, craft, or the Arts and Crafts movement, this is a genuinely significant and undervisited destination.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-marker">04</div>
+          <div>
+            <h4>Fayetteville Free Library -- 5-Star Rated</h4>
+            <p>Rated a 5-star public library by Library Journal -- one of the highest ratings available -- the Fayetteville Free Library goes well beyond book lending. A makerspace with 3D printers, a CNC router, and a laser cutter; a dedicated teen space; computer labs; community programming year-round. A library that functions as a genuine community center and reflects the village's investment in education and public life.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-marker">05</div>
+          <div>
+            <h4>Limestone Plaza Historic District</h4>
+            <p>The Genesee Street Hill-Limestone Plaza Historic District is listed on the National Register of Historic Places and anchors Fayetteville's sense of architectural and commercial identity. Local restaurants and shops in a setting of genuine 19th-century character -- brick sidewalks, well-preserved storefronts, and a scale that feels human and walkable in a way that newer commercial strips simply do not.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-marker">06</div>
+          <div>
+            <h4>Community Events Year-Round</h4>
+            <p>Fayetteville punches above its 4,200-person weight for community events. Symphoria at Beard Pond brings professional orchestra performances to a local park setting. The annual Fayetteville Fest celebrates the village. Christmas at the Firehouse is a beloved winter tradition. The Fayetteville Free Library runs extensive programming throughout the year. Residents consistently cite the event calendar as one of the things they appreciate most about living in the village.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">R</div>
+        <h2>Restaurants &amp; <em>Dining</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <p class="prose">Fayetteville's dining scene centers on Limestone Plaza and the Route 5 corridor, with a mix of well-regarded local spots and convenient national chains at Towne Center. Always verify current hours.</p>
+      <div class="item-list">
+        <div class="item-row">
+          <div class="item-marker">--</div>
+          <div><h4>Avicolli's</h4><p>A Limestone Plaza staple -- coal-fired pizza in the heart of the historic district. A consistently popular local choice that draws regulars from across the village and beyond. The coal-fired oven gives the pizza a character that distinguishes it from the standard upstate New York pizza landscape.</p></div>
+        </div>
+        <div class="item-row">
+          <div class="item-marker">--</div>
+          <div><h4>Bull and Bear Roadhouse</h4><p>Margaritas, mules, and a lively atmosphere at Limestone Plaza -- a popular gathering spot for both locals and visitors. The kind of neighborhood bar and restaurant that becomes a regular Friday night habit for Fayetteville residents.</p></div>
+        </div>
+        <div class="item-row">
+          <div class="item-marker">--</div>
+          <div><h4>Yards Grille at Green Lakes</h4><p>Located inside Green Lakes State Park, Yards Grille is a uniquely Fayetteville dining experience -- a full-service restaurant where you can enjoy a meal with views of one of the most beautiful state parks in New York. A natural stop before or after a round of golf, a hike, or a summer swim at Green Lake.</p></div>
+        </div>
+        <div class="item-row">
+          <div class="item-marker">--</div>
+          <div><h4>Asian Cafe</h4><p>A local favorite in Fayetteville for Asian cuisine -- a reliable, well-regarded spot that has built a loyal following among village residents. The kind of neighborhood restaurant that earns its place through consistent quality and a welcoming atmosphere.</p></div>
+        </div>
+        <div class="item-row">
+          <div class="item-marker">--</div>
+          <div><h4>Towne Center at Fayetteville -- Dining Options</h4><p>The Towne Center complex on Route 5 houses Bonefish Grill, Carrabba's Italian Grill, and other national chain options for residents who want reliable, convenient dining close to home without driving into Syracuse.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">O</div>
+        <h2>Outdoor &amp; <em>Recreation</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="item-list">
+        <div class="item-row">
+          <div class="item-marker">--</div>
+          <div><h4>Green Lakes State Park</h4><p>Nearly 2,000 acres at the village's eastern edge -- two glacial lakes for swimming, kayaking, and fishing; 15 miles of hiking and cross-country ski trails; an 18-hole golf course; disc golf; camping; and one of the most beautiful natural settings in Central New York. The defining outdoor amenity for Fayetteville residents and one of the primary reasons families choose to live here.</p></div>
+        </div>
+        <div class="item-row">
+          <div class="item-marker">--</div>
+          <div><h4>Beard Park &amp; Symphoria at Beard Pond</h4><p>A beloved community park that doubles as an outdoor concert venue -- Symphoria, the Central New York professional orchestra, performs here in summer, bringing live classical and popular music to a relaxed outdoor setting. One of Fayetteville's most cherished community traditions.</p></div>
+        </div>
+        <div class="item-row">
+          <div class="item-marker">--</div>
+          <div><h4>Canal Landing Park</h4><p>One of the newer parks in the village, situated alongside Limestone Creek -- a playground, outdoor fitness stations, and trails in a setting that reflects the village's canal heritage. Took over 30 years to complete, opening in 2011, and now a well-used community green space.</p></div>
+        </div>
+        <div class="item-row">
+          <div class="item-marker">--</div>
+          <div><h4>Gramlich Bird Sanctuary</h4><p>A small but cherished nature preserve within the village -- a quiet spot for birdwatching and a peaceful walk, reflecting Fayetteville's consistent investment in accessible green space at the neighborhood scale.</p></div>
+        </div>
+        <div class="item-row">
+          <div class="item-marker">--</div>
+          <div><h4>Old Erie Canal State Historic Park -- Nearby</h4><p>The 36-mile recreational trail along the original Erie Canal towpath begins just minutes from Fayetteville in DeWitt -- hiking, biking, and cross-country skiing along one of the most historically significant corridors in American history. A heavily used year-round resource for the entire eastern Onondaga County community.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">Ed</div>
+        <h2>Schools</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="school-card">
+        <div class="school-grade">A+</div>
+        <div class="school-info">
+          <h3>Fayetteville-Manlius Central School District</h3>
+          <p>The FM school district is the primary reason most families choose Fayetteville -- a nationally recognized district consistently ranked among the best in New York State. Known particularly for strong arts programs alongside rigorous academics, FM includes three elementary schools, two middle schools, and FM High School in Manlius. Within Fayetteville village itself, students attend Fayetteville Elementary School and Wellwood Middle School -- the latter recently completed a major $45.2 million renovation including a new main entrance, cafeteria, music rooms, art rooms, and air conditioning. High school students make the short drive to FM High School in neighboring Manlius. For families where school quality is the deciding factor in a home purchase, FM is one of the strongest choices in all of Central New York.</p>
+          <div class="school-badges">
+            <span class="school-badge">A+ Rated</span>
+            <span class="school-badge">3 Elementary Schools</span>
+            <span class="school-badge">2 Middle Schools</span>
+            <span class="school-badge">Strong Arts Programs</span>
+            <span class="school-badge">$45M Renovated Wellwood</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">RE</div>
+        <h2>Real Estate <em>Overview</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <p class="prose">Fayetteville's real estate market reflects its desirability -- the FM school district commands a meaningful premium over many other Syracuse suburbs, and the village's walkable historic core and Green Lakes proximity add further value. The architectural variety is genuine: Greek Revival and Federal-style homes from the 1800s sit alongside mid-century colonials, ranch homes, and newer construction on well-maintained lots.</p>
+      <div class="two-col" style="margin-bottom:16px;">
+        <div class="info-card">
+          <div class="card-eyebrow">Historic Village Homes</div>
+          <h3>19th-Century Character at Accessible Prices</h3>
+          <p>Renovated farmhouses, colonials, and Victorian homes built in the 1800s typically in the $290,000-$350,000 range. Greek Revival, Italianate, and Federal styles -- genuine architectural character that is difficult to replicate in newer construction.</p>
+        </div>
+        <div class="info-card">
+          <div class="card-eyebrow">Newer Construction</div>
+          <h3>Ranch, Split-Level &amp; New Builds</h3>
+          <p>Ranch homes, split-levels, and new construction typically in the $390,000-$425,000 range. Custom builds and larger estate properties on 5-acre lots can reach above $1 million. The FM district commands a premium at every price point.</p>
+        </div>
+      </div>
+      <div class="pricing-block">
+        <div class="pricing-label">Current Pricing -- Live Data</div>
+        <p class="pricing-note">Check these sources for the most current Fayetteville and Onondaga County market data:</p>
+        <div class="pricing-links">
+          <a href="https://www.redfin.com/city/6576/NY/Fayetteville/housing-market" target="_blank" rel="noopener" class="pricing-link">
+            <span class="pl-name">Redfin</span><span class="pl-desc">Median sale price, days on market, price per sq ft</span><span class="pl-arr">&rarr;</span>
+          </a>
+          <a href="https://www.zillow.com/fayetteville-ny/home-values/" target="_blank" rel="noopener" class="pricing-link">
+            <span class="pl-name">Zillow</span><span class="pl-desc">Home Value Index &amp; market trends</span><span class="pl-arr">&rarr;</span>
+          </a>
+          <a href="https://www.realtor.com/realestateandhomes-search/Fayetteville_NY/overview" target="_blank" rel="noopener" class="pricing-link">
+            <span class="pl-name">Realtor.com</span><span class="pl-desc">Listing prices, market hotness, inventory</span><span class="pl-arr">&rarr;</span>
+          </a>
+        </div>
+        <p class="pricing-disclaimer">Real estate data varies by source and changes over time. Always verify current pricing with a licensed local Realtor.</p>
+      </div>
+    </section>
+
+    <div class="realtor-section fade-in">
+      <span class="eyebrow">Realtor Spotlight</span>
+      <h2>Know Fayetteville?<br />Your Clients Are Looking.</h2>
+      <p>Buyers matched to Fayetteville are seeking FM school district access, Green Lakes proximity, and a local expert who understands the village's neighborhoods and which streets fall within the most desirable pockets of the district.</p>
+      <div class="placeholder-cards">
+        <div class="placeholder-card"><div class="placeholder-avatar">F</div><div class="ph-title">Open Spot</div><div class="ph-sub">Fayetteville specialist</div></div>
+        <div class="placeholder-card"><div class="placeholder-avatar">F</div><div class="ph-title">Open Spot</div><div class="ph-sub">Fayetteville specialist</div></div>
+        <div class="placeholder-card"><div class="placeholder-avatar">F</div><div class="ph-title">Open Spot</div><div class="ph-sub">Fayetteville specialist</div></div>
+      </div>
+      <div class="price-inline"><span class="amount">$19</span><span class="period">/month</span></div><br />
+      <a href="https://locatedlifestyle.com/join" class="btn-light">List Yourself as a Fayetteville Specialist</a>
+      <p class="founding-note">Founding Member rate -- grandfathered when prices increase to $29/month</p>
+    </div>
+
+    <div class="sources-section fade-in">
+      <h3>Sources</h3>
+      <div class="sources-list">
+        <a href="https://en.wikipedia.org/wiki/Fayetteville,_New_York" target="_blank" rel="noopener">Wikipedia -- Fayetteville, New York</a>
+        <a href="https://www.homes.com/local-guide/fayetteville-ny/" target="_blank" rel="noopener">Homes.com -- Fayetteville City Guide</a>
+        <a href="https://www.niche.com/places-to-live/fayetteville-onondaga-ny/" target="_blank" rel="noopener">Niche -- Fayetteville, NY Reviews &amp; Rankings</a>
+        <a href="https://www.fayettevilleny.gov" target="_blank" rel="noopener">Village of Fayetteville -- Official Site</a>
+        <a href="https://www.fingerlakes.org/explore-the-finger-lakes-region" target="_blank" rel="noopener">Finger Lakes Tourism Alliance</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="bottom-nav">
+    <p>Continue exploring Central New York</p>
+    <div class="bottom-nav-links">
+      <a href="/central-new-york/">&larr; Central New York</a>
+      <a href="syracuse.html">&larr; Syracuse</a>
+      <a href="manlius.html">Manlius &rarr;</a>
+      <a href="cazenovia.html">Cazenovia &rarr;</a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-brand">Located <span>Lifestyle</span></div>
+    <div class="footer-copy">&copy; 2026 Located Lifestyle &middot; communities.locatedlifestyle.com &middot; New York State Community Directory</div>
+  </footer>
+
+  <script>
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 75);
+      });
+    }, { threshold: 0.06, rootMargin: '0px 0px -30px 0px' });
+    document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>
