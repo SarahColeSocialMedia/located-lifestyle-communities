@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fulton, NY -- Central New York Community Guide | Located Lifestyle</title>
+  <meta name="description" content="Everything you need to know about living in Fulton, NY -- the Oswego River, Lake Neatahwanta, the Oswego Canal, a downtown revitalization in progress, and small-city life 30 miles north of Syracuse." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream:#f6f3ec; --cream-dark:#ece4da; --taupe:#b9a590; --taupe-dark:#9a8470;
+      --brown:#574c3f; --brown-dark:#36302a; --text:#36302a; --text-muted:#9a8470;
+      --border:rgba(87,76,63,0.12); --border-med:rgba(87,76,63,0.2); --card-bg:#ffffff;
+      --river:#3a6e7e;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden;}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:18px 52px;background:rgba(246,243,236,0.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);}
+    .nav-brand{text-decoration:none;display:flex;flex-direction:column;gap:1px;}
+    .nav-brand .sub{font-size:9px;letter-spacing:3.5px;text-transform:uppercase;color:var(--taupe);font-weight:500;}
+    .nav-brand .name{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--brown-dark);font-weight:600;}
+    .nav-right{display:flex;gap:24px;align-items:center;}
+    .nav-back{font-size:13px;color:var(--text-muted);text-decoration:none;}
+    .nav-back:hover{color:var(--brown);}
+    .nav-cta{background:var(--brown-dark);color:var(--cream);font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:10px 22px;border-radius:2px;text-decoration:none;}
+    .nav-cta:hover{background:var(--brown);}
+    .hero{min-height:60vh;position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:120px 24px 60px;text-align:center;background:linear-gradient(180deg,#0e1820 0%,#142030 35%,#1a2c3a 60%,#1e3040 100%);}
+    .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 50% at 50% 65%,rgba(30,80,100,0.2) 0%,transparent 65%);}
+    .hero-content{position:relative;z-index:2;max-width:780px;}
+    .hero-breadcrumb{display:flex;align-items:center;gap:8px;justify-content:center;margin-bottom:20px;font-size:11px;letter-spacing:1px;color:rgba(246,243,236,0.5);}
+    .hero-breadcrumb a{color:rgba(246,243,236,0.5);text-decoration:none;}
+    .hero-breadcrumb a:hover{color:var(--cream);}
+    .hero-breadcrumb span{opacity:0.35;}
+    .hero-eyebrow{font-size:10px;letter-spacing:3.5px;text-transform:uppercase;color:rgba(246,243,236,0.6);margin-bottom:14px;display:block;}
+    .hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(52px,9vw,100px);font-weight:600;line-height:0.95;color:var(--cream);margin-bottom:12px;letter-spacing:-2px;}
+    .hero-tagline{font-family:'Cormorant Garamond',serif;font-size:clamp(15px,2.2vw,21px);font-style:italic;color:rgba(246,243,236,0.72);margin-bottom:28px;}
+    .hero-meta{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;margin-bottom:28px;}
+    .meta-item{font-size:12px;color:rgba(246,243,236,0.55);}
+    .meta-dot{display:inline-block;width:3px;height:3px;border-radius:50%;background:rgba(246,243,236,0.35);margin:0 4px;vertical-align:middle;}
+    .hero-badges{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;}
+    .badge{padding:5px 13px;border-radius:100px;font-size:10px;font-weight:600;letter-spacing:0.8px;text-transform:uppercase;background:rgba(255,255,255,0.1);color:rgba(246,243,236,0.82);border:1px solid rgba(255,255,255,0.18);}
+    .stats-bar{background:var(--brown-dark);}
+    .stats-bar-inner{max-width:960px;margin:0 auto;display:flex;justify-content:space-around;padding:26px 24px;flex-wrap:wrap;gap:18px;}
+    .stat-item{text-align:center;}
+    .stat-value{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:var(--taupe);display:block;line-height:1.1;}
+    .stat-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(246,243,236,0.42);margin-top:4px;}
+    .content-wrap{max-width:960px;margin:0 auto;padding:0 24px;}
+    .section{padding:68px 0 0;}
+    .section-header{display:flex;align-items:center;gap:20px;margin-bottom:30px;}
+    .section-icon{width:44px;height:44px;border-radius:2px;background:var(--cream-dark);border:1px solid var(--border-med);display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;color:var(--brown);font-family:'Cormorant Garamond',serif;flex-shrink:0;}
+    .section-header h2{font-family:'Cormorant Garamond',serif;font-size:29px;font-weight:600;color:var(--brown-dark);}
+    .section-header h2 em{font-style:italic;color:var(--taupe-dark);}
+    .section-line{flex:1;height:1px;background:var(--border);}
+    .prose{font-size:15px;line-height:1.85;color:var(--text-muted);font-weight:300;margin-bottom:20px;}
+    .prose strong{color:var(--brown);font-weight:500;}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+    .info-card{background:var(--card-bg);border:1px solid var(--border);border-radius:4px;padding:20px 22px;}
+    .info-card h3{font-size:14px;font-weight:600;color:var(--brown-dark);margin-bottom:7px;}
+    .info-card p{font-size:13px;line-height:1.7;color:var(--text-muted);font-weight:300;}
+    .info-card .card-eyebrow{font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--taupe);margin-bottom:6px;}
+    .revital-card{background:var(--cream-dark);border:1px solid var(--border-med);border-left:3px solid var(--river);border-radius:0 4px 4px 0;padding:28px;margin:28px 0;}
+    .revital-card .rc-label{font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--river);margin-bottom:10px;}
+    .revital-card h3{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--brown-dark);margin-bottom:12px;}
+    .revital-card p{font-size:13px;color:var(--text-muted);line-height:1.75;font-weight:300;}
+    .revital-card p+p{margin-top:10px;}
+    .honest-card{background:var(--card-bg);border:1px solid var(--border-med);border-radius:4px;padding:24px;margin:28px 0;}
+    .honest-card .hoc-label{font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--taupe);margin-bottom:8px;}
+    .honest-card p{font-size:13px;color:var(--text-muted);line-height:1.75;font-weight:300;}
+    .item-list{display:flex;flex-direction:column;}
+    .item-row{display:flex;align-items:flex-start;gap:16px;padding:18px 0;border-bottom:1px solid var(--border);}
+    .item-row:first-child{border-top:1px solid var(--border);}
+    .item-marker{font-size:13px;font-weight:600;color:var(--taupe);flex-shrink:0;width:26px;font-family:'Cormorant Garamond',serif;}
+    .item-row h4{font-size:14px;font-weight:600;color:var(--brown-dark);margin-bottom:4px;}
+    .item-row p{font-size:13px;color:var(--text-muted);line-height:1.65;font-weight:300;}
+    .school-card{background:var(--card-bg);border:1px solid var(--border);border-radius:4px;padding:24px;display:flex;align-items:flex-start;gap:20px;}
+    .school-grade{width:52px;height:52px;border-radius:4px;background:var(--cream-dark);border:1px solid var(--border-med);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;color:var(--brown);flex-shrink:0;}
+    .school-info h3{font-size:15px;font-weight:600;color:var(--brown-dark);margin-bottom:7px;}
+    .school-info p{font-size:13px;color:var(--text-muted);line-height:1.65;font-weight:300;}
+    .school-badges{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px;}
+    .school-badge{padding:3px 10px;border-radius:100px;font-size:11px;background:var(--cream-dark);color:var(--brown);border:1px solid var(--border-med);}
+    .pricing-block{background:var(--card-bg);border:1px solid var(--border-med);border-radius:4px;padding:26px;margin-bottom:20px;}
+    .pricing-label{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--taupe);margin-bottom:8px;}
+    .pricing-note{font-size:13px;color:var(--text-muted);margin-bottom:18px;line-height:1.6;font-weight:300;}
+    .pricing-links{display:flex;flex-direction:column;gap:1px;}
+    .pricing-link{display:flex;align-items:center;gap:16px;padding:13px 15px;border-radius:3px;background:var(--cream);border:1px solid var(--border);text-decoration:none;transition:all 0.2s;}
+    .pricing-link:hover{border-color:var(--brown);background:var(--cream-dark);}
+    .pl-name{font-size:14px;font-weight:600;color:var(--brown-dark);min-width:100px;}
+    .pl-desc{font-size:12px;color:var(--text-muted);flex:1;font-weight:300;}
+    .pl-arr{font-size:13px;color:var(--taupe);}
+    .pricing-disclaimer{font-size:11px;color:var(--text-muted);margin-top:12px;opacity:0.65;font-style:italic;}
+    .realtor-section{margin-top:68px;background:var(--brown-dark);border-radius:4px;padding:48px;text-align:center;}
+    .realtor-section .eyebrow{font-size:10px;letter-spacing:3.5px;text-transform:uppercase;color:var(--taupe);margin-bottom:16px;display:block;}
+    .realtor-section h2{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:600;color:var(--cream);line-height:1.15;margin-bottom:12px;}
+    .realtor-section p{font-size:14px;color:rgba(246,243,236,0.55);line-height:1.75;margin-bottom:12px;font-weight:300;max-width:500px;margin-left:auto;margin-right:auto;}
+    .placeholder-cards{display:flex;gap:14px;justify-content:center;margin:28px 0;flex-wrap:wrap;}
+    .placeholder-card{width:190px;border:1px dashed rgba(185,165,144,0.3);border-radius:4px;padding:22px 14px;text-align:center;background:rgba(255,255,255,0.04);}
+    .placeholder-avatar{width:48px;height:48px;border-radius:50%;background:rgba(185,165,144,0.12);border:1px dashed rgba(185,165,144,0.3);margin:0 auto 10px;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--taupe);}
+    .placeholder-card .ph-title{font-size:12px;font-weight:500;color:rgba(246,243,236,0.5);margin-bottom:4px;}
+    .placeholder-card .ph-sub{font-size:10px;color:rgba(246,243,236,0.3);line-height:1.5;}
+    .price-inline{display:inline-flex;align-items:baseline;gap:4px;margin:16px 0 22px;}
+    .price-inline .amount{font-family:'Cormorant Garamond',serif;font-size:46px;font-weight:600;color:var(--taupe);}
+    .price-inline .period{font-size:15px;color:rgba(246,243,236,0.4);}
+    .btn-light{background:var(--cream);color:var(--brown-dark);padding:13px 30px;border-radius:2px;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;text-decoration:none;display:inline-block;}
+    .btn-light:hover{background:var(--cream-dark);}
+    .founding-note{font-size:11px;color:var(--taupe);margin-top:12px;opacity:0.8;}
+    .sources-section{margin-top:60px;padding:28px 0 80px;border-top:1px solid var(--border);}
+    .sources-section h3{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--text-muted);margin-bottom:12px;}
+    .sources-list a{display:block;font-size:12px;color:var(--text-muted);text-decoration:none;opacity:0.6;margin-bottom:6px;}
+    .sources-list a:hover{opacity:1;color:var(--brown);}
+    .bottom-nav{border-top:1px solid var(--border);padding:44px 24px;text-align:center;background:var(--cream-dark);}
+    .bottom-nav p{font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:18px;}
+    .bottom-nav-links{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+    .bottom-nav-links a{padding:9px 20px;border-radius:2px;border:1px solid var(--border-med);font-size:13px;color:var(--text-muted);text-decoration:none;}
+    .bottom-nav-links a:hover{border-color:var(--brown);color:var(--brown);}
+    footer{border-top:1px solid var(--border);padding:32px 24px;text-align:center;}
+    .footer-brand{font-family:'Cormorant Garamond',serif;font-size:19px;color:var(--brown-dark);margin-bottom:5px;font-weight:600;}
+    .footer-brand span{color:var(--taupe-dark);font-style:italic;}
+    .footer-copy{font-size:11px;color:var(--text-muted);opacity:0.45;}
+    .fade-in{opacity:0;transform:translateY(18px);transition:opacity 0.6s ease,transform 0.6s ease;}
+    .fade-in.visible{opacity:1;transform:translateY(0);}
+    @media(max-width:768px){nav{padding:14px 20px;}.two-col{grid-template-columns:1fr;}.realtor-section{padding:32px 18px;}.placeholder-cards{flex-direction:column;align-items:center;}}
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/" class="nav-brand"><span class="sub">communities</span><span class="name">Located Lifestyle</span></a>
+    <div class="nav-right">
+      <a href="/central-new-york/" class="nav-back">&larr; Central New York</a>
+      <a href="https://locatedlifestyle.com/join" class="nav-cta">Join as a Realtor</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-breadcrumb">
+        <a href="/">Communities</a><span>/</span>
+        <a href="/central-new-york/">Central New York</a><span>/</span>
+        Fulton
+      </div>
+      <span class="hero-eyebrow">Oswego County &middot; Central New York</span>
+      <h1>Fulton</h1>
+      <div class="hero-tagline">Named for the inventor of the steamboat. The Oswego River still runs through everything.</div>
+      <div class="hero-meta">
+        <span class="meta-item">City &middot; Oswego County</span>
+        <span class="meta-dot"></span>
+        <span class="meta-item">Pop. ~11,300</span>
+        <span class="meta-dot"></span>
+        <span class="meta-item">30 miles north of Syracuse</span>
+        <span class="meta-dot"></span>
+        <span class="meta-item">Oswego Canal Heritage</span>
+      </div>
+      <div class="hero-badges">
+        <span class="badge">Oswego River</span>
+        <span class="badge">Lake Neatahwanta</span>
+        <span class="badge">Oswego Canal</span>
+        <span class="badge">Downtown Revitalization Underway</span>
+        <span class="badge">Battle Island State Park</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="stats-bar">
+    <div class="stats-bar-inner">
+      <div class="stat-item"><span class="stat-value">See Below</span><div class="stat-label">Current Pricing &darr;</div></div>
+      <div class="stat-item"><span class="stat-value">~$179K</span><div class="stat-label">Median Home Price</div></div>
+      <div class="stat-item"><span class="stat-value">30 mi</span><div class="stat-label">North of Syracuse</div></div>
+      <div class="stat-item"><span class="stat-value">11 mi</span><div class="stat-label">To Oswego &amp; Lake Ontario</div></div>
+      <div class="stat-item"><span class="stat-value">1902</span><div class="stat-label">City Chartered</div></div>
+    </div>
+  </div>
+
+  <div class="content-wrap">
+
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">A</div>
+        <h2>Overview &amp; <em>Character</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <p class="prose">Fulton is a small city of about 11,300 people in Oswego County, sitting on both banks of the <strong>Oswego River</strong> 30 miles north of Syracuse. It is named for Robert Fulton, the inventor of the steamboat -- a fitting tribute to a community whose identity has always been shaped by moving water. The Oswego Canal, which passes through the city, is part of the New York State Barge Canal Historic District. Lake Neatahwanta sits at the western edge of the city, offering additional waterfront access. Eleven miles south of Lake Ontario and the Port of Oswego, Fulton occupies a middle position in an Oswego County corridor that extends from the lake down through Central Square to the edge of the Syracuse metro.</p>
+      <p class="prose">Fulton is an honest city -- a former industrial powerhouse that has navigated the loss of its manufacturing base with the resilience typical of upstate New York river towns. The <strong>American Woolen Mills</strong> supplied cloth for the US Army in both World Wars; the Foster Brothers Knife Works used the river's force to power cutlery production; the Nestle chocolate factory was a defining employer for generations. Today a <strong>multi-million dollar revitalization initiative</strong> is reshaping the downtown -- adding a riverfront trail network, converting the former Nestle facility into a mixed-use development, expanding health services, and making the waterfront a destination rather than a backdrop. Local real estate professionals call it "up and coming."</p>
+
+      <div class="revital-card">
+        <div class="rc-label">Downtown Revitalization -- In Progress</div>
+        <h3>The Oswego River as the Foundation for Fulton's Next Chapter</h3>
+        <p>A multi-million dollar downtown initiative is actively transforming Fulton's relationship with its defining geographic feature -- the Oswego River. Plans include a riverfront trail network connecting the two sides of the city, the conversion of the former Nestle facility on South 2nd Street into a vibrant mixed-use development, expanded health services, and streetscape improvements designed to make the downtown more walkable. Most restaurants in the city already hug the river banks, taking advantage of waterway views that are among the most underappreciated in Central New York.</p>
+        <p>The West Broadway Commercial Historic District was added to the National Register of Historic Places in 2020 -- a recognition that validates the architectural character of the downtown core and creates preservation incentives for future investment. The CNY Community Arts Center, completed in 2020, provides a cultural hub with a theater, classrooms, and art studios. Annual events including the Fulton Farmers Market, Fulton Jazz Festival, and Fulton Fall Festival reflect a community actively investing in its public life.</p>
+      </div>
+
+      <div class="honest-card">
+        <div class="hoc-label">An Honest Assessment</div>
+        <p>Fulton rewards buyers who understand what they are getting. This is a working-class river city with some of the most affordable housing in the greater Syracuse-Oswego corridor, genuine waterfront access, and a revitalization story that is real but still unfolding. Resident reviews on platforms like Niche are mixed -- some praise the tight-knit community character and improving infrastructure; others note challenges with property taxes, road conditions, and the economic effects of decades of deindustrialization. Fulton is a good fit for buyers who are drawn to river towns, value affordability above all, and want to be part of a community in the early stages of renewal rather than one already polished. Local Realtors with decades of experience in the market describe it simply as "up and coming" -- with the caveat that the coming is a process, not an event.</p>
+      </div>
+    </section>
+
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">V</div>
+        <h2>The <em>Vibe</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="two-col">
+        <div class="info-card">
+          <div class="card-eyebrow">Pace of Life</div>
+          <h3>River City -- Tight-Knit &amp; Community-Driven</h3>
+          <p>Fulton moves at the pace of a city that puts down roots. Families that have been here for generations are the backbone. New arrivals are welcomed into a community where people know each other and show up for one another. Conservative-leaning, working-class, and genuinely proud of its river heritage. As one long-term resident put it: "Fulton is a tight-knit community where people put down roots, and if they do leave, they always come back."</p>
+        </div>
+        <div class="info-card">
+          <div class="card-eyebrow">Geography</div>
+          <h3>A City Split by the River</h3>
+          <p>Fulton occupies both banks of the Oswego River -- the west side historically known as "Oswego Falls," the east side developed separately along the river's commercial waterfront. Two bridges connect the halves. The river is not a dividing line so much as a shared identity -- most of the city's dining, parks, and gathering places orient toward the water. Residential streets branch out from the river on both sides, with the downtown commercial core on the east bank.</p>
+        </div>
+        <div class="info-card">
+          <div class="card-eyebrow">Who Lives Here</div>
+          <h3>Multigenerational Families &amp; Value-Focused Buyers</h3>
+          <p>Fulton draws multigenerational families with deep local roots, buyers from Syracuse and Oswego who want more space and affordability, and people drawn to the combination of river access, low price points, and a community identity that does not depend on proximity to a city. The Italian and Polish immigrant heritage of the early industrial era remains culturally present. The Micron development in Clay is beginning to draw workers to the Oswego County corridor, which includes Fulton.</p>
+        </div>
+        <div class="info-card">
+          <div class="card-eyebrow">Commute</div>
+          <h3>Route 481 South to Syracuse -- 30 Miles</h3>
+          <p>State Route 481 connects Fulton to Syracuse Hancock International Airport and downtown Syracuse within about 30 miles -- roughly 35 to 40 minutes. Oswego is 11 miles north on Route 48 or Route 481. The Micron White Pine Commerce Park in Clay is accessible via I-81. Fulton sits at the geographic midpoint of a corridor extending from Lake Ontario south to the Syracuse metro -- a practical location for buyers who work anywhere in Oswego County.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">K</div>
+        <h2>What It's <em>Known For</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="item-list">
+        <div class="item-row">
+          <div class="item-marker">01</div>
+          <div>
+            <h4>The Oswego River &amp; Canal</h4>
+            <p>The Oswego River is the defining feature of Fulton -- splitting the city in two, powering its industries for over a century, and now serving as the anchor for its revitalization. The Oswego Canal, passing through the city as part of the New York State Barge Canal system, connects Fulton by water northward to Lake Ontario and southward through the Erie Canal system to the rest of the state. Lock E1 of the Oswego Canal is in Fulton. The river and canal are navigable during the canal season, drawing boaters traveling the full New York State waterway system through the city.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-marker">02</div>
+          <div>
+            <h4>Lake Neatahwanta</h4>
+            <p>A year-round fishery on the western edge of the city -- bullhead, largemouth bass, northern pike, crappie, and panfish. The Iroquois name "Ne-ah-tah-wan-tah" has been interpreted as meaning both "the little lake near the great lake" and "the lake that hides from the river." At Bullhead Point, a pier extends over the lake for fishing, kayak launches, and boat access. One of the more characterful local names in Oswego County and a genuinely valuable backyard fishing resource for residents.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-marker">03</div>
+          <div>
+            <h4>Battle Island State Park Golf Course</h4>
+            <p>A public golf course set along the Oswego River north of the city -- a well-regarded and accessible option for golfers who want a scenic river-flanked round without a private club membership. One of the primary recreational amenities for Fulton residents beyond the waterfront parks, and part of the broader outdoor landscape of the Oswego River corridor.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-marker">04</div>
+          <div>
+            <h4>CNY Community Arts Center</h4>
+            <p>Completed in 2020 -- a cultural hub providing the city with a theater, classrooms, and art studios. The Arts Center reflects the community's investment in creative and cultural life alongside its economic revitalization, and gives Fulton a genuine cultural anchor that many similarly-sized Oswego County communities lack.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-marker">05</div>
+          <div>
+            <h4>Industrial Heritage -- Woolen Mills, Knife Works &amp; Nestle</h4>
+            <p>The American Woolen Mills on the west bank of the Oswego River clothed the US Army in two World Wars. The Foster Brothers Knife Works used the river's rapids to power cutlery production. The Nestle chocolate factory was a defining employer for generations before closing. These industries left behind an architectural legacy of mill buildings and working-class residential neighborhoods whose bones -- colonial and ranch homes, bungalows, cottages, and a handful of Queen Annes -- remain intact and accessible to buyers at prices that reflect the city's economic journey rather than its historical contribution.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-marker">06</div>
+          <div>
+            <h4>Fulton Jazz Festival &amp; Community Events</h4>
+            <p>The Fulton Jazz Festival is one of several annual events that anchor the city's community calendar alongside the Fulton Farmers Market and the Fulton Fall Festival. Summer concerts are held at the bandstand overlooking the Oswego River. The city's event culture reflects a community that finds reasons to gather in public, oriented toward the waterfront that defines its character. Indian Point Landing multi-use trails, Voorhees Park, and VanBuren Park provide everyday green space throughout the city.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">R</div>
+        <h2>Restaurants &amp; <em>Dining</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <p class="prose">Fulton's restaurant scene is modest but genuinely waterfront-oriented -- most of the standout spots take advantage of the Oswego River views. Always verify current hours before visiting.</p>
+      <div class="item-list">
+        <div class="item-row">
+          <div class="item-marker">--</div>
+          <div><h4>Tavern on the Lock</h4><p>A downtown Fulton institution with a U-shaped bar and an expansive deck overlooking the Oswego River -- one of the best waterfront dining and drinking settings in the city. A popular gathering spot for locals and a destination for visitors arriving by boat on the canal system. The deck view of the river and the lock makes this one of the most distinctive bar settings in Oswego County.</p></div>
+        </div>
+        <div class="item-row">
+          <div class="item-marker">--</div>
+          <div><h4>Mama Gina's</h4><p>A family-owned local staple that has been serving Fulton residents for decades -- the kind of neighborhood restaurant that sustains itself through loyalty and consistency rather than trends. A reliable and beloved dining option that reflects Fulton's community character.</p></div>
+        </div>
+        <div class="item-row">
+          <div class="item-marker">--</div>
+          <div><h4>Mimi's Diner</h4><p>Another long-running family-owned Fulton institution -- a classic diner format with the straightforward, reliable food that keeps locals coming back. Mimi's Diner has been part of the Fulton dining landscape for years and represents the kind of community restaurant that a small city builds its daily rhythms around.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">O</div>
+        <h2>Outdoor &amp; <em>Recreation</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="item-list">
+        <div class="item-row">
+          <div class="item-marker">--</div>
+          <div><h4>Lake Neatahwanta -- Bullhead Point</h4><p>Fulton's own lake on the western edge of the city -- fishing from the Bullhead Point pier, kayak and boat launches, and year-round angling for bullhead, bass, northern pike, crappie, and panfish. Ice fishing in winter. A genuine backyard fishery within the city limits.</p></div>
+        </div>
+        <div class="item-row">
+          <div class="item-marker">--</div>
+          <div><h4>Oswego River -- Kayaking &amp; Boating</h4><p>The river through the heart of the city is navigable during the canal season, connecting Fulton by water northward to Lake Ontario via the Oswego Canal and southward through the Erie Canal system. Kayakers use the river corridor regularly, and the new riverfront trail network will further expand river-based recreation as the revitalization unfolds.</p></div>
+        </div>
+        <div class="item-row">
+          <div class="item-marker">--</div>
+          <div><h4>Battle Island State Park Golf Course</h4><p>A public 18-hole golf course along the Oswego River north of the city -- scenic, accessible, and well-regarded as one of the best value public golf options in Oswego County.</p></div>
+        </div>
+        <div class="item-row">
+          <div class="item-marker">--</div>
+          <div><h4>Indian Point Landing &amp; City Parks</h4><p>Multi-use trails at Indian Point Landing, Voorhees Park, VanBuren Park, and Foster Park along the river provide everyday green space and recreational access throughout the city. The river bandstand hosts summer concerts.</p></div>
+        </div>
+        <div class="item-row">
+          <div class="item-marker">--</div>
+          <div><h4>Lake Ontario -- 11 Miles North</h4><p>The Port of Oswego and the full recreational landscape of Lake Ontario -- salmon fishing, charter boats, Oswego Harbor -- are 11 miles north via Routes 48 or 481. One of the great freshwater lakes in the world is essentially a short drive away for Fulton residents.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">Ed</div>
+        <h2>Schools</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="school-card">
+        <div class="school-grade">B</div>
+        <div class="school-info">
+          <h3>Fulton City School District</h3>
+          <p>The Fulton City School District earns a B rating from Niche -- above average for the region and a solid public school system for a city of Fulton's size. Students begin at Fairgrieve Elementary School before advancing to Fulton Junior High School for seventh and eighth grades. The district offers a range of clubs, teams, and extracurricular opportunities that residents note positively. For buyers seeking affordable city living with above-average schools at minimal cost, Fulton's school district compares favorably to many Oswego County alternatives. Always verify current district boundaries and program offerings directly with the district.</p>
+          <div class="school-badges">
+            <span class="school-badge">B Rated</span>
+            <span class="school-badge">Fulton City School District</span>
+            <span class="school-badge">Above Average -- Oswego County</span>
+            <span class="school-badge">Strong Extracurriculars</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">RE</div>
+        <h2>Real Estate <em>Overview</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <p class="prose">Fulton offers some of the most affordable housing in Central New York -- a median home price of approximately $179,000, with investor properties and fixer-uppers starting as low as $30,000 and updated homes reaching up to $442,000. The housing stock is a diverse mix of colonials, ranch homes, cottages, split-levels, bungalows, and Queen Anne examples from the late 19th and early 20th century. Riverfront homes on the Oswego River represent a distinct premium and a genuinely scenic lifestyle asset. The downtown revitalization investment is beginning to heat up the market -- local Realtors with decades of experience in the area describe it as "up and coming" with good reason.</p>
+      <div class="pricing-block">
+        <div class="pricing-label">Current Pricing -- Live Data</div>
+        <p class="pricing-note">Check these sources for the most current Fulton and Oswego County market data:</p>
+        <div class="pricing-links">
+          <a href="https://www.redfin.com/city/6850/NY/Fulton/housing-market" target="_blank" rel="noopener" class="pricing-link">
+            <span class="pl-name">Redfin</span><span class="pl-desc">Median sale price, days on market, price per sq ft</span><span class="pl-arr">&rarr;</span>
+          </a>
+          <a href="https://www.zillow.com/fulton-ny/home-values/" target="_blank" rel="noopener" class="pricing-link">
+            <span class="pl-name">Zillow</span><span class="pl-desc">Home Value Index &amp; market trends</span><span class="pl-arr">&rarr;</span>
+          </a>
+          <a href="https://www.realtor.com/realestateandhomes-search/Fulton_NY/overview" target="_blank" rel="noopener" class="pricing-link">
+            <span class="pl-name">Realtor.com</span><span class="pl-desc">Listing prices, market hotness, inventory</span><span class="pl-arr">&rarr;</span>
+          </a>
+        </div>
+        <p class="pricing-disclaimer">Real estate data varies by source and changes over time. Always verify current pricing with a licensed local Realtor.</p>
+      </div>
+    </section>
+
+    <div class="realtor-section fade-in">
+      <span class="eyebrow">Realtor Spotlight</span>
+      <h2>Know Fulton?<br />Your Clients Are Looking.</h2>
+      <p>Buyers matched to Fulton want river access, affordable prices, and an honest community -- and a local expert who understands the revitalization story, knows which riverfront properties have the best views, and can speak candidly about what it means to live in a city in transition.</p>
+      <div class="placeholder-cards">
+        <div class="placeholder-card"><div class="placeholder-avatar">F</div><div class="ph-title">Open Spot</div><div class="ph-sub">Fulton specialist</div></div>
+        <div class="placeholder-card"><div class="placeholder-avatar">F</div><div class="ph-title">Open Spot</div><div class="ph-sub">Fulton specialist</div></div>
+        <div class="placeholder-card"><div class="placeholder-avatar">F</div><div class="ph-title">Open Spot</div><div class="ph-sub">Fulton specialist</div></div>
+      </div>
+      <div class="price-inline"><span class="amount">$19</span><span class="period">/month</span></div><br />
+      <a href="https://locatedlifestyle.com/join" class="btn-light">List Yourself as a Fulton Specialist</a>
+      <p class="founding-note">Founding Member rate -- grandfathered when prices increase to $29/month</p>
+    </div>
+
+    <div class="sources-section fade-in">
+      <h3>Sources</h3>
+      <div class="sources-list">
+        <a href="https://en.wikipedia.org/wiki/Fulton,_Oswego_County,_New_York" target="_blank" rel="noopener">Wikipedia -- Fulton, Oswego County, New York</a>
+        <a href="https://www.homes.com/local-guide/fulton-ny/" target="_blank" rel="noopener">Homes.com -- Fulton City Guide</a>
+        <a href="https://www.niche.com/places-to-live/fulton-oswego-ny/" target="_blank" rel="noopener">Niche -- Fulton, NY Reviews &amp; Rankings</a>
+        <a href="https://www.homes.com/fulton-ny/" target="_blank" rel="noopener">Homes.com -- Fulton Real Estate Overview</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="bottom-nav">
+    <p>Continue exploring Central New York</p>
+    <div class="bottom-nav-links">
+      <a href="/central-new-york/">&larr; Central New York</a>
+      <a href="north-syracuse-cicero-clay.html">&larr; North Syracuse / Cicero / Clay</a>
+      <a href="phoenix.html">Phoenix &rarr;</a>
+      <a href="brewerton-central-square-constantia-west-monroe.html">Oneida Lake Communities &rarr;</a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-brand">Located <span>Lifestyle</span></div>
+    <div class="footer-copy">&copy; 2026 Located Lifestyle &middot; communities.locatedlifestyle.com &middot; New York State Community Directory</div>
+  </footer>
+
+  <script>
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 75);
+      });
+    }, { threshold: 0.06, rootMargin: '0px 0px -30px 0px' });
+    document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>
