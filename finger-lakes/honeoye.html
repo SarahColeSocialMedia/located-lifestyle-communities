@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Honeoye, NY -- Finger Lakes Community Guide | Located Lifestyle</title>
+  <meta name="description" content="Honeoye, NY on Honeoye Lake -- Ring of Fire tradition, Sandy Bottom Park, ice fishing, and one of the quieter Finger Lakes communities in Ontario County." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root { --cream:#f6f3ec; --cream-dark:#ece4da; --taupe:#b9a590; --taupe-dark:#9a8470; --brown:#574c3f; --brown-dark:#36302a; --text:#36302a; --text-muted:#9a8470; --border:rgba(87,76,63,0.12); --border-med:rgba(87,76,63,0.2); --card-bg:#ffffff; }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden;}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:18px 52px;background:rgba(246,243,236,0.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);}
+    .nav-brand{text-decoration:none;display:flex;flex-direction:column;gap:1px;}
+    .nav-brand .sub{font-size:9px;letter-spacing:3.5px;text-transform:uppercase;color:var(--taupe);font-weight:500;}
+    .nav-brand .name{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--brown-dark);font-weight:600;}
+    .nav-right{display:flex;gap:24px;align-items:center;}
+    .nav-back{font-size:13px;color:var(--text-muted);text-decoration:none;}
+    .nav-back:hover{color:var(--brown);}
+    .nav-cta{background:var(--brown-dark);color:var(--cream);font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:10px 22px;border-radius:2px;text-decoration:none;}
+    .nav-cta:hover{background:var(--brown);}
+    .hero{min-height:55vh;position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:100px 24px 56px;text-align:center;background:linear-gradient(180deg,#1a2830 0%,#243444 40%,#2e4050 100%);}
+    .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 55% at 50% 65%,rgba(70,110,150,0.18) 0%,transparent 65%);}
+    .hero-content{position:relative;z-index:2;max-width:700px;}
+    .hero-eyebrow{font-size:10px;letter-spacing:3.5px;text-transform:uppercase;color:rgba(246,243,236,0.6);margin-bottom:12px;display:block;}
+    .hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(52px,9vw,96px);font-weight:600;line-height:0.95;color:var(--cream);margin-bottom:10px;letter-spacing:-2px;}
+    .hero-tagline{font-family:'Cormorant Garamond',serif;font-size:clamp(15px,2.2vw,20px);font-style:italic;color:rgba(246,243,236,0.68);margin-bottom:24px;}
+    .hero-meta{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;margin-bottom:28px;}
+    .meta-item{font-size:12px;color:rgba(246,243,236,0.52);}
+    .meta-dot{display:inline-block;width:3px;height:3px;border-radius:50%;background:rgba(246,243,236,0.3);margin:0 4px;vertical-align:middle;}
+    .badge{display:inline-block;padding:4px 12px;border-radius:100px;font-size:10px;font-weight:600;letter-spacing:0.8px;text-transform:uppercase;margin:3px;background:rgba(255,255,255,0.1);color:rgba(246,243,236,0.8);border:1px solid rgba(255,255,255,0.18);}
+    .stats-bar{background:var(--brown-dark);}
+    .stats-bar-inner{max-width:900px;margin:0 auto;display:flex;justify-content:space-around;padding:24px;flex-wrap:wrap;gap:16px;}
+    .stat-item{text-align:center;}
+    .stat-value{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:var(--taupe);display:block;line-height:1.1;}
+    .stat-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(246,243,236,0.4);margin-top:3px;}
+    .content-wrap{max-width:900px;margin:0 auto;padding:0 24px;}
+    .section{padding:60px 0 0;}
+    .section-header{display:flex;align-items:center;gap:18px;margin-bottom:28px;}
+    .section-label{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--taupe);font-weight:600;white-space:nowrap;}
+    .section-line{flex:1;height:1px;background:var(--border);}
+    .section h2{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;color:var(--brown-dark);}
+    .section h2 em{font-style:italic;color:var(--taupe-dark);}
+    .prose{font-size:15px;line-height:1.85;color:var(--text-muted);font-weight:300;margin-bottom:20px;}
+    .prose strong{color:var(--brown);font-weight:500;}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+    .three-col{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+    .card{background:var(--card-bg);border:1px solid var(--border);border-radius:4px;padding:20px;}
+    .card h3{font-size:14px;font-weight:600;color:var(--brown-dark);margin-bottom:7px;}
+    .card p{font-size:13px;line-height:1.65;color:var(--text-muted);font-weight:300;}
+    .card .eyebrow{font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--taupe);margin-bottom:6px;}
+    .item-list{display:flex;flex-direction:column;}
+    .item-row{display:flex;gap:16px;padding:18px 0;border-bottom:1px solid var(--border);}
+    .item-row:first-child{border-top:1px solid var(--border);}
+    .item-marker{font-size:12px;font-weight:600;color:var(--taupe);flex-shrink:0;width:24px;font-family:'Cormorant Garamond',serif;}
+    .item-row h4{font-size:14px;font-weight:600;color:var(--brown-dark);margin-bottom:4px;}
+    .item-row p{font-size:13px;color:var(--text-muted);line-height:1.6;font-weight:300;}
+    /* Realtor write-in section */
+    .write-in{background:var(--cream-dark);border:1px solid var(--border-med);border-radius:4px;padding:32px;margin:40px 0;}
+    .write-in .wi-label{font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--taupe);margin-bottom:12px;}
+    .write-in h3{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--brown-dark);margin-bottom:10px;}
+    .write-in p{font-size:13px;color:var(--text-muted);line-height:1.7;font-weight:300;margin-bottom:12px;}
+    .write-in .wi-cta{display:inline-block;background:var(--brown-dark);color:var(--cream);font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:11px 24px;border-radius:2px;text-decoration:none;margin-top:6px;}
+    .write-in .wi-cta:hover{background:var(--brown);}
+    .pricing-block{background:var(--card-bg);border:1px solid var(--border-med);border-radius:4px;padding:24px;margin-bottom:20px;}
+    .pricing-block .p-label{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--taupe);margin-bottom:8px;}
+    .pricing-block .p-note{font-size:13px;color:var(--text-muted);margin-bottom:16px;font-weight:300;}
+    .p-links{display:flex;flex-direction:column;gap:1px;}
+    .p-link{display:flex;align-items:center;gap:14px;padding:12px 14px;background:var(--cream);border:1px solid var(--border);border-radius:3px;text-decoration:none;transition:all 0.2s;}
+    .p-link:hover{border-color:var(--brown);background:var(--cream-dark);}
+    .p-link-name{font-size:14px;font-weight:600;color:var(--brown-dark);min-width:90px;}
+    .p-link-desc{font-size:12px;color:var(--text-muted);flex:1;font-weight:300;}
+    .p-link-arrow{font-size:13px;color:var(--taupe);}
+    .p-disclaimer{font-size:11px;color:var(--text-muted);margin-top:12px;opacity:0.65;font-style:italic;}
+    .realtor-cta{margin-top:60px;background:var(--brown-dark);border-radius:4px;padding:44px;text-align:center;}
+    .realtor-cta .eyebrow{font-size:10px;letter-spacing:3.5px;text-transform:uppercase;color:var(--taupe);margin-bottom:16px;display:block;}
+    .realtor-cta h2{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:600;color:var(--cream);margin-bottom:12px;}
+    .realtor-cta p{font-size:14px;color:rgba(246,243,236,0.5);line-height:1.7;margin-bottom:24px;font-weight:300;max-width:480px;margin-left:auto;margin-right:auto;}
+    .price-line{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:600;color:var(--taupe);margin-bottom:20px;}
+    .price-line span{font-size:15px;color:rgba(246,243,236,0.38);font-family:'Jost',sans-serif;font-weight:300;}
+    .btn-cream{background:var(--cream);color:var(--brown-dark);font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;padding:13px 28px;border-radius:2px;text-decoration:none;display:inline-block;}
+    .founding{font-size:11px;color:var(--taupe);margin-top:12px;opacity:0.75;}
+    .sources{margin-top:52px;padding:28px 0 70px;border-top:1px solid var(--border);}
+    .sources h3{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--text-muted);margin-bottom:12px;}
+    .sources a{display:block;font-size:12px;color:var(--text-muted);text-decoration:none;opacity:0.58;margin-bottom:6px;}
+    .sources a:hover{opacity:1;color:var(--brown);}
+    .bottom-nav{border-top:1px solid var(--border);padding:40px 24px;text-align:center;background:var(--cream-dark);}
+    .bottom-nav p{font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:16px;}
+    .bottom-nav-links{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+    .bottom-nav-links a{padding:9px 20px;border-radius:2px;border:1px solid var(--border-med);font-size:13px;color:var(--text-muted);text-decoration:none;}
+    .bottom-nav-links a:hover{border-color:var(--brown);color:var(--brown);}
+    footer{border-top:1px solid var(--border);padding:28px 24px;text-align:center;}
+    .footer-brand{font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--brown-dark);margin-bottom:4px;font-weight:600;}
+    .footer-brand span{color:var(--taupe-dark);font-style:italic;}
+    .footer-copy{font-size:11px;color:var(--text-muted);opacity:0.45;}
+    .fade-in{opacity:0;transform:translateY(18px);transition:opacity 0.6s ease,transform 0.6s ease;}
+    .fade-in.visible{opacity:1;transform:translateY(0);}
+    @media(max-width:768px){nav{padding:14px 20px;}.two-col,.three-col{grid-template-columns:1fr;}.realtor-cta{padding:28px 16px;}}
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="/" class="nav-brand"><span class="sub">communities</span><span class="name">Located Lifestyle</span></a>
+    <div class="nav-right">
+      <a href="/" class="nav-back">&larr; Explore New York</a>
+      <a href="https://locatedlifestyle.com/join" class="nav-cta">Join as a Realtor</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-content">
+      <span class="hero-eyebrow">Ontario County &middot; Finger Lakes</span>
+      <h1>Honeoye</h1>
+      <div class="hero-tagline">Quiet lake, Ring of Fire, and the unhurried pace of a true Finger Lakes hamlet.</div>
+      <div class="hero-meta">
+        <span class="meta-item">Hamlet</span>
+        <span class="meta-dot"></span>
+        <span class="meta-item">North end of Honeoye Lake</span>
+        <span class="meta-dot"></span>
+        <span class="meta-item">33 mi south of Rochester</span>
+      </div>
+      <div>
+        <span class="badge">Honeoye Lake</span>
+        <span class="badge">Ring of Fire</span>
+        <span class="badge">Bristol Mountain 15 min</span>
+        <span class="badge">Ice Fishing</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="stats-bar">
+    <div class="stats-bar-inner">
+      <div class="stat-item"><span class="stat-value">See Below</span><div class="stat-label">Current Pricing &darr;</div></div>
+      <div class="stat-item"><span class="stat-value">4.5 mi</span><div class="stat-label">Lake Length</div></div>
+      <div class="stat-item"><span class="stat-value">30 ft</span><div class="stat-label">Max Depth -- Shallowest FL</div></div>
+      <div class="stat-item"><span class="stat-value">33 mi</span><div class="stat-label">South of Rochester</div></div>
+    </div>
+  </div>
+
+  <div class="content-wrap">
+
+    <section class="section fade-in">
+      <div class="section-header"><div class="section-label">Overview</div><div class="section-line"></div></div>
+      <p class="prose">Honeoye (pronounced <strong>HUN-ee-oy</strong>) is a hamlet at the north end of Honeoye Lake in the Town of Richmond, Ontario County. It is one of the quieter communities in the Finger Lakes -- a mix of agricultural families, seasonal lake residents, local artists drawn by the scenery, and year-rounders who value the unhurried pace above all else. Honeoye Lake itself is the <strong>shallowest of all eleven Finger Lakes</strong> at just 30 feet -- which means it freezes reliably early each winter, making it one of the best ice fishing lakes in western New York, and warms quickly in summer for swimming and boating.</p>
+      <p class="prose">The hamlet has a small but genuine downtown along Route 20A -- gas stations, a grocery, restaurants, hardware, a doctor and dentist, and the Honeoye Public Library, which hosts <strong>free Friday night concerts at the community gazebo</strong> through the summer. Bristol Mountain ski resort is 15 minutes away. The hamlet has a long connection to the arts, with internationally known sculptor Philippe Faraut based here and his work visible around town.</p>
+      <p class="prose">A remarkable piece of local history: in 1926, the City of Rochester announced plans to acquire Honeoye Lake as a drinking water reservoir and submerge the entire hamlet. After years of litigation, Rochester decided in 1935 to obtain water from Lake Ontario instead -- and Honeoye Lake's character as a recreational community was immediately and permanently sealed.</p>
+    </section>
+
+    <section class="section fade-in">
+      <div class="section-header"><div class="section-label">What's Here</div><div class="section-line"></div></div>
+      <div class="item-list">
+        <div class="item-row"><div class="item-marker">--</div><div><h4>Ring of Fire -- July 3rd &amp; Labor Day Weekend</h4><p>One of the great Finger Lakes traditions: residents around the entire shoreline of Honeoye Lake light flares simultaneously on the night before the Fourth of July and again the Saturday before Labor Day to mark the end of summer. The effect from the water -- the entire lake rimmed in fire -- is genuinely spectacular and a defining community ritual.</p></div></div>
+        <div class="item-row"><div class="item-marker">--</div><div><h4>Sandy Bottom Park</h4><p>At the north end of Honeoye Lake -- a sandy beach, boardwalk, picnic pavilion, playground, and softball field with swimming and small boat access. The primary public lake amenity for residents and visitors alike.</p></div></div>
+        <div class="item-row"><div class="item-marker">--</div><div><h4>Harriet Hollister Spencer State Recreation Area</h4><p>Located in the Town of Canadice on the ridge above Honeoye Lake -- 1,550 acres of hiking, mountain biking, snowmobiling, cross-country skiing, and snowshoeing, with a stunning panoramic view of the lake and, on clear days, the Rochester skyline.</p></div></div>
+        <div class="item-row"><div class="item-marker">--</div><div><h4>Bristol Mountain -- 15 Minutes</h4><p>One of the Finger Lakes' premier ski resorts is just 15 minutes from Honeoye -- making this hamlet one of the best-positioned communities in Ontario County for winter sports access.</p></div></div>
+        <div class="item-row"><div class="item-marker">--</div><div><h4>Local Arts Scene</h4><p>International sculptor Philippe Faraut is based in Honeoye and his work can be seen around town and inside the Mill Creek Cafe. The hamlet has a history of attracting artists to its landscape and community character.</p></div></div>
+        <div class="item-row"><div class="item-marker">--</div><div><h4>Ice Fishing</h4><p>Because Honeoye Lake is the shallowest Finger Lake, it freezes more reliably and earlier than its neighbors -- making it a premier ice fishing destination for walleye, perch, crappie, and bass. When the fishermen are out on the ice, locals know the conditions are right.</p></div></div>
+      </div>
+    </section>
+
+    <section class="section fade-in">
+      <div class="section-header"><div class="section-label">Real Estate</div><div class="section-line"></div></div>
+      <p class="prose">Honeoye Lake properties include a mix of seasonal cottages, year-round lakefront homes, and rural farmhouses in the surrounding hills. Lakefront commands a premium; in-hamlet homes are among the more accessible in Ontario County wine country.</p>
+      <div class="pricing-block">
+        <div class="p-label">Current Pricing -- Live Data</div>
+        <p class="p-note">Check these sources for the most current Honeoye and Ontario County market data:</p>
+        <div class="p-links">
+          <a href="https://www.redfin.com/zipcode/14471/housing-market" target="_blank" rel="noopener" class="p-link"><span class="p-link-name">Redfin</span><span class="p-link-desc">Median sale price, days on market</span><span class="p-link-arrow">&rarr;</span></a>
+          <a href="https://www.zillow.com/honeoye-ny/home-values/" target="_blank" rel="noopener" class="p-link"><span class="p-link-name">Zillow</span><span class="p-link-desc">Home Value Index &amp; market trends</span><span class="p-link-arrow">&rarr;</span></a>
+          <a href="https://www.realtor.com/realestateandhomes-search/Honeoye_NY/overview" target="_blank" rel="noopener" class="p-link"><span class="p-link-name">Realtor.com</span><span class="p-link-desc">Listing prices &amp; inventory</span><span class="p-link-arrow">&rarr;</span></a>
+        </div>
+        <p class="p-disclaimer">Real estate data varies by source and changes over time. Always verify with a licensed local Realtor.</p>
+      </div>
+    </section>
+
+    <!-- REALTOR WRITE-IN -->
+    <div class="write-in fade-in">
+      <div class="wi-label">Local Expert Section</div>
+      <h3>Know Honeoye? Tell Your Clients.</h3>
+      <p>This section is reserved for a Located Lifestyle Realtor who specializes in Honeoye and Honeoye Lake. Local Realtors are invited to contribute their expertise -- the neighborhoods, the lake access points, the seasonal market, the hidden gems -- and appear in front of buyers matched to this community.</p>
+      <p>When you join as a Honeoye specialist, your name, photo, bio, and contact information will appear here. This page will grow with your knowledge of the community.</p>
+      <a href="https://locatedlifestyle.com/join" class="wi-cta">Become the Honeoye Specialist</a>
+    </div>
+
+    <div class="realtor-cta fade-in">
+      <span class="eyebrow">Realtor Spotlight</span>
+      <h2>Know Honeoye?<br />Your Clients Are Looking.</h2>
+      <p>Buyers matched to Honeoye are seeking lake life, Bristol Mountain skiing, and the Ring of Fire tradition. Be the local expert they find.</p>
+      <div class="price-line">$19 <span>/month</span></div>
+      <a href="https://locatedlifestyle.com/join" class="btn-cream">List Yourself as a Honeoye Specialist</a>
+      <div class="founding">Founding Member rate -- grandfathered when prices increase to $29/month</div>
+    </div>
+
+    <div class="sources fade-in">
+      <h3>Sources</h3>
+      <a href="https://www.visitfingerlakes.com/plan-your-trip/ontario-county-ny/richmond-honeoye-and-canadice/" target="_blank" rel="noopener">Visit Finger Lakes -- Richmond, Honeoye &amp; Canadice</a>
+      <a href="https://en.wikipedia.org/wiki/Honeoye,_NY" target="_blank" rel="noopener">Wikipedia -- Honeoye, New York</a>
+      <a href="https://www.honeoyelakewatershed.org/history" target="_blank" rel="noopener">Honeoye Lake Watershed Trust -- History</a>
+      <a href="https://www.fingerlakes.org/explore-the-finger-lakes-region" target="_blank" rel="noopener">Finger Lakes Tourism Alliance</a>
+    </div>
+  </div>
+
+  <div class="bottom-nav">
+    <p>Continue exploring the Finger Lakes</p>
+    <div class="bottom-nav-links">
+      <a href="/">&larr; All Communities</a>
+      <a href="canandaigua.html">Canandaigua &rarr;</a>
+      <a href="naples.html">Naples &rarr;</a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-brand">Located <span>Lifestyle</span></div>
+    <div class="footer-copy">&copy; 2026 Located Lifestyle &middot; communities.locatedlifestyle.com</div>
+  </footer>
+
+  <script>
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((e,i) => { if(e.isIntersecting) setTimeout(()=>e.target.classList.add('visible'),i*75); });
+    },{threshold:0.06,rootMargin:'0px 0px -30px 0px'});
+    document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
+  </script>
+</body>
+</html>
