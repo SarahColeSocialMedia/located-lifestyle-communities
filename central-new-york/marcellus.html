@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Marcellus, NY -- Central New York Community Guide | Located Lifestyle</title>
+  <meta name="description" content="Everything you need to know about living in Marcellus, NY -- Nine Mile Creek, Riseform Brewing, Olde Home Days, Baltimore Woods Nature Center, and village life between Syracuse and the Finger Lakes." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream:#f6f3ec; --cream-dark:#ece4da; --taupe:#b9a590; --taupe-dark:#9a8470;
+      --brown:#574c3f; --brown-dark:#36302a; --text:#36302a; --text-muted:#9a8470;
+      --border:rgba(87,76,63,0.12); --border-med:rgba(87,76,63,0.2); --card-bg:#ffffff;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden;}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:18px 52px;background:rgba(246,243,236,0.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);}
+    .nav-brand{text-decoration:none;display:flex;flex-direction:column;gap:1px;}
+    .nav-brand .sub{font-size:9px;letter-spacing:3.5px;text-transform:uppercase;color:var(--taupe);font-weight:500;}
+    .nav-brand .name{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--brown-dark);font-weight:600;}
+    .nav-right{display:flex;gap:24px;align-items:center;}
+    .nav-back{font-size:13px;color:var(--text-muted);text-decoration:none;}
+    .nav-back:hover{color:var(--brown);}
+    .nav-cta{background:var(--brown-dark);color:var(--cream);font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:10px 22px;border-radius:2px;text-decoration:none;}
+    .nav-cta:hover{background:var(--brown);}
+    .hero{min-height:62vh;position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:120px 24px 64px;text-align:center;background:linear-gradient(180deg,#161c14 0%,#1e2818 35%,#263220 60%,#2e3c28 100%);}
+    .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 50% at 50% 65%,rgba(60,100,50,0.18) 0%,transparent 65%);}
+    .hero-content{position:relative;z-index:2;max-width:780px;}
+    .hero-breadcrumb{display:flex;align-items:center;gap:8px;justify-content:center;margin-bottom:20px;font-size:11px;letter-spacing:1px;color:rgba(246,243,236,0.5);}
+    .hero-breadcrumb a{color:rgba(246,243,236,0.5);text-decoration:none;}
+    .hero-breadcrumb a:hover{color:var(--cream);}
+    .hero-breadcrumb span{opacity:0.35;}
+    .hero-eyebrow{font-size:10px;letter-spacing:3.5px;text-transform:uppercase;color:rgba(246,243,236,0.6);margin-bottom:14px;display:block;}
+    .hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(52px,9vw,100px);font-weight:600;line-height:0.95;color:var(--cream);margin-bottom:12px;letter-spacing:-2px;}
+    .hero-tagline{font-family:'Cormorant Garamond',serif;font-size:clamp(15px,2.2vw,21px);font-style:italic;color:rgba(246,243,236,0.72);margin-bottom:28px;}
+    .hero-meta{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;margin-bottom:28px;}
+    .meta-item{font-size:12px;color:rgba(246,243,236,0.55);}
+    .meta-dot{display:inline-block;width:3px;height:3px;border-radius:50%;background:rgba(246,243,236,0.35);margin:0 4px;vertical-align:middle;}
+    .hero-badges{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;}
+    .badge{padding:5px 13px;border-radius:100px;font-size:10px;font-weight:600;letter-spacing:0.8px;text-transform:uppercase;background:rgba(255,255,255,0.1);color:rgba(246,243,236,0.82);border:1px solid rgba(255,255,255,0.18);}
+    .stats-bar{background:var(--brown-dark);}
+    .stats-bar-inner{max-width:960px;margin:0 auto;display:flex;justify-content:space-around;padding:26px 24px;flex-wrap:wrap;gap:18px;}
+    .stat-item{text-align:center;}
+    .stat-value{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:var(--taupe);display:block;line-height:1.1;}
+    .stat-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(246,243,236,0.42);margin-top:4px;}
+    .content-wrap{max-width:960px;margin:0 auto;padding:0 24px;}
+    .section{padding:68px 0 0;}
+    .section-header{display:flex;align-items:center;gap:20px;margin-bottom:30px;}
+    .section-icon{width:44px;height:44px;border-radius:2px;background:var(--cream-dark);border:1px solid var(--border-med);display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;color:var(--brown);font-family:'Cormorant Garamond',serif;flex-shrink:0;}
+    .section-header h2{font-family:'Cormorant Garamond',serif;font-size:29px;font-weight:600;color:var(--brown-dark);}
+    .section-header h2 em{font-style:italic;color:var(--taupe-dark);}
+    .section-line{flex:1;height:1px;background:var(--border);}
+    .prose{font-size:15px;line-height:1.85;color:var(--text-muted);font-weight:300;margin-bottom:20px;}
+    .prose strong{color:var(--brown);font-weight:500;}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+    .info-card{background:var(--card-bg);border:1px solid var(--border);border-radius:4px;padding:20px 22px;}
+    .info-card h3{font-size:14px;font-weight:600;color:var(--brown-dark);margin-bottom:7px;}
+    .info-card p{font-size:13px;line-height:1.7;color:var(--text-muted);font-weight:300;}
+    .info-card .card-eyebrow{font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--taupe);margin-bottom:6px;}
+    .highlight-card{background:var(--cream-dark);border:1px solid var(--border-med);border-radius:4px;padding:26px;margin:28px 0;}
+    .highlight-card .hc-label{font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--taupe);margin-bottom:10px;}
+    .highlight-card h3{font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:600;color:var(--brown-dark);margin-bottom:10px;}
+    .highlight-card p{font-size:13px;color:var(--text-muted);line-height:1.75;font-weight:300;}
+    .item-list{display:flex;flex-direction:column;}
+    .item-row{display:flex;align-items:flex-start;gap:16px;padding:18px 0;border-bottom:1px solid var(--border);}
+    .item-row:first-child{border-top:1px solid var(--border);}
+    .item-marker{font-size:13px;font-weight:600;color:var(--taupe);flex-shrink:0;width:26px;font-family:'Cormorant Garamond',serif;}
+    .item-row h4{font-size:14px;font-weight:600;color:var(--brown-dark);margin-bottom:4px;}
+    .item-row p{font-size:13px;color:var(--text-muted);line-height:1.65;font-weight:300;}
+    .school-card{background:var(--card-bg);border:1px solid var(--border);border-radius:4px;padding:24px;display:flex;align-items:flex-start;gap:20px;}
+    .school-grade{width:52px;height:52px;border-radius:4px;background:var(--cream-dark);border:1px solid var(--border-med);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;color:var(--brown);flex-shrink:0;}
+    .school-info h3{font-size:15px;font-weight:600;color:var(--brown-dark);margin-bottom:7px;}
+    .school-info p{font-size:13px;color:var(--text-muted);line-height:1.65;font-weight:300;}
+    .school-badges{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px;}
+    .school-badge{padding:3px 10px;border-radius:100px;font-size:11px;background:var(--cream-dark);color:var(--brown);border:1px solid var(--border-med);}
+    .pricing-block{background:var(--card-bg);border:1px solid var(--border-med);border-radius:4px;padding:26px;margin-bottom:20px;}
+    .pricing-label{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--taupe);margin-bottom:8px;}
+    .pricing-note{font-size:13px;color:var(--text-muted);margin-bottom:18px;line-height:1.6;font-weight:300;}
+    .pricing-links{display:flex;flex-direction:column;gap:1px;}
+    .pricing-link{display:flex;align-items:center;gap:16px;padding:13px 15px;border-radius:3px;background:var(--cream);border:1px solid var(--border);text-decoration:none;transition:all 0.2s;}
+    .pricing-link:hover{border-color:var(--brown);background:var(--cream-dark);}
+    .pl-name{font-size:14px;font-weight:600;color:var(--brown-dark);min-width:100px;}
+    .pl-desc{font-size:12px;color:var(--text-muted);flex:1;font-weight:300;}
+    .pl-arr{font-size:13px;color:var(--taupe);}
+    .pricing-disclaimer{font-size:11px;color:var(--text-muted);margin-top:12px;opacity:0.65;font-style:italic;}
+    .realtor-section{margin-top:68px;background:var(--brown-dark);border-radius:4px;padding:48px;text-align:center;}
+    .realtor-section .eyebrow{font-size:10px;letter-spacing:3.5px;text-transform:uppercase;color:var(--taupe);margin-bottom:16px;display:block;}
+    .realtor-section h2{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:600;color:var(--cream);line-height:1.15;margin-bottom:12px;}
+    .realtor-section p{font-size:14px;color:rgba(246,243,236,0.55);line-height:1.75;margin-bottom:12px;font-weight:300;max-width:500px;margin-left:auto;margin-right:auto;}
+    .placeholder-cards{display:flex;gap:14px;justify-content:center;margin:28px 0;flex-wrap:wrap;}
+    .placeholder-card{width:190px;border:1px dashed rgba(185,165,144,0.3);border-radius:4px;padding:22px 14px;text-align:center;background:rgba(255,255,255,0.04);}
+    .placeholder-avatar{width:48px;height:48px;border-radius:50%;background:rgba(185,165,144,0.12);border:1px dashed rgba(185,165,144,0.3);margin:0 auto 10px;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--taupe);}
+    .placeholder-card .ph-title{font-size:12px;font-weight:500;color:rgba(246,243,236,0.5);margin-bottom:4px;}
+    .placeholder-card .ph-sub{font-size:10px;color:rgba(246,243,236,0.3);line-height:1.5;}
+    .price-inline{display:inline-flex;align-items:baseline;gap:4px;margin:16px 0 22px;}
+    .price-inline .amount{font-family:'Cormorant Garamond',serif;font-size:46px;font-weight:600;color:var(--taupe);}
+    .price-inline .period{font-size:15px;color:rgba(246,243,236,0.4);}
+    .btn-light{background:var(--cream);color:var(--brown-dark);padding:13px 30px;border-radius:2px;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;text-decoration:none;display:inline-block;}
+    .btn-light:hover{background:var(--cream-dark);}
+    .founding-note{font-size:11px;color:var(--taupe);margin-top:12px;opacity:0.8;}
+    .sources-section{margin-top:60px;padding:28px 0 80px;border-top:1px solid var(--border);}
+    .sources-section h3{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--text-muted);margin-bottom:12px;}
+    .sources-list a{display:block;font-size:12px;color:var(--text-muted);text-decoration:none;opacity:0.6;margin-bottom:6px;}
+    .sources-list a:hover{opacity:1;color:var(--brown);}
+    .bottom-nav{border-top:1px solid var(--border);padding:44px 24px;text-align:center;background:var(--cream-dark);}
+    .bottom-nav p{font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:18px;}
+    .bottom-nav-links{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+    .bottom-nav-links a{padding:9px 20px;border-radius:2px;border:1px solid var(--border-med);font-size:13px;color:var(--text-muted);text-decoration:none;}
+    .bottom-nav-links a:hover{border-color:var(--brown);color:var(--brown);}
+    footer{border-top:1px solid var(--border);padding:32px 24px;text-align:center;}
+    .footer-brand{font-family:'Cormorant Garamond',serif;font-size:19px;color:var(--brown-dark);margin-bottom:5px;font-weight:600;}
+    .footer-brand span{color:var(--taupe-dark);font-style:italic;}
+    .footer-copy{font-size:11px;color:var(--text-muted);opacity:0.45;}
+    .fade-in{opacity:0;transform:translateY(18px);transition:opacity 0.6s ease,transform 0.6s ease;}
+    .fade-in.visible{opacity:1;transform:translateY(0);}
+    @media(max-width:768px){nav{padding:14px 20px;}.two-col{grid-template-columns:1fr;}.realtor-section{padding:32px 18px;}.placeholder-cards{flex-direction:column;align-items:center;}}
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/" class="nav-brand"><span class="sub">communities</span><span class="name">Located Lifestyle</span></a>
+    <div class="nav-right">
+      <a href="/central-new-york/" class="nav-back">&larr; Central New York</a>
+      <a href="https://locatedlifestyle.com/join" class="nav-cta">Join as a Realtor</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-breadcrumb">
+        <a href="/">Communities</a><span>/</span>
+        <a href="/central-new-york/">Central New York</a><span>/</span>
+        Marcellus
+      </div>
+      <span class="hero-eyebrow">Onondaga County &middot; Central New York</span>
+      <h1>Marcellus</h1>
+      <div class="hero-tagline">High hills, deep valleys, Nine Mile Creek, and goldfish races at the Village Tavern.</div>
+      <div class="hero-meta">
+        <span class="meta-item">Village &amp; Town</span>
+        <span class="meta-dot"></span>
+        <span class="meta-item">Pop. ~1,750 village / ~6,000 town</span>
+        <span class="meta-dot"></span>
+        <span class="meta-item">Onondaga County</span>
+        <span class="meta-dot"></span>
+        <span class="meta-item">12 miles southwest of Syracuse</span>
+      </div>
+      <div class="hero-badges">
+        <span class="badge">Between Syracuse &amp; Finger Lakes</span>
+        <span class="badge">Nine Mile Creek</span>
+        <span class="badge">Baltimore Woods</span>
+        <span class="badge">Olde Home Days</span>
+        <span class="badge">Riseform Brewing</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="stats-bar">
+    <div class="stats-bar-inner">
+      <div class="stat-item"><span class="stat-value">See Below</span><div class="stat-label">Current Pricing &darr;</div></div>
+      <div class="stat-item"><span class="stat-value">~1,750</span><div class="stat-label">Village Population</div></div>
+      <div class="stat-item"><span class="stat-value">12 mi</span><div class="stat-label">From Syracuse</div></div>
+      <div class="stat-item"><span class="stat-value">1853</span><div class="stat-label">Village Incorporated</div></div>
+      <div class="stat-item"><span class="stat-value">94%</span><div class="stat-label">HS Graduation Rate</div></div>
+    </div>
+  </div>
+
+  <div class="content-wrap">
+
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">A</div>
+        <h2>Overview &amp; <em>Character</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <p class="prose">Marcellus sits in a <strong>picturesque valley in Onondaga County</strong>, 12 miles southwest of Syracuse and a few miles from both Otisco and Skaneateles Lakes. The village is small -- just under 1,750 people -- but the broader town of Marcellus encompasses about 6,000 residents spread through the village and surrounding hamlets including Marcellus Falls and Marietta. What defines the place is its setting: <strong>high hills, deep valleys, Nine Mile Creek</strong> running through as a noted trout stream, and a remarkably scenic countryside that sits right at the eastern edge of the Finger Lakes district.</p>
+      <p class="prose">Marcellus is the kind of village where <strong>Nightingale Mills Ace Hardware has been selling household essentials since 1888</strong>, where the Village Tavern hosts goldfish races alongside live bands on Friday and Saturday nights, and where the annual Olde Home Days festival has been a community anchor for generations. It is genuinely conservative in character, tightly knit in the way that small villages become when the same families have lived in them for multiple generations, and quietly proud of its architectural heritage -- the village retains some of the finest Federal and Greek Revival buildings in Central New York.</p>
+      <p class="prose">For buyers, Marcellus offers a compelling proposition: <strong>affordable entry into a highly rated school district</strong>, genuine countryside character with hills and creeks and nature preserves, proximity to both Syracuse and the Finger Lakes, and a small-town identity that is earned rather than manufactured.</p>
+
+      <div class="highlight-card">
+        <div class="hc-label">Architectural Heritage</div>
+        <h3>Federal Style to Greek Revival -- Among the Finest in Central New York</h3>
+        <p>The village of Marcellus retains some of the finest architectural and historic landmarks in Central New York. The Dan Bradley House -- listed on the National Register of Historic Places and possibly built in the late 18th century -- retains original Federal-style detail including original windows with old glass. The Caleb Gasper House (c. 1811) and two important Greek Revival mansions from the 1830s, the First Presbyterian Church (1851), and a series of Italianate-style residences from the mid-19th century all contribute to a streetscape that reflects Marcellus's genuine prosperity in its 19th-century prime. Water power from Nine Mile Creek had attracted wool, paper, and gunpowder mills; the Seneca Turnpike running through the village center connected it to regional trade. That history is still visible in the buildings.</p>
+      </div>
+    </section>
+
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">V</div>
+        <h2>The <em>Vibe</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="two-col">
+        <div class="info-card">
+          <div class="card-eyebrow">Pace of Life</div>
+          <h3>Conservative, Close-Knit, Country-Rooted</h3>
+          <p>Marcellus moves slowly and intentionally -- a community where most adults are established, most residents own their homes, and the rhythms of life follow the seasons and the school calendar. Residents tend to be conservative and know each other well. New arrivals can find it takes time to feel fully integrated, though the school community tends to be a natural entry point for families with children.</p>
+        </div>
+        <div class="info-card">
+          <div class="card-eyebrow">Downtown</div>
+          <h3>Route 175 -- Small, Genuine, Locally Owned</h3>
+          <p>New York State Route 175 doubles as Marcellus's main street -- a compact strip of locally owned businesses including a brewery, a bookshop and boutique, a hardware store operating since 1888, and a handful of restaurants. Modest in scale but genuine in character. Residents head to Camillus or Fairmount for grocery shopping, about 7-10 miles away.</p>
+        </div>
+        <div class="info-card">
+          <div class="card-eyebrow">Who Lives Here</div>
+          <h3>Established Families, Outdoor Enthusiasts &amp; Value Buyers</h3>
+          <p>Marcellus draws multi-generational families with deep roots, newer arrivals who discovered that a highly rated school district at accessible prices is a rare combination, and buyers who want rolling countryside character within a short commute of Syracuse. The proximity to Skaneateles and Otisco Lakes adds a Finger Lakes dimension that most similarly-priced communities cannot offer.</p>
+        </div>
+        <div class="info-card">
+          <div class="card-eyebrow">Commute</div>
+          <h3>12 Miles to Syracuse via Route 175</h3>
+          <p>The 12-mile drive to Syracuse on Route 175 takes about 20 minutes under normal conditions -- practical for commuters to the city, Camillus, and the broader Syracuse metro. US Route 20 runs east-west through the southern part of town, and Skaneateles is just a few miles west. The airport is a 20-mile drive.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">K</div>
+        <h2>What It's <em>Known For</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="item-list">
+        <div class="item-row">
+          <div class="item-marker">01</div>
+          <div>
+            <h4>Olde Home Days -- June</h4>
+            <p>A three-day June festival that has anchored Marcellus's community calendar for generations -- a book sale, craft fair, raffles, carnival rides, games, and fireworks. The kind of small-town event that brings everyone out, from families who have lived in the village their entire lives to newcomers discovering what makes Marcellus feel like a genuine community rather than a suburb. One of the most beloved annual events in western Onondaga County.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-marker">02</div>
+          <div>
+            <h4>Baltimore Woods Nature Center</h4>
+            <p>A 183-acre nature preserve just outside the village -- one of the finest nature centers in Central New York, with year-round programming, marked hiking trails through old-growth forest, a nature center building, and educational programs for schools and families. A genuinely excellent community resource that reflects Marcellus's deep connection to its natural landscape and one of the primary quality-of-life assets that distinguishes the community for buyers who prioritize outdoor access.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-marker">03</div>
+          <div>
+            <h4>Nine Mile Creek -- Trout Fishing &amp; Nature</h4>
+            <p>A noted trout stream running through the town -- New York State provides several public access areas along its length for fishing, wading, and nature observation. Nine Mile Creek and the town park alongside it give Marcellus residents a genuine relationship with moving water and the landscape in a way that most suburban communities lack entirely. The creek is also notable for the historic mill sites along its banks that reflect the town's industrial heritage.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-marker">04</div>
+          <div>
+            <h4>Marcellus Park</h4>
+            <p>A town park taken over from Onondaga County in 1993 -- sports courts, a baseball diamond, a walking trail alongside Nine Mile Creek, and a playground. The primary community recreation hub for the village and the site of community events throughout the year. Well-maintained and heavily used by families throughout the warmer months.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-marker">05</div>
+          <div>
+            <h4>Skaneateles Lake -- 5 Miles West</h4>
+            <p>The jewel of the Finger Lakes is just 5 miles west of Marcellus village -- one of the most remarkable quality-of-life adjacencies of any community in Central New York. Skaneateles village, the Sherwood Inn, Clift Park on the lakefront, and water pure enough to drink from the tap are all a short drive from Marcellus. The combination of Marcellus's accessible prices with Skaneateles's extraordinary lake access makes this a compelling pairing for buyers who know the region.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-marker">06</div>
+          <div>
+            <h4>Nightingale Mills Ace Hardware -- Est. 1888</h4>
+            <p>A hardware store that has been serving Marcellus residents since 1888 -- a genuine piece of village continuity that reflects a community where local businesses are valued and sustained across generations. The kind of institution that only exists in places with a real sense of identity and loyalty, and that new residents quickly come to appreciate.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-marker">07</div>
+          <div>
+            <h4>That's What She Read Bookshop &amp; Boutique</h4>
+            <p>A woman-owned independent bookshop and boutique that has become well-known in the Marcellus area -- a destination for locals and visitors alike that reflects the village's support for independent businesses and its literary-leaning community character. The kind of shop that a small village builds its identity around.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">R</div>
+        <h2>Restaurants &amp; <em>Dining</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <p class="prose">Marcellus has a compact but genuinely lively local dining and nightlife scene for a village its size. Always verify current hours before visiting.</p>
+      <div class="item-list">
+        <div class="item-row">
+          <div class="item-marker">--</div>
+          <div>
+            <h4>The Village Tavern -- Live Bands &amp; Goldfish Races</h4>
+            <p>The heart of Marcellus nightlife -- live bands every Friday and Saturday night, and the beloved goldfish races that have made the Village Tavern a uniquely Marcellus institution. The kind of local bar that defines a village's social character and keeps people from driving to Syracuse for a good time. A genuine community gathering spot with a personality all its own.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-marker">--</div>
+          <div>
+            <h4>Stone Creek</h4>
+            <p>A well-regarded Marcellus dining destination -- a local favorite that has built a loyal following among village residents and draws diners from the broader Syracuse area. A reliable, quality option in a village where good restaurant choices are genuinely valued.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-marker">--</div>
+          <div>
+            <h4>The Moondance Restaurant</h4>
+            <p>Another Marcellus standout -- a local dining institution with its own loyal following. The kind of neighborhood restaurant that becomes a regular habit for residents who appreciate knowing their options are good without having to leave the village.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-marker">--</div>
+          <div>
+            <h4>Milkhouse Roastery</h4>
+            <p>A local coffee roaster -- the morning anchor for Marcellus residents who want quality coffee without driving to Syracuse. The kind of independent cafe that a small community rallies around and that reflects the village's preference for local over chain.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-marker">--</div>
+          <div>
+            <h4>Riseform Brewing Co.</h4>
+            <p>A craft brewery in the village -- tap list updated weekly and an inviting taproom atmosphere. Not a full-service restaurant, but a community gathering spot in its own right where locals meet over locally brewed beer. A welcome addition to the village's independent business scene.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">O</div>
+        <h2>Outdoor &amp; <em>Recreation</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="item-list">
+        <div class="item-row">
+          <div class="item-marker">--</div>
+          <div><h4>Baltimore Woods Nature Center</h4><p>183 acres of old-growth forest with marked hiking trails, year-round nature programming, and educational events for all ages. One of the finest nature centers in Central New York and a defining community resource for Marcellus residents who prioritize access to wild green space.</p></div>
+        </div>
+        <div class="item-row">
+          <div class="item-marker">--</div>
+          <div><h4>Nine Mile Creek -- Trout Fishing</h4><p>Multiple public access points along this noted trout stream through the town -- fly fishing, wading, and nature observation in a genuinely beautiful creek setting framed by the area's characteristic high hills and deep valleys.</p></div>
+        </div>
+        <div class="item-row">
+          <div class="item-marker">--</div>
+          <div><h4>Marcellus Park</h4><p>Sports courts, baseball diamond, walking trail along Nine Mile Creek, and a playground -- the community's primary recreational hub, well-used through spring, summer, and fall.</p></div>
+        </div>
+        <div class="item-row">
+          <div class="item-marker">--</div>
+          <div><h4>Skaneateles Lake -- 5 Miles West</h4><p>The clearest and most celebrated of the Finger Lakes is just 5 miles from the village -- Clift Park, the Sherwood Inn, sightseeing cruises, and some of the most beautiful lakefront scenery in New York State all within a short drive.</p></div>
+        </div>
+        <div class="item-row">
+          <div class="item-marker">--</div>
+          <div><h4>Otisco Lake -- 5 Miles East</h4><p>The easternmost Finger Lake is equally close in the other direction -- the causeway, the marina, tiger muskie fishing, and year-round lake recreation. Marcellus residents have two Finger Lakes within 5 miles in opposite directions -- a genuine and underappreciated outdoor advantage.</p></div>
+        </div>
+        <div class="item-row">
+          <div class="item-marker">--</div>
+          <div><h4>Camillus Erie Canal Park -- 7 Miles</h4><p>The historic Erie Canal towpath and the Nine Mile Creek aqueduct in nearby Camillus -- hiking, biking, kayaking, and one of the most historically significant canal sites in Central New York just a short drive from Marcellus.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">Ed</div>
+        <h2>Schools</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="school-card">
+        <div class="school-grade">A</div>
+        <div class="school-info">
+          <h3>Marcellus Central School District</h3>
+          <p>The Marcellus Central School District is consistently rated highly -- Niche ranks it among the best places to live in New York in part because of the school quality, and the district's 94% high school graduation rate reflects genuine academic achievement. A smaller district with a strong community identity, where teachers and families tend to know each other well and school events are genuine community occasions. Marcellus High School serves the district's secondary students. For families seeking top-rated schools at more accessible price points than the FM district communities to the east, Marcellus CSD is one of the most compelling options in western Onondaga County.</p>
+          <div class="school-badges">
+            <span class="school-badge">A Rated</span>
+            <span class="school-badge">94% Graduation Rate</span>
+            <span class="school-badge">Marcellus High School</span>
+            <span class="school-badge">Tight-Knit Community</span>
+            <span class="school-badge">Top NY State Rankings</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">RE</div>
+        <h2>Real Estate <em>Overview</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <p class="prose">Marcellus offers meaningful value -- a highly rated school district, genuine countryside character, and proximity to both Syracuse and the Finger Lakes at price points more accessible than the FM district communities to the east. The housing stock is a mix of historic Federal and Greek Revival homes in the village core, Cape Cods and Colonial Revivals from the late 1800s, mid-century ranches and split-levels, and newer construction in surrounding areas. Some homes in the Marietta hamlet offer access to Otisco Lake.</p>
+      <div class="two-col" style="margin-bottom:16px;">
+        <div class="info-card">
+          <div class="card-eyebrow">Village Homes</div>
+          <h3>Historic Character -- Federal &amp; Greek Revival</h3>
+          <p>The village core has genuine 19th-century architectural character -- Federal style, Greek Revival, and Italianate homes alongside well-maintained Cape Cods and colonials. Walkable to main street, the park, the creek, and the schools. A rare combination of history and accessibility.</p>
+        </div>
+        <div class="info-card">
+          <div class="card-eyebrow">Surrounding Town</div>
+          <h3>Countryside Properties &amp; Lake Access</h3>
+          <p>The broader town offers ranches, split-levels, and newer construction on larger rural lots with hill and valley views. Hamlets like Marietta provide proximity to Otisco Lake. Rural acreage is available for buyers who want to build. All within the Marcellus Central School District.</p>
+        </div>
+      </div>
+      <div class="pricing-block">
+        <div class="pricing-label">Current Pricing -- Live Data</div>
+        <p class="pricing-note">Check these sources for the most current Marcellus and Onondaga County market data:</p>
+        <div class="pricing-links">
+          <a href="https://www.redfin.com/city/12166/NY/Marcellus/housing-market" target="_blank" rel="noopener" class="pricing-link">
+            <span class="pl-name">Redfin</span><span class="pl-desc">Median sale price, days on market, price per sq ft</span><span class="pl-arr">&rarr;</span>
+          </a>
+          <a href="https://www.zillow.com/marcellus-ny/home-values/" target="_blank" rel="noopener" class="pricing-link">
+            <span class="pl-name">Zillow</span><span class="pl-desc">Home Value Index &amp; market trends</span><span class="pl-arr">&rarr;</span>
+          </a>
+          <a href="https://www.realtor.com/realestateandhomes-search/Marcellus_NY/overview" target="_blank" rel="noopener" class="pricing-link">
+            <span class="pl-name">Realtor.com</span><span class="pl-desc">Listing prices, market hotness, inventory</span><span class="pl-arr">&rarr;</span>
+          </a>
+        </div>
+        <p class="pricing-disclaimer">Real estate data varies by source and changes over time. Always verify current pricing with a licensed local Realtor.</p>
+      </div>
+    </section>
+
+    <div class="realtor-section fade-in">
+      <span class="eyebrow">Realtor Spotlight</span>
+      <h2>Know Marcellus?<br />Your Clients Are Looking.</h2>
+      <p>Buyers matched to Marcellus are seeking school district quality, countryside character, and Finger Lakes proximity -- and a local expert who knows the village neighborhoods, the Marietta lake access, and what makes living between Syracuse and the Finger Lakes so compelling.</p>
+      <div class="placeholder-cards">
+        <div class="placeholder-card"><div class="placeholder-avatar">M</div><div class="ph-title">Open Spot</div><div class="ph-sub">Marcellus specialist</div></div>
+        <div class="placeholder-card"><div class="placeholder-avatar">M</div><div class="ph-title">Open Spot</div><div class="ph-sub">Marcellus specialist</div></div>
+        <div class="placeholder-card"><div class="placeholder-avatar">M</div><div class="ph-title">Open Spot</div><div class="ph-sub">Marcellus specialist</div></div>
+      </div>
+      <div class="price-inline"><span class="amount">$19</span><span class="period">/month</span></div><br />
+      <a href="https://locatedlifestyle.com/join" class="btn-light">List Yourself as a Marcellus Specialist</a>
+      <p class="founding-note">Founding Member rate -- grandfathered when prices increase to $29/month</p>
+    </div>
+
+    <div class="sources-section fade-in">
+      <h3>Sources</h3>
+      <div class="sources-list">
+        <a href="https://en.wikipedia.org/wiki/Marcellus,_New_York" target="_blank" rel="noopener">Wikipedia -- Marcellus, New York</a>
+        <a href="https://en.wikipedia.org/wiki/Marcellus_(village),_New_York" target="_blank" rel="noopener">Wikipedia -- Village of Marcellus, New York</a>
+        <a href="https://www.homes.com/local-guide/marcellus-ny/" target="_blank" rel="noopener">Homes.com -- Marcellus City Guide</a>
+        <a href="https://www.niche.com/places-to-live/marcellus-onondaga-ny/" target="_blank" rel="noopener">Niche -- Marcellus, NY Reviews &amp; Rankings</a>
+        <a href="https://marcellusny.com/village/" target="_blank" rel="noopener">Town of Marcellus -- Official Site</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="bottom-nav">
+    <p>Continue exploring Central New York</p>
+    <div class="bottom-nav-links">
+      <a href="/central-new-york/">&larr; Central New York</a>
+      <a href="syracuse.html">&larr; Syracuse</a>
+      <a href="tully.html">Tully &rarr;</a>
+      <a href="cazenovia.html">Cazenovia &rarr;</a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-brand">Located <span>Lifestyle</span></div>
+    <div class="footer-copy">&copy; 2026 Located Lifestyle &middot; communities.locatedlifestyle.com &middot; New York State Community Directory</div>
+  </footer>
+
+  <script>
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 75);
+      });
+    }, { threshold: 0.06, rootMargin: '0px 0px -30px 0px' });
+    document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>
