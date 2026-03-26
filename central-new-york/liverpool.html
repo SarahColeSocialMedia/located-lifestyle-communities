@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Liverpool, NY -- Central New York Community Guide | Located Lifestyle</title>
+  <meta name="description" content="Everything you need to know about living in Liverpool, NY -- Onondaga Lake Park, Heid's hot dogs, the Salt Museum, Sainte Marie among the Iroquois, and walkable village life 6 miles from Syracuse." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream:      #f6f3ec;
+      --cream-dark: #ece4da;
+      --taupe:      #b9a590;
+      --taupe-dark: #9a8470;
+      --brown:      #574c3f;
+      --brown-dark: #36302a;
+      --text:       #36302a;
+      --text-muted: #9a8470;
+      --border:     rgba(87,76,63,0.12);
+      --border-med: rgba(87,76,63,0.2);
+      --card-bg:    #ffffff;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--text); overflow-x: hidden; }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 52px;
+      background: rgba(246,243,236,0.95); backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-brand { text-decoration: none; display: flex; flex-direction: column; gap: 1px; }
+    .nav-brand .sub { font-size: 9px; letter-spacing: 3.5px; text-transform: uppercase; color: var(--taupe); font-weight: 500; }
+    .nav-brand .name { font-family: 'Cormorant Garamond', serif; font-size: 20px; color: var(--brown-dark); font-weight: 600; }
+    .nav-right { display: flex; gap: 24px; align-items: center; }
+    .nav-back { font-size: 13px; color: var(--text-muted); text-decoration: none; }
+    .nav-back:hover { color: var(--brown); }
+    .nav-cta { background: var(--brown-dark); color: var(--cream); font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; padding: 10px 22px; border-radius: 2px; text-decoration: none; }
+    .nav-cta:hover { background: var(--brown); }
+
+    .hero {
+      min-height: 62vh; position: relative; overflow: hidden;
+      display: flex; flex-direction: column; align-items: center; justify-content: flex-end;
+      padding: 120px 24px 64px; text-align: center;
+      background: linear-gradient(180deg, #141c22 0%, #1c2830 35%, #243440 60%, #2c404e 100%);
+    }
+    .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 80% 50% at 50% 65%, rgba(40,80,120,0.2) 0%, transparent 65%); }
+    .hero-content { position: relative; z-index: 2; max-width: 780px; }
+    .hero-breadcrumb { display: flex; align-items: center; gap: 8px; justify-content: center; margin-bottom: 20px; font-size: 11px; letter-spacing: 1px; color: rgba(246,243,236,0.5); }
+    .hero-breadcrumb a { color: rgba(246,243,236,0.5); text-decoration: none; }
+    .hero-breadcrumb a:hover { color: var(--cream); }
+    .hero-breadcrumb span { opacity: 0.35; }
+    .hero-eyebrow { font-size: 10px; letter-spacing: 3.5px; text-transform: uppercase; color: rgba(246,243,236,0.6); margin-bottom: 14px; display: block; }
+    .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(52px, 9vw, 100px); font-weight: 600; line-height: 0.95; color: var(--cream); margin-bottom: 12px; letter-spacing: -2px; }
+    .hero-tagline { font-family: 'Cormorant Garamond', serif; font-size: clamp(15px, 2.2vw, 21px); font-style: italic; color: rgba(246,243,236,0.72); margin-bottom: 28px; }
+    .hero-meta { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; margin-bottom: 28px; }
+    .meta-item { font-size: 12px; color: rgba(246,243,236,0.55); }
+    .meta-dot { display: inline-block; width: 3px; height: 3px; border-radius: 50%; background: rgba(246,243,236,0.35); margin: 0 4px; vertical-align: middle; }
+    .hero-badges { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+    .badge { padding: 5px 13px; border-radius: 100px; font-size: 10px; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; background: rgba(255,255,255,0.1); color: rgba(246,243,236,0.82); border: 1px solid rgba(255,255,255,0.18); }
+
+    .stats-bar { background: var(--brown-dark); }
+    .stats-bar-inner { max-width: 960px; margin: 0 auto; display: flex; justify-content: space-around; padding: 26px 24px; flex-wrap: wrap; gap: 18px; }
+    .stat-item { text-align: center; }
+    .stat-value { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 600; color: var(--taupe); display: block; line-height: 1.1; }
+    .stat-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: rgba(246,243,236,0.42); margin-top: 4px; }
+
+    .content-wrap { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+    .section { padding: 68px 0 0; }
+    .section-header { display: flex; align-items: center; gap: 20px; margin-bottom: 30px; }
+    .section-icon { width: 44px; height: 44px; border-radius: 2px; background: var(--cream-dark); border: 1px solid var(--border-med); display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 700; color: var(--brown); font-family: 'Cormorant Garamond', serif; flex-shrink: 0; }
+    .section-header h2 { font-family: 'Cormorant Garamond', serif; font-size: 29px; font-weight: 600; color: var(--brown-dark); }
+    .section-header h2 em { font-style: italic; color: var(--taupe-dark); }
+    .section-line { flex: 1; height: 1px; background: var(--border); }
+
+    .prose { font-size: 15px; line-height: 1.85; color: var(--text-muted); font-weight: 300; margin-bottom: 20px; }
+    .prose strong { color: var(--brown); font-weight: 500; }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .info-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 4px; padding: 20px 22px; }
+    .info-card h3 { font-size: 14px; font-weight: 600; color: var(--brown-dark); margin-bottom: 7px; }
+    .info-card p { font-size: 13px; line-height: 1.7; color: var(--text-muted); font-weight: 300; }
+    .info-card .card-eyebrow { font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--taupe); margin-bottom: 6px; }
+    .highlight-card { background: var(--cream-dark); border: 1px solid var(--border-med); border-radius: 4px; padding: 26px; margin: 28px 0; }
+    .highlight-card .hc-label { font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--taupe); margin-bottom: 10px; }
+    .highlight-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 21px; font-weight: 600; color: var(--brown-dark); margin-bottom: 10px; }
+    .highlight-card p { font-size: 13px; color: var(--text-muted); line-height: 1.75; font-weight: 300; }
+    .highlight-card p + p { margin-top: 10px; }
+    .item-list { display: flex; flex-direction: column; }
+    .item-row { display: flex; align-items: flex-start; gap: 16px; padding: 18px 0; border-bottom: 1px solid var(--border); }
+    .item-row:first-child { border-top: 1px solid var(--border); }
+    .item-marker { font-size: 13px; font-weight: 600; color: var(--taupe); flex-shrink: 0; width: 26px; font-family: 'Cormorant Garamond', serif; }
+    .item-row h4 { font-size: 14px; font-weight: 600; color: var(--brown-dark); margin-bottom: 4px; }
+    .item-row p { font-size: 13px; color: var(--text-muted); line-height: 1.65; font-weight: 300; }
+
+    .school-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 4px; padding: 24px; display: flex; align-items: flex-start; gap: 20px; }
+    .school-grade { width: 52px; height: 52px; border-radius: 4px; background: var(--cream-dark); border: 1px solid var(--border-med); display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 700; color: var(--brown); flex-shrink: 0; }
+    .school-info h3 { font-size: 15px; font-weight: 600; color: var(--brown-dark); margin-bottom: 7px; }
+    .school-info p { font-size: 13px; color: var(--text-muted); line-height: 1.65; font-weight: 300; }
+    .school-badges { display: flex; gap: 7px; flex-wrap: wrap; margin-top: 10px; }
+    .school-badge { padding: 3px 10px; border-radius: 100px; font-size: 11px; background: var(--cream-dark); color: var(--brown); border: 1px solid var(--border-med); }
+
+    .pricing-block { background: var(--card-bg); border: 1px solid var(--border-med); border-radius: 4px; padding: 26px; margin-bottom: 20px; }
+    .pricing-label { font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--taupe); margin-bottom: 8px; }
+    .pricing-note { font-size: 13px; color: var(--text-muted); margin-bottom: 18px; line-height: 1.6; font-weight: 300; }
+    .pricing-links { display: flex; flex-direction: column; gap: 1px; }
+    .pricing-link { display: flex; align-items: center; gap: 16px; padding: 13px 15px; border-radius: 3px; background: var(--cream); border: 1px solid var(--border); text-decoration: none; transition: all 0.2s; }
+    .pricing-link:hover { border-color: var(--brown); background: var(--cream-dark); }
+    .pl-name { font-size: 14px; font-weight: 600; color: var(--brown-dark); min-width: 100px; }
+    .pl-desc { font-size: 12px; color: var(--text-muted); flex: 1; font-weight: 300; }
+    .pl-arr { font-size: 13px; color: var(--taupe); }
+    .pricing-disclaimer { font-size: 11px; color: var(--text-muted); margin-top: 12px; opacity: 0.65; font-style: italic; }
+
+    .realtor-section { margin-top: 68px; background: var(--brown-dark); border-radius: 4px; padding: 48px; text-align: center; }
+    .realtor-section .eyebrow { font-size: 10px; letter-spacing: 3.5px; text-transform: uppercase; color: var(--taupe); margin-bottom: 16px; display: block; }
+    .realtor-section h2 { font-family: 'Cormorant Garamond', serif; font-size: 34px; font-weight: 600; color: var(--cream); line-height: 1.15; margin-bottom: 12px; }
+    .realtor-section p { font-size: 14px; color: rgba(246,243,236,0.55); line-height: 1.75; margin-bottom: 12px; font-weight: 300; max-width: 500px; margin-left: auto; margin-right: auto; }
+    .placeholder-cards { display: flex; gap: 14px; justify-content: center; margin: 28px 0; flex-wrap: wrap; }
+    .placeholder-card { width: 190px; border: 1px dashed rgba(185,165,144,0.3); border-radius: 4px; padding: 22px 14px; text-align: center; background: rgba(255,255,255,0.04); }
+    .placeholder-avatar { width: 48px; height: 48px; border-radius: 50%; background: rgba(185,165,144,0.12); border: 1px dashed rgba(185,165,144,0.3); margin: 0 auto 10px; display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-size: 20px; color: var(--taupe); }
+    .placeholder-card .ph-title { font-size: 12px; font-weight: 500; color: rgba(246,243,236,0.5); margin-bottom: 4px; }
+    .placeholder-card .ph-sub { font-size: 10px; color: rgba(246,243,236,0.3); line-height: 1.5; }
+    .price-inline { display: inline-flex; align-items: baseline; gap: 4px; margin: 16px 0 22px; }
+    .price-inline .amount { font-family: 'Cormorant Garamond', serif; font-size: 46px; font-weight: 600; color: var(--taupe); }
+    .price-inline .period { font-size: 15px; color: rgba(246,243,236,0.4); }
+    .btn-light { background: var(--cream); color: var(--brown-dark); padding: 13px 30px; border-radius: 2px; font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; display: inline-block; }
+    .btn-light:hover { background: var(--cream-dark); }
+    .founding-note { font-size: 11px; color: var(--taupe); margin-top: 12px; opacity: 0.8; }
+
+    .sources-section { margin-top: 60px; padding: 28px 0 80px; border-top: 1px solid var(--border); }
+    .sources-section h3 { font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 12px; }
+    .sources-list a { display: block; font-size: 12px; color: var(--text-muted); text-decoration: none; opacity: 0.6; margin-bottom: 6px; }
+    .sources-list a:hover { opacity: 1; color: var(--brown); }
+
+    .bottom-nav { border-top: 1px solid var(--border); padding: 44px 24px; text-align: center; background: var(--cream-dark); }
+    .bottom-nav p { font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 18px; }
+    .bottom-nav-links { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+    .bottom-nav-links a { padding: 9px 20px; border-radius: 2px; border: 1px solid var(--border-med); font-size: 13px; color: var(--text-muted); text-decoration: none; }
+    .bottom-nav-links a:hover { border-color: var(--brown); color: var(--brown); }
+
+    footer { border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; }
+    .footer-brand { font-family: 'Cormorant Garamond', serif; font-size: 19px; color: var(--brown-dark); margin-bottom: 5px; font-weight: 600; }
+    .footer-brand span { color: var(--taupe-dark); font-style: italic; }
+    .footer-copy { font-size: 11px; color: var(--text-muted); opacity: 0.45; }
+
+    .fade-in { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 768px) {
+      nav { padding: 14px 20px; }
+      .two-col { grid-template-columns: 1fr; }
+      .realtor-section { padding: 32px 18px; }
+      .placeholder-cards { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/" class="nav-brand">
+      <span class="sub">communities</span>
+      <span class="name">Located Lifestyle</span>
+    </a>
+    <div class="nav-right">
+      <a href="/central-new-york/" class="nav-back">&larr; Central New York</a>
+      <a href="https://locatedlifestyle.com/join" class="nav-cta">Join as a Realtor</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-breadcrumb">
+        <a href="/">Communities</a><span>/</span>
+        <a href="/central-new-york/">Central New York</a><span>/</span>
+        Liverpool
+      </div>
+      <span class="hero-eyebrow">Onondaga County &middot; Central New York</span>
+      <h1>Liverpool</h1>
+      <div class="hero-tagline">Onondaga Lake, a walkable village, and the most iconic hot dog stand in Central New York.</div>
+      <div class="hero-meta">
+        <span class="meta-item">Village</span>
+        <span class="meta-dot"></span>
+        <span class="meta-item">Pop. ~2,250</span>
+        <span class="meta-dot"></span>
+        <span class="meta-item">Onondaga County</span>
+        <span class="meta-dot"></span>
+        <span class="meta-item">6 miles north of Syracuse</span>
+      </div>
+      <div class="hero-badges">
+        <span class="badge">Onondaga Lake Park</span>
+        <span class="badge">Heid's of Liverpool</span>
+        <span class="badge">Salt Museum</span>
+        <span class="badge">Ska-nonh Center</span>
+        <span class="badge">Lights on the Lake</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="stats-bar">
+    <div class="stats-bar-inner">
+      <div class="stat-item"><span class="stat-value">See Below</span><div class="stat-label">Current Pricing &darr;</div></div>
+      <div class="stat-item"><span class="stat-value">~2,250</span><div class="stat-label">Village Population</div></div>
+      <div class="stat-item"><span class="stat-value">6 mi</span><div class="stat-label">North of Syracuse</div></div>
+      <div class="stat-item"><span class="stat-value">100+</span><div class="stat-label">Years -- Heid's</div></div>
+      <div class="stat-item"><span class="stat-value">8 mi</span><div class="stat-label">Onondaga Lake Trails</div></div>
+    </div>
+  </div>
+
+  <div class="content-wrap">
+
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">A</div>
+        <h2>Overview &amp; <em>Character</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <p class="prose">Liverpool is one of those villages that surprises people. Just 6 miles north of downtown Syracuse on the eastern shore of Onondaga Lake, it has a <strong>genuinely walkable village center</strong> -- First Street lined with small businesses, cafes, and restaurants, an independently owned bookshop, a library, a bakery, and a dance studio all within a few blocks of each other. "The biggest thing is the walkability," as one 10-year resident and local business owner put it. "We have the only independently run grocery store right across from the shop, the library and one of my favorite bakeries is just around the corner." For a community of 2,250 people situated minutes from a small city, that kind of neighborhood density is genuinely rare.</p>
+      <p class="prose">Liverpool's identity is built around <strong>three things</strong>: the lake, the history, and the community. Onondaga Lake Park -- dubbed the Central Park of Central New York -- runs along the waterfront with 8 miles of paved trails, a marina, pickleball courts, a skate park, and a butterfly garden. The village's salt manufacturing heritage is preserved in the free Salt Museum. And the community events calendar -- Lights on the Lake holiday light show, the Corporate Challenge, summer concerts, and the library's Dinosaur Garden -- gives Liverpool an animated, year-round community life that belies its small size.</p>
+
+      <div class="highlight-card">
+        <div class="hc-label">Liverpool's Salt Heritage</div>
+        <h3>Once the Salt Capital of the United States</h3>
+        <p>Before Syracuse was known for its university or its basketball, it was known for salt. The brine springs around Onondaga Lake were the foundation of a massive salt industry that at its peak supplied much of the United States -- the region was nicknamed "The Salt City." Liverpool was at the heart of this industry, and the village's historic architecture along First Street reflects the prosperity of the salt-manufacturing era. The free Salt Museum in Onondaga Lake Park preserves this history with original salt boiling blocks and exhibits open seasonally from May through October.</p>
+        <p>That same lake that powered the salt industry is now a restored recreational resource -- one of the most remarkable environmental comeback stories in New York State. After decades of industrial contamination, Onondaga Lake has undergone a major cleanup effort and is significantly improved, with Onondaga Lake Park hugging its shores as one of the most active community parks in Central New York.</p>
+      </div>
+    </section>
+
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">V</div>
+        <h2>The <em>Vibe</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="two-col">
+        <div class="info-card">
+          <div class="card-eyebrow">Pace of Life</div>
+          <h3>Walkable, Neighborly, Lake-Oriented</h3>
+          <p>Liverpool moves at a village pace with a genuine community identity built around the lake, the park, and the walkable First Street core. Residents describe a strong sense of belonging -- the kind of place where neighbors know each other and everyone has an opinion about Heid's. The lake and the park keep people outside year-round, and the event calendar keeps people connected through every season.</p>
+        </div>
+        <div class="info-card">
+          <div class="card-eyebrow">Village Core</div>
+          <h3>First Street -- Genuinely Walkable</h3>
+          <p>The village center along First Street has the density of amenities that most Syracuse suburbs lack -- an independent bookshop (Golden Bee), a grocery store, a library, a bakery, restaurants, and cafes all within walking distance of the residential streets. Lampposts branded with "Shop, Dine and Enjoy" banners reflect a village that has consciously invested in its commercial character.</p>
+        </div>
+        <div class="info-card">
+          <div class="card-eyebrow">Who Lives Here</div>
+          <h3>Long-Term Residents, Young Families &amp; Lake People</h3>
+          <p>Liverpool draws people who grew up in the Syracuse area and want to stay close to the city without living in it, young families attracted by the lake and the community character, and buyers who discovered that walkable village living 6 miles from downtown is a genuinely compelling proposition. Strong proximity to major employers -- Amazon, Micron, and the Syracuse medical/university corridor -- makes the commute practical for professionals.</p>
+        </div>
+        <div class="info-card">
+          <div class="card-eyebrow">Commute</div>
+          <h3>6 Miles to Downtown Syracuse</h3>
+          <p>The Onondaga Lake Parkway connects Liverpool directly to downtown Syracuse -- a scenic drive along the lake that takes about 10-15 minutes under normal conditions. Interstate 81 and 90 are easily accessible, making Liverpool practical for commuters going anywhere in the Syracuse metro or beyond.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">K</div>
+        <h2>What It's <em>Known For</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="item-list">
+        <div class="item-row">
+          <div class="item-marker">01</div>
+          <div>
+            <h4>Onondaga Lake Park -- The Central Park of Central New York</h4>
+            <p>Eight miles of paved multi-use trails along the lake shore, a marina and yacht club, pickleball courts, a skate park, a butterfly garden, a children's playground, volleyball courts, baseball fields, a dog park, and picnic areas -- all hugging the shores of Onondaga Lake. One of the most heavily used community parks in Central New York and the defining outdoor amenity of Liverpool. Active every day of the year in every season, and the site of some of the region's most beloved community events.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-marker">02</div>
+          <div>
+            <h4>Heid's of Liverpool -- A Central New York Institution</h4>
+            <p>Heid's has been serving hot dogs from its distinctive art deco building at the main intersection in Liverpool for over 100 years. Featured on the Travel Channel's Man vs. Food and beloved by generations of Central New York residents, Heid's is one of those places that defines a community's identity. The Hoffman White and Red Hots have "a uniquely delectable flavor" according to the restaurant's own description -- and the generations of locals who have been coming here their whole lives would agree. A visit to Liverpool is not complete without stopping at Heid's.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-marker">03</div>
+          <div>
+            <h4>Lights on the Lake</h4>
+            <p>One of the most beloved holiday traditions in Central New York -- a drive-through holiday light display in Onondaga Lake Park that draws families from across the region every November and December. Thousands of illuminated displays along a scenic lakeside route, running nightly through the holiday season. A defining Liverpool community event and a major regional draw.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-marker">04</div>
+          <div>
+            <h4>Salt Museum</h4>
+            <p>A free museum inside Onondaga Lake Park preserving Liverpool's remarkable salt manufacturing heritage -- open seasonally from May through October. An original salt boiling block on which the lake's brackish water was processed anchors the exhibits. A fascinating and free piece of regional history that connects the village's past to the lake it still centers its life around.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-marker">05</div>
+          <div>
+            <h4>Ska-nonh -- Great Law of Peace Center</h4>
+            <p>A museum on the Onondaga Lake shoreline dedicated to the history and living culture of the Haudenosaunee (Iroquois) Confederacy -- the Great Law of Peace that is widely credited as an influence on the United States Constitution. Permanent exhibits on Creation, the Thanksgiving Address, the Great Law of Peace, and European Contact. One of the most significant cultural institutions in Central New York and consistently praised by visitors for the depth and honesty of its programming.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-marker">06</div>
+          <div>
+            <h4>Liverpool Public Library -- Dinosaur Garden</h4>
+            <p>The Liverpool Public Library features a beloved outdoor Dinosaur Garden with three large dinosaur sculptures named Mari, Dhari, and ZuZu -- a quirky and cherished community landmark that reflects the village's investment in making the library a genuine community destination. The library itself is a well-used community hub with strong programming for all ages.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-marker">07</div>
+          <div>
+            <h4>The Corporate Challenge &amp; Community Events</h4>
+            <p>The Onondaga Lake Parkway is famous in the Syracuse area for being closed off for the annual Corporate Challenge -- a 3.5-mile race where local businesses form teams to compete against each other, drawing thousands of participants and spectators. The Parkway also hosts color runs, bubble runs, turkey trots, and charitable walks throughout the year. A lively events calendar that uses the lakeside setting to its full advantage.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">R</div>
+        <h2>Restaurants &amp; <em>Dining</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <p class="prose">Liverpool's dining scene centers on the First Street village core and the surrounding area, with a mix of genuine local institutions and well-regarded neighborhood spots. Always verify current hours.</p>
+      <div class="item-list">
+        <div class="item-row">
+          <div class="item-marker">--</div>
+          <div>
+            <h4>Heid's of Liverpool</h4>
+            <p>Over 100 years old and still going strong at the main intersection in the village -- the art deco building, the Hoffman White and Red Hots, and the generations of loyalty make Heid's one of the most authentic local food institutions in all of Central New York. Featured on Man vs. Food. Non-negotiable for anyone visiting or moving to Liverpool.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-marker">--</div>
+          <div>
+            <h4>Santangelo's Restaurant</h4>
+            <p>A Liverpool dining staple -- Italian-American cuisine in a warm, welcoming setting that has earned consistent loyalty from village residents and visitors alike. The kind of neighborhood restaurant that anchors a community's dining identity through years of reliable quality and genuine hospitality.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-marker">--</div>
+          <div>
+            <h4>The Retreat</h4>
+            <p>A well-regarded Liverpool restaurant with a loyal local following -- a genuine neighborhood destination that regulars return to consistently for quality food and a welcoming atmosphere. One of the spots locals recommend when asked where to eat in Liverpool.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">O</div>
+        <h2>Outdoor &amp; <em>Recreation</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="item-list">
+        <div class="item-row">
+          <div class="item-marker">--</div>
+          <div><h4>Onondaga Lake Park</h4><p>Eight miles of paved trails for walking, running, cycling, and rollerblading along the lake -- a marina, yacht club, pickleball courts, skate park, butterfly garden, children's playground, dog park, volleyball courts, and baseball fields. The defining outdoor resource for the entire Liverpool community and one of the most active parks in Central New York.</p></div>
+        </div>
+        <div class="item-row">
+          <div class="item-marker">--</div>
+          <div><h4>Onondaga Lake -- Fishing &amp; Paddling</h4><p>Onondaga Lake has improved dramatically following decades of remediation -- fishing, kayaking, and paddleboarding are now common activities on the lake. The marina provides boat access and the lakeside setting makes waterfront recreation a central part of Liverpool daily life.</p></div>
+        </div>
+        <div class="item-row">
+          <div class="item-marker">--</div>
+          <div><h4>Johnson Park</h4><p>The village's central pocket park -- trails, benches, and a small pavilion stage that hosts community events and summer concerts through the warmer months. A well-used gathering space that contributes to Liverpool's sense of neighborhood identity.</p></div>
+        </div>
+        <div class="item-row">
+          <div class="item-marker">--</div>
+          <div><h4>Duerr Park</h4><p>Just north of the village center -- home to the Liverpool Little League and a public pool. A community sports and recreation hub for families with children, well-used throughout the spring and summer seasons.</p></div>
+        </div>
+        <div class="item-row">
+          <div class="item-marker">--</div>
+          <div><h4>Onondaga Lake Parkway Events</h4><p>The parkway along the lake is regularly closed for community events -- the Corporate Challenge race, color runs, turkey trots, and other charitable and community activities that take advantage of the scenic lakeside route. A living community asset that sees active use beyond its daily recreational traffic.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">Ed</div>
+        <h2>Schools</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="school-card">
+        <div class="school-grade">B+</div>
+        <div class="school-info">
+          <h3>Liverpool Central School District</h3>
+          <p>The Liverpool Central School District serves the village and the broader surrounding area -- a solid, well-regarded suburban district that consistently performs well above the state average. The district includes multiple elementary schools, middle schools, and Liverpool High School, with a range of programs including AP coursework, performing arts, and athletics. For families seeking a strong school district at a price point below the FM district communities of Fayetteville and Manlius, Liverpool CSD offers a compelling combination of quality and accessibility. The district serves a large and diverse community and is well-resourced relative to comparable suburban districts in Central New York.</p>
+          <div class="school-badges">
+            <span class="school-badge">B+ Rated</span>
+            <span class="school-badge">Liverpool High School</span>
+            <span class="school-badge">AP Coursework</span>
+            <span class="school-badge">Performing Arts</span>
+            <span class="school-badge">Above State Average</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">RE</div>
+        <h2>Real Estate <em>Overview</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <p class="prose">Liverpool offers some of the best value for lakeside and walkable village living in the Syracuse metro. The village's older housing stock -- well-maintained homes on established residential streets within walking distance of First Street and Onondaga Lake Park -- provides genuine neighborhood character at accessible price points. The broader Liverpool area extending north and east offers newer suburban construction at a range of budgets, all within the Liverpool Central School District.</p>
+      <div class="two-col" style="margin-bottom:16px;">
+        <div class="info-card">
+          <div class="card-eyebrow">Village Homes</div>
+          <h3>Walkable Character at Accessible Prices</h3>
+          <p>Older residential homes within walking distance of First Street and the lake -- well-maintained and characterful, at price points that offer genuine value relative to FM district communities to the east. The village's walkability and lake access are the primary premium drivers.</p>
+        </div>
+        <div class="info-card">
+          <div class="card-eyebrow">Broader Liverpool Area</div>
+          <h3>Suburban Range North &amp; East</h3>
+          <p>The broader Liverpool area extending beyond the village core offers newer suburban construction -- colonials, ranches, and newer builds -- at a range of price points within the Liverpool Central School District. Convenient access to I-81, I-90, and the full Syracuse employment base.</p>
+        </div>
+      </div>
+      <div class="pricing-block">
+        <div class="pricing-label">Current Pricing -- Live Data</div>
+        <p class="pricing-note">Check these sources for the most current Liverpool and Onondaga County market data:</p>
+        <div class="pricing-links">
+          <a href="https://www.redfin.com/city/10696/NY/Liverpool/housing-market" target="_blank" rel="noopener" class="pricing-link">
+            <span class="pl-name">Redfin</span><span class="pl-desc">Median sale price, days on market, price per sq ft</span><span class="pl-arr">&rarr;</span>
+          </a>
+          <a href="https://www.zillow.com/liverpool-ny/home-values/" target="_blank" rel="noopener" class="pricing-link">
+            <span class="pl-name">Zillow</span><span class="pl-desc">Home Value Index &amp; market trends</span><span class="pl-arr">&rarr;</span>
+          </a>
+          <a href="https://www.realtor.com/realestateandhomes-search/Liverpool_NY/overview" target="_blank" rel="noopener" class="pricing-link">
+            <span class="pl-name">Realtor.com</span><span class="pl-desc">Listing prices, market hotness, inventory</span><span class="pl-arr">&rarr;</span>
+          </a>
+        </div>
+        <p class="pricing-disclaimer">Real estate data varies by source and changes over time. Always verify current pricing with a licensed local Realtor.</p>
+      </div>
+    </section>
+
+    <div class="realtor-section fade-in">
+      <span class="eyebrow">Realtor Spotlight</span>
+      <h2>Know Liverpool?<br />Your Clients Are Looking.</h2>
+      <p>Buyers matched to Liverpool are seeking lakeside living, a walkable village core, and a Syracuse commute -- and a local expert who knows the difference between the village and the broader Liverpool area, and which streets put residents walking distance from First Street and the park.</p>
+      <div class="placeholder-cards">
+        <div class="placeholder-card"><div class="placeholder-avatar">L</div><div class="ph-title">Open Spot</div><div class="ph-sub">Liverpool specialist</div></div>
+        <div class="placeholder-card"><div class="placeholder-avatar">L</div><div class="ph-title">Open Spot</div><div class="ph-sub">Liverpool specialist</div></div>
+        <div class="placeholder-card"><div class="placeholder-avatar">L</div><div class="ph-title">Open Spot</div><div class="ph-sub">Liverpool specialist</div></div>
+      </div>
+      <div class="price-inline"><span class="amount">$19</span><span class="period">/month</span></div><br />
+      <a href="https://locatedlifestyle.com/join" class="btn-light">List Yourself as a Liverpool Specialist</a>
+      <p class="founding-note">Founding Member rate -- grandfathered when prices increase to $29/month</p>
+    </div>
+
+    <div class="sources-section fade-in">
+      <h3>Sources</h3>
+      <div class="sources-list">
+        <a href="https://www.homes.com/local-guide/liverpool-ny/" target="_blank" rel="noopener">Homes.com -- Liverpool City Guide</a>
+        <a href="https://wandercuse.com/things-to-do-in-liverpool-new-york/" target="_blank" rel="noopener">Wanderlust on a Budget -- Things to Do in Liverpool, NY</a>
+        <a href="https://familytimescny.com/explore-cny-liverpool/" target="_blank" rel="noopener">Family Times CNY -- Explore Liverpool</a>
+        <a href="https://www.niche.com/places-to-live/liverpool-onondaga-ny/" target="_blank" rel="noopener">Niche -- Liverpool, NY Reviews &amp; Rankings</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="bottom-nav">
+    <p>Continue exploring Central New York</p>
+    <div class="bottom-nav-links">
+      <a href="/central-new-york/">&larr; Central New York</a>
+      <a href="syracuse.html">&larr; Syracuse</a>
+      <a href="baldwinsville.html">Baldwinsville &rarr;</a>
+      <a href="chittenango.html">Chittenango &rarr;</a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-brand">Located <span>Lifestyle</span></div>
+    <div class="footer-copy">&copy; 2026 Located Lifestyle &middot; communities.locatedlifestyle.com &middot; New York State Community Directory</div>
+  </footer>
+
+  <script>
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 75);
+      });
+    }, { threshold: 0.06, rootMargin: '0px 0px -30px 0px' });
+    document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>
