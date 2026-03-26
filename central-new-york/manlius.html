@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manlius, NY -- Central New York Community Guide | Located Lifestyle</title>
+  <meta name="description" content="Everything you need to know about living in Manlius, NY -- Swan Pond, the FM school district, FM High School, the Manlius Cinema, historic Seneca Street, and village life 20 minutes from Syracuse." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream:      #f6f3ec;
+      --cream-dark: #ece4da;
+      --taupe:      #b9a590;
+      --taupe-dark: #9a8470;
+      --brown:      #574c3f;
+      --brown-dark: #36302a;
+      --text:       #36302a;
+      --text-muted: #9a8470;
+      --border:     rgba(87,76,63,0.12);
+      --border-med: rgba(87,76,63,0.2);
+      --card-bg:    #ffffff;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--text); overflow-x: hidden; }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 52px;
+      background: rgba(246,243,236,0.95); backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-brand { text-decoration: none; display: flex; flex-direction: column; gap: 1px; }
+    .nav-brand .sub { font-size: 9px; letter-spacing: 3.5px; text-transform: uppercase; color: var(--taupe); font-weight: 500; }
+    .nav-brand .name { font-family: 'Cormorant Garamond', serif; font-size: 20px; color: var(--brown-dark); font-weight: 600; }
+    .nav-right { display: flex; gap: 24px; align-items: center; }
+    .nav-back { font-size: 13px; color: var(--text-muted); text-decoration: none; }
+    .nav-back:hover { color: var(--brown); }
+    .nav-cta { background: var(--brown-dark); color: var(--cream); font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; padding: 10px 22px; border-radius: 2px; text-decoration: none; }
+    .nav-cta:hover { background: var(--brown); }
+
+    .hero {
+      min-height: 62vh; position: relative; overflow: hidden;
+      display: flex; flex-direction: column; align-items: center; justify-content: flex-end;
+      padding: 120px 24px 64px; text-align: center;
+      background: linear-gradient(180deg, #161820 0%, #1e2028 35%, #262832 60%, #2e303c 100%);
+    }
+    .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 80% 50% at 50% 65%, rgba(60,70,100,0.18) 0%, transparent 65%); }
+    .hero-content { position: relative; z-index: 2; max-width: 780px; }
+    .hero-breadcrumb { display: flex; align-items: center; gap: 8px; justify-content: center; margin-bottom: 20px; font-size: 11px; letter-spacing: 1px; color: rgba(246,243,236,0.5); }
+    .hero-breadcrumb a { color: rgba(246,243,236,0.5); text-decoration: none; }
+    .hero-breadcrumb a:hover { color: var(--cream); }
+    .hero-breadcrumb span { opacity: 0.35; }
+    .hero-eyebrow { font-size: 10px; letter-spacing: 3.5px; text-transform: uppercase; color: rgba(246,243,236,0.6); margin-bottom: 14px; display: block; }
+    .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(52px, 9vw, 100px); font-weight: 600; line-height: 0.95; color: var(--cream); margin-bottom: 12px; letter-spacing: -2px; }
+    .hero-tagline { font-family: 'Cormorant Garamond', serif; font-size: clamp(15px, 2.2vw, 21px); font-style: italic; color: rgba(246,243,236,0.72); margin-bottom: 28px; }
+    .hero-meta { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; margin-bottom: 28px; }
+    .meta-item { font-size: 12px; color: rgba(246,243,236,0.55); }
+    .meta-dot { display: inline-block; width: 3px; height: 3px; border-radius: 50%; background: rgba(246,243,236,0.35); margin: 0 4px; vertical-align: middle; }
+    .hero-badges { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+    .badge { padding: 5px 13px; border-radius: 100px; font-size: 10px; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; background: rgba(255,255,255,0.1); color: rgba(246,243,236,0.82); border: 1px solid rgba(255,255,255,0.18); }
+
+    .stats-bar { background: var(--brown-dark); }
+    .stats-bar-inner { max-width: 960px; margin: 0 auto; display: flex; justify-content: space-around; padding: 26px 24px; flex-wrap: wrap; gap: 18px; }
+    .stat-item { text-align: center; }
+    .stat-value { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 600; color: var(--taupe); display: block; line-height: 1.1; }
+    .stat-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: rgba(246,243,236,0.42); margin-top: 4px; }
+
+    .content-wrap { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+    .section { padding: 68px 0 0; }
+    .section-header { display: flex; align-items: center; gap: 20px; margin-bottom: 30px; }
+    .section-icon { width: 44px; height: 44px; border-radius: 2px; background: var(--cream-dark); border: 1px solid var(--border-med); display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 700; color: var(--brown); font-family: 'Cormorant Garamond', serif; flex-shrink: 0; }
+    .section-header h2 { font-family: 'Cormorant Garamond', serif; font-size: 29px; font-weight: 600; color: var(--brown-dark); }
+    .section-header h2 em { font-style: italic; color: var(--taupe-dark); }
+    .section-line { flex: 1; height: 1px; background: var(--border); }
+
+    .prose { font-size: 15px; line-height: 1.85; color: var(--text-muted); font-weight: 300; margin-bottom: 20px; }
+    .prose strong { color: var(--brown); font-weight: 500; }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .three-col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .info-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 4px; padding: 20px 22px; }
+    .info-card h3 { font-size: 14px; font-weight: 600; color: var(--brown-dark); margin-bottom: 7px; }
+    .info-card p { font-size: 13px; line-height: 1.7; color: var(--text-muted); font-weight: 300; }
+    .info-card .card-eyebrow { font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--taupe); margin-bottom: 6px; }
+    .highlight-card { background: var(--cream-dark); border: 1px solid var(--border-med); border-radius: 4px; padding: 26px; margin: 28px 0; }
+    .highlight-card .hc-label { font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--taupe); margin-bottom: 10px; }
+    .highlight-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 21px; font-weight: 600; color: var(--brown-dark); margin-bottom: 10px; }
+    .highlight-card p { font-size: 13px; color: var(--text-muted); line-height: 1.75; font-weight: 300; }
+    .highlight-card p + p { margin-top: 10px; }
+    .item-list { display: flex; flex-direction: column; }
+    .item-row { display: flex; align-items: flex-start; gap: 16px; padding: 18px 0; border-bottom: 1px solid var(--border); }
+    .item-row:first-child { border-top: 1px solid var(--border); }
+    .item-marker { font-size: 13px; font-weight: 600; color: var(--taupe); flex-shrink: 0; width: 26px; font-family: 'Cormorant Garamond', serif; }
+    .item-row h4 { font-size: 14px; font-weight: 600; color: var(--brown-dark); margin-bottom: 4px; }
+    .item-row p { font-size: 13px; color: var(--text-muted); line-height: 1.65; font-weight: 300; }
+
+    .school-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 4px; padding: 24px; display: flex; align-items: flex-start; gap: 20px; }
+    .school-grade { width: 52px; height: 52px; border-radius: 4px; background: var(--cream-dark); border: 1px solid var(--border-med); display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 700; color: var(--brown); flex-shrink: 0; }
+    .school-info h3 { font-size: 15px; font-weight: 600; color: var(--brown-dark); margin-bottom: 7px; }
+    .school-info p { font-size: 13px; color: var(--text-muted); line-height: 1.65; font-weight: 300; }
+    .school-badges { display: flex; gap: 7px; flex-wrap: wrap; margin-top: 10px; }
+    .school-badge { padding: 3px 10px; border-radius: 100px; font-size: 11px; background: var(--cream-dark); color: var(--brown); border: 1px solid var(--border-med); }
+
+    .pricing-block { background: var(--card-bg); border: 1px solid var(--border-med); border-radius: 4px; padding: 26px; margin-bottom: 20px; }
+    .pricing-label { font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--taupe); margin-bottom: 8px; }
+    .pricing-note { font-size: 13px; color: var(--text-muted); margin-bottom: 18px; line-height: 1.6; font-weight: 300; }
+    .pricing-links { display: flex; flex-direction: column; gap: 1px; }
+    .pricing-link { display: flex; align-items: center; gap: 16px; padding: 13px 15px; border-radius: 3px; background: var(--cream); border: 1px solid var(--border); text-decoration: none; transition: all 0.2s; }
+    .pricing-link:hover { border-color: var(--brown); background: var(--cream-dark); }
+    .pl-name { font-size: 14px; font-weight: 600; color: var(--brown-dark); min-width: 100px; }
+    .pl-desc { font-size: 12px; color: var(--text-muted); flex: 1; font-weight: 300; }
+    .pl-arr { font-size: 13px; color: var(--taupe); }
+    .pricing-disclaimer { font-size: 11px; color: var(--text-muted); margin-top: 12px; opacity: 0.65; font-style: italic; }
+
+    .realtor-section { margin-top: 68px; background: var(--brown-dark); border-radius: 4px; padding: 48px; text-align: center; }
+    .realtor-section .eyebrow { font-size: 10px; letter-spacing: 3.5px; text-transform: uppercase; color: var(--taupe); margin-bottom: 16px; display: block; }
+    .realtor-section h2 { font-family: 'Cormorant Garamond', serif; font-size: 34px; font-weight: 600; color: var(--cream); line-height: 1.15; margin-bottom: 12px; }
+    .realtor-section p { font-size: 14px; color: rgba(246,243,236,0.55); line-height: 1.75; margin-bottom: 12px; font-weight: 300; max-width: 500px; margin-left: auto; margin-right: auto; }
+    .placeholder-cards { display: flex; gap: 14px; justify-content: center; margin: 28px 0; flex-wrap: wrap; }
+    .placeholder-card { width: 190px; border: 1px dashed rgba(185,165,144,0.3); border-radius: 4px; padding: 22px 14px; text-align: center; background: rgba(255,255,255,0.04); }
+    .placeholder-avatar { width: 48px; height: 48px; border-radius: 50%; background: rgba(185,165,144,0.12); border: 1px dashed rgba(185,165,144,0.3); margin: 0 auto 10px; display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-size: 20px; color: var(--taupe); }
+    .placeholder-card .ph-title { font-size: 12px; font-weight: 500; color: rgba(246,243,236,0.5); margin-bottom: 4px; }
+    .placeholder-card .ph-sub { font-size: 10px; color: rgba(246,243,236,0.3); line-height: 1.5; }
+    .price-inline { display: inline-flex; align-items: baseline; gap: 4px; margin: 16px 0 22px; }
+    .price-inline .amount { font-family: 'Cormorant Garamond', serif; font-size: 46px; font-weight: 600; color: var(--taupe); }
+    .price-inline .period { font-size: 15px; color: rgba(246,243,236,0.4); }
+    .btn-light { background: var(--cream); color: var(--brown-dark); padding: 13px 30px; border-radius: 2px; font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; display: inline-block; }
+    .btn-light:hover { background: var(--cream-dark); }
+    .founding-note { font-size: 11px; color: var(--taupe); margin-top: 12px; opacity: 0.8; }
+
+    .sources-section { margin-top: 60px; padding: 28px 0 80px; border-top: 1px solid var(--border); }
+    .sources-section h3 { font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 12px; }
+    .sources-list a { display: block; font-size: 12px; color: var(--text-muted); text-decoration: none; opacity: 0.6; margin-bottom: 6px; }
+    .sources-list a:hover { opacity: 1; color: var(--brown); }
+
+    .bottom-nav { border-top: 1px solid var(--border); padding: 44px 24px; text-align: center; background: var(--cream-dark); }
+    .bottom-nav p { font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 18px; }
+    .bottom-nav-links { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+    .bottom-nav-links a { padding: 9px 20px; border-radius: 2px; border: 1px solid var(--border-med); font-size: 13px; color: var(--text-muted); text-decoration: none; }
+    .bottom-nav-links a:hover { border-color: var(--brown); color: var(--brown); }
+
+    footer { border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; }
+    .footer-brand { font-family: 'Cormorant Garamond', serif; font-size: 19px; color: var(--brown-dark); margin-bottom: 5px; font-weight: 600; }
+    .footer-brand span { color: var(--taupe-dark); font-style: italic; }
+    .footer-copy { font-size: 11px; color: var(--text-muted); opacity: 0.45; }
+
+    .fade-in { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 768px) {
+      nav { padding: 14px 20px; }
+      .two-col, .three-col { grid-template-columns: 1fr; }
+      .realtor-section { padding: 32px 18px; }
+      .placeholder-cards { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/" class="nav-brand">
+      <span class="sub">communities</span>
+      <span class="name">Located Lifestyle</span>
+    </a>
+    <div class="nav-right">
+      <a href="/central-new-york/" class="nav-back">&larr; Central New York</a>
+      <a href="https://locatedlifestyle.com/join" class="nav-cta">Join as a Realtor</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-breadcrumb">
+        <a href="/">Communities</a><span>/</span>
+        <a href="/central-new-york/">Central New York</a><span>/</span>
+        Manlius
+      </div>
+      <span class="hero-eyebrow">Onondaga County &middot; Central New York</span>
+      <h1>Manlius</h1>
+      <div class="hero-tagline">Swan Pond, Seneca Street, and the FM High School at the center of it all.</div>
+      <div class="hero-meta">
+        <span class="meta-item">Village &amp; Town</span>
+        <span class="meta-dot"></span>
+        <span class="meta-item">Pop. ~4,700 village / ~33,700 town</span>
+        <span class="meta-dot"></span>
+        <span class="meta-item">Onondaga County</span>
+        <span class="meta-dot"></span>
+        <span class="meta-item">20 min to Syracuse</span>
+      </div>
+      <div class="hero-badges">
+        <span class="badge">FM School District</span>
+        <span class="badge">Swan Pond</span>
+        <span class="badge">Manlius Cinema</span>
+        <span class="badge">National Register Historic District</span>
+        <span class="badge">CNN Top 100 Places to Live</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="stats-bar">
+    <div class="stats-bar-inner">
+      <div class="stat-item"><span class="stat-value">See Below</span><div class="stat-label">Current Pricing &darr;</div></div>
+      <div class="stat-item"><span class="stat-value">~4,700</span><div class="stat-label">Village Population</div></div>
+      <div class="stat-item"><span class="stat-value">20 min</span><div class="stat-label">To Syracuse</div></div>
+      <div class="stat-item"><span class="stat-value">1813</span><div class="stat-label">First Village in Onondaga County</div></div>
+      <div class="stat-item"><span class="stat-value">50 sq mi</span><div class="stat-label">Town Area</div></div>
+    </div>
+  </div>
+
+  <div class="content-wrap">
+
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">A</div>
+        <h2>Overview &amp; <em>Character</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <p class="prose">Manlius occupies a distinctive place in the Central New York landscape -- it is simultaneously the village where FM High School is located, the town that contains both Fayetteville and Minoa within its 50 square miles, and a historic community that was <strong>the first village incorporated in all of Onondaga County</strong> back in 1813. For buyers, the distinction between the village of Manlius and the town of Manlius matters: the village has a dense, walkable historic core centered on Seneca Street and the beloved Swan Pond; the broader town encompasses a range of suburban neighborhoods at varying price points all sharing the same excellent school district.</p>
+      <p class="prose">What makes Manlius stand out is the combination of <strong>genuine historic character, top-rated schools, and a village-scale community identity</strong> that larger suburbs often lose. Seneca Street is a real village main street -- the Manlius Cinema with its distinctive gothic black brick exterior, local restaurants and shops, a library, and the Swan Pond park all within a few blocks of each other. In 2005, the town was ranked <strong>98th on CNN's list of Best Places to Live</strong>, and residents who have lived here for decades will tell you that reputation is earned.</p>
+      <p class="prose">For buyers with school-age children, Manlius has one specific advantage over neighboring Fayetteville: <strong>FM High School is located here</strong>. That means high school students in Manlius village walk or bike to school rather than driving to Manlius from Fayetteville. A small difference in daily logistics that families with teenagers tend to notice and appreciate.</p>
+
+      <div class="highlight-card">
+        <div class="hc-label">A Brief but Remarkable History</div>
+        <h3>The First Village in Onondaga County</h3>
+        <p>Before Syracuse was anything more than a salt swamp, Manlius was the commercial hub of Central New York. Located along the Seneca and Cherry Valley Turnpikes -- two of the most important overland trade routes in early 19th-century New York -- Manlius grew so rapidly that by 1801 it had thirty houses, and by 1813 it became the first incorporated village in Onondaga County. For twenty years it was the largest trade center in the county, a distinction only lost when the Erie Canal transformed nearby Syracuse from swamp to city.</p>
+        <p>That history is still visible in the Manlius Village Historic District -- three blocks along Seneca Street and Pleasant Street listed on the National Register of Historic Places since 1973, preserving one of the most intact collections of early 19th-century commercial and residential architecture in Central New York.</p>
+      </div>
+    </section>
+
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">V</div>
+        <h2>The <em>Vibe</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="two-col">
+        <div class="info-card">
+          <div class="card-eyebrow">Pace of Life</div>
+          <h3>Quiet, Established, Community-Rooted</h3>
+          <p>Manlius leans conservative and tends toward the settled and established -- multi-generational families, longtime residents who chose it for the schools and stayed, retirees who appreciate the walkability and community scale. The Summer Concert Series at Fire Auxiliary, the Pebble Hill Art Show, and the Swan Pond are community touchstones that reflect a place with a genuine identity rather than a generic suburb.</p>
+        </div>
+        <div class="info-card">
+          <div class="card-eyebrow">Village Core</div>
+          <h3>Seneca Street &amp; Swan Pond</h3>
+          <p>The village core along Seneca Street is genuine -- the Manlius Cinema, local restaurants, a library, and Mill Run Park and Swan Pond within walking distance. The Swan Pond fountain is a historic landmark that locals feel strongly about preserving. A small village center that punches above its size for character and livability.</p>
+        </div>
+        <div class="info-card">
+          <div class="card-eyebrow">Who Lives Here</div>
+          <h3>Families, Established Professionals &amp; Retirees</h3>
+          <p>The FM school district draws families, and the combination of village character, historic homes, and a quiet pace draws established professionals and retirees. The broader town of Manlius encompasses enough housing variety -- from village Victorians to suburban ranches to newer construction on larger lots -- to accommodate a wide range of buyers and budgets within the same excellent school district.</p>
+        </div>
+        <div class="info-card">
+          <div class="card-eyebrow">Commute</div>
+          <h3>20 Minutes to Downtown Syracuse</h3>
+          <p>Route 92 connects Manlius to Syracuse in about 20 minutes under normal conditions -- practical for commuters to the city, the university corridor, and the medical centers. The I-90 Thruway crosses the northern part of the town, providing easy access east toward Utica or west toward the city and beyond.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">K</div>
+        <h2>What It's <em>Known For</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="item-list">
+        <div class="item-row">
+          <div class="item-marker">01</div>
+          <div>
+            <h4>Swan Pond &amp; Mill Run Park</h4>
+            <p>The Swan Pond is the emotional center of Manlius village -- a small, scenic pond near the public library with swans, walking paths, and a historic fountain that residents have fought to preserve for generations. Locals feel strongly about it; there are "forces within the state who want to get rid of it," as one long-term resident put it, "but I really hope it stays." Mill Run Park is the largest park in the village, providing green space and recreational facilities for the community year-round.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-marker">02</div>
+          <div>
+            <h4>The Manlius Cinema</h4>
+            <p>A well-loved village gem on Seneca Street -- a historic single-screen theater with a distinctive gothic black brick exterior that stands out as one of the most characterful buildings on the main street. Showing new releases alongside classic and independent films, the Manlius Cinema is exactly the kind of neighborhood institution that defines a village's identity and gives residents something they can't get from a suburban multiplex.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-marker">03</div>
+          <div>
+            <h4>FM High School -- Right in the Village</h4>
+            <p>Fayetteville-Manlius High School is located in Manlius -- the district's flagship building and the destination for all FM students through grades 9-12. For families in the village of Manlius, the high school is within walking or biking distance, a quality-of-life advantage for teenagers and a logistical convenience for parents. The gym is close enough to walk to, as locals point out with pride.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-marker">04</div>
+          <div>
+            <h4>Manlius Village Historic District</h4>
+            <p>Listed on the National Register of Historic Places since 1973 -- three blocks along Seneca Street and Pleasant Street preserving some of the finest early 19th-century architecture in Onondaga County. Stick Victorians, Colonial Revivals, and Federal-style commercial buildings in a scale and setting that reflects the town's remarkable early importance as the commercial center of Central New York.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-marker">05</div>
+          <div>
+            <h4>Manlius Pebble Hill Art Show</h4>
+            <p>An annual art show that draws artists and enthusiasts from across the region -- one of the community events that gives Manlius a cultural identity beyond the schools and the historic district. A reflection of a community that values the arts alongside academics, consistent with the FM district's reputation for strong arts programming.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-marker">06</div>
+          <div>
+            <h4>Indian Hill Memorial Park</h4>
+            <p>Located on the site of a 17th-century Onondaga settlement -- French explorers visited this location around 1654 and described it as having earthworks and walls. The site was occupied through 1682 and is now preserved as a memorial park, connecting Manlius's deep history to its present-day community identity. A quietly significant piece of Central New York history located within the town.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-marker">07</div>
+          <div>
+            <h4>Green Lakes State Park -- 10 Minutes West</h4>
+            <p>Manlius residents share easy access to Green Lakes State Park with neighboring Fayetteville -- just 10 minutes by car. The two meromictic glacial lakes, hiking trails, beach, golf course, and year-round recreation make Green Lakes a genuine backyard amenity for the entire FM district community.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">R</div>
+        <h2>Restaurants &amp; <em>Dining</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <p class="prose">Manlius has a modest but genuine local dining scene centered on Seneca Street, supplemented by the broader Fayetteville corridor just minutes away. Always verify current hours before visiting.</p>
+      <div class="item-list">
+        <div class="item-row">
+          <div class="item-marker">--</div>
+          <div><h4>Diwan Restaurant</h4><p>Indian cuisine in Manlius -- a well-regarded local option that has built a following among village residents. A welcome addition to a dining landscape that can sometimes lean heavily toward national chains, offering authentic flavors and a neighborhood restaurant atmosphere.</p></div>
+        </div>
+        <div class="item-row">
+          <div class="item-marker">--</div>
+          <div><h4>SkyTop Coffee</h4><p>A local coffee destination in the Manlius area -- the kind of independent cafe that a small village needs and that residents rally around. A gathering spot for locals, remote workers, and anyone who prefers a neighborhood coffee shop to a national chain.</p></div>
+        </div>
+        <div class="item-row">
+          <div class="item-marker">--</div>
+          <div><h4>Fayetteville Corridor -- 5 Minutes West</h4><p>The full dining range of Fayetteville -- Avicolli's coal-fired pizza, Bull and Bear Roadhouse, Yards Grille at Green Lakes, Asian Cafe, and the Towne Center chains -- is just five minutes west on Route 92. Manlius and Fayetteville residents share a dining landscape, and the combined options make the FM community well-served for any occasion.</p></div>
+        </div>
+        <div class="item-row">
+          <div class="item-marker">--</div>
+          <div><h4>Pascale Wine Bar &amp; Restaurant -- Fayetteville</h4><p>Often cited as the most talked-about restaurant in the Manlius-Fayetteville area -- traditional American cuisine with a modern touch, a warm atmosphere, and a reputation for special-occasion dining. Located in Fayetteville but considered a community asset for the entire FM school district area.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">O</div>
+        <h2>Outdoor &amp; <em>Recreation</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="item-list">
+        <div class="item-row">
+          <div class="item-marker">--</div>
+          <div><h4>Green Lakes State Park -- 10 Minutes</h4><p>Shared with neighboring Fayetteville -- two meromictic glacial lakes, 15 miles of hiking and cross-country ski trails, an 18-hole golf course, disc golf, a swimming beach, and camping in nearly 2,000 acres of old-growth forest. The defining outdoor amenity for the entire FM school district community.</p></div>
+        </div>
+        <div class="item-row">
+          <div class="item-marker">--</div>
+          <div><h4>Swan Pond &amp; Mill Run Park</h4><p>Within the village -- Swan Pond for a peaceful walk and community gathering; Mill Run Park as the largest recreation space in the village with green space, playgrounds, and room for informal outdoor activity year-round.</p></div>
+        </div>
+        <div class="item-row">
+          <div class="item-marker">--</div>
+          <div><h4>Huntington Beard Memorial Park</h4><p>A town park with green grass, a playground, and picnicking spots -- a well-used community space for families and a reliable destination for a few minutes of leisure in a busy day, as locals describe it.</p></div>
+        </div>
+        <div class="item-row">
+          <div class="item-marker">--</div>
+          <div><h4>Old Erie Canal State Historic Park -- Nearby</h4><p>The 36-mile recreational trail along the original Erie Canal towpath is accessible from the greater Manlius area -- hiking, biking, and cross-country skiing through one of the most historically significant corridors in American history.</p></div>
+        </div>
+        <div class="item-row">
+          <div class="item-marker">--</div>
+          <div><h4>Manlius Recreation Department</h4><p>Year-round programming for all ages -- arts and crafts, swimming lessons, and miniature golf for youth; fitness programs for adults; and community events throughout the calendar year. A well-funded recreation department reflecting the community's investment in quality of life at every age.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">Ed</div>
+        <h2>Schools</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="school-card">
+        <div class="school-grade">A+</div>
+        <div class="school-info">
+          <h3>Fayetteville-Manlius Central School District</h3>
+          <p>The same A+ rated FM school district that draws buyers to Fayetteville serves all of Manlius village and most of the broader town -- with one important distinction: FM High School is located in Manlius village. For families in the village, that means high school students can walk or bike to school rather than making a daily drive. The district is consistently ranked among the best in New York State, with particular strength in arts alongside rigorous academics. Three elementary schools, two middle schools, and FM High School serve the district, with Manlius village students attending Eagle Hill Middle School and FM High School directly in the village.</p>
+          <div class="school-badges">
+            <span class="school-badge">A+ Rated</span>
+            <span class="school-badge">FM High School Here</span>
+            <span class="school-badge">Eagle Hill Middle School</span>
+            <span class="school-badge">Strong Arts Programs</span>
+            <span class="school-badge">Top 5% NY State</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">RE</div>
+        <h2>Real Estate <em>Overview</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <p class="prose">Manlius offers meaningful housing variety across its 50-square-mile town -- from historic village homes on Seneca Street and Pleasant Street to suburban ranches, split-levels, and newer colonial construction on larger lots throughout the broader town. All of it benefits from the FM school district, which commands a consistent premium throughout the market.</p>
+      <div class="two-col" style="margin-bottom:16px;">
+        <div class="info-card">
+          <div class="card-eyebrow">Village Homes</div>
+          <h3>Historic Character on Tree-Lined Streets</h3>
+          <p>Stick Victorians, Colonial Revivals, and Federal-style homes in the historic district, alongside well-maintained mid-century homes on quiet village streets. Walkable to Seneca Street, Swan Pond, the library, and FM High School. The village commands a premium for its walkability and character.</p>
+        </div>
+        <div class="info-card">
+          <div class="card-eyebrow">Broader Town</div>
+          <h3>Suburban Range at Every Price Point</h3>
+          <p>Ranch homes, split-levels, Craftsman bungalows, and newer townhomes and colonials from $200,000 to $650,000 throughout the town. Custom builds on larger lots can reach $1 million and above. All within the FM school district regardless of specific location.</p>
+        </div>
+      </div>
+      <div class="pricing-block">
+        <div class="pricing-label">Current Pricing -- Live Data</div>
+        <p class="pricing-note">Check these sources for the most current Manlius and Onondaga County market data:</p>
+        <div class="pricing-links">
+          <a href="https://www.redfin.com/city/11762/NY/Manlius/housing-market" target="_blank" rel="noopener" class="pricing-link">
+            <span class="pl-name">Redfin</span><span class="pl-desc">Median sale price, days on market, price per sq ft</span><span class="pl-arr">&rarr;</span>
+          </a>
+          <a href="https://www.zillow.com/manlius-ny/home-values/" target="_blank" rel="noopener" class="pricing-link">
+            <span class="pl-name">Zillow</span><span class="pl-desc">Home Value Index &amp; market trends</span><span class="pl-arr">&rarr;</span>
+          </a>
+          <a href="https://www.realtor.com/realestateandhomes-search/Manlius_NY/overview" target="_blank" rel="noopener" class="pricing-link">
+            <span class="pl-name">Realtor.com</span><span class="pl-desc">Listing prices, market hotness, inventory</span><span class="pl-arr">&rarr;</span>
+          </a>
+        </div>
+        <p class="pricing-disclaimer">Real estate data varies by source and changes over time. Always verify current pricing with a licensed local Realtor.</p>
+      </div>
+    </section>
+
+    <div class="realtor-section fade-in">
+      <span class="eyebrow">Realtor Spotlight</span>
+      <h2>Know Manlius?<br />Your Clients Are Looking.</h2>
+      <p>Buyers matched to Manlius are seeking FM school district access, historic village character, and a local expert who understands the difference between village and town -- and which neighborhoods put students walking distance from FM High School.</p>
+      <div class="placeholder-cards">
+        <div class="placeholder-card"><div class="placeholder-avatar">M</div><div class="ph-title">Open Spot</div><div class="ph-sub">Manlius specialist</div></div>
+        <div class="placeholder-card"><div class="placeholder-avatar">M</div><div class="ph-title">Open Spot</div><div class="ph-sub">Manlius specialist</div></div>
+        <div class="placeholder-card"><div class="placeholder-avatar">M</div><div class="ph-title">Open Spot</div><div class="ph-sub">Manlius specialist</div></div>
+      </div>
+      <div class="price-inline"><span class="amount">$19</span><span class="period">/month</span></div><br />
+      <a href="https://locatedlifestyle.com/join" class="btn-light">List Yourself as a Manlius Specialist</a>
+      <p class="founding-note">Founding Member rate -- grandfathered when prices increase to $29/month</p>
+    </div>
+
+    <div class="sources-section fade-in">
+      <h3>Sources</h3>
+      <div class="sources-list">
+        <a href="https://en.wikipedia.org/wiki/Manlius,_New_York" target="_blank" rel="noopener">Wikipedia -- Manlius, New York</a>
+        <a href="https://en.wikipedia.org/wiki/Manlius_(village),_New_York" target="_blank" rel="noopener">Wikipedia -- Village of Manlius, New York</a>
+        <a href="https://www.homes.com/local-guide/manlius-ny/manlius-neighborhood/" target="_blank" rel="noopener">Homes.com -- Manlius Neighborhood Guide</a>
+        <a href="https://www.niche.com/places-to-live/manlius-onondaga-ny/" target="_blank" rel="noopener">Niche -- Manlius, NY Reviews &amp; Rankings</a>
+        <a href="https://www.manliusvillageny.gov" target="_blank" rel="noopener">Village of Manlius -- Official Site</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="bottom-nav">
+    <p>Continue exploring Central New York</p>
+    <div class="bottom-nav-links">
+      <a href="/central-new-york/">&larr; Central New York</a>
+      <a href="fayetteville.html">&larr; Fayetteville</a>
+      <a href="liverpool.html">Liverpool &rarr;</a>
+      <a href="cazenovia.html">Cazenovia &rarr;</a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-brand">Located <span>Lifestyle</span></div>
+    <div class="footer-copy">&copy; 2026 Located Lifestyle &middot; communities.locatedlifestyle.com &middot; New York State Community Directory</div>
+  </footer>
+
+  <script>
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 75);
+      });
+    }, { threshold: 0.06, rootMargin: '0px 0px -30px 0px' });
+    document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>
