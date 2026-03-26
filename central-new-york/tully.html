@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tully, NY -- Central New York Community Guide | Located Lifestyle</title>
+  <meta name="description" content="Everything you need to know about living in Tully, NY -- Tully Lakes, Song Mountain skiing, Labrador Hollow, Tinker Falls, and one of Central New York's most authentic small-town communities." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream:      #f6f3ec;
+      --cream-dark: #ece4da;
+      --taupe:      #b9a590;
+      --taupe-dark: #9a8470;
+      --brown:      #574c3f;
+      --brown-dark: #36302a;
+      --text:       #36302a;
+      --text-mid:   #574c3f;
+      --text-muted: #9a8470;
+      --border:     rgba(87,76,63,0.12);
+      --border-med: rgba(87,76,63,0.2);
+      --card-bg:    #ffffff;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--text); overflow-x: hidden; }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 52px;
+      background: rgba(246,243,236,0.95); backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-brand { text-decoration: none; display: flex; flex-direction: column; gap: 1px; }
+    .nav-brand .sub { font-size: 9px; letter-spacing: 3.5px; text-transform: uppercase; color: var(--taupe); font-weight: 500; }
+    .nav-brand .name { font-family: 'Cormorant Garamond', serif; font-size: 20px; color: var(--brown-dark); font-weight: 600; }
+    .nav-right { display: flex; gap: 24px; align-items: center; }
+    .nav-back { font-size: 13px; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+    .nav-back:hover { color: var(--brown); }
+    .nav-cta { background: var(--brown-dark); color: var(--cream); font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; padding: 10px 22px; border-radius: 2px; text-decoration: none; transition: background 0.2s; }
+    .nav-cta:hover { background: var(--brown); }
+
+    /* HERO -- warm forest green, Central NY hills */
+    .hero {
+      min-height: 68vh; position: relative; overflow: hidden;
+      display: flex; flex-direction: column; align-items: center; justify-content: flex-end;
+      padding: 120px 24px 64px; text-align: center;
+      background: linear-gradient(180deg, #1c2418 0%, #263020 30%, #303c28 55%, #3a4830 100%);
+    }
+    .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 80% 55% at 50% 65%, rgba(80,120,70,0.2) 0%, transparent 65%); }
+    .hero-hills { position: absolute; bottom: 0; left: 0; right: 0; height: 40%; background: linear-gradient(180deg, transparent 0%, rgba(30,50,20,0.35) 50%, rgba(20,36,14,0.55) 100%); clip-path: polygon(0 50%, 12% 30%, 25% 42%, 38% 22%, 52% 38%, 65% 18%, 78% 32%, 90% 20%, 100% 28%, 100% 100%, 0 100%); }
+    .hero-content { position: relative; z-index: 2; max-width: 780px; }
+
+    .hero-breadcrumb { display: flex; align-items: center; gap: 8px; justify-content: center; margin-bottom: 20px; font-size: 11px; letter-spacing: 1px; color: rgba(246,243,236,0.5); }
+    .hero-breadcrumb a { color: rgba(246,243,236,0.5); text-decoration: none; transition: color 0.2s; }
+    .hero-breadcrumb a:hover { color: var(--cream); }
+    .hero-breadcrumb span { opacity: 0.35; }
+    .hero-eyebrow { font-size: 10px; letter-spacing: 3.5px; text-transform: uppercase; color: rgba(246,243,236,0.6); margin-bottom: 14px; display: block; }
+    .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(60px, 11vw, 118px); font-weight: 600; line-height: 0.95; color: var(--cream); margin-bottom: 12px; letter-spacing: -2px; }
+    .hero-tagline { font-family: 'Cormorant Garamond', serif; font-size: clamp(16px, 2.5vw, 22px); font-style: italic; color: rgba(246,243,236,0.72); margin-bottom: 28px; font-weight: 400; }
+    .hero-meta { display: flex; gap: 28px; justify-content: center; flex-wrap: wrap; margin-bottom: 32px; }
+    .meta-item { font-size: 12px; color: rgba(246,243,236,0.55); }
+    .meta-dot { display: inline-block; width: 3px; height: 3px; border-radius: 50%; background: rgba(246,243,236,0.35); margin: 0 4px; vertical-align: middle; }
+    .hero-badges { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+    .badge { padding: 5px 13px; border-radius: 100px; font-size: 10px; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; }
+    .badge-water { background: rgba(255,255,255,0.15); color: var(--cream); border: 1px solid rgba(255,255,255,0.28); backdrop-filter: blur(4px); }
+    .badge-warm { background: rgba(255,255,255,0.1); color: rgba(246,243,236,0.82); border: 1px solid rgba(255,255,255,0.18); }
+
+    .stats-bar { background: var(--brown-dark); }
+    .stats-bar-inner { max-width: 960px; margin: 0 auto; display: flex; justify-content: space-around; padding: 28px 24px; flex-wrap: wrap; gap: 20px; }
+    .stat-item { text-align: center; }
+    .stat-value { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 600; color: var(--taupe); display: block; line-height: 1.1; }
+    .stat-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: rgba(246,243,236,0.42); margin-top: 4px; }
+
+    .content-wrap { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+    .section { padding: 72px 0 0; }
+    .section-header { display: flex; align-items: center; gap: 20px; margin-bottom: 32px; }
+    .section-icon { width: 44px; height: 44px; border-radius: 2px; background: var(--cream-dark); border: 1px solid var(--border-med); display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; font-weight: 600; color: var(--brown); font-family: 'Cormorant Garamond', serif; }
+    .section-header h2 { font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 600; color: var(--brown-dark); letter-spacing: -0.3px; }
+    .section-header h2 em { font-style: italic; color: var(--taupe-dark); }
+    .section-line { flex: 1; height: 1px; background: var(--border); }
+
+    .prose { font-size: 15px; line-height: 1.85; color: var(--text-muted); font-weight: 300; margin-bottom: 22px; }
+    .prose strong { color: var(--brown); font-weight: 500; }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .three-col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .info-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 4px; padding: 22px; }
+    .info-card h3 { font-size: 14px; font-weight: 600; color: var(--brown-dark); margin-bottom: 8px; }
+    .info-card p { font-size: 13px; line-height: 1.7; color: var(--text-muted); font-weight: 300; }
+    .info-card .card-eyebrow { font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--taupe); margin-bottom: 7px; }
+    .pull-quote { border-left: 2px solid var(--taupe); padding: 18px 26px; margin: 32px 0; background: var(--cream-dark); border-radius: 0 4px 4px 0; }
+    .pull-quote p { font-family: 'Cormorant Garamond', serif; font-size: 19px; font-style: italic; color: var(--brown); line-height: 1.6; }
+    .pull-quote cite { font-size: 11px; color: var(--text-muted); display: block; margin-top: 10px; font-style: normal; letter-spacing: 0.5px; }
+    .item-list { display: flex; flex-direction: column; gap: 1px; }
+    .item-row { display: flex; align-items: flex-start; gap: 16px; padding: 20px 0; border-bottom: 1px solid var(--border); }
+    .item-row:first-child { border-top: 1px solid var(--border); }
+    .item-marker { font-size: 13px; font-weight: 600; color: var(--taupe); flex-shrink: 0; margin-top: 2px; width: 28px; font-family: 'Cormorant Garamond', serif; }
+    .item-row h4 { font-size: 14px; font-weight: 600; color: var(--brown-dark); margin-bottom: 5px; }
+    .item-row p { font-size: 13px; color: var(--text-muted); line-height: 1.65; font-weight: 300; }
+    .item-link { color: var(--brown-dark); border-bottom: 1px solid var(--border-med); text-decoration: none; transition: border-color 0.2s; }
+    .item-link:hover { border-color: var(--brown); }
+
+    .community-spotlight { background: var(--cream-dark); border: 1px solid var(--border-med); border-radius: 4px; padding: 28px; margin: 32px 0; }
+    .community-spotlight .spotlight-label { font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--taupe); margin-bottom: 12px; }
+    .community-spotlight h3 { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; color: var(--brown-dark); margin-bottom: 10px; }
+    .community-spotlight p { font-size: 13px; color: var(--text-muted); line-height: 1.7; font-weight: 300; }
+
+    .pricing-links-block { background: var(--card-bg); border: 1px solid var(--border-med); border-radius: 4px; padding: 28px; margin-bottom: 24px; }
+    .pricing-links-label { font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--taupe); margin-bottom: 8px; }
+    .pricing-links-note { font-size: 13px; color: var(--text-muted); margin-bottom: 20px; line-height: 1.6; font-weight: 300; }
+    .pricing-links { display: flex; flex-direction: column; gap: 1px; }
+    .pricing-link { display: flex; align-items: center; gap: 16px; padding: 14px 16px; border-radius: 3px; background: var(--cream); border: 1px solid var(--border); text-decoration: none; transition: all 0.2s; }
+    .pricing-link:hover { border-color: var(--brown); background: var(--cream-dark); }
+    .pricing-link-name { font-size: 14px; font-weight: 600; color: var(--brown-dark); min-width: 100px; }
+    .pricing-link-desc { font-size: 12px; color: var(--text-muted); flex: 1; font-weight: 300; }
+    .pricing-link-arrow { font-size: 14px; color: var(--taupe); }
+    .pricing-disclaimer { font-size: 11px; color: var(--text-muted); margin-top: 14px; opacity: 0.7; line-height: 1.5; font-style: italic; }
+
+    .school-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 4px; padding: 24px; display: flex; align-items: flex-start; gap: 20px; }
+    .school-grade { width: 52px; height: 52px; border-radius: 4px; background: var(--cream-dark); border: 1px solid var(--border-med); display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 700; color: var(--brown); flex-shrink: 0; }
+    .school-info h3 { font-size: 15px; font-weight: 600; color: var(--brown-dark); margin-bottom: 7px; }
+    .school-info p { font-size: 13px; color: var(--text-muted); line-height: 1.65; font-weight: 300; }
+    .school-badges { display: flex; gap: 7px; flex-wrap: wrap; margin-top: 12px; }
+    .school-badge { padding: 3px 10px; border-radius: 100px; font-size: 11px; background: var(--cream-dark); color: var(--brown); border: 1px solid var(--border-med); }
+
+    .realtor-section { margin-top: 72px; background: var(--brown-dark); border-radius: 4px; padding: 52px; text-align: center; }
+    .realtor-section .eyebrow { font-size: 10px; letter-spacing: 3.5px; text-transform: uppercase; color: var(--taupe); margin-bottom: 18px; display: block; }
+    .realtor-section h2 { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 600; color: var(--cream); line-height: 1.15; margin-bottom: 14px; }
+    .realtor-section p { font-size: 15px; color: rgba(246,243,236,0.55); line-height: 1.75; margin-bottom: 14px; font-weight: 300; max-width: 500px; margin-left: auto; margin-right: auto; }
+    .placeholder-cards { display: flex; gap: 16px; justify-content: center; margin: 32px 0; flex-wrap: wrap; }
+    .placeholder-card { width: 200px; border: 1px dashed rgba(185,165,144,0.3); border-radius: 4px; padding: 24px 16px; text-align: center; background: rgba(255,255,255,0.04); }
+    .placeholder-avatar { width: 52px; height: 52px; border-radius: 50%; background: rgba(185,165,144,0.12); border: 1px dashed rgba(185,165,144,0.3); margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-size: 22px; color: var(--taupe); }
+    .placeholder-card .ph-title { font-size: 13px; font-weight: 500; color: rgba(246,243,236,0.5); margin-bottom: 5px; }
+    .placeholder-card .ph-sub { font-size: 11px; color: rgba(246,243,236,0.3); line-height: 1.5; }
+    .price-inline { display: inline-flex; align-items: baseline; gap: 4px; margin: 18px 0 26px; }
+    .price-inline .amount { font-family: 'Cormorant Garamond', serif; font-size: 48px; font-weight: 600; color: var(--taupe); }
+    .price-inline .period { font-size: 16px; color: rgba(246,243,236,0.4); }
+    .btn-light { background: var(--cream); color: var(--brown-dark); padding: 14px 32px; border-radius: 2px; font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; transition: all 0.2s; display: inline-block; }
+    .btn-light:hover { background: var(--cream-dark); transform: translateY(-2px); }
+    .founding-note { font-size: 12px; color: var(--taupe); margin-top: 14px; opacity: 0.8; }
+
+    .sources-section { margin-top: 64px; padding: 32px 0 80px; border-top: 1px solid var(--border); }
+    .sources-section h3 { font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 14px; }
+    .sources-list { display: flex; flex-direction: column; gap: 7px; }
+    .sources-list a { font-size: 12px; color: var(--text-muted); text-decoration: none; opacity: 0.6; transition: opacity 0.2s; }
+    .sources-list a:hover { opacity: 1; color: var(--brown); }
+
+    .bottom-nav { border-top: 1px solid var(--border); padding: 48px 24px; text-align: center; background: var(--cream-dark); }
+    .bottom-nav p { font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 20px; }
+    .bottom-nav-links { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .bottom-nav-links a { padding: 10px 22px; border-radius: 2px; border: 1px solid var(--border-med); font-size: 13px; color: var(--text-muted); text-decoration: none; transition: all 0.2s; }
+    .bottom-nav-links a:hover { border-color: var(--brown); color: var(--brown); background: rgba(87,76,63,0.05); }
+
+    footer { border-top: 1px solid var(--border); padding: 36px 24px; text-align: center; background: var(--cream); }
+    .footer-brand { font-family: 'Cormorant Garamond', serif; font-size: 20px; color: var(--brown-dark); margin-bottom: 6px; font-weight: 600; }
+    .footer-brand span { color: var(--taupe-dark); font-style: italic; }
+    .footer-copy { font-size: 11px; color: var(--text-muted); opacity: 0.5; }
+
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 768px) {
+      nav { padding: 14px 20px; }
+      .two-col, .three-col { grid-template-columns: 1fr; }
+      .stats-bar-inner { gap: 20px; }
+      .placeholder-cards { flex-direction: column; align-items: center; }
+      .realtor-section { padding: 32px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/" class="nav-brand">
+      <span class="sub">communities</span>
+      <span class="name">Located Lifestyle</span>
+    </a>
+    <div class="nav-right">
+      <a href="/" class="nav-back">&larr; Explore New York</a>
+      <a href="https://locatedlifestyle.com/join" class="nav-cta">Join as a Realtor</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-hills"></div>
+    <div class="hero-content">
+      <div class="hero-breadcrumb">
+        <a href="/">Communities</a><span>/</span>
+        <a href="/">Central New York</a><span>/</span>
+        Tully
+      </div>
+      <span class="hero-eyebrow">Onondaga County &middot; Central New York</span>
+      <h1>Tully</h1>
+      <div class="hero-tagline">Farm community, wide open spaces, and four seasons done right.</div>
+      <div class="hero-meta">
+        <span class="meta-item">Village &amp; Town</span>
+        <span class="meta-dot"></span>
+        <span class="meta-item">Pop. ~2,600</span>
+        <span class="meta-dot"></span>
+        <span class="meta-item">Onondaga County</span>
+        <span class="meta-dot"></span>
+        <span class="meta-item">20 min south of Syracuse via I-81</span>
+      </div>
+      <div class="hero-badges">
+        <span class="badge badge-water">Tully Lakes</span>
+        <span class="badge badge-warm">Song Mountain Skiing</span>
+        <span class="badge badge-warm">Labrador Hollow</span>
+        <span class="badge badge-warm">Tinker Falls</span>
+        <span class="badge badge-warm">Heiberg Forest</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS BAR -->
+  <div class="stats-bar">
+    <div class="stats-bar-inner">
+      <div class="stat-item"><span class="stat-value">See Below</span><div class="stat-label">Current Pricing &darr;</div></div>
+      <div class="stat-item"><span class="stat-value">~2,600</span><div class="stat-label">Town Population</div></div>
+      <div class="stat-item"><span class="stat-value">20 min</span><div class="stat-label">To Syracuse via I-81</div></div>
+      <div class="stat-item"><span class="stat-value">3</span><div class="stat-label">Tully / Kettle Lakes</div></div>
+      <div class="stat-item"><span class="stat-value">20+</span><div class="stat-label">Song Mountain Ski Trails</div></div>
+    </div>
+  </div>
+
+  <div class="content-wrap">
+
+    <!-- OVERVIEW -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">T</div>
+        <h2>Overview &amp; <em>Character</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <p class="prose">Tully sits in the hills of Onondaga County, about 20 miles south of Syracuse via Interstate 81, in a landscape that feels distinctly <strong>Central New York</strong> rather than Finger Lakes -- rolling farmland, forested ridges, cornfields along winding roads, and a small village core that has held its character across generations. This is a town that knows exactly what it is: a <strong>genuine farm community</strong> with wide open spaces, good people, four seasons of outdoor recreation, and a quick shot up the highway when you need the city.</p>
+      <p class="prose">The village of Tully is compact and walkable -- a main street with locally-owned restaurants and shops, a very active library, a historical society, and the kind of everyday community life that is increasingly rare. The surrounding town opens up into farms, forests, and the <strong>Tully Lakes</strong> -- a cluster of glacially-formed kettle lakes that give the area a quiet recreational character distinct from the larger Finger Lakes to the west.</p>
+
+      <div class="pull-quote">
+        <p>"If you like a farm community and wide open spaces, Tully is a good fit."</p>
+        <cite>-- Sue Vaccaro, Town Clerk, Town of Tully</cite>
+      </div>
+
+      <p class="prose">For buyers, Tully offers a compelling combination: <strong>significantly lower prices than nearby Skaneateles</strong>, a genuine small-town community, I-81 access that puts Syracuse within 20 minutes, four-season outdoor recreation on the doorstep, and a community that runs on real relationships rather than transient tourism. It is one of the most authentically rooted communities in Onondaga County.</p>
+    </section>
+
+    <!-- VIBE -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">V</div>
+        <h2>The <em>Vibe</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="two-col">
+        <div class="info-card">
+          <div class="card-eyebrow">Pace of Life</div>
+          <h3>Unhurried, Agricultural &amp; Four-Season</h3>
+          <p>Tully lives by the rhythm of the farming calendar and the ski season. Summer means the lakes, the community garden, and outdoor dining. Fall brings foliage on the Labrador ridge and the apple orchards. Winter is Song Mountain and Heiberg Forest snowshoeing. Spring is mud season and the farmers market starting up again. Every season has a distinct local character.</p>
+        </div>
+        <div class="info-card">
+          <div class="card-eyebrow">Community Life</div>
+          <h3>Deep Roots, Active Civic Life</h3>
+          <p>Tully has the kind of civic engagement that larger communities try to manufacture -- a historical society that runs its own secondhand store, a library that anchors community programming, a community garden managed by a local who also runs the village grocery, and a school district where parents and teachers actually know each other by name.</p>
+        </div>
+        <div class="info-card">
+          <div class="card-eyebrow">Who Lives Here</div>
+          <h3>Longtime Locals, Commuters &amp; Nature Seekers</h3>
+          <p>Multi-generational Onondaga County families, Syracuse-area professionals who want more space and lower prices for their commute dollar, outdoor enthusiasts drawn by the skiing, hiking, and lakes, and people who simply discovered that Tully's quality of life is hard to match at this price point in Central New York.</p>
+        </div>
+        <div class="info-card">
+          <div class="card-eyebrow">Honest Note</div>
+          <h3>Rural, Small, and Intentionally So</h3>
+          <p>Tully is a rural community with rural-scale amenities. Daily shopping beyond the village grocery means a trip to Fairmount or Cortland. There is no large grocery store in the village. The school district's ratings are modest. But for buyers who are choosing Tully deliberately -- for the land, the lakes, the community, and the value -- these are trade-offs that come with the territory, not surprises.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- KNOWN FOR -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">K</div>
+        <h2>What It's <em>Known For</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="item-list">
+        <div class="item-row">
+          <div class="item-marker">01</div>
+          <div>
+            <h4>Tully Lakes -- The Kettle Lakes</h4>
+            <p>The Tully Lakes -- Tully Lake, Green Lake, and Tracy Lake -- are glacially-formed kettle lakes nestled in the hills south of the village. Green Lake Beach has a roped swimming area with lifeguards on duty in summer. Tully Lake is a prime fishing destination with shallow water that freezes early, making it ideal for ice fishing. Tracy Lake's nature preserve offers some of the most scenic trail walking in the area, particularly in fall when the treeline turns copper and bronze. These are quiet, local lakes -- pontoon boats and fishing rigs, not jet ski traffic.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-marker">02</div>
+          <div>
+            <h4>Labrador Hollow State Unique Area</h4>
+            <p><a href="https://www.dec.ny.gov/outdoor/23955.html" target="_blank" rel="noopener" class="item-link">Labrador Hollow</a> is one of the great natural features in Onondaga County -- a dramatic glacial valley with a kettle pond, forested ridgelines, and miles of trails for hiking, cross-country skiing, and snowshoeing. The hollow was carved by glacial meltwater and retains a cool, misty character even in summer. It is a defining piece of Tully's natural identity and one of the main reasons outdoor-oriented buyers are drawn here.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-marker">03</div>
+          <div>
+            <h4>Tinker Falls</h4>
+            <p>Tucked into the hills near Labrador Hollow, Tinker Falls is a beautiful curtain waterfall -- one of the more accessible and scenic short hikes in Central New York. The walk to the falls is short and rewarding, and the falls themselves drop over a curved rock shelf that creates a natural shelter behind the water. A beloved local destination year-round, and particularly dramatic in spring and after heavy rain.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-marker">04</div>
+          <div>
+            <h4>Song Mountain Resort</h4>
+            <p><a href="https://www.songmountain.com" target="_blank" rel="noopener" class="item-link">Song Mountain</a> is a fully operating ski and snowboard resort just south of Tully -- over 20 downhill trails on the slopes of Song Mountain, plus Heuga's Alpine bar and restaurant at the base. A genuine local ski mountain that draws Central New York families for winter recreation without the drive to the Adirondacks. For Tully residents, it is essentially a backyard ski area.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-marker">05</div>
+          <div>
+            <h4>Svend O. Heiberg Memorial Forest</h4>
+            <p>The Heiberg Memorial Forest -- a research forest managed by SUNY College of Environmental Science and Forestry (ESF) -- offers miles of dog-friendly hiking trails that transform into snowshoeing and snowmobiling terrain in winter. The forest draws researchers and students from ESF's Syracuse campus, giving Tully a quiet but genuine connection to one of the country's leading environmental science institutions.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-marker">06</div>
+          <div>
+            <h4>Tully Historical Society</h4>
+            <p>An active local historical society that preserves and shares the town's history -- and operates its own secondhand store right next door, a beloved community institution for browsing local treasures at accessible prices. The kind of civic organization that tells you everything you need to know about a town's character.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMMUNITY SPOTLIGHT -->
+    <section class="section fade-in">
+      <div class="community-spotlight">
+        <div class="spotlight-label">Community Spotlight</div>
+        <h3>Tully Market &amp; the Village Community Garden</h3>
+        <p>Tully Market is the village's locally-owned grocery store -- stocking a curated selection of groceries, fresh herbs grown right out front, and the kind of provisions that make everyday village life work. It is run by <strong>Kathy Vernay</strong>, who also manages and runs the Tully Community Garden adjacent to St. Leo's Church -- a volunteer-tended garden that reflects the town's deep investment in community life, local food, and neighborly connection. This is exactly the kind of detail that does not show up in any real estate listing but matters enormously to anyone who wants to understand what kind of place Tully actually is.</p>
+      </div>
+    </section>
+
+    <!-- RESTAURANTS -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">R</div>
+        <h2>Restaurants &amp; <em>Dining</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <p class="prose">Tully has a genuinely good dining scene for its size -- a mix of beloved village spots and destination restaurants just outside the village that draw diners from across Central New York. Always check hours seasonally.</p>
+      <div class="item-list">
+        <div class="item-row">
+          <div class="item-marker">--</div>
+          <div>
+            <h4>Sweet Basil Restaurant &amp; Pizzeria</h4>
+            <p>A village staple with an extensive menu featuring chicken riggies -- the beloved Central New York pasta dish of rigatoni with peppers and a creamy tomato sauce -- alongside pizza, pasta, and classic American fare. A local gathering place and one of the most popular everyday dining spots in the village.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-marker">--</div>
+          <div>
+            <h4>Flourish Farm Cafe</h4>
+            <p>One of Tully's most appealing breakfast spots -- farm-inspired cooking in a welcoming setting that reflects the town's agricultural roots. A morning destination that makes weekends in Tully feel genuinely good.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-marker">--</div>
+          <div>
+            <h4>Bloomin' Cup Coffee House</h4>
+            <p>The village's local coffee shop, known for its breakfast sandwiches and the kind of neighborhood morning atmosphere that becomes part of a community's daily rhythm. The kind of place where regulars have their order memorized.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-marker">--</div>
+          <div>
+            <h4>K Kurdish Mediterranean Restaurant</h4>
+            <p>A genuinely distinctive addition to the Tully dining scene -- Kurdish and Mediterranean cuisine in the village's small shopping center. The kind of unexpected culinary find that reminds you that even a small Central New York town can offer something genuinely surprising and delicious.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-marker">--</div>
+          <div>
+            <h4>Heuga's Alpine -- Song Mountain</h4>
+            <p>The bar and restaurant at the base of Song Mountain -- a ski lodge atmosphere with Central New York food and drinks, best enjoyed after a day on the slopes. A seasonal destination that is integral to the Tully winter experience.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-marker">--</div>
+          <div>
+            <h4>The Loft at Vesper Hills</h4>
+            <p>A destination restaurant overlooking Otisco Lake and the Vesper Hills Golf Club -- fine dining in a relaxed, rustic atmosphere with a creative menu. Most notably, the kitchen serves yak meat raised right on the owners' farm in Tully. A truly unique dining experience and one of the most talked-about restaurants in the area.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-marker">--</div>
+          <div>
+            <h4>The View at Tully</h4>
+            <p>A golf course restaurant offering scenic views of the Tully hills -- another local dining destination outside the village that reflects the area's active outdoor culture and the Central New York tradition of good food paired with good scenery.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SHOPS -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">S</div>
+        <h2>Shops &amp; Local <em>Businesses</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <p class="prose">The village of Tully has a compact but characterful set of local businesses -- the kind of Main Street mix that reflects a genuine working community rather than a tourist corridor.</p>
+      <div class="three-col">
+        <div class="info-card">
+          <div class="card-eyebrow">Grocery</div>
+          <h3>Tully Market</h3>
+          <p>The village's locally-owned grocery store run by Kathy Vernay -- fresh herbs grown out front, local provisions, and the heart of everyday village commerce. For bigger grocery runs, Fairmount (Wegmans, Aldi, Target) is about 15 miles north.</p>
+        </div>
+        <div class="info-card">
+          <div class="card-eyebrow">History &amp; Secondhand</div>
+          <h3>Tully Historical Society &amp; Thrift Store</h3>
+          <p>The Historical Society preserves Tully's local history and operates a secondhand store right next door -- a beloved community resource for affordable finds and a genuine expression of the town's civic character.</p>
+        </div>
+        <div class="info-card">
+          <div class="card-eyebrow">Hardware</div>
+          <h3>Nightingale's Tully Lakes Hardware</h3>
+          <p>A local hardware store tucked into the village shopping center alongside other small businesses -- the kind of independent hardware store that a rural community depends on and that chain retail cannot replicate.</p>
+        </div>
+        <div class="info-card">
+          <div class="card-eyebrow">Library</div>
+          <h3>Tully Free Library</h3>
+          <p>A very active community library that anchors civic life in the village -- programming, community events, and the kind of neighborhood institution that punches well above its square footage in terms of community impact.</p>
+        </div>
+        <div class="info-card">
+          <div class="card-eyebrow">Community Garden</div>
+          <h3>Tully Community Garden</h3>
+          <p>Adjacent to St. Leo's Church and managed by Kathy Vernay -- a volunteer-tended community garden that grows food and community in equal measure. One of the most tangible expressions of what makes Tully a genuine small town.</p>
+        </div>
+        <div class="info-card">
+          <div class="card-eyebrow">Skiing</div>
+          <h3>Song Mountain Resort</h3>
+          <p>Full ski resort just outside the village -- season passes, rentals, lessons, and 20+ trails. The area's primary winter recreation anchor and a key reason outdoor-oriented families choose Tully over comparable Central New York communities.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- OUTDOOR -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">O</div>
+        <h2>Outdoor &amp; <em>Recreation</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="item-list">
+        <div class="item-row">
+          <div class="item-marker">--</div>
+          <div>
+            <h4>Labrador Hollow State Unique Area</h4>
+            <p>A dramatic glacial valley with a kettle pond, forested ridgelines, and miles of multi-use trails. Hiking and mountain biking in summer and fall; cross-country skiing and snowshoeing in winter. One of the most spectacular natural features in Onondaga County and a defining piece of Tully's outdoor identity.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-marker">--</div>
+          <div>
+            <h4>Tinker Falls</h4>
+            <p>A beautiful curtain waterfall accessible via a short, rewarding hike in the hills near Labrador Hollow. The falls drop over a curved rock shelf that creates a natural shelter -- walk behind the water in late spring for an experience unlike anything else in Central New York. Spectacular in any season.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-marker">--</div>
+          <div>
+            <h4>Song Mountain Resort -- Skiing &amp; Snowboarding</h4>
+            <p>Over 20 downhill trails fully operating for the 2025-2026 season -- from gentle beginner runs to genuinely challenging terrain for intermediate and advanced skiers. Night skiing available. For Tully residents, this is the definition of a backyard ski mountain.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-marker">--</div>
+          <div>
+            <h4>Tully Lakes -- Swimming, Fishing &amp; Ice Fishing</h4>
+            <p>Green Lake Beach offers supervised swimming in summer. Tully Lake is a prime fishing destination -- perch, bass, and pickerel -- with shallow water that freezes reliably early each winter, making it one of the best ice fishing spots in Onondaga County. Tracy Lake's nature preserve trails are especially beautiful in fall.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-marker">--</div>
+          <div>
+            <h4>Svend O. Heiberg Memorial Forest</h4>
+            <p>Miles of dog-friendly hiking trails managed by SUNY ESF -- transforming into snowshoeing and snowmobiling terrain in winter. Research plots and forest management areas add an educational dimension to what is already a beautiful natural space. Free to access year-round.</p>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-marker">--</div>
+          <div>
+            <h4>Golf -- Vesper Hills &amp; The View</h4>
+            <p>Two local golf courses give Tully a four-season outdoor recreation profile that extends well beyond skiing and hiking. Vesper Hills overlooks the hills toward Otisco Lake; The View offers scenic hill country golf with dining on site. Both are community anchors for the warmer months.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEARBY -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">N</div>
+        <h2>What's <em>Nearby</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="three-col">
+        <div class="info-card">
+          <div class="card-eyebrow">20 minutes north via I-81</div>
+          <h3>Syracuse</h3>
+          <p>Central New York's largest city -- Upstate University Hospital, Hancock International Airport, Destiny USA, SU sports, and the full urban amenity set. The primary hub for Tully residents' daily and major needs.</p>
+        </div>
+        <div class="info-card">
+          <div class="card-eyebrow">15 minutes north</div>
+          <h3>Fairmount</h3>
+          <p>The nearest major retail corridor -- Wegmans, Aldi, Target, and a full range of shopping options along Route 173 and the Fairmount area. The practical answer to Tully's limited in-village retail.</p>
+        </div>
+        <div class="info-card">
+          <div class="card-eyebrow">20 minutes south</div>
+          <h3>Cortland</h3>
+          <p>A small city with SUNY Cortland, additional retail and medical options, and access to the southern Finger Lakes and Binghamton corridor via I-81.</p>
+        </div>
+        <div class="info-card">
+          <div class="card-eyebrow">20 minutes west</div>
+          <h3>Skaneateles</h3>
+          <p>The eastern Finger Lakes' most celebrated village -- Skaneateles Lake, the Sherwood Inn, and Finger Lakes wine country. A popular day trip destination for Tully residents and a useful comparator for buyers weighing Tully's value proposition.</p>
+        </div>
+        <div class="info-card">
+          <div class="card-eyebrow">30 minutes east</div>
+          <h3>Cazenovia</h3>
+          <p>A beautifully preserved Federal-era village with a top-rated school district, Cazenovia Lake, and a strong arts and dining scene -- a comparable community for buyers exploring Central New York options.</p>
+        </div>
+        <div class="info-card">
+          <div class="card-eyebrow">30 minutes north</div>
+          <h3>Beak &amp; Skiff / Lafayette</h3>
+          <p>The famous apple orchards, cider house, and 1911 Spirits Distillery at Beak &amp; Skiff in Lafayette -- one of the most beloved fall destinations in Central New York, just a short drive north from Tully.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCHOOLS -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">Ed</div>
+        <h2>Schools</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="school-card">
+        <div class="school-grade">B-</div>
+        <div class="school-info">
+          <h3>Tully Central School District</h3>
+          <p>A small rural district serving the Tully community -- Tully Elementary School (PreK-6, B- rated) and Tully Junior/Senior High School (7-12, C+ rated). Class sizes are small and the school community is close-knit -- students can begin participating in clubs including art, drama, and computer science as early as fifth grade. The district publishes the Knight Insight newsletter to keep families connected to school activities. Academic rankings are modest compared to neighboring Cazenovia or Marcellus, but the school's small scale and genuine community character are meaningful assets for families who value personal relationships over rankings. SUNY College of Environmental Science and Forestry (ESF) maintains a research station in Tully, giving high schoolers an unusual connection to collegiate environmental science.</p>
+          <div class="school-badges">
+            <span class="school-badge">Small Class Sizes</span>
+            <span class="school-badge">Close-Knit Community</span>
+            <span class="school-badge">SUNY ESF Research Nearby</span>
+            <span class="school-badge">20 min to Syracuse</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REAL ESTATE -->
+    <section class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">RE</div>
+        <h2>Real Estate <em>Overview</em></h2>
+        <div class="section-line"></div>
+      </div>
+      <p class="prose">Tully offers <strong>exceptional value by Onondaga County standards</strong> -- average home values around $375,000, more than $250,000 below nearby Skaneateles, with properties typically selling within 29 days. Village homes dating to the 1800s sit on small lots with mature trees; the surrounding town opens up into newer construction on larger parcels, some with hilltop views or access to the Tully Lakes. Lakefront properties and working farms with sizable acreage represent the top of the market. For buyers who want a meaningful outdoor life, a genuine community, and I-81 access to Syracuse -- all at a price point that feels increasingly rare in Central New York -- Tully makes a compelling case.</p>
+
+      <div class="pricing-links-block">
+        <div class="pricing-links-label">Current Pricing -- Live Data</div>
+        <p class="pricing-links-note">Check these sources for the most current Tully and Onondaga County market data:</p>
+        <div class="pricing-links">
+          <a href="https://www.redfin.com/city/19007/NY/Tully/housing-market" target="_blank" rel="noopener" class="pricing-link">
+            <span class="pricing-link-name">Redfin</span>
+            <span class="pricing-link-desc">Median sale price, days on market, price per sq ft</span>
+            <span class="pricing-link-arrow">&rarr;</span>
+          </a>
+          <a href="https://www.zillow.com/tully-ny/home-values/" target="_blank" rel="noopener" class="pricing-link">
+            <span class="pricing-link-name">Zillow</span>
+            <span class="pricing-link-desc">Zillow Home Value Index &amp; market trends</span>
+            <span class="pricing-link-arrow">&rarr;</span>
+          </a>
+          <a href="https://www.realtor.com/realestateandhomes-search/Tully_NY/overview" target="_blank" rel="noopener" class="pricing-link">
+            <span class="pricing-link-name">Realtor.com</span>
+            <span class="pricing-link-desc">Listing prices, market hotness, inventory</span>
+            <span class="pricing-link-arrow">&rarr;</span>
+          </a>
+        </div>
+        <p class="pricing-disclaimer">Real estate data varies by source and changes over time. Always verify current pricing with a licensed local Realtor.</p>
+      </div>
+
+      <div class="two-col">
+        <div class="info-card">
+          <div class="card-eyebrow">Village &amp; Town Homes</div>
+          <h3>Strong Value vs. Nearby Communities</h3>
+          <p>National and Colonial Revival homes in the village from $125,000 to $450,000 depending on condition and location -- well-maintained properties typically $250,000 to $450,000. A meaningful discount versus Skaneateles and Cazenovia for comparable square footage and lot size.</p>
+        </div>
+        <div class="info-card">
+          <div class="card-eyebrow">Lakefront &amp; Farm Properties</div>
+          <h3>Premium for Water Access &amp; Acreage</h3>
+          <p>Lakefront properties on the Tully Lakes and farms with sizable acreage in the $520,000 to $735,000 range. Still significantly more accessible than lakefront on Skaneateles -- a key value proposition for buyers prioritizing water access in Central New York.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- REALTOR SPOTLIGHT -->
+    <div class="realtor-section fade-in">
+      <span class="eyebrow">Realtor Spotlight</span>
+      <h2>Know Tully?<br />Your Clients Are Looking.</h2>
+      <p>Buyers matched to Tully on Located Lifestyle are seeking a local expert who understands the Tully Lakes market, the value proposition versus Skaneateles and Cazenovia, and what makes this genuine Central New York community so compelling for the right buyer.</p>
+      <div class="placeholder-cards">
+        <div class="placeholder-card">
+          <div class="placeholder-avatar">T</div>
+          <div class="ph-title">Open Spot</div>
+          <div class="ph-sub">Tully community specialist</div>
+        </div>
+        <div class="placeholder-card">
+          <div class="placeholder-avatar">T</div>
+          <div class="ph-title">Open Spot</div>
+          <div class="ph-sub">Tully community specialist</div>
+        </div>
+        <div class="placeholder-card">
+          <div class="placeholder-avatar">T</div>
+          <div class="ph-title">Open Spot</div>
+          <div class="ph-sub">Tully community specialist</div>
+        </div>
+      </div>
+      <div class="price-inline"><span class="amount">$19</span><span class="period">/month</span></div><br />
+      <a href="https://locatedlifestyle.com/join" class="btn-light">List Yourself as a Tully Specialist</a>
+      <p class="founding-note">Founding Member rate -- grandfathered when prices increase to $29/month</p>
+    </div>
+
+    <!-- SOURCES -->
+    <div class="sources-section fade-in">
+      <h3>Sources</h3>
+      <div class="sources-list">
+        <a href="https://townoftully.us" target="_blank" rel="noopener">Town of Tully -- Official Website</a>
+        <a href="https://www.homes.com/local-guide/tully-ny/" target="_blank" rel="noopener">Homes.com -- Tully City Guide</a>
+        <a href="https://adventuresny.com/on-the-water/otisco-lake-the-ultimate-guide/" target="_blank" rel="noopener">Adventures in New York -- Otisco Lake &amp; Tully Area Guide</a>
+        <a href="https://www.dec.ny.gov/outdoor/23955.html" target="_blank" rel="noopener">NYS DEC -- Labrador Hollow State Unique Area</a>
+        <a href="https://www.songmountain.com" target="_blank" rel="noopener">Song Mountain Resort -- Official Site</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="bottom-nav">
+    <p>Continue exploring</p>
+    <div class="bottom-nav-links">
+      <a href="/">&larr; Back to All Communities</a>
+      <a href="cazenovia.html">&larr; Cazenovia</a>
+      <a href="skaneateles.html">&larr; Skaneateles</a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-brand">Located <span>Lifestyle</span></div>
+    <div class="footer-copy">&copy; 2026 Located Lifestyle &middot; communities.locatedlifestyle.com &middot; New York State Community Directory</div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 75);
+      });
+    }, { threshold: 0.06, rootMargin: '0px 0px -30px 0px' });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
